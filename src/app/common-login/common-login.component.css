@@ -1,0 +1,77 @@
+/* styles.css */
+
+/* Estilos generales */
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Contenedor principal */
+  .login-container {
+
+    display: flex;
+    height: 500px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    color: #000000;
+  }
+  
+  /* Logo en el lado derecho */
+  .logo {
+    flex: 1;
+    text-align: right;
+    
+  }
+  .logo img{
+    width: 700px;
+    height: auto;
+  }
+  
+  /* Formulario en el lado izquierdo */
+  .login-form {
+    flex: 1;
+    padding-right: 20px;
+  }
+  
+  /* Separador */
+  .separator {
+    border: 2px solid #fff;
+    margin: 20px 0;
+  }
+  
+  /* Campos de entrada */
+  .input-field {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .form-group label {
+    display: block; /* Para que las etiquetas estén debajo de los inputs */
+    margin-bottom: 5px;
+  }
+  /* Botón de inicio de sesión */
+  .login-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    margin:10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Botones de inicio de sesión social */
+  .social-buttons button {
+    margin: 10px 0 10px 10px;
+    background-color: #ccc;
+    color: #000;
+    
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
