@@ -10,14 +10,19 @@
 .button-login {
   width: 20rem;
   color: white;
-  background: #2232c5;
+  background: #425CFF;
   border-radius: 30px;
   border: 0;
+  padding: 5px;
 }
 .img {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  display: flex;
+  align-items: center;
+  background: rgb(0,234,194);
+  background: linear-gradient(160deg, rgba(0,234,194,1) 0%, rgba(98,0,248,1) 100%); 
 }
 #imgPost{
   width: 420px;
