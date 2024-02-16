@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AutenticacionModule } from './clientes/autenticacion/autenticacion.module';
-import { RegistroModule } from './clientes/registro/registro.module';
+import { AutenticacionModule } from './pages/perfil/autenticacion/autenticacion.module';
+import { RegistroModule } from './pages/perfil/registro/registro.module';
 
 
 
