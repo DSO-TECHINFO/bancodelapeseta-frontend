@@ -1,30 +1,44 @@
-<!-- app.component.html -->
-
-<div class="login-container">
-    <div class="logo">
-      <!-- Logo grande -->
-      <img src="../../assets/logo.png" alt="Logo de la empresa">
-    </div>
-    <hr class="separator">
-    <div class="login-form">
-      <!-- Formulario de inicio de sesión -->
-      <form>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" class="input-field" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Contraseña:</label>
-          <input type="password" id="password" name="password" class="input-field" required>
-        </div>
-        <button type="submit" class="login-button">Iniciar sesión</button>
-      </form>
-      <!-- Botones de inicio de sesión social -->
-      <div class="social-buttons">
-        <button class="social-button google-button">Google</button>
-        <button class="social-button facebook-button">Facebook</button>
-        <button class="social-button apple-button">Apple</button>
+<div class="row">
+  
+  <div class="display-form d-flex align-content-center justify-content-center flex-column col-6 order-md-2 ">
+    <div class="login d-flex align-items-center flex-column m-auto" style="height: auto">
+        <img ngSrc="../../assets/logo1.png" class="mb-4" alt="Pesetalogo" width="255" height="67" />
+        <h2 style="color: #2240c5; font-weight: 700">¡BIENVENIDO!</h2>
+        <p class="mb-4">---</p>
+        <form>
+          <div>
+            <p>Usuario</p>
+            <div class="">
+              <input class="form-control p-2 mt-1" placeholder="Ingresa usuario" matInput formControlName="email" />
+            </div>
+          </div>
+          <div class="mt-2">
+            <p>Contraseña</p>
+            <div class="size-inputs-form">
+              <div class="d-flex justify-content-end input-with-icon ">
+                <input id="pass" (keydown)="onKeyPress($event)" class=" form-control p-2 mt-1" placeholder="Ingresa contraseña" matInput [type]="hide ? 'text' : 'password'" formControlName="password" />
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide" type="button" style="position: relative;" class="position-absolute d-flex align-content-end">
+                  <!-- <mat-icon style="color: #22c55e">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class=" d-flex justify-content-end mb-3">
+            <a href="#" class="text-muted small" style="text-decoration: none">¿Olvidaste contraseña?</a>
+          </div>
+          <!-- <mat-button-toggle class="button-login p-0" (click)="onSubmitLogin()">Iniciar Sesión</mat-button-toggle> -->
+          <button class="button-login p-0">Acceder</button>
+        </form>
+      <p
+        style="position: absolute; bottom: 20px ">
+        © All rights reserved BANCO DE LA PESETA 2024
+      </p>
       </div>
-    </div>
   </div>
   
+  <div class="img col-6" style="background-image: url(./assets/logo.png)">
+    <div class="col text-white d-none d-md-block " style="position: absolute; top: 5px; right: 5px; padding: 10px; ">
+  </div>
+
+  </div>
