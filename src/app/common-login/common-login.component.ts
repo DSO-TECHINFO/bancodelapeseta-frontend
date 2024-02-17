@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-common-login',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './common-login.component.html',
   styleUrl: './common-login.component.css'
 })

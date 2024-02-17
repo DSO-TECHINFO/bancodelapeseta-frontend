@@ -3,3 +3,8 @@
   background: linear-gradient(160deg, rgba(0,234,194,1) 0%, rgba(98,0,248,1) 100%); 
   color: white;
 }
+.button-login{
+  color: white;
+  background: #425CFF;
+  border-radius: 30px;
+}
