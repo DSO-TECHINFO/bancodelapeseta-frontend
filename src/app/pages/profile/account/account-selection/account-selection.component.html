@@ -1,0 +1,23 @@
+<div class="row d-flex align-content-center justify-content-center gap-3 text-center">
+    <div>
+        <img src="{{ imgBancoP }}" width="100px" alt="" class="mt-2">
+    </div>
+    <h3>Crea tu Cuenta</h3>
+    <div routerLink="/register-company" class="card enterprise col-6 border-0"
+        style="width: 18rem; border-radius: 20px; cursor: pointer;">
+        <div class="card-body">
+            <span>Crear cuenta de empresa</span>
+        </div>
+    </div>
+    <div routerLink="/register-individual" class="card person col-6 border-0"
+        style="width: 18rem; border-radius: 20px; cursor: pointer;">
+        <div class="card-body">
+            <span>Crear cuenta personal</span>
+        </div>
+    </div>
+    <div class="d-flex flex-column align-items-center gap-2">
+        <span class="text-secondary">¿Ya eres cliente?</span>
+        <button routerLink="/account-login" class="button-login p-0 btn px-3">Iniciar Sesión</button>
+
+    </div>
+</div>
