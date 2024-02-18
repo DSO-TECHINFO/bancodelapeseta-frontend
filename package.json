@@ -1,5 +1,5 @@
 {
-  "name": "bancodelapeseta-frontend",
+  "name": "bancodelapeseta",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,14 +7,14 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:bancodelapeseta-frontend": "node dist/bancodelapeseta-frontend/server/server.mjs"
+    "serve:ssr:bancodelapeseta": "node dist/bancodelapeseta/server/server.mjs"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.1.0",
     "@angular/common": "^17.1.0",
     "@angular/compiler": "^17.1.0",
-    "@angular/core": "^17.2.1",
+    "@angular/core": "^17.1.0",
     "@angular/forms": "^17.1.0",
     "@angular/platform-browser": "^17.1.0",
     "@angular/platform-browser-dynamic": "^17.1.0",
