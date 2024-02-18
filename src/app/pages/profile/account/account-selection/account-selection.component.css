@@ -9,3 +9,7 @@
     background: #425CFF;
     border-radius: 30px;
 }
+
+.imgCount {
+    filter: invert(1);
+}

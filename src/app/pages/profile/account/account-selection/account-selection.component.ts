@@ -11,6 +11,8 @@ import { Router, RouterLink } from '@angular/router';
 export class AccountSelectionComponent {
 
   imgBancoP = "assets/icon/bancoP.png";
+  imgEnterprise = "assets/icon/enterprise.png";
+  imgPerson = "assets/icon/person.png";
 
   constructor(private router: Router) { }
 }
