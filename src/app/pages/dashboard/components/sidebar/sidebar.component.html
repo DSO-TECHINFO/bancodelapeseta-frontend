@@ -1,0 +1,54 @@
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+        <img src="./assets/bancoP.png" alt="logo" class="img-fluid logo-pequeno">
+
+    </a>
+
+    <hr class="sidebar-divider my-0">
+
+    @for (item of itemsNav; track $index) {
+        <li class="nav-item active">
+            <a class="nav-link" href="/dashboard">
+                <i class="{{item.icon}}"></i>
+                <span>{{item.name}}</span></a>
+        </li>
+    }
+
+
+    <hr class="sidebar-divider">
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-file-alt text-white"></i>
+            <span>Cuenta</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Pages:</h6>
+                <a class="collapse-item" href="/dashboard">Dashboard</a>
+                <a class="collapse-item" href="/dashboard">Dashboard</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-file-alt text-white"></i>
+            <span>Ejemplo</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Ejemplos:</h6>
+                <a class="collapse-item" href="utilities-color.html">Ejemplos</a>
+                <a class="collapse-item" href="utilities-border.html">Ejemplos</a>
+                <a class="collapse-item" href="utilities-animation.html">Ejemplos</a>
+                <a class="collapse-item" href="utilities-other.html">Ejemplos</a>
+            </div>
+        </div>
+    </li>
+
+</ul>
