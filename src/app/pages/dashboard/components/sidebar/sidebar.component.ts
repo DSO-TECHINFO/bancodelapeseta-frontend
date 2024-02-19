@@ -13,7 +13,12 @@ export interface NavItem {
   templateUrl: './sidebar.component.html',
   styles: `
     .logo-pequeno {
-      width: 60px;
+      width: 90px;
+    }
+
+    .gradiente {
+      background: rgb(0,234,194);
+      background: linear-gradient(160deg, rgba(0,234,194,1) 0%, rgba(98,0,248,1) 100%); 
     }
   `
 })
