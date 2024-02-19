@@ -1,21 +1,79 @@
 .loader {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    right: 100px;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
-  .loader img {
-    width: 250px;
-    animation: spin 2s linear infinite;
+  .logo-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
   }
   
-  @keyframes spin {
+  .logo-container .BancoP {
+    width: 80px; /* Ajustar el tamaño de las imágenes */
+    height: auto;
+  }
+  .logo-container .Logo{
+    width: 550px;
+  }
+  .logo-container:nth-child(2) {
+    animation: slide-in-from-bottom 2s ease-out forwards;
+    left: -90px; 
+    bottom: 50px;
+  }
+  
+  .logo-container:nth-child(1) {
+    animation: slide-in-from-top 2s ease-out forwards;
+    left: 100px;
+  }
+  
+  @keyframes slide-in-from-bottom {
     from {
-      transform: rotate(0deg);
+      transform: translateY(-100vh);
     }
     to {
-      transform: rotate(360deg);
+      transform: translateY(0);
     }
   }
   
+  @keyframes slide-in-from-top {
+    from {
+      transform: translateY(100vh);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  .logo-container:nth-child(1) img {
+    animation-delay: 1s; /* Retrasar la animación de BancoP */
+    z-index: 1; /* Poner BancoP encima de Logo */
+  }
+
+  @media screen and (max-width: 600px) {
+    .logo-container .BancoP {
+      width: 60px; /* Reducir el tamaño de BancoP para dispositivos móviles */
+    }
+    
+    .logo-container .Logo {
+      width: 400px; /* Reducir el tamaño de Logo para dispositivos móviles */
+    }
+    .logo-container:nth-child(2) {
+        animation: slide-in-from-bottom 2s ease-out forwards;
+        left: -60px; 
+        bottom: 45px;
+      }
+      
+      .logo-container:nth-child(1) {
+        animation: slide-in-from-top 2s ease-out forwards;
+        left: 80px;
+      }
+  }

@@ -14,7 +14,7 @@ export class LoadingComponent implements OnInit {
     setTimeout(() => {
       // Redirige al usuario al componente de inicio de sesión 
       this.router.navigateByUrl('/login');
-    }, 2000);
+    }, 3500);
   }
 
 }
