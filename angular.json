@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "BancodelapesetaFronted": {
+    "Bancodelapesetafrontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/bancodelapeseta-fronted",
+            "outputPath": "dist/bancodelapeseta-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -42,8 +42,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "50kb",
-                  "maximumError": "100kb"
+                  "maximumWarning": "100kb",
+                  "maximumError": "200kb"
                 }
               ],
               "outputHashing": "all"
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "BancodelapesetaFronted:build:production"
+              "buildTarget": "Bancodelapesetafrontend:build:production"
             },
             "development": {
-              "buildTarget": "BancodelapesetaFronted:build:development"
+              "buildTarget": "Bancodelapesetafrontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "BancodelapesetaFronted:build"
+            "buildTarget": "Bancodelapesetafrontend:build"
           }
         },
         "test": {
