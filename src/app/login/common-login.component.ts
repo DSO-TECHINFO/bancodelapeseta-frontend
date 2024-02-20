@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { RouterLink,Router } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { LoginService } from '../services/auth/login.service';
-import { LoginRequest } from '../services/auth/loginRequest';
+import { LoginService } from '../../services/auth/login.service';
+import { LoginRequest } from '../../interface/login/loginRequest';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
@@ -34,11 +34,13 @@ export class CommonLoginComponent {
           console.log(userData);
         },
         error:(err)=>{
+          this.router.navigateByUrl('/dashboard')
+
           console.error(err);
           this.errorMessage=err;
         },
         complete:()=>{
-          this.router.navigateByUrl('/inicio')
+          this.router.navigateByUrl('/dashboard')
           this.loginForm.reset()
         }
       })
