@@ -7,5 +7,6 @@ export const routes: Routes = [
     {path:'login',title:'Banco de la Peseta',component:CommonLoginComponent},
     {path:'',title:'Banco de la Peseta',component:CommonLoginComponent},
     {path:'personal-account',title:'Cuenta Personal',component:PersonalAccountComponent},
-    {path:'account-selection',title:'Seleccion de Cuenta',component:AccountSelectionComponent}
+    {path:'account-selection',title:'Seleccion de Cuenta',component:AccountSelectionComponent},
+    {path:'dashboard', title:'Banco De La Peseta | Dashboard' ,loadChildren: () => import('./pages/pages.routes')}
 ];
