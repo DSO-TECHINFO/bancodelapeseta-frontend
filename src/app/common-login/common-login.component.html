@@ -1,28 +1,35 @@
 <div class="row">
   <div class="display-form d-flex align-content-center justify-content-center flex-column col-6 order-md-2 ">
     <div class="login d-flex align-items-center flex-column m-auto" style="height: auto">
-        
-      <!-- <img ngSrc="../../assets/bancoP.png" class="mb-4" alt="Pesetalogo" width="255" height="67" /> -->
       <img src="../../assets/bancoP.png" alt="Pesetalogo" class="mb-4" width="100" >
 
         <h2 style="color: #425CFF; font-weight: 700">¡BIENVENIDO!</h2>
-        <p class="mb-4"></p>
-        <form>
+        <p class="mt-2 mb-2 text-danger">{{errorMessage}}</p>
+        <form [formGroup]="loginForm">
           <div>
             <p>Usuario</p>
-            <div class="">
-              <input class="form-control p-2 mt-1" placeholder="Ingresa usuario" matInput formControlName="email" />
+            <div>
+              <input formControlName="username" class="form-control p-2 mt-1" placeholder="Ingresa usuario" />
+                <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                class="text-danger">
+                  <div *ngIf="username.errors?.['required']">Nombre de usuario es requerido</div>
+                </div>
             </div>
           </div>
           <div class="mt-2">
             <p>Contraseña</p>
             <div class="size-inputs-form">
-              <div class="d-flex justify-content-end input-with-icon ">
-                <input id="pass" (keydown)="onKeyPress($event)" class=" form-control p-2 mt-1" placeholder="Ingresa contraseña" matInput [type]="hide ? 'text' : 'password'" formControlName="password" />
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                        [attr.aria-pressed]="hide" type="button" style="position: relative;" class="position-absolute d-flex align-content-end">
-                  <!-- <mat-icon style="color: #22c55e">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
-                </button>
+              <div class="d-flex justify-content-end align-items-center input-with-icon ">
+                
+                <input id="pass" class=" form-control p-2 mt-1" placeholder="Ingresa contraseña" matInput [type]="hide ? 'text' : 'password'" formControlName="password" />
+                <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed] = "hide" type="button" style="position: relative;" class="position-absolute d-flex align-content-end m-2"> 
+                  <span style="color: #2263c5" class="material-icons">{{hide ? 'visibility_off' : 'visibility'}}</span>
+                </span>
+                
+              </div>
+              <div *ngIf="password.invalid && (password.dirty || password.touched)"
+              class="text-danger">
+                <div *ngIf="password.errors?.['required']">Password es requerido</div>
               </div>
             </div>
           </div>
@@ -30,7 +37,7 @@
             <a href="#" class="text-muted small" style="text-decoration: none">¿Olvidaste contraseña?</a>
           </div>
 
-          <button class="button-login p-0">Acceder</button>
+          <button type="submit" (click)="login()" class="button-login p-0">Acceder</button>
 
           <div class=" d-flex justify-content-left mt-3">
             <a routerLink="/account-selection" class="button-login p-0 bg-white text-primary text-decoration-none " style="cursor: pointer;">Crear tu cuenta ahora</a>
