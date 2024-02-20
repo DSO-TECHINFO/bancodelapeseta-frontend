@@ -1,20 +1,56 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink,Router } from '@angular/router';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { LoginService } from '../services/auth/login.service';
+import { LoginRequest } from '../services/auth/loginRequest';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-common-login',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ReactiveFormsModule,CommonModule,HttpClientModule],
   templateUrl: './common-login.component.html',
   styleUrl: './common-login.component.css'
 })
 export class CommonLoginComponent {
   hide: boolean = false;
+  errorMessage: string = '';
+  constructor(
+    private formBuilder: FormBuilder, 
+    private router: Router,
+    private loginService:LoginService
+    ) {}
 
-  onLoad: boolean = false;
-  onKeyPress(event: KeyboardEvent) {
-    if (event.key === 'Enter') {
-      //this.onSubmitLogin();
+  loginForm = this.formBuilder.group({
+    username: ['',[Validators.required, Validators.minLength(4)]],
+    password: ['',[Validators.required]]
+  });
+
+  login(){
+    if(this.loginForm.valid){
+      this.loginService.login(this.loginForm.value as LoginRequest,'api/v1/auth/login').subscribe({
+        next:(userData)=>{
+          console.log(userData);
+        },
+        error:(err)=>{
+          console.error(err);
+          this.errorMessage=err;
+        },
+        complete:()=>{
+          this.router.navigateByUrl('/inicio')
+          this.loginForm.reset()
+        }
+      })
+      
+    }else{
+      this.loginForm.markAllAsTouched();
     }
+  }
+  get username(){
+    return this.loginForm.controls.username;
+  }
+  get password(){
+    return this.loginForm.controls.password;
   }
 }
