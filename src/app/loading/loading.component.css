@@ -32,7 +32,7 @@
   
   .logo-container:nth-child(1) {
     animation: slide-in-from-top 2s ease-out forwards;
-    left: 100px;
+    left: 90px;
   }
   
   @keyframes slide-in-from-bottom {
@@ -60,7 +60,7 @@
 
   @media screen and (max-width: 600px) {
     .logo-container .BancoP {
-      width: 60px; /* Reducir el tamaño de BancoP para dispositivos móviles */
+      width: 55px; /* Reducir el tamaño de BancoP para dispositivos móviles */
     }
     
     .logo-container .Logo {
@@ -68,8 +68,8 @@
     }
     .logo-container:nth-child(2) {
         animation: slide-in-from-bottom 2s ease-out forwards;
-        left: -60px; 
-        bottom: 45px;
+        left: -50px; 
+        bottom: 33px;
       }
       
       .logo-container:nth-child(1) {
