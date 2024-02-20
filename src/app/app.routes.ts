@@ -12,4 +12,5 @@ export const routes: Routes = [
     { path: 'personal-account', title: 'Cuenta Personal', component: PersonalAccountComponent },
     { path: 'account-selection', title: 'Seleccion de Cuenta', component: AccountSelectionComponent },
     { path: 'inicio', title: 'Inicio', component: InicioComponent }
+    {path:'dashboard', title:'Banco De La Peseta | Dashboard' ,loadChildren: () => import('./pages/pages.routes')}
 ];
