@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+
 import { LoadingComponent } from './loading/loading.component'; 
 import { CommonLoginComponent } from './common-login/common-login.component';
 import { PersonalAccountComponent } from './personal-account/personal-account.component';
@@ -11,6 +12,9 @@ export const routes: Routes = [
     { path: '', redirectTo: 'loading', pathMatch: 'full' },
     { path: 'personal-account', title: 'Cuenta Personal', component: PersonalAccountComponent },
     { path: 'account-selection', title: 'Seleccion de Cuenta', component: AccountSelectionComponent },
+    { path: 'account-verification', title: 'Verificar cuenta', component: AccountVerificationComponent },
+    { path: 'register-company', title: 'Registro cuenta de empresa', component: RegisterCompanyComponent },
+    { path: 'register-individual', title: 'Registro cuenta personal', component: RegisterIndividualComponent },
     { path: 'inicio', title: 'Inicio', component: InicioComponent },
     { path:'dashboard', title:'Banco De La Peseta | Dashboard' ,loadChildren: () => import('./pages/pages.routes')}
 ];
