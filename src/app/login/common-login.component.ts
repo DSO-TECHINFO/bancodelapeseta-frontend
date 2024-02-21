@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink,Router } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { LoginService } from '../../services/auth/login.service';
+import { LoginService } from '../../service/login/login.service';
 import { LoginRequest } from '../../interface/login/loginRequest';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './common-login.component.css'
 })
 export class CommonLoginComponent {
-  hide: boolean = false;
   errorMessage: string = '';
   constructor(
     private formBuilder: FormBuilder, 
@@ -31,14 +30,15 @@ export class CommonLoginComponent {
     if(this.loginForm.valid){
       this.loginService.login(this.loginForm.value as LoginRequest,'api/v1/auth/login').subscribe({
         next:(userData)=>{
-          //console.lgog(userData);
+          console.log(userData);
         },
         error:(err)=>{
+          this.router.navigateByUrl('/inicio')
           console.error(err);
           this.errorMessage=err;
         },
         complete:()=>{
-          this.router.navigateByUrl('/dashboard')
+          this.router.navigateByUrl('/inicio')
           this.loginForm.reset()
         }
       })
