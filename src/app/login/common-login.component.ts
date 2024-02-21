@@ -30,12 +30,9 @@ export class CommonLoginComponent {
     if(this.loginForm.valid){
       this.loginService.login(this.loginForm.value as LoginRequest,'api/v1/auth/login').subscribe({
         next:(userData)=>{
-          
-          console.log(userData);
+          //console.log(userData);
         },
         error:(err)=>{
-          this.router.navigateByUrl('/inicio')
-
           console.error(err);
           this.errorMessage=err;
         },

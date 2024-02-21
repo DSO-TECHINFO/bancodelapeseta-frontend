@@ -1,1 +1,24 @@
-<p>inicio works!</p>
+<app-navbar/>
+<!-- <app-dashboard></app-dashboard> -->
+<div class="navbarvertical" [ngClass]="sidebarActive ? 'collapsed' : 'hidenNav' " (click)="toggleSidebar()">
+  <div class="imgNav"> 
+    <img src="https://i.ibb.co/yfCT2yZ/bancoP.png" alt="bancoP" border="0" loading="lazy" width="100px"/>
+  </div>
+  <div class="navbar">
+      <ul>
+          <li>
+              <a href="">Seccion1</a>
+          </li>
+          <li>
+              <a href="">Seccion3</a>
+          </li>
+          <li>
+              <a href="">Seccion2</a>
+          </li>
+      </ul>
+  </div>  
+ 
+</div>
+<div class="toggle">
+  <button (click)="toggleSidebar()" [ngClass]="sidebarActive ? 'collapsed' : 'moveToggle'" class="btnToggle">|||</button>                
+</div>
