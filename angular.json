@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Bancodelapesetafrontend": {
+    "BancodelapesetaFrontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Bancodelapesetafrontend:build:production"
+              "buildTarget": "BancodelapesetaFrontend:build:production"
             },
             "development": {
-              "buildTarget": "Bancodelapesetafrontend:build:development"
+              "buildTarget": "BancodelapesetaFrontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "Bancodelapesetafrontend:build"
+            "buildTarget": "BancodelapesetaFrontend:build"
           }
         },
         "test": {

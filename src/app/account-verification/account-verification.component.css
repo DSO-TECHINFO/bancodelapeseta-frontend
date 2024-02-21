@@ -1,0 +1,46 @@
+.subtitle {
+  color: #6c6c6c;
+}
+
+.otp-field {
+  flex-direction: row;
+  column-gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.otp-field .icon {
+  font-size: 1.75rem;
+  margin-right: 4px;
+  color: #606060;
+}
+
+.otp-field input {
+  height: 45px;
+  width: 42px;
+  border-radius: 6px;
+  outline: none;
+  font-size: 1.125rem;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+.otp-field input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+.otp-field input::-webkit-inner-spin-button,
+.otp-field input::-webkit-outer-spin-button {
+  display: none;
+}
+
+.resend {
+  font-size: 0.75rem;
+}
+
+/* btn-verificator should be same size as the input otp */
+.btn-verificator {
+  height: 45px;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+}
