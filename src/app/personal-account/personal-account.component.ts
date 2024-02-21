@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-// import 'material-icons/iconfont/material-icons.css'; // FIXME: material-icons no longer exists
+
 
 
 
