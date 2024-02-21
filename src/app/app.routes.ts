@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import AccountSelectionComponent from './account-selection/account-selection.component';
-import { CommonLoginComponent } from './common-login/common-login.component';
+import { CommonLoginComponent } from './login/common-login.component';
 import { PersonalAccountComponent } from './personal-account/personal-account.component';
 import { InicioComponent } from './inicio/inicio.component';
 

@@ -21,10 +21,7 @@
             <div class="size-inputs-form">
               <div class="d-flex justify-content-end align-items-center input-with-icon ">
                 
-                <input id="pass" class=" form-control p-2 mt-1" placeholder="Ingresa contraseña" matInput [type]="hide ? 'text' : 'password'" formControlName="password" />
-                <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed] = "hide" type="button" style="position: relative;" class="position-absolute d-flex align-content-end m-2"> 
-                  <span style="color: #2263c5" class="material-icons">{{hide ? 'visibility_off' : 'visibility'}}</span>
-                </span>
+                <input id="pass" class=" form-control p-2 mt-1" placeholder="Ingresa contraseña" type="password" formControlName="password" />
                 
               </div>
               <div *ngIf="password.invalid && (password.dirty || password.touched)"
