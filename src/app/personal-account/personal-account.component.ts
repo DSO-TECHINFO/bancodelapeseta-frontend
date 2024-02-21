@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import 'material-icons/iconfont/material-icons.css';
-
-
 
 @Component({
   selector: 'app-personal-account',

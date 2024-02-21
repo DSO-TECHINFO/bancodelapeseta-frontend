@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import AccountSelectionComponent from './account-selection/account-selection.component';
 import { CommonLoginComponent } from './login/common-login.component';
 import { PersonalAccountComponent } from './personal-account/personal-account.component';
-import { InicioComponent } from './inicio/inicio.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 export const routes: Routes = [
     {path:'login',title:'Banco de la Peseta',component:CommonLoginComponent},
