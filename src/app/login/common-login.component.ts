@@ -33,8 +33,6 @@ export class CommonLoginComponent {
           //console.log(userData);
         },
         error:(err)=>{
-          this.router.navigateByUrl('/inicio')
-
           console.error(err);
           this.errorMessage=err;
         },
