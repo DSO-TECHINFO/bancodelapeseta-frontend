@@ -1,6 +1,11 @@
 <app-navbar/>
 <!-- <app-dashboard></app-dashboard> -->
+<div class="toggle">
+  <button (click)="toggleSidebar()" [ngClass]="sidebarActive ? 'collapsed' : 'moveToggle'" class="btnToggle">|||</button>                
+</div>
+
 <div class="navbarvertical" [ngClass]="sidebarActive ? 'collapsed' : 'hidenNav' " (click)="toggleSidebar()">
+
   <div class="imgNav"> 
     <img src="https://i.ibb.co/yfCT2yZ/bancoP.png" alt="bancoP" border="0" loading="lazy" width="100px"/>
   </div>
@@ -19,6 +24,4 @@
   </div>  
  
 </div>
-<div class="toggle">
-  <button (click)="toggleSidebar()" [ngClass]="sidebarActive ? 'collapsed' : 'moveToggle'" class="btnToggle">|||</button>                
-</div>
+
