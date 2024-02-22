@@ -3,41 +3,41 @@
     <div class="login d-flex align-items-center flex-column m-auto" style="height: auto">
       <img src="../../assets/bancoP.png" alt="Pesetalogo" class="mb-4" width="100" >
 
-        <h2 style="color: #425CFF; font-weight: 700">¡BIENVENIDO!</h2>
+        <h2 style="color: #425CFF; font-weight: 700">¡WELCOME!</h2>
         <p class="mt-2 mb-2 text-danger">{{errorMessage}}</p>
         <form [formGroup]="loginForm">
           <div>
-            <p>Usuario</p>
+            <span>Username</span>
             <div>
-              <input formControlName="username" class="form-control p-2 mt-1" placeholder="Ingresa usuario" />
+              <input formControlName="username" class="form-control p-2 mt-1" placeholder="Enter your username" />
                 <div *ngIf="username.invalid && (username.dirty || username.touched)"
                 class="text-danger">
-                  <div *ngIf="username.errors?.['required']">Nombre de usuario es requerido</div>
+                  <div *ngIf="username.errors?.['required']">Username is required</div>
                 </div>
             </div>
           </div>
           <div class="mt-2">
-            <p>Contraseña</p>
+            <span>Password</span>
             <div class="size-inputs-form">
               <div class="d-flex justify-content-end align-items-center input-with-icon ">
                 
-                <input id="pass" class=" form-control p-2 mt-1" placeholder="Ingresa contraseña" type="password" formControlName="password" />
+                <input id="pass" class=" form-control p-2 mt-1" placeholder="Enter your password" type="password" formControlName="password" />
                 
               </div>
               <div *ngIf="password.invalid && (password.dirty || password.touched)"
               class="text-danger">
-                <div *ngIf="password.errors?.['required']">Password es requerido</div>
+                <div *ngIf="password.errors?.['required']">Password is required</div>
               </div>
             </div>
           </div>
           <div class=" d-flex justify-content-end mb-3">
-            <a href="#" class="text-muted small" style="text-decoration: none">¿Olvidaste contraseña?</a>
+            <a href="#" class="text-muted small" style="text-decoration: none">have you forgotten your password?</a>
           </div>
 
-          <button type="submit" (click)="login()" class="button-login p-0">Acceder</button>
+          <button type="submit" (click)="login()" class=" button-login p-0">Login</button>
 
           <div class=" d-flex justify-content-left mt-3">
-            <a routerLink="/account-selection" class="button-login p-0 bg-white text-primary text-decoration-none " style="cursor: pointer;">Crear tu cuenta ahora</a>
+            <a routerLink="/account-selection" class="button-login p-0 bg-white text-primary text-decoration-none " style="cursor: pointer;">Create your account now</a>
             
           </div>
 

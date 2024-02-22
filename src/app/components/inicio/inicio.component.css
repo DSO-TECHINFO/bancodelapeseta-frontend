@@ -55,7 +55,7 @@ li a{
   transition: all 0.4s;
 
   position: fixed;
-  top: 0;
+  top: 7px;
   left: 0;
 }
 .hidenNav {
