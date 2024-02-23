@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class CommonLoginComponent {
   errorMessage: string = '';
+  
   constructor(
     private formBuilder: FormBuilder, 
     private router: Router,
