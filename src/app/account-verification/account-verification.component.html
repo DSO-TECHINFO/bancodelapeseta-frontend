@@ -1,58 +1,65 @@
-<div class="container">
-    <div class="row">
-        <header class="col-12 text-center">
-            <img src="{{ imgBancoP }}" width="100px" alt="logo del Banco de la peseta" class="mt-4">
+<div class="tw-max-w-screen-xl tw-mx-auto">
+    <div class="tw-container tw-flex tw-items-center tw-flex-col tw-align-middle">
+        <header class="pt-4">
+            <a routerLink="/">
+                <picture class="">
+                    <img decoding="async" src="{{ imgBancoP }}" width="100px" alt="logo del Banco de la peseta">
+                </picture>
+            </a>
         </header>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4" style="min-width: 500px;">
-            <div class="card bg-white mt-4 mb-5 border-0 shadow rounded">
-                <div class="card-body p-3 text-center">
 
-                    <h5 class="card-title mt-3">Autenticación de cuenta</h5>
+        <div class="tw-flex tw-flex-col tw-gap-2 tw-items-center tw-align-middle tw-max-w-screen-sm tw-mt-6 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
+            <h5 class="tw-text-3xl tw-font-medium tw-mt-3">Autenticación de cuenta</h5>
+            <h6 class="tw-text-gray-600 tw-mt-4">Ingresa los códigos que te enviamos vía SMS y email</h6>
 
-                    <h6 class="subtitle mt-3 mb-4">Ingresa los códigos que te enviamos vía SMS y email</h6>
-
-                    <div class="otp-field mb-4">
-                        <!-- SMS icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                            <path fill="currentColor"
-                                d="M320-520q17 0 28.5-11.5T360-560q0-17-11.5-28.5T320-600q-17 0-28.5 11.5T280-560q0 17 11.5 28.5T320-520Zm160 0q17 0 28.5-11.5T520-560q0-17-11.5-28.5T480-600q-17 0-28.5 11.5T440-560q0 17 11.5 28.5T480-520Zm160 0q17 0 28.5-11.5T680-560q0-17-11.5-28.5T640-600q-17 0-28.5 11.5T600-560q0 17 11.5 28.5T640-520ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z" />
-                        </svg>
-                        <input type="number" />
-                        <input type="number" />
-                        <input type="number" />
-                        <input type="number" />
-                        <input type="number" />
-                        <input type="number" />
-                    </div>
-
-                    <div class="otp-field mb-4">
-                        <!-- email icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                            <path fill="currentColor" d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
-                        </svg>
-                        <input type="number" />
-                        <input type="number" />
-                        <input type="number" />
-                        <input type="number" />
-                        <input type="number" />
-                        <input type="number" />
-                    </div>
-
-                    <!-- <p class="resend text-muted mb-0">
-                                ¿No has recibido el código? <a href="#!">Reenviar</a>
-                            </p> -->
-                    <p class="resend text-muted mb-0">
-                        ¿No recibiste los códigos? <span class="fw-bolder">Espera 59 segundos para solitar códigos nuevos</span>
-                    </p>
-                </div>
+            <div class="tw-max-w-80 tw-mt-6 tw-min-h-10 tw-grid tw-grid-cols-7 tw-gap-2">
+                <!-- SMS icon -->
+                <svg class="tw-w-6 tw-h-6 my-auto" aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path fill="currentColor"
+                        d="M320-520q17 0 28.5-11.5T360-560q0-17-11.5-28.5T320-600q-17 0-28.5 11.5T280-560q0 17 11.5 28.5T320-520Zm160 0q17 0 28.5-11.5T520-560q0-17-11.5-28.5T480-600q-17 0-28.5 11.5T440-560q0 17 11.5 28.5T480-520Zm160 0q17 0 28.5-11.5T680-560q0-17-11.5-28.5T640-600q-17 0-28.5 11.5T600-560q0 17 11.5 28.5T640-520ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z" />
+                </svg>
+                <input type="text" [(ngModel)]="firstOtp" class="tw-outline-none tw-border tw-border-gray-300 tw-rounded tw-text-center" />
+                <input type="text" class="tw-outline-none tw-border tw-border-gray-300 tw-rounded tw-text-center" />
+                <input type="text" class="tw-outline-none tw-border tw-border-gray-300 tw-rounded tw-text-center" />
+                <input type="text" class="tw-outline-none tw-border tw-border-gray-300 tw-rounded tw-text-center" />
+                <input type="text" class="tw-outline-none tw-border tw-border-gray-300 tw-rounded tw-text-center" />
+                <input type="text" class="tw-outline-none tw-border tw-border-gray-300 tw-rounded tw-text-center" />
             </div>
+
+            <div class="tw-max-w-80 tw-mt-2 tw-min-h-10 tw-grid tw-grid-cols-7 tw-gap-2">
+                <!-- Email icon -->
+                <svg class="tw-w-6 tw-h-6 my-auto" aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path fill="currentColor" d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+                </svg>
+                <input type="text" [(ngModel)]="secondOtp" class="tw-outline-none tw-border tw-border-gray-300 tw-rounded tw-text-center tw-py-2 tw-px-3" />
+                <input type="text" class="tw-outline-none tw-border tw-border-gray-300 tw-rounded tw-text-center" />
+                <input type="text" class="tw-outline-none tw-border tw-border-gray-300 tw-rounded tw-text-center" />
+                <input type="text" class="tw-outline-none tw-border tw-border-gray-300 tw-rounded tw-text-center" />
+                <input type="text" class="tw-outline-none tw-border tw-border-gray-300 tw-rounded tw-text-center" />
+                <input type="text" class="tw-outline-none tw-border tw-border-gray-300 tw-rounded tw-text-center" />
+            </div>
+
+            <button class="tw-bg-light-teal tw-text-white tw-font-medium tw-inline-flex tw-mb-6 tw-py-2 tw-px-4 tw-rounded tw-mt-6 hover:tw-bg-hover-teal">
+                Verificar códigos
+                <svg class="tw-w-6 tw-h-6 tw-ms-2" aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path
+                        d="M130-574q-7-5-8.5-12.5T126-602q62-85 155.5-132T481-781q106 0 200 45.5T838-604q7 9 4.5 16t-8.5 12q-6 5-14 4.5t-14-8.5q-55-78-141.5-119.5T481-741q-97 0-182 41.5T158-580q-6 9-14 10t-14-4ZM594-81q-104-26-170-103.5T358-374q0-50 36-84t87-34q51 0 87 34t36 84q0 33 25 55.5t59 22.5q34 0 58-22.5t24-55.5q0-116-85-195t-203-79q-118 0-203 79t-85 194q0 24 4.5 60t21.5 84q3 9-.5 16T208-205q-8 3-15.5-.5T182-217q-15-39-21.5-77.5T154-374q0-133 96.5-223T481-687q135 0 232 90t97 223q0 50-35.5 83.5T688-257q-51 0-87.5-33.5T564-374q0-33-24.5-55.5T481-452q-34 0-58.5 22.5T398-374q0 97 57.5 162T604-121q9 3 12 10t1 15q-2 7-8 12t-15 3ZM260-783q-8 5-16 2.5T232-791q-4-8-2-14.5t10-11.5q56-30 117-46t124-16q64 0 125 15.5T724-819q9 5 10.5 12t-1.5 14q-3 7-10 11t-17-1q-53-27-109.5-41.5T481-839q-58 0-114 13.5T260-783ZM378-95q-59-62-90.5-126.5T256-374q0-91 66-153.5T481-590q93 0 160 62.5T708-374q0 9-5.5 14.5T688-354q-8 0-14-5.5t-6-14.5q0-75-55.5-125.5T481-550q-76 0-130.5 50.5T296-374q0 81 28 137.5T406-123q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm302-68q-89 0-154.5-60T460-374q0-8 5.5-14t14.5-6q9 0 14.5 6t5.5 14q0 75 54 123t126 48q6 0 17-1t23-3q9-2 15.5 2.5T744-191q2 8-3 14t-13 8q-18 5-31.5 5.5t-16.5.5Z" />
+                </svg>
+            </button>
+
+            <p class="tw-text-xs tw-text-gray-600 tw-mb-4">
+                ¿No recibiste los códigos? <span class="tw-font-bold">Espera 59 segundos para solicitar códigos nuevos</span>
+            </p>
+            <!-- <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+            </a> -->
         </div>
+
+        <footer class="tw-pt-2 tw-mt-6 tw-w-full">
+            <span class="tw-flex tw-justify-center tw-border-b tw-border-gray-200 tw-pb-3"></span>
+            <p class="tw-mt-3 tw-text-center tw-text-gray-600">© 2024 Banco de la peseta.</p>
+        </footer>
     </div>
 </div>
-
-<footer class="pt-2 mt-5">
-    <span class="d-flex justify-content-center border-bottom pb-3 mb-3"></span>
-    <p class="text-center text-muted">© 2024 Banco de la peseta.</p>
-</footer>
