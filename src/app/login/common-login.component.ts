@@ -35,7 +35,6 @@ export class CommonLoginComponent {
         },
         error:(err)=>{
           this.router.navigateByUrl('/inicio')
-
           console.error(err);
           this.errorMessage=err;
         },
