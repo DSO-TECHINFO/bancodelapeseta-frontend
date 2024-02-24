@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class CommonLoginComponent {
   errorMessage: string = '';
+  
   constructor(
     private formBuilder: FormBuilder, 
     private router: Router,
@@ -30,11 +31,9 @@ export class CommonLoginComponent {
     if(this.loginForm.valid){
       this.loginService.login(this.loginForm.value as LoginRequest,'api/v1/auth/login').subscribe({
         next:(userData)=>{
-          //console.log(userData);
+          localStorage.setItem('token', userData['token']);
         },
         error:(err)=>{
-          this.router.navigateByUrl('/inicio')
-
           console.error(err);
           this.errorMessage=err;
         },
