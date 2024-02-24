@@ -13,16 +13,19 @@ export class LoginService {
   urlBase:string=environment.api_host;
 
   login(credentials:LoginRequest, uri:string):Observable<LoginResponse>{
+
     return this.http.post<LoginResponse>(`${this.urlBase}/${uri}`, credentials).pipe(
       catchError(this.handleError)
     )
+    
   }
+
   private handleError(error:HttpErrorResponse){
     if(error.status === 0){
-      console.log('Se ha producido un error', error.error);
+      console.log('An error has occurred', error.error);
     }else{
-      console.log('Código de estado del backend', error.status, error.error)
+      console.log('Backend status code', error.status, error.error)
     }
-    return throwError(()=>new Error('Algo falló, intente nuevamente.'))
+    return throwError(()=>new Error('Something failed, try again.'))
   }
 }

@@ -14,6 +14,7 @@
   border-radius: 30px;
   border: 0;
   padding: 5px;
+  height: 30px;
 }
 .img {
   background-size: cover;
