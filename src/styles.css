@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-/* @tailwind base; disabled due conflict with Bootstrap */
-@tailwind components;
-@tailwind utilities;
+
+/* Tailwind is disabled globally due conflict with Bootstrap, but you can use it in components pasting the code above: */
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
 
 body{
     margin: 0;
