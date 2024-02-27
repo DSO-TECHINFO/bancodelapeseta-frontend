@@ -1,0 +1,26 @@
+<div class="row flex flex-col w-screen h-screen align-content-center justify-content-center gap-3 text-center">
+    <div>
+        <img src="../../assets/bancoP.png" width="100px" alt="" class="mt-2">
+    </div>
+    <h3>Creat your account</h3>
+    <div class="card enterprise col-6 border-0" >
+        <div class="imgCount">
+            <img src="../../assets/enterprise.png" alt="" width="150px">
+        </div>
+        <div class="card-body d-flex flex-row align-items-end justify-content-center">
+            <a>Create company account</a>
+        </div>
+    </div>
+    <div class="card person col-6 border-0 d-flex flex-col justify-content-end ">
+        <div class="imgCount mt-4">
+            <img src="../../assets/person.png" alt="" width="80px">
+        </div>
+        <div class="card-body d-flex flex-row align-items-end justify-content-center">
+            <a [routerLink]="['/personal-account']" >Create personal account</a>
+        </div>
+    </div>
+    <div class="flex flex-col gap-2">
+        <span class="text-secondary">Are you already a customer?</span>
+        <button [routerLink]="['/login']" class="button-login p-0 btn px-3">Login</button>
+    </div>
+</div>

@@ -1,0 +1,152 @@
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+
+body{
+  background-color: whitesmoke;
+  // font-family: 'inter', sans-serif;
+  //font-family: 'Poppins', sans-serif;
+  //font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+
+
+
+// FONT:
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.cdnfonts.com/css/digital-numbers?styles=20258');
+// @font-face {
+//   font-family: "Poppins";
+//   src: url("assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+// }
+//*{font-family: 'Poppins', sans-serif!important;}
+//*{font-family: 'inter', sans-serif;}
+/* Scrollbar Style */
+@media screen and (min-width: 1278px) {
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+      &:hover{ border-left: 1px solid gray;}
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(90, 90, 90);
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+    }
+}
+
+
+// Definir tamaños de pantalla como variables
+$desktop: 1280px;
+$mobile: 1279px;
+
+// Estilos para escritorio
+@media only screen and (min-width: $desktop) {
+  [hidden="desktop"] {
+    display: none!important;
+  }
+}
+
+// Estilos para móvil
+@media only screen and (max-width: $mobile) {
+  [hidden="mobile"] {
+    display: none!important;
+  }
+}
+//-------------------------------
+app-root{
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: grid;
+  position: absolute;
+  z-index: 0;
+}
+//-------------------------------
+
+// ------------------------------
+
+
+
+.anima-up{
+    @media only screen and (min-width: 1366px) {
+      transform: translateY(100dvh);
+      animation: entradaTarjeta 0.5s ease-in-out forwards;
+      @keyframes entradaTarjeta {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        };
+      }
+    }
+    @media only screen and (max-width: 1365px) {
+      width: 100%;
+      height: 100dvh;
+      border-radius: 0px;
+      box-shadow: none;
+    }
+}
+// UI-BACKGROUND
+#ui-background{
+  display: grid;
+  overflow: hidden auto;
+  width: 100vw;
+  min-height: 100dvh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.95;
+  background-color: white;
+}
+
+
+//  HERO-BANNER ------------------------------
+.hero-banner{
+    padding-top: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("/assets/images/HeadBanner.webp");
+    background-blend-mode: color-dodge;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.51);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    border: 1px solid #e2e2e2;
+    overflow: hidden;
+    object-fit: cover;
+    h1{
+      margin: 0;
+      font-size: x-large;
+      color: white;
+      text-shadow: -1px 1px rgba(0, 0, 0, 0.36);
+    }
+    span{
+      font-size: medium;
+      color: white;
+      opacity: 0.8;
+      text-shadow: -1px 1px rgba(0, 0, 0, 0.36);
+  }
+}
