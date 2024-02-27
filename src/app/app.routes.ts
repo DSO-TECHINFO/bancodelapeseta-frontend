@@ -6,10 +6,20 @@ export const routes: Routes = [
 
   { path: '', redirectTo: 'login', pathMatch: 'full', },
   //* ACCESS    ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
-
-  { path: 'login', title: 'Login', loadComponent: () => import('./MOD/Access/Login/Login.component')},
-  { path: 'register', title: 'Login', loadComponent: () => import('./MOD/Access/Register/register.component')},
-
+  { 
+    path: 'login', 
+    title: 'Login', 
+    loadComponent: () => import('./MOD/Access/Login/Login.component')},
+  {
+    path: 'register',
+    loadComponent: () => import('./MOD/Access/Register/register.component'),
+  },
+  {
+    path: 'personal-account', 
+    title:'Personal Account', 
+    loadComponent:()=>import('./MOD/Access/Register/PersonalAccount/PersonalAccount.component')
+  },
+  { path: '**', redirectTo: 'login', pathMatch: 'full', },
   //* DASHBOARDS ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
 
   //* RESOURCES ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
