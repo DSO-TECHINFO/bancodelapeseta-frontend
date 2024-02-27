@@ -1,18 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  prefix: "tw-",
-  important: false,
-  content: ["./src/**/*.{html,ts}"],
+  content: ['./src/**/*.{html,ts}'],
   theme: {
+    screens: {
+      'sm': '320px',
+      'md': '599px',
+      'lg': '1135px',
+      'xl': '1440px',
+    },
     extend: {
-      colors: {
-        'aqua': '#17DCBF',
-        'vivid-blue': '#425CFF',
-        'sky-blue': '#2E98E0',
-        'light-teal': '#4fd1c5',
-        'hover-teal': '#5fe3d1',
+      screens: {
+        'mobile': { 'min-width': '320px', 'max-width': '598px' },
+        'tablet': { 'min-width': '599px', 'max-width': '1134px' },
+        'laptop': { 'min-width': '1135px', 'max-width': '1439px' },
+        'desktop': { 'min-width': '1440px', 'max-width': '3500px' },
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/aspect-ratio')
+,require('@tailwindcss/forms')
+,require('@tailwindcss/typography')
+],
 };
+

@@ -1,0 +1,7 @@
+{
+  "name": "ElBancoDeLaPeseta",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

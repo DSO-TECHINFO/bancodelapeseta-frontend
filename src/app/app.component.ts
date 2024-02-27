@@ -1,24 +1,48 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { CommonLoginComponent } from './login/common-login.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
+import { NavigationEnd, Router, RouterOutlet} from '@angular/router';
+
+
+// LAYOUT-SERVICE:
+import { LayoutService } from './LAYOUT/layout.service';
+
 
 @Component({
   selector: 'app-root',
+  templateUrl: 'app.component.html',
+  styleUrl: 'app.component.scss',
   standalone: true,
   imports: [
-    CommonModule, 
-    RouterOutlet, 
-    CommonLoginComponent,
-    ReactiveFormsModule,
-    HttpClientModule
+    CommonModule,
+    IonApp,
+    IonRouterOutlet,
+    RouterOutlet,
+    //*Layout:
   ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppComponent {
-  
+export class AppComponent implements OnInit {
+
+
+  constructor( public layoutService: LayoutService, private router: Router,) {
+
+  }
+
+  onScrollTop(event: Event) {
+    // this.layout.closePopLayout();
+    document.querySelector('ion-app')?.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }
+
+  ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        //this.layout.closePopLayout();
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      }
+    });
+  }
+
 }
+

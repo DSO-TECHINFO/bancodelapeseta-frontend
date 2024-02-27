@@ -1,2 +1,23 @@
-<!-- <app-common-login></app-common-login> -->
-<router-outlet/>
+<ion-app>
+  <!-- @if ( layoutService.header && layoutService.isDesktop ) {
+    <layout-header></layout-header>
+  }
+  @if ( layoutService.headerMobile && !layoutService.isDesktop ) {
+    <layout-header-m></layout-header-m>
+  }
+  @if ( layoutService.nav && layoutService.isDesktop ) {
+    <layout-nav></layout-nav>
+  }
+  @if ( layoutService.sidenav  ) {
+    <layout-sidenav></layout-sidenav>
+  } -->
+  <main id="ui-main">
+    <router-outlet></router-outlet>
+    @if ( layoutService.footer && layoutService.isDesktop  ) {
+      <layout-footer></layout-footer>
+    }
+  </main>
+  @if ( layoutService.navbar && !layoutService.isDesktop  ) {
+    <layout-navbar></layout-navbar>
+  }
+</ion-app>
