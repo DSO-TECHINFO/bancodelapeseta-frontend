@@ -9,6 +9,7 @@ export const routes: Routes = [
 
   { path: 'login', title: 'Login', loadComponent: () => import('./MOD/Access/Login/Login.component')},
   { path: 'register', title: 'Login', loadComponent: () => import('./MOD/Access/Register/register.component')},
+  { path: 'codes-verification', title: 'Verify your account', loadComponent: () => import('./MOD/Access/CodesVerification/codes-verification.component')},
 
   //* DASHBOARDS ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
 
