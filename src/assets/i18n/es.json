@@ -1,0 +1,11 @@
+{
+  "HOME.TITLE": "admin titulo",
+  "dashboard.side.title":"Panel",
+  "accounts.side.title":"Cuentas",
+  "cards.side.title":"Tarjetas",
+  "transactions.side.title":"Transacciones",
+  "payments.side.title":"Pagos",
+  "invoicing.side.title":"Facturación",
+  "trade.side.title":"Intercambios",
+  "reports.side.title":"Reportes"
+}

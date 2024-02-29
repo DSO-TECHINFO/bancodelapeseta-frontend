@@ -1,0 +1,12 @@
+{
+  "HOME.TITLE": "admin title",
+  "dashboard.side.title":"Dashboard",
+  "accounts.side.title":"Accounts",
+  "cards.side.title":"Cards",
+  "transactions.side.title":"Transactions",
+  "payments.side.title":"Payments",
+  "invoicing.side.title":"Invoicing",
+  "trade.side.title":"Trade",
+  "reports.side.title":"Reports"
+
+}
