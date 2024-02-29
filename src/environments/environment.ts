@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  api_host:'https://api.bancodelapeseta.com'
 };
 
 /*

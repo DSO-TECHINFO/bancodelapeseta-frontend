@@ -7,11 +7,17 @@ export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full', },
   //* ACCESS    ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
 
+
   { path: 'login', title: 'Login', loadComponent: () => import('./MOD/Access/Login/Login.component')},
   { path: 'register', title: 'Login', loadComponent: () => import('./MOD/Access/Register/register.component')},
   { path: 'sms-verification', title: 'Verify your phone number', loadComponent: () => import('./MOD/Access/SmsVerification/sms-verification.component')},
   { path: 'email-verification', title: 'Verify your email', loadComponent: () => import('./MOD/Access/EmailVerification/email-verification.component')},
-
+  {
+    path: 'personal-account', 
+    title:'Personal Account', 
+    loadComponent:()=>import('./MOD/Access/Register/PersonalAccount/PersonalAccount.component')
+  },
+  { path: '**', redirectTo: 'login', pathMatch: 'full', },
   //* DASHBOARDS ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
 
   {
