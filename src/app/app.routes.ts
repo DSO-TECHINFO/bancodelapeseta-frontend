@@ -9,6 +9,8 @@ export const routes: Routes = [
 
   { path: 'login', title: 'Login', loadComponent: () => import('./MOD/Access/Login/Login.component')},
   { path: 'register', title: 'Login', loadComponent: () => import('./MOD/Access/Register/register.component')},
+  { path: 'sms-verification', title: 'Verify your phone number', loadComponent: () => import('./MOD/Access/SmsVerification/sms-verification.component')},
+  { path: 'email-verification', title: 'Verify your email', loadComponent: () => import('./MOD/Access/EmailVerification/email-verification.component')},
 
   //* DASHBOARDS ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
 
