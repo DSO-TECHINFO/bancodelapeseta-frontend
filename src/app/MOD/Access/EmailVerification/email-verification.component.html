@@ -2,25 +2,19 @@
     <div class="max-w-screen-xl mx-auto">
         <div class="flex items-center flex-col align-middle">
             <header class="pt-4">
-                <!-- FIXME: Add logo here -->
+                <!-- <a href="!#"> -->
+                    <!-- <picture class=""> -->
+                        <!-- FIXME: Add logo -->
+                        <!-- <img decoding="async" src="/logo.png" width="100px" alt="logo del Banco de la peseta"> -->
+                    <!-- </picture> -->
+                <!-- </a> -->
             </header>
 
             <div class="flex mx-4 flex-col gap-2 items-center align-middle max-w-screen-[640px] mt-6 p-4 md:p-7 bg-white border border-gray-200 rounded-lg shadow">
-                <h5 class="text-2xl sm:text-3xl font-medium mt-3">Autenticación de cuenta</h5>
-                <h6 class="text-gray-600 mt-4">Ingresa los códigos que te enviamos vía SMS y email</h6>
+                <h5 class="text-2xl sm:text-3xl font-medium mt-3">Verify your email</h5>
+                <h6 class="text-gray-600 mt-4">Enter the code we sent to your email</h6>
 
                 <div class="max-w-80 mt-6 min-h-10 grid grid-cols-7 gap-2">
-                    <!-- SMS icon -->
-                    <ion-icon class="w-6 h-6 my-auto" src="./assets/icons/sms.svg" aria-hidden="true"></ion-icon>
-                    <input type="text" class="text-2xl outline-none border border-gray-300 rounded text-center" />
-                    <input type="text" class="text-2xl outline-none border border-gray-300 rounded text-center" />
-                    <input type="text" class="text-2xl outline-none border border-gray-300 rounded text-center" />
-                    <input type="text" class="text-2xl outline-none border border-gray-300 rounded text-center" />
-                    <input type="text" class="text-2xl outline-none border border-gray-300 rounded text-center" />
-                    <input type="text" class="text-2xl outline-none border border-gray-300 rounded text-center" />
-                </div>
-
-                <div class="max-w-80 mt-2 min-h-10 grid grid-cols-7 gap-2">
                     <!-- Email icon -->
                     <ion-icon class="w-6 h-6 my-auto" src="./assets/icons/email.svg" aria-hidden="true"></ion-icon>
                     <input type="text" class="text-2xl outline-none border border-gray-300 rounded text-center" />
@@ -32,13 +26,14 @@
                 </div>
 
                 <button class="flex text-center items-center bg-blue-600 text-white font-medium mb-6 py-2 px-4 rounded mt-6 hover:bg-blue-800">
-                    <span>Verificar códigos</span>
-                    <ion-icon class="w-6 h-6 ms-2" aria-hidden="true" name="finger-print-outline"></ion-icon>
+                    <span>Submit</span>
+                    <ion-icon class="w-6 h-6 ms-2" aria-hidden="true" name="checkmark-outline"></ion-icon>
                 </button>
 
                 <p class="text-xs text-gray-600 mb-4">
-                    ¿No recibiste los códigos? <span class="font-bold">Espera 59 segundos para solicitar códigos nuevos</span>
+                    Don't receive the code? <span class="font-bold">Wait 59 seconds to request a new code</span>
                 </p>
+
             </div>
 
             <footer class="pt-2 mt-6 w-full">
