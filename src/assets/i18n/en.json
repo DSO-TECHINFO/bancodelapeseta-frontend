@@ -7,6 +7,9 @@
   "payments.side.title":"Payments",
   "invoicing.side.title":"Invoicing",
   "trade.side.title":"Trade",
-  "reports.side.title":"Reports"
+  "reports.side.title":"Reports",
+  "cards.add": "Add new card",
+  "cards.total.balance":"Total balance of accounts"
+
 
 }

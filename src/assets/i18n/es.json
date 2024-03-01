@@ -7,5 +7,7 @@
   "payments.side.title":"Pagos",
   "invoicing.side.title":"Facturación",
   "trade.side.title":"Intercambios",
-  "reports.side.title":"Reportes"
+  "reports.side.title":"Reportes",
+  "cards.add": "Agregar nueva tarjeta",
+  "cards.total.balance":"Balance total de las cuentas"
 }
