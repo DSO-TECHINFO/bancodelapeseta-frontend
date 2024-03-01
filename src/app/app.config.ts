@@ -1,8 +1,8 @@
 // ANGULAR:
-import { ApplicationConfig, enableProdMode, isDevMode } from '@angular/core';
+import { ApplicationConfig, enableProdMode, isDevMode, importProvidersFrom } from '@angular/core';
 import { RouteReuseStrategy, provideRouter } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClient, withFetch, HttpClient } from '@angular/common/http';
 
 // IONIC:
 import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
@@ -11,13 +11,31 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import { environment } from 'environments/environment';
 import { routes } from './app.routes';
 
+//I18n
+import {  HttpClientModule } from "@angular/common/http";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 if (environment.production) { enableProdMode();}
 
 export const appConfig: ApplicationConfig = {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    importProvidersFrom(
+      HttpClientModule,
+      TranslateModule.forRoot({
+        defaultLanguage: 'en',
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+        }
+      }),
+    ),
     provideIonicAngular(),
     provideRouter(routes),
     provideServiceWorker('ngsw-worker.js', { enabled: !isDevMode(), registrationStrategy: 'registerWhenStable:30000' }),

@@ -1,0 +1,42 @@
+<div class="flex">
+  <div
+    class="bg-blue-950 p-3 pt-8 w-72 relative duration-300"
+    [ngClass]="{ 'w-20 h-screen': !isSidebarOpen, 'w-72 h-full': isSidebarOpen }"
+  >
+    <ion-icon
+      name="arrow-back-outline"
+      class="bg-white text-black text-3xl rounded-full absolute -right-3 top-9 border border-blue-950 cursor-pointer"
+      [ngClass]="{ 'rotate-180': !isSidebarOpen, '': isSidebarOpen }"
+      (click)="toggleSidebar()"
+    ></ion-icon>
+    <div class="flex items-center justify-center flex-col">
+      <img
+        src="/assets/images/sidebar/banco_blanco.png"
+        width="150"
+        class="{{ !isSidebarOpen ? 'hidden' : '' }}"
+      />
+      <img
+        src="/assets/images/sidebar/banco_icon.png"
+        width="30"
+        class="{{ !isSidebarOpen ? 'visible' : 'hidden' }}"
+      />
+    </div>
+
+    <div
+      id="nav"
+      class="w-full mt-5 flex flex-col gap-5 py-5"
+      [ngClass]="{ 'px-0': !isSidebarOpen, 'px-1': isSidebarOpen }"
+    >
+      <div *ngFor="let enlace of routerList">
+        <w-nav-link
+          [routerLink]="[enlace.ruta]"
+          [nombreRuta]="enlace.nombreRuta"
+          [iconFileName]="enlace.iconFileName"
+          [isSidebarOpen]="isSidebarOpen"
+          [iconWhiteName]="enlace.iconWhiteName"
+        >
+        </w-nav-link>
+      </div>
+    </div>
+  </div>
+</div>
