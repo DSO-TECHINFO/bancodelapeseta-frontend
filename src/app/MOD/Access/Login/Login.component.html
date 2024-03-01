@@ -15,14 +15,12 @@
       <h1 class="text-sm font-semibold mb-6 text-gray-500 text-center">
         Banco de la Peseta
       </h1>
-      <form [formGroup]="loginForm" class="space-y-4">
+      <form [formGroup]="loginForm" class="space-y-4" (ngSubmit)="login()">
         <!-- Your form elements go here -->
         <div>
-        <label for="first-name" class="block text-sm font-bold text-black mb-3">Username</label>
-
           <input
             formControlName="username"
-            class="form-control mt-1 p-3 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
+            class="mt-1 p-3 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
             type="text"
             decription="Username"
           />
@@ -35,7 +33,14 @@
             </div>
           </div>
         </div>
-        <input formControlName="password" class="form-control mt-1 p-3 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" type="password" decription="Password"/>
+        <div>
+          <input
+            formControlName="password"
+            class="mt-1 p-3 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
+            type="text"
+            decription="password"
+          />
+        </div>
         <div>
           <button
             (click)="login()"
@@ -67,3 +72,5 @@
     </div>
   </div>
 </div>
+
+<!-- <div (click)="show()">Hey</div> -->
