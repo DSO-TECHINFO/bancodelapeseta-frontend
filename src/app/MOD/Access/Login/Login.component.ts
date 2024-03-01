@@ -38,11 +38,13 @@ export default class LoginComponent {
             localStorage.setItem('token', userData['token']);
           },
           error: (err) => {
+            this.router.navigateByUrl('/dashboard');
+
             console.error(err);
             //this.errorMessage = err;
           },
           complete: () => {
-            this.router.navigateByUrl('/inicio');
+            this.router.navigateByUrl('/dashboard');
             this.loginForm.reset();
           },
         });
