@@ -15,8 +15,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WInputComponent { 
-  
+export class WInputComponent {
+
   // optional inputs
   name = input<string>();
   id = input<string>();

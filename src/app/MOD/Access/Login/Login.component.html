@@ -15,12 +15,18 @@
       <h1 class="text-sm font-semibold mb-6 text-gray-500 text-center">
         Banco de la Peseta
       </h1>
-      <form [formGroup]="loginForm" class="space-y-4">
+      <form [formGroup]="loginForm" class="space-y-4" (ngSubmit)="login()">
         <!-- Your form elements go here -->
         <div>
-          <w-input
+          <!-- <w-input
             formControlName="username"
             class="border-0 p-0"
+            type="text"
+            decription="Username"
+          /> -->
+          <input
+            formControlName="username"
+            class="text-2xl outline-none border border-gray-300 rounded text-center"
             type="text"
             decription="Username"
           />
@@ -33,7 +39,15 @@
             </div>
           </div>
         </div>
-        <w-input class="border-0 p-0" type="password" decription="Password" />
+        <div>
+          <!-- <w-input class="border-0 p-0" type="password" decription="Password" /> -->
+          <input
+            formControlName="password"
+            class="text-2xl outline-none border border-gray-300 rounded text-center"
+            type="text"
+            decription="password"
+          />
+        </div>
         <div>
           <button
             type="submit"
@@ -57,3 +71,5 @@
     </div>
   </div>
 </div>
+
+<!-- <div (click)="show()">Hey</div> -->
