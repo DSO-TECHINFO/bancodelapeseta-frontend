@@ -23,6 +23,7 @@
             class="border-0 p-0"
             type="text"
             decription="Username"
+            iconSrc="/assets/icons/user.svg"
           />
           <div
             *ngIf="username.invalid && (username.dirty || username.touched)"
@@ -33,7 +34,7 @@
             </div>
           </div>
         </div>
-        <w-input class="border-0 p-0" type="password" decription="Password" />
+        <w-input class="border-0 p-0" type="password" decription="Password" iconSrc="/assets/icons/reveal.svg" />
         <div>
           <button
             type="submit"
@@ -47,10 +48,17 @@
         <p>
           You do not have an account?
           <a
-            href="#"
             class="text-black hover:underline"
             [routerLink]="['/register']"
             >Sign up here</a
+          >
+        </p>
+        <p>
+          Did you lose your password?
+          <a
+            class="text-black hover:underline"
+            [routerLink]="['/forgot-password']"
+            >Get it here</a
           >
         </p>
       </div>

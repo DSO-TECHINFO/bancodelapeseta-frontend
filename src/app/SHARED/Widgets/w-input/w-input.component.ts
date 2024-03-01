@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, input } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'w-input',
   standalone: true,
   imports: [
-    CommonModule,
+    CommonModule, IonicModule
   ],
   templateUrl: './w-input.component.html',
   styles: `
@@ -15,8 +16,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WInputComponent { 
-  
+export class WInputComponent {
+  @Input() iconSrc: string = '';
   // optional inputs
   name = input<string>();
   id = input<string>();
