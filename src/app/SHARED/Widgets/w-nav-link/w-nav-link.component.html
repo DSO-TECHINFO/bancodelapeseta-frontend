@@ -1,0 +1,32 @@
+<a
+  [routerLink]="routerLink"
+  [routerLinkActive]="'active'"
+  [routerLinkActiveOptions]="{ exact: true }"
+  #rla="routerLinkActive"
+  class="w-full inline-flex space-x-2 items-center py-3 hover:bg-white/5 hover:rounded-md transition ease-linear duration-150 rounded-md"
+  [ngClass]="{
+    'bg-blue-200 rounded-md': rla.isActive,
+    'py-0 p-0': rla.isActive && !isSidebarOpen
+  }"
+>
+  <div>
+    <ion-icon
+      [src]="'/assets/icons/sidebar/' + (rla.isActive ? iconFileName : iconWhiteName)"
+      size="large"
+      class="px-2"
+      [ngClass]="{ 'active': rla.isActive }"
+    ></ion-icon>
+  </div>
+  <div class="flex flex-col">
+    <span
+      class="text-lg font-bold leading-5"
+      [ngClass]="{
+        'text-gray-950': rla.isActive && isSidebarOpen,
+        'text-gray-50': !rla.isActive || !isSidebarOpen,
+        hidden: !isSidebarOpen || (rla.isActive && !isSidebarOpen)
+      }"
+    >
+      {{ nombreRuta | translate }}
+    </span>
+  </div>
+</a>

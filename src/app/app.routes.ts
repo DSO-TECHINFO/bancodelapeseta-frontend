@@ -14,6 +14,31 @@ export const routes: Routes = [
 
   //* DASHBOARDS ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
 
+  {
+    path: 'dashboard',
+    title: 'Dashboard',
+    loadComponent: () => import('./MOD/Dashboard/dashboard.component'),
+    children: [
+      {
+        path: '',
+        title: 'Inicio',
+        loadComponent: () =>
+          import('./MOD/Dashboard/Pages/inicio/inicio.component'),
+      },
+      {
+        path: 'accounts',
+        title: 'Accounts',
+        loadComponent: () =>
+          import('./MOD/Dashboard/Pages/Accounts/accounts.component'),
+      },
+      {
+        path: 'cards',
+        title: 'Cards',
+        loadComponent: () =>
+          import('./MOD/Dashboard/Pages/cards/cards.component'),
+      },
+    ],
+  },
   //* RESOURCES ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
 
   // SUPPORT=====================:
