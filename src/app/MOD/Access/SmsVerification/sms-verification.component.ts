@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
@@ -9,4 +9,10 @@ import { IonicModule } from '@ionic/angular';
   imports: [CommonModule, IonicModule, RouterLink],
   templateUrl: './sms-verification.component.html',
 })
-export default class SmsVerificationComponent { }
+export default class SmsVerificationComponent implements OnInit {
+
+  ngOnInit(): void {
+    return 
+  }
+
+ }
