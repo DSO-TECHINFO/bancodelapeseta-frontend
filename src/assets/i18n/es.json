@@ -5,7 +5,7 @@
   "cards.side.title":"Tarjetas",
   "transactions.side.title":"Transacciones",
   "payments.side.title":"Pagos",
-  "invoicing.side.title":"Facturación",
-  "trade.side.title":"Intercambios",
-  "reports.side.title":"Reportes"
+  "loans.side.title":"Préstamos",
+  "tvp.side.title":"Tvp"
+
 }
