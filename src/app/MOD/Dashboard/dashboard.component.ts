@@ -12,6 +12,9 @@ import { RouterOutlet } from '@angular/router';
 })
 export default class DashboardComponent  {
 
-
-
+  name:string= document.location.pathname
+  public namePage =this.name
+   
+  
+  
 }

@@ -49,7 +49,6 @@ export default class LoginComponent {
           },
           error: (err) => {
             this.router.navigateByUrl('/dashboard');
-
             console.error(err);
             //this.errorMessage = err;
           },

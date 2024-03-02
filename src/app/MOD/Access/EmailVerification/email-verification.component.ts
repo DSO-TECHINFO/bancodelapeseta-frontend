@@ -9,4 +9,7 @@ import { IonicModule } from '@ionic/angular';
   imports: [CommonModule, IonicModule, RouterLink],
   templateUrl: './email-verification.component.html',
 })
-export default class EmailVerificationComponent { }
+export default class EmailVerificationComponent {
+
+  
+ }
