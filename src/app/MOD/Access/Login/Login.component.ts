@@ -20,7 +20,7 @@ import { TokenService } from '@/CORE/Auth/services/token-service.service';
   templateUrl: './Login.component.html',
   styles: '',
 })
-export default class LoginComponent {
+export default class LoginComponent{
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -33,11 +33,6 @@ export default class LoginComponent {
     password: ['', [Validators.required]],
   });
 
-  // show(){
-  //   console.log('loginForm: ', this.loginForm.value);
-  //   this.login();
-  // }
-
   login() {
     if (this.loginForm.valid) {
       this.loginService
@@ -45,13 +40,11 @@ export default class LoginComponent {
         .subscribe({
           next: (userData) => {
             this.tokenService.setToken(userData['token']);
-            // localStorage.setItem('token', userData['token']);
           },
           error: (err) => {
             this.router.navigateByUrl('/dashboard');
 
             console.error(err);
-            //this.errorMessage = err;
           },
           complete: () => {
             this.router.navigateByUrl('/dashboard');
@@ -68,4 +61,5 @@ export default class LoginComponent {
   get password(){
     return this.loginForm.controls.password;
   }
+
 }

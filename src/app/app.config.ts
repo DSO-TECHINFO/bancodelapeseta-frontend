@@ -45,7 +45,6 @@ export const appConfig: ApplicationConfig = {
       withFetch(),
       withInterceptors([TokenInterceptorService])
     ),
-    // provideHttpClient(withInterceptors([TokenInterceptorService])),
   ],
 };
 

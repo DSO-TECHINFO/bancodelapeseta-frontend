@@ -14,26 +14,33 @@
                 <h5 class="text-2xl sm:text-3xl font-medium mt-3">Verify your email</h5>
                 <h6 class="text-gray-600 mt-4">Enter the code we sent to your email</h6>
 
-                <div class="max-w-80 mt-6 min-h-10 grid grid-cols-7 gap-2">
-                    <!-- Email icon -->
-                    <ion-icon class="w-6 h-6 my-auto" src="./assets/icons/email.svg" aria-hidden="true"></ion-icon>
-                    <input type="text" class="text-2xl outline-none border border-gray-300 rounded text-center" />
-                    <input type="text" class="text-2xl outline-none border border-gray-300 rounded text-center" />
-                    <input type="text" class="text-2xl outline-none border border-gray-300 rounded text-center" />
-                    <input type="text" class="text-2xl outline-none border border-gray-300 rounded text-center" />
-                    <input type="text" class="text-2xl outline-none border border-gray-300 rounded text-center" />
-                    <input type="text" class="text-2xl outline-none border border-gray-300 rounded text-center" />
-                </div>
+                <form [formGroup]="verificationCodeForm" class="space-y-4" (ngSubmit)="onVerifyCode()">
+                  <div class="max-w-80 mt-6 min-h-10 grid grid-cols-7 gap-2">
+                      <!-- Email icon -->
+                      <ion-icon class="w-6 h-6 my-auto" src="./assets/icons/email.svg" aria-hidden="true"></ion-icon>
 
-                <button class="flex text-center items-center bg-blue-600 text-white font-medium mb-6 py-2 px-4 rounded mt-6 hover:bg-blue-800">
-                    <span>Submit</span>
-                    <ion-icon class="w-6 h-6 ms-2" aria-hidden="true" name="checkmark-outline"></ion-icon>
-                </button>
+                      <!-- <input type="tel" formControlName="numb1" (keypress)="onDigitInput($event)" class="text-2xl outline-none border border-gray-300 rounded text-center"/>
+                      <input type="tel" formControlName="numb2" (keypress)="onDigitInput($event)" class="text-2xl outline-none border border-gray-300 rounded text-center"/>
+                      <input type="tel" formControlName="numb3" (keypress)="onDigitInput($event)" class="text-2xl outline-none border border-gray-300 rounded text-center"/>
+                      <input type="tel" formControlName="numb4" (keypress)="onDigitInput($event)" class="text-2xl outline-none border border-gray-300 rounded text-center"/>
+                      <input type="tel" formControlName="numb5" (keypress)="onDigitInput($event)" class="text-2xl outline-none border border-gray-300 rounded text-center"/>
+                      <input type="tel" formControlName="numb6" (keypress)="onDigitInput($event)" class="text-2xl outline-none border border-gray-300 rounded text-center"/> -->
 
-                <p class="text-xs text-gray-600 mb-4">
-                    Don't receive the code? <span class="font-bold">Wait 59 seconds to request a new code</span>
-                </p>
+                      @for (item of inputConfigs; track item.name){
+                        <app-w-input [controlKey]="item.name" (digitInput)="onDigitInput($index, $event)" label="Input 7" #inputRef></app-w-input>
+                      }
 
+                  </div>
+
+                  <button [disabled]="verificationCodeForm.invalid" [ngClass]="{'hover:bg-blue-800': !verificationCodeForm.invalid}" class="flex text-center items-center bg-blue-600 text-white font-medium mb-6 py-2 px-4 rounded mt-6">
+                      <span>Submit</span>
+                      <ion-icon class="w-6 h-6 ms-2" aria-hidden="true" name="checkmark-outline"></ion-icon>
+                  </button>
+
+                  <p class="text-xs text-gray-600 mb-4">
+                      Don't receive the code? <span class="font-bold">Wait 59 seconds to request a new code</span>
+                  </p>
+                </form>
             </div>
 
             <footer class="pt-2 mt-6 w-full">
