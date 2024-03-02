@@ -20,10 +20,11 @@ export class WNavComponent {
   
   constructor(public translate: TranslateService) {
     translate.addLangs(['en', 'es']);
-    translate.setDefaultLang('en');
+    translate.setDefaultLang('es');
 
-    const browserLang = this.translate.getBrowserLang() || 'en';
-    this.translate.use(browserLang.match(/en|es/) ? browserLang : 'en');
+const browserLang = this.translate.getBrowserLang() || 'es';
+this.translate.use(browserLang.match(/en|es/) ? browserLang : 'es');
+
   }
 
   onLanguageChange(lang: string | null): void {
