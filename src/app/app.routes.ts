@@ -66,6 +66,24 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./MOD/Dashboard/Pages/cards/cards.component'),
       },
+      {
+        path: 'transactions',
+        title: 'Transactions',
+        loadComponent: () =>
+          import('./MOD/Dashboard/Pages/transactions/transactions.component'),
+      },
+      {
+        path: 'loans',
+        title: 'Loans',
+        loadComponent: () =>
+          import('./MOD/Dashboard/Pages/loans/loans.component'),
+      },
+      {
+        path: 'tvp',
+        title: 'Tvp',
+        loadComponent: () =>
+          import('./MOD/Dashboard/Pages/tvp/tvp.component'),
+      },
     ],
   },
   //* RESOURCES ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:

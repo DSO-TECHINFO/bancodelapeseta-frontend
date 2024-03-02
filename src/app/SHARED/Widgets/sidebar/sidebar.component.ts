@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { WNavLinkComponent } from '../w-nav-link/w-nav-link.component';
 import { IonicModule } from '@ionic/angular';
@@ -18,7 +18,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   ],
 })
 export class SidebarComponent {
+
   isSidebarOpen = true;
+
 
 
   toggleSidebar() {
@@ -39,7 +41,6 @@ export class SidebarComponent {
       ruta: '/dashboard',
       iconFileName: 'dashboard.svg',
       iconWhiteName: 'dashboardwhite.svg',
-
     },
     {
       nombreRuta: 'accounts.side.title',
@@ -57,38 +58,25 @@ export class SidebarComponent {
     },
     {
       nombreRuta: 'transactions.side.title',
-      ruta: 'accounts',
+      ruta: 'transactions',
       iconFileName: 'transactions.svg',
       iconWhiteName: 'transactionswhite.svg',
 
     },
     {
-      nombreRuta: 'payments.side.title',
-      ruta: 'accounts',
-      iconFileName: 'payments.svg',
-      iconWhiteName: 'paymentswhite.svg',
+      nombreRuta: 'loans.side.title',
+      ruta: 'loans',
+      iconFileName: 'loans.svg',
+      iconWhiteName: 'loanswhite.svg',
 
     },
     {
-      nombreRuta: 'invoicing.side.title',
-      ruta: 'accounts',
-      iconFileName: 'invoicing.svg',
-      iconWhiteName: 'invoicingwhite.svg',
-
-    },
-    {
-      nombreRuta: 'trade.side.title',
-      ruta: 'accounts',
-      iconFileName: 'trade.svg',
-      iconWhiteName: 'tradewhite.svg',
-
-    },
-    {
-      nombreRuta: 'reports.side.title',
-      ruta: 'client',
-      iconFileName: 'reports.svg',
-      iconWhiteName: 'reportswhite.svg',
+      nombreRuta: 'tvp.side.title',
+      ruta: 'tvp',
+      iconFileName: 'tvp.svg',
+      iconWhiteName: 'tvpwhite.svg',
 
     },
   ];
+
 }
