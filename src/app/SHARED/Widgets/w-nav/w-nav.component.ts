@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  input,
 } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { IonicModule } from '@ionic/angular';
@@ -16,6 +17,7 @@ import { IonicModule } from '@ionic/angular';
 export class WNavComponent {
   selectedLanguageIcon: string = 'spainflag.svg';
 
+  
   constructor(public translate: TranslateService) {
     translate.addLangs(['en', 'es']);
     translate.setDefaultLang('en');
@@ -31,5 +33,7 @@ export class WNavComponent {
   getIconForLanguage(lang: string): string {
     return lang === 'es' ? 'spainflag.svg' : 'usaflag.svg';
   }
+  
+  namePage = input<string>();
 
 }
