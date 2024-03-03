@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { WNavLinkComponent } from '../w-nav-link/w-nav-link.component';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { WNavLinkComponent } from '../w-nav/w-nav-link/w-nav-link.component';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TitleService } from '../w-nav/services/title.service';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -21,24 +23,38 @@ export class SidebarComponent {
 
   isSidebarOpen = true;
 
-
-
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
 
-  constructor(public translate: TranslateService) {
-    translate.addLangs(['en', 'es']);
-    translate.setDefaultLang('en');
 
-    const browserLang = this.translate.getBrowserLang() || 'en';
-    this.translate.use(browserLang.match(/en|es/) ? browserLang : 'en');
+  constructor(private titleService: TitleService, private router: Router) {
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
+      const rutaActual = this.router.url;
+
+      const rutaNormalizada = rutaActual.replace(/^\/|\/$/g, '');
+
+      const partesRuta = rutaNormalizada.split('/');
+      const ultimaParte = partesRuta[partesRuta.length - 1];
+
+      const rutaSeleccionada = this.routerList.find((enlace) => ultimaParte === enlace.ruta);
+
+      if (rutaSeleccionada) {
+        this.titleService.setPageTitle(rutaSeleccionada.nombreRuta);
+      }
+    });
+  }
+  enviarTitulo(nombreRuta: string) {
+    const rutaSeleccionada = this.routerList.find((enlace) => enlace.nombreRuta === nombreRuta);
+    if (rutaSeleccionada) {
+      this.titleService.setPageTitle(rutaSeleccionada.nombreRuta);
+    }
   }
 
   routerList = [
     {
       nombreRuta: 'dashboard.side.title',
-      ruta: '/dashboard',
+      ruta: 'inicio',
       iconFileName: 'dashboard.svg',
       iconWhiteName: 'dashboardwhite.svg',
     },

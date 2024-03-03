@@ -12,7 +12,6 @@ import { environment } from 'environments/environment';
 import { routes } from './app.routes';
 import { TokenInterceptorService } from './CORE/Auth/Interceptors/token-interceptor.service';
 
-
 //I18n
 import {  HttpClientModule } from "@angular/common/http";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
@@ -26,7 +25,7 @@ if (environment.production) { enableProdMode();}
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy,  },
     importProvidersFrom(
       HttpClientModule,
       TranslateModule.forRoot({

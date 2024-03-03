@@ -10,11 +10,8 @@ export const routes: Routes = [
   //* ACCESS    ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
 
   { path: 'login', title: 'Login', loadComponent: () => import('./MOD/Access/Login/Login.component')},
-  
-  { path: 'register', title: 'Login', loadComponent: () => import('./MOD/Access/Register/register.component'), canActivate: [AuthGuard], data: { expectedRol: ['admin', 'user']}},
 
-  { path: 'sms-verification', title: 'Verify your phone number', loadComponent: () => import('./MOD/Access/SmsVerification/sms-verification.component')},
-  { path: 'email-verification', title: 'Verify your email', loadComponent: () => import('./MOD/Access/EmailVerification/email-verification.component')},
+  { path: 'register', title: 'Login', loadComponent: () => import('./MOD/Access/Register/register.component'), canActivate: [AuthGuard], data: { expectedRol: ['admin', 'user']}},
   {
     path: 'personal-account',
     title:'Personal Account',
@@ -52,7 +49,7 @@ export const routes: Routes = [
     loadComponent: () => import('./MOD/Dashboard/dashboard.component'),
     children: [
       {
-        path: '',
+        path: 'inicio',
         title: 'Inicio',
         loadComponent: () =>
           import('./MOD/Dashboard/Pages/inicio/inicio.component'),
