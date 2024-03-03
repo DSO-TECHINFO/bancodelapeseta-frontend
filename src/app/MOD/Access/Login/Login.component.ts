@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { WInputComponent } from '@/SHARED/Widgets/w-input/w-input.component';
 import { LoginService } from './service/login.service';
-import { FormBuilder,FormGroup,ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder,FormControl,ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginRequest } from './interface/loginRequest.interface';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from '@/CORE/Auth/services/token-service.service';
@@ -21,6 +21,10 @@ import { TokenService } from '@/CORE/Auth/services/token-service.service';
   styles: '',
 })
 export default class LoginComponent {
+
+  title = 'custom-input'
+  titleControl = new FormControl<string>('');
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -44,12 +48,10 @@ export default class LoginComponent {
         .subscribe({
           next: (userData) => {
             this.tokenService.setToken(userData['token']);
-            // localStorage.setItem('token', userData['token']);
           },
           error: (err) => {
             this.router.navigateByUrl('/dashboard');
             console.error(err);
-            //this.errorMessage = err;
           },
           complete: () => {
             this.router.navigateByUrl('/dashboard');

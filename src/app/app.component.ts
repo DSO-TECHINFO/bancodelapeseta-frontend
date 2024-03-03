@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { NavigationEnd, Router, RouterOutlet} from '@angular/router';
 
@@ -21,6 +21,7 @@ import { LayoutService } from './LAYOUT/layout.service';
     //*Layout:
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
 
