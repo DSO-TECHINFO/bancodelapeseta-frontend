@@ -2,7 +2,7 @@
 import { ApplicationConfig, enableProdMode, isDevMode, importProvidersFrom } from '@angular/core';
 import { RouteReuseStrategy, provideRouter } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
-import { provideHttpClient, withFetch, HttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 
 // IONIC:
 import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
@@ -10,6 +10,8 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
 // APP:
 import { environment } from 'environments/environment';
 import { routes } from './app.routes';
+import { TokenInterceptorService } from './CORE/Auth/Interceptors/token-interceptor.service';
+
 
 //I18n
 import {  HttpClientModule } from "@angular/common/http";
@@ -39,7 +41,11 @@ export const appConfig: ApplicationConfig = {
     provideIonicAngular(),
     provideRouter(routes),
     provideServiceWorker('ngsw-worker.js', { enabled: !isDevMode(), registrationStrategy: 'registerWhenStable:30000' }),
-    provideHttpClient(withFetch()),
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([TokenInterceptorService])
+    ),
+    // provideHttpClient(withInterceptors([TokenInterceptorService])),
   ],
 };
 

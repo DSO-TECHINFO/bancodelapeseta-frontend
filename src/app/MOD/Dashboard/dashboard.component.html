@@ -1,10 +1,10 @@
-<div class="flex  w-screen h-screen antialiased text-slate-300 selection:bg-blue-600 selection:text-white">
-    <div class="flex relative w-screen">
+<div class="flex w-full antialiased text-slate-300 selection:bg-blue-600 selection:text-white">
+    <div class="flex w-screen">
 
       <app-sidebar/>
 
       <div class="text-black bg-white w-full">
-        <w-nav></w-nav>
+        <w-nav [namePage]="namePage"></w-nav>
         <div class="text-black px-10 mt-5 w-full">
 
           <router-outlet></router-outlet>
