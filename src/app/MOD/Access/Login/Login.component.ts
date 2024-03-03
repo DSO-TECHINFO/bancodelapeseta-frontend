@@ -20,11 +20,7 @@ import { TokenService } from '@/CORE/Auth/services/token-service.service';
   templateUrl: './Login.component.html',
   styles: '',
 })
-export default class LoginComponent {
-
-  title = 'custom-input'
-  titleControl = new FormControl<string>('');
-
+export default class LoginComponent{
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -40,7 +36,6 @@ export default class LoginComponent {
     username: ['', [Validators.required, Validators.minLength(4)]],
     password: ['', [Validators.required]],
   });
-  
   login() {
     if (this.loginForm.valid) {
       this.loginService
@@ -68,4 +63,5 @@ export default class LoginComponent {
   get password(){
     return this.loginForm.controls.password;
   }
+
 }

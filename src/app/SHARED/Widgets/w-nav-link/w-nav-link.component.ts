@@ -20,7 +20,6 @@ export class WNavLinkComponent {
 @Input() routerLinkActive: RouterLinkActive | undefined;
 @Input() isSidebarOpen: boolean | undefined;
 
-
 get isLinkActive(): boolean {
   return this.routerLinkActive?.isActive ?? false;
 }
@@ -30,6 +29,7 @@ get isLinkActive(): boolean {
     translate.setDefaultLang('en');
 
     const browserLang = this.translate.getBrowserLang() || 'en';
-  this.translate.use(browserLang.match(/en|es/) ? browserLang : 'en');
+    this.translate.use(browserLang.match(/en|es/) ? browserLang : 'en');
   }
+
 }
