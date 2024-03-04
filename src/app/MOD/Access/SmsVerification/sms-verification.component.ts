@@ -6,7 +6,7 @@ import { VerificationService } from '../Verification/service/verification.servic
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { VerificationCodeService } from '@/CORE/Context/service/verification-code-storage.service';
-import { CodeDto } from './dto/codeDto';
+import { CodeDto } from './dto/CodeDto';
 import { WInputComponent } from '@/SHARED/Widgets/input-app';
 
 @Component({
@@ -27,7 +27,7 @@ export default class SmsVerificationComponent implements OnInit{
   // inputRefs: ElementRef[] = [];
 
   code: string = '';
-  codeDto: CodeDto = new CodeDto();
+  // codeDto: CodeDto = new CodeDto();
 
   constructor(
     private verificationService: VerificationService,
@@ -101,14 +101,17 @@ export default class SmsVerificationComponent implements OnInit{
   }
 
   onVerifyCode(){
-    console.log('verificationCodeForm: ', this.verificationCodeForm.value);
-    this.onStringCode();
+    this.code = Object.values(this.verificationCodeForm.value).join('');
 
     if(this.code.length == 0){
       return
     }
 
-    this.verificationService.verifyPhoneCode(this.codeDto, 'api/v1/verify/phone').subscribe({
+    const codeDto = {
+      code: this.code
+    }
+
+    this.verificationService.verifyPhoneCode(codeDto as CodeDto, 'api/v1/verify/phone').subscribe({
       next: (userData) => {
         this.verificationCodeService.setSmsCode(this.code);
       },
@@ -122,19 +125,19 @@ export default class SmsVerificationComponent implements OnInit{
     })
   }
 
-  onStringCode(){
+  // onStringCode(){
 
-    const numb1 = this.verificationCodeForm.get('numb1')?.value;
-    const numb2 = this.verificationCodeForm.get('numb2')?.value;
-    const numb3 = this.verificationCodeForm.get('numb3')?.value;
-    const numb4 = this.verificationCodeForm.get('numb4')?.value;
-    const numb5 = this.verificationCodeForm.get('numb5')?.value;
-    const numb6 = this.verificationCodeForm.get('numb6')?.value;
+  //   const numb1 = this.verificationCodeForm.get('numb1')?.value;
+  //   const numb2 = this.verificationCodeForm.get('numb2')?.value;
+  //   const numb3 = this.verificationCodeForm.get('numb3')?.value;
+  //   const numb4 = this.verificationCodeForm.get('numb4')?.value;
+  //   const numb5 = this.verificationCodeForm.get('numb5')?.value;
+  //   const numb6 = this.verificationCodeForm.get('numb6')?.value;
 
-    this.code = `${numb1}${numb2}${numb3}${numb4}${numb5}${numb6}`;
-    this.codeDto.code = this.code;
+  //   this.code = `${numb1}${numb2}${numb3}${numb4}${numb5}${numb6}`;
+  //   this.codeDto.code = this.code;
 
-    console.log('code: ', this.code);
-  }
+  //   console.log('code: ', this.code);
+  // }
 
 }

@@ -1,4 +1,3 @@
-export class CodeDto{
-  constructor(){}
-  code: string = "";
+export interface CodeDto{
+  code: string;
 }

@@ -19,17 +19,12 @@ export class WNavLinkComponent {
 @Input() iconWhiteName: string = '';
 @Input() routerLinkActive: RouterLinkActive | undefined;
 @Input() isSidebarOpen: boolean | undefined;
+@Input() title: string = '';
 
 get isLinkActive(): boolean {
   return this.routerLinkActive?.isActive ?? false;
 }
 
-  constructor(public translate: TranslateService) {
-    translate.addLangs(['en', 'es']);
-    translate.setDefaultLang('en');
 
-    const browserLang = this.translate.getBrowserLang() || 'en';
-    this.translate.use(browserLang.match(/en|es/) ? browserLang : 'en');
-  }
 
 }

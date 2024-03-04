@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { WInputComponent } from '@/SHARED/Widgets/w-input/w-input.component';
 import { LoginService } from './service/login.service';
-import { FormBuilder,ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder,FormGroup,ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginRequest } from './interface/loginRequest.interface';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from '@/CORE/Auth/services/token-service.service';
@@ -26,7 +26,11 @@ export default class LoginComponent{
     private router: Router,
     private loginService: LoginService,
     private tokenService: TokenService
-  ) {}
+  ) {
+    if(tokenService.getToken()){
+      router.navigate(['/dashboard'])
+    }
+  }
 
   loginForm = this.formBuilder.group({
     username: ['', [Validators.required, Validators.minLength(4)]],
@@ -43,7 +47,6 @@ export default class LoginComponent{
           },
           error: (err) => {
             this.router.navigateByUrl('/dashboard');
-
             console.error(err);
           },
           complete: () => {
