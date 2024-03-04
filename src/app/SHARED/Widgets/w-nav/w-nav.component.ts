@@ -1,40 +1,49 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, input } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { IonicModule } from '@ionic/angular';
+import { WNavUserComponent } from './w-nav-user/w-nav-user.component';
+import { WNavLanguageComponent } from './w-nav-language/w-nav-language.component';
+import { WNavSearchComponent } from './w-nav-search/w-nav-search.component';
+import { WNavNotificationComponent } from './w-nav-notification/w-nav-notification.component';
+import { Subscription } from 'rxjs';
+import { TitleService } from './services/title.service';
 
 @Component({
   selector: 'w-nav',
   standalone: true,
-  imports: [CommonModule, TranslateModule, IonicModule],
+  imports: [
+    CommonModule,
+    TranslateModule,
+    IonicModule,
+    WNavUserComponent,
+    WNavLanguageComponent,
+    WNavSearchComponent,
+    WNavNotificationComponent,
+  ],
   templateUrl: './w-nav.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WNavComponent {
-  selectedLanguageIcon: string = 'spainflag.svg';
 
-  
-  constructor(public translate: TranslateService) {
-    translate.addLangs(['en', 'es']);
-    translate.setDefaultLang('es');
+export class WNavComponent implements OnDestroy, OnInit {
+  pageTitle: string = '';
+  private subscription: Subscription;
 
-const browserLang = this.translate.getBrowserLang() || 'es';
-this.translate.use(browserLang.match(/en|es/) ? browserLang : 'es');
-
+  constructor(private titleService: TitleService, private cdr: ChangeDetectorRef) {
+    this.subscription = this.titleService.getPageTitle().subscribe((title) => {
+      this.pageTitle = title;
+      this.cdr.detectChanges();
+    });
   }
 
-  onLanguageChange(lang: string | null): void {
-    this.selectedLanguageIcon = lang === 'es' ? 'spainflag.svg' : 'usaflag.svg';
-    this.translate.use(lang ?? 'en');
+  ngOnInit() {
+    this.titleService.getPageTitle().subscribe((title) => {
+      this.pageTitle = title;
+      this.cdr.detectChanges();
+    });
   }
-  getIconForLanguage(lang: string): string {
-    return lang === 'es' ? 'spainflag.svg' : 'usaflag.svg';
-  }
-  
-  namePage = input<string>();
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

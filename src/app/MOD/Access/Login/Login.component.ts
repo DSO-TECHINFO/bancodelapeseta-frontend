@@ -28,7 +28,7 @@ export default class LoginComponent {
     private tokenService: TokenService
   ) {
     if(tokenService.getToken()){
-      window.location.href = '/dashboard';
+      router.navigate(['/dashboard'])
     }
   }
 
@@ -36,7 +36,7 @@ export default class LoginComponent {
     username: ['', [Validators.required, Validators.minLength(4)]],
     password: ['', [Validators.required]],
   });
-  
+
   login() {
     if (this.loginForm.valid) {
       this.loginService
