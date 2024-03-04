@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
     WInputComponent,
   ],
   templateUrl: './register-company-form.component.html',
-  styleUrls: ['./register-company-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class RegisterCompanyFormComponent  {
