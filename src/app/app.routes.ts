@@ -21,6 +21,12 @@ export const routes: Routes = [
     loadComponent:()=>import('./MOD/Access/Register/PersonalAccount/PersonalAccount.component')
   },
   {
+    path: 'company-registration',
+    title: 'Login Company',
+    loadComponent: () => 
+    import('./MOD/Access/Register/register-company-form/register-company-form.component'),
+  },
+  {
     path: 'forgot-password',
     title: 'Forgot Password',
     loadComponent: () =>
