@@ -34,7 +34,7 @@
           [iconFileName]="enlace.iconFileName"
           [isSidebarOpen]="isSidebarOpen"
           [iconWhiteName]="enlace.iconWhiteName"
-          [title]="enlace.nombreRuta"
+          (click)="enviarTitulo(enlace.nombreRuta)"
         >
         </w-nav-link>
       </div>

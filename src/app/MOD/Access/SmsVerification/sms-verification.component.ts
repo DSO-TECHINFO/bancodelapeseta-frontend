@@ -12,7 +12,7 @@ import { IonicModule } from '@ionic/angular';
 export default class SmsVerificationComponent implements OnInit {
 
   ngOnInit(): void {
-    return 
+    return
   }
 
  }
