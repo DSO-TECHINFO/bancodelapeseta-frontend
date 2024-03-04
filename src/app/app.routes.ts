@@ -49,6 +49,11 @@ export const routes: Routes = [
     loadComponent: () => import('./MOD/Dashboard/dashboard.component'),
     children: [
       {
+        path: '',
+        redirectTo: 'inicio',
+        pathMatch: 'full',
+      },
+      {
         path: 'inicio',
         title: 'Inicio',
         loadComponent: () =>
