@@ -27,5 +27,6 @@ export class WInputComponent {
   // required inputs
   type = input.required<string>();
   decription = input.required<string>();
+  placeholder = input<string>();
 
 }
