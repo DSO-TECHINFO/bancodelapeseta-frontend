@@ -14,12 +14,6 @@ import { WInputComponent } from '@/SHARED/Widgets/input-app';
   imports: [CommonModule, IonicModule, RouterLink, ReactiveFormsModule, WInputComponent],
   templateUrl: './email-verification.component.html',
 })
-<<<<<<< HEAD
-export default class EmailVerificationComponent {
-
-  
- }
-=======
 export default class EmailVerificationComponent implements OnInit{
 
   @ViewChildren('inputRef', { read: ElementRef }) inputRefs!: QueryList<ElementRef>;
@@ -131,4 +125,3 @@ export default class EmailVerificationComponent implements OnInit{
   }
 
 }
->>>>>>> f410d64299f84d641954e25bd62a0580cd178b23

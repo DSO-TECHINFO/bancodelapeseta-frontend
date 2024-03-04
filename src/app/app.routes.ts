@@ -8,16 +8,8 @@ import { AuthGuard } from './CORE/Auth/guards/auth.guard';
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   //* ACCESS    ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
-
-<<<<<<< HEAD
-  { path: 'login', title: 'Login', loadComponent: () => import('./MOD/Access/Login/Login.component')},
-  
-  { path: 'register', title: 'Login', loadComponent: () => import('./MOD/Access/Register/register.component'), canActivate: [AuthGuard], data: { expectedRol: ['admin', 'user']}},
-
-=======
   { path: 'login', title: 'Login', loadComponent: () => import('./MOD/Access/Login/Login.component'), canActivate: [AuthGuard]},
   { path: 'register', title: 'Login', loadComponent: () => import('./MOD/Access/Register/register.component')},
->>>>>>> f410d64299f84d641954e25bd62a0580cd178b23
   { path: 'sms-verification', title: 'Verify your phone number', loadComponent: () => import('./MOD/Access/SmsVerification/sms-verification.component')},
   { path: 'email-verification', title: 'Verify your email', loadComponent: () => import('./MOD/Access/EmailVerification/email-verification.component')},
   {

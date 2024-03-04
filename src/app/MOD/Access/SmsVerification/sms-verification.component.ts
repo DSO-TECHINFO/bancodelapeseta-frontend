@@ -1,11 +1,6 @@
 import { CommonModule } from '@angular/common';
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
-=======
 import { Component, ElementRef, OnInit, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
->>>>>>> f410d64299f84d641954e25bd62a0580cd178b23
 import { IonicModule } from '@ionic/angular';
 import { VerificationService } from '../Verification/service/verification.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -20,15 +15,6 @@ import { WInputComponent } from '@/SHARED/Widgets/input-app';
   imports: [CommonModule, IonicModule, RouterLink, ReactiveFormsModule, WInputComponent],
   templateUrl: './sms-verification.component.html',
 })
-<<<<<<< HEAD
-export default class SmsVerificationComponent implements OnInit {
-
-  ngOnInit(): void {
-    return 
-  }
-
- }
-=======
 export default class SmsVerificationComponent implements OnInit{
 
   // @ViewChild('input1') inputNumb1!: ElementRef;
@@ -99,12 +85,12 @@ export default class SmsVerificationComponent implements OnInit{
     if (value.toString().length == 1) {
       const nextIndex = inputIndex + 1;
       if (nextIndex < this.inputRefs.length) {
-        console.log("En obtener el input adecuado: ", nextIndex);
+        //console.log("En obtener el input adecuado: ", nextIndex);
         const nextInputRef = this.inputRefs.get(nextIndex);
-        console.log("nextInputRef: ", nextInputRef);
+        //console.log("nextInputRef: ", nextInputRef);
         if (nextInputRef) {
           const nextInput = nextInputRef.nativeElement.firstChild;
-          console.log("nextInput: ", nextInput);
+          //console.log("nextInput: ", nextInput);
           if (nextInput) {
             nextInput.focus();
           }
@@ -152,4 +138,3 @@ export default class SmsVerificationComponent implements OnInit{
   }
 
 }
->>>>>>> f410d64299f84d641954e25bd62a0580cd178b23

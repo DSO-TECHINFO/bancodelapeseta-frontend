@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 
-export async function Auth(router: Router) {
+export function Auth(router: Router) {
   const token = sessionStorage.getItem('accessToken');
   const location = window.location.href;
   

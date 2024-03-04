@@ -27,9 +27,6 @@ export default class LoginComponent{
     private loginService: LoginService,
     private tokenService: TokenService
   ) {
-    if(tokenService.getToken()){
-      window.location.href = '/dashboard';
-    }
   }
 
   loginForm = this.formBuilder.group({
