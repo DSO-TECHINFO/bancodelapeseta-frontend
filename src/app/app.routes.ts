@@ -18,6 +18,12 @@ export const routes: Routes = [
     loadComponent:()=>import('./MOD/Access/Register/PersonalAccount/PersonalAccount.component')
   },
   {
+    path: 'company-registration',
+    title: 'Login Company',
+    loadComponent: () => 
+    import('./MOD/Access/Register/register-company-form/register-company-form.component'),
+  },
+  {
     path: 'forgot-password',
     title: 'Forgot Password',
     loadComponent: () =>
@@ -48,6 +54,11 @@ export const routes: Routes = [
     title: 'Dashboard',
     loadComponent: () => import('./MOD/Dashboard/dashboard.component'),
     children: [
+      {
+        path: '',
+        redirectTo: 'inicio',
+        pathMatch: 'full',
+      },
       {
         path: 'inicio',
         title: 'Inicio',
