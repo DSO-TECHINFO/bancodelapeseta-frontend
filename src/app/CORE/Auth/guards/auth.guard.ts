@@ -10,7 +10,11 @@ export const AuthGuard: CanActivateFn = (route, state) => {
   if (tokenService.getToken()){
     const url = router.createUrlTree(['/dashboard']);
     return url;
-  }else{
+  }else {
+    if(route.routeConfig?.path === 'dashboard'){
+      const url = router.createUrlTree(['/login']);
+      return url;
+    }
     return true;
   }
 

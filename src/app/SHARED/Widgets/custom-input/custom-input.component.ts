@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
@@ -15,13 +15,14 @@ import { IonicModule } from '@ionic/angular';
         [formControl]="inputValue"
         [label]="label"
         label-placement="floating"
-        class="mb-2"
+        class=""
+        type="text"
       ></ion-input>
     </ion-item>
   `,
   styles: ``,
 })
-export class CustomInputComponent implements OnInit {
+export class CustomInputComponent {
   @Input() label: string = 'Placeholder del Input';
   @Input() type!: string;
   @Input() icon!: string;
@@ -30,9 +31,6 @@ export class CustomInputComponent implements OnInit {
 
   constructor() {
     this.inputValue = new FormControl('', Validators.required);
-  }
-
-  ngOnInit(): void {
   }
 
 }

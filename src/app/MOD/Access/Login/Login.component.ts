@@ -35,6 +35,7 @@ export default class LoginComponent{
     username: ['', [Validators.required, Validators.minLength(4)]],
     password: ['', [Validators.required]],
   });
+  
   login() {
     if (this.loginForm.valid) {
       this.loginService
@@ -44,7 +45,6 @@ export default class LoginComponent{
             this.tokenService.setToken(userData['token']);
           },
           error: (err) => {
-            this.router.navigateByUrl('/dashboard');
             console.error(err);
           },
           complete: () => {
@@ -62,5 +62,5 @@ export default class LoginComponent{
   get password(){
     return this.loginForm.controls.password;
   }
-
+  public custonClass = 'mt-1 p-3 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300'
 }
