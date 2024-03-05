@@ -33,7 +33,6 @@ export class CustomInputComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    throw new Error('Debe ser Inicializado');
   }
 
 }
