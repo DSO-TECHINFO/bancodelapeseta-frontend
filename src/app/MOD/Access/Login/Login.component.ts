@@ -26,8 +26,7 @@ export default class LoginComponent{
     private router: Router,
     private loginService: LoginService,
     private tokenService: TokenService
-  ) {
-  }
+  ) {}
 
   loginForm = this.formBuilder.group({
     username: ['', [Validators.required, Validators.minLength(4)]],

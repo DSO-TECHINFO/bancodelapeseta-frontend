@@ -6,12 +6,12 @@ import { AuthGuard } from './CORE/Auth/guards/auth.guard';
 // canMatch: [authGuard],
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
   //* ACCESS    ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
-  { path: 'login', title: 'Login', loadComponent: () => import('./MOD/Access/Login/Login.component'), canActivate: [AuthGuard]},
+
+  { path: 'login', title: 'Login', loadComponent: () => import('./MOD/Access/Login/Login.component'), canActivate:[AuthGuard]},
+
   { path: 'register', title: 'Login', loadComponent: () => import('./MOD/Access/Register/register.component')},
-  { path: 'sms-verification', title: 'Verify your phone number', loadComponent: () => import('./MOD/Access/SmsVerification/sms-verification.component')},
-  { path: 'email-verification', title: 'Verify your email', loadComponent: () => import('./MOD/Access/EmailVerification/email-verification.component')},
   {
     path: 'personal-account',
     title:'Personal Account',
@@ -49,7 +49,7 @@ export const routes: Routes = [
     loadComponent: () => import('./MOD/Dashboard/dashboard.component'),
     children: [
       {
-        path: '',
+        path: 'inicio',
         title: 'Inicio',
         loadComponent: () =>
           import('./MOD/Dashboard/Pages/inicio/inicio.component'),
@@ -65,6 +65,24 @@ export const routes: Routes = [
         title: 'Cards',
         loadComponent: () =>
           import('./MOD/Dashboard/Pages/cards/cards.component'),
+      },
+      {
+        path: 'transactions',
+        title: 'Transactions',
+        loadComponent: () =>
+          import('./MOD/Dashboard/Pages/transactions/transactions.component'),
+      },
+      {
+        path: 'loans',
+        title: 'Loans',
+        loadComponent: () =>
+          import('./MOD/Dashboard/Pages/loans/loans.component'),
+      },
+      {
+        path: 'tvp',
+        title: 'Tvp',
+        loadComponent: () =>
+          import('./MOD/Dashboard/Pages/tvp/tvp.component'),
       },
     ],
   },

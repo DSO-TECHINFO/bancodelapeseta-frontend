@@ -24,7 +24,7 @@ export default class SmsVerificationComponent implements OnInit{
   // @ViewChild('input5') inputNumb5!: ElementRef;
   // @ViewChild('input6') inputNumb6!: ElementRef;
   @ViewChildren('inputRef', { read: ElementRef }) inputRefs!: QueryList<ElementRef>;
-  // inputRefs: ElementRef[] = [];
+  //inputRefs: ElementRef[] = [];
 
   code: string = '';
   codeDto: CodeDto = new CodeDto();
@@ -55,21 +55,7 @@ export default class SmsVerificationComponent implements OnInit{
   ];
 
   ngOnInit(): void {
-
-    this.verificationService.sendPhoneVerificationCode('api/v1/send/phone/verification/code').subscribe({
-      next: (userData) => {
-        this.verificationCodeService.setSmsExpCode(userData['expirationDate'])
-        console.log("Send userData sms verification code: ", userData);
-        // this.router.navigateByUrl('/sms-verification');
-      },
-      error: (err) => {
-        console.error('No se pudo enviar el código de verificación por correo. El error es: ', err);
-      },
-      complete: () => {
-        // this.verificationCodeForm.reset();
-      },
-    })
-    throw new Error('Method not implemented.');
+    return
   }
 
   onDigitInput(inputIndex: number, event: any) {
