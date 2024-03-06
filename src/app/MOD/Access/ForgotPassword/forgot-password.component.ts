@@ -12,7 +12,12 @@ import { RouterLink } from '@angular/router';
 
 })
 export default class ForgotPasswordComponent  {
+  isMobileVerification = false;
 
+  // Agrega esta función para cambiar el estado al hacer clic en el enlace
+  toggleMobileVerification() {
+    this.isMobileVerification = !this.isMobileVerification;
+  }
 
 
 }

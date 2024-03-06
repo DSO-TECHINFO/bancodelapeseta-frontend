@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     CommonModule,
   ],
   templateUrl: './w-header.component.html',
-  styleUrl: './w-header.component.scss',
+
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WHeaderComponent { }

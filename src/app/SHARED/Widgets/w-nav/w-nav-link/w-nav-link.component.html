@@ -3,15 +3,15 @@
   [routerLinkActive]="'active'"
   [routerLinkActiveOptions]="{ exact: true }"
   #rla="routerLinkActive"
-  class="w-full inline-flex space-x-2 items-center py-3 hover:bg-white/5 hover:rounded-md transition ease-linear duration-150 rounded-md"
+  class="w-full inline-flex space-x-2 items-center py-3 hover:bg-primary-dark transition ease-linear duration-150  pl-3  "
   [ngClass]="{
-    'bg-blue-200 rounded-md': rla.isActive,
+    'bg-primary-dark border-l-4 border-primary-light': rla.isActive,
     'py-0 p-0': rla.isActive && !isSidebarOpen
   }"
 >
   <div>
     <ion-icon
-      [src]="'/assets/icons/sidebar/' + (rla.isActive ? iconFileName : iconWhiteName)"
+      [src]="'/assets/icons/sidebar/' + iconFinalName"
       size="large"
       class="px-2"
       [ngClass]="{ 'active': rla.isActive }"
@@ -19,10 +19,10 @@
   </div>
   <div class="flex flex-col">
     <span
-      class="text-lg font-bold leading-5"
+      class="text-lg font-bold leading-5 text-primary-light"
       [ngClass]="{
-        'text-gray-950': rla.isActive && isSidebarOpen,
-        'text-gray-50': !rla.isActive || !isSidebarOpen,
+        '': rla.isActive && isSidebarOpen,
+        '': !rla.isActive || !isSidebarOpen,
         hidden: !isSidebarOpen || (rla.isActive && !isSidebarOpen)
       }"
     >

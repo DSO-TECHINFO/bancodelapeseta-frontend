@@ -1,12 +1,14 @@
-<div class="flex  w-screen h-screen antialiased text-slate-300 selection:bg-blue-600 selection:text-white">
-    <div class="flex relative w-screen">
+<div class="flex w-full antialiased text-slate-300 selection:bg-blue-600 selection:text-white">
+    <div class="flex w-screen">
 
       <app-sidebar/>
 
-      <div class="text-black bg-white w-full">
+      <div class="text-black bg-background-gray w-full">
         <w-nav></w-nav>
-        <div class="text-black px-10 mt-5 w-full">
-
+        <div class="text-black pl-14 pr-14 pt-5 pb-5 w-full">
+          <h2 class="self-center text-primary-text text-3xl font-semibold whitespace-nowrap ">
+            {{pageTitle| translate}}
+          </h2>
           <router-outlet></router-outlet>
         </div>
 

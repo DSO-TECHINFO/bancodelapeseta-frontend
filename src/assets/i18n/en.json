@@ -9,7 +9,9 @@
   "trade.side.title":"Trade",
   "reports.side.title":"Reports",
   "cards.add": "Add new card",
-  "cards.total.balance":"Total balance of accounts"
+  "cards.total.balance":"Total balance of accounts",
+  "loans.side.title":"Loans",
+  "tvp.side.title":"Tvp"
 
 
 }

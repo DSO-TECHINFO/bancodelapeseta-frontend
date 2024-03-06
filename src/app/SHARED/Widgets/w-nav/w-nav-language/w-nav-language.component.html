@@ -1,0 +1,44 @@
+<!-- En tu archivo HTML -->
+<div
+  class="relative z-50 text-base list-none"
+  id="language-dropdown-menu"
+>
+  <button
+    #buttonRef
+    class="flex items-center rounded-full"
+    type="button"
+    (click)="toggleDropdown()"
+  >
+    <ion-icon
+      src="/assets/icons/navbar/language.svg"
+      size="large"
+    ></ion-icon>
+  </button>
+
+  <!-- Dropdown -->
+  <div
+    *ngIf="isDropdownOpen"
+    class="z-10 absolute p-2 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 left-1/2 transform -translate-x-1/2 mt-2 flex flex-col space-y-2"
+  >
+    <button
+      class="flex items-center justify-center rounded-full p-1 hover:bg-blue-200"
+      type="button"
+      (click)="onLanguageChange('es'); closeDropdown()"
+    >
+      <ion-icon
+        [src]="'/assets/icons/navbar/' + getIconForLanguage('es')"
+        size="large"
+      ></ion-icon>
+    </button>
+    <button
+      class="flex items-center justify-center rounded-full p-1 hover:bg-blue-200"
+      type="button"
+      (click)="onLanguageChange('en'); closeDropdown()"
+    >
+      <ion-icon
+        [src]="'/assets/icons/navbar/' + getIconForLanguage('en')"
+        size="large"
+      ></ion-icon>
+    </button>
+  </div>
+</div>

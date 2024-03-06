@@ -1,20 +1,27 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './CORE/Auth/guards/auth.guard';
+
 // import { authGuard, noAuthGuard } from './CORE/Auth/auth.guard';
 // canMatch: [noAuthGuard],
 // canMatch: [authGuard],
+
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   //* ACCESS    ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
 
+  { path: 'login', title: 'Login', loadComponent: () => import('./MOD/Access/Login/Login.component')},
+
+  { path: 'register', title: 'Login', loadComponent: () => import('./MOD/Access/Register/register.component'), canActivate: [AuthGuard], data: { expectedRol: ['admin', 'user']}},
   {
-    path: 'login',
-    title: 'Login',
-    loadComponent: () => import('./MOD/Access/Login/Login.component'),
+    path: 'personal-account',
+    title:'Personal Account',
+    loadComponent:()=>import('./MOD/Access/Register/PersonalAccount/PersonalAccount.component')
   },
   {
-    path: 'register',
-    title: 'Login',
-    loadComponent: () => import('./MOD/Access/Register/register.component'),
+    path: 'company-registration',
+    title: 'Login Company',
+    loadComponent: () =>
+    import('./MOD/Access/Register/register-company-form/register-company-form.component'),
   },
   {
     path: 'forgot-password',
@@ -42,7 +49,6 @@ export const routes: Routes = [
   },
 
   //* DASHBOARDS ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
-
   {
     path: 'dashboard',
     title: 'Dashboard',
@@ -50,6 +56,11 @@ export const routes: Routes = [
     children: [
       {
         path: '',
+        redirectTo: 'inicio',
+        pathMatch: 'full',
+      },
+      {
+        path: 'inicio',
         title: 'Inicio',
         loadComponent: () =>
           import('./MOD/Dashboard/Pages/inicio/inicio.component'),
@@ -65,6 +76,24 @@ export const routes: Routes = [
         title: 'Cards',
         loadComponent: () =>
           import('./MOD/Dashboard/Pages/cards/cards.component'),
+      },
+      {
+        path: 'transactions',
+        title: 'Transactions',
+        loadComponent: () =>
+          import('./MOD/Dashboard/Pages/transactions/transactions.component'),
+      },
+      {
+        path: 'loans',
+        title: 'Loans',
+        loadComponent: () =>
+          import('./MOD/Dashboard/Pages/loans/loans.component'),
+      },
+      {
+        path: 'tvp',
+        title: 'Tvp',
+        loadComponent: () =>
+          import('./MOD/Dashboard/Pages/tvp/tvp.component'),
       },
     ],
   },

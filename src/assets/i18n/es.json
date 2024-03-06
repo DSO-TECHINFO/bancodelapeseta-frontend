@@ -9,5 +9,8 @@
   "trade.side.title":"Intercambios",
   "reports.side.title":"Reportes",
   "cards.add": "Agregar nueva tarjeta",
-  "cards.total.balance":"Balance total de las cuentas"
+  "cards.total.balance":"Balance total de las cuentas",
+  "loans.side.title":"Préstamos",
+  "tvp.side.title":"Tvp"
+
 }
