@@ -20,7 +20,7 @@ export const routes: Routes = [
   {
     path: 'company-registration',
     title: 'Login Company',
-    loadComponent: () => 
+    loadComponent: () =>
     import('./MOD/Access/Register/register-company-form/register-company-form.component'),
   },
   {

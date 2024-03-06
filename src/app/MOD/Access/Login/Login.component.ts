@@ -7,6 +7,7 @@ import { FormBuilder,FormGroup,ReactiveFormsModule, Validators } from '@angular/
 import { LoginRequest } from './interface/loginRequest.interface';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from '@/CORE/Auth/services/token-service.service';
+import { CustomInputComponent } from '@/SHARED/Widgets/custom-input/custom-input.component';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,9 @@ import { TokenService } from '@/CORE/Auth/services/token-service.service';
     RouterLink,
     ReactiveFormsModule,
     HttpClientModule,
-    WInputComponent],
+    WInputComponent,
+    CustomInputComponent
+  ],
   templateUrl: './Login.component.html',
   styles: '',
 })
@@ -47,7 +50,6 @@ export default class LoginComponent {
             // localStorage.setItem('token', userData['token']);
           },
           error: (err) => {
-            this.router.navigateByUrl('/dashboard');
             console.error(err);
             //this.errorMessage = err;
           },
