@@ -1,31 +1,33 @@
 <div
-  class="row flex flex-col w-screen h-screen align-content-center justify-content-center gap-3 text-center"
+  class="row flex flex-col w-screen h-screen align-content-center justify-content-center gap-2 text-center"
 >
   <div>
     <img src="../../assets/bancoP.png" width="100px" alt="" class="mt-2" />
   </div>
-  <h3 class="">Creat your account</h3>
+  <h3 class="text-3xl font-bold">Creat your account</h3>
 
   <div class="flex md:flex-row justify-center gap-3">
     <div
       class="bg-gradient-to-r from-blue-500 via-teal-300 to-indigo-500 rounded-2xl h-[200px] w-[300px] flex flex-col items-center justify-end"
     >
-      <div class="flex flex-row">
-        <a class="text-white" [routerLink]="['/company-registration']">Create company account</a>
+      <div class="flex flex-col items-center justify-around  h-full">
+        <img src="../../../../assets/images/register/area personal.png" width="100px" alt="">
+        <a class="text-white font-bold" [routerLink]="['/company-registration']">Create company account</a>
       </div>
     </div>
 
-    <div class="flex md:flex-row justify-items-center">
-      <div
-        class="bg-gradient-to-r from-blue-500 via-teal-300 to-indigo-500 rounded-2xl h-[200px] w-[300px] flex flex-col items-center justify-end"
-      >
-        <div class="flex flex-row">
-          <a class="text-white" [routerLink]="['/personal-account']"
-            >Create personal account</a
-          >
-        </div>
-      </div>
+    <div
+    class="bg-gradient-to-r from-blue-500 via-teal-300 to-indigo-500 rounded-2xl h-[200px] w-[300px] flex flex-col items-center justify-end"
+  >
+    <div class="flex flex-col items-center justify-around h-full">
+      <img src="../../../../assets/images/register/persona.png" width="100px" alt="">
+      <a class="text-white font-bold" [routerLink]="['/personal-account']"
+      >Create personal account</a
+    >
     </div>
+  </div>
+
+    
 
   </div>
   <div class="flex flex-col gap-2">

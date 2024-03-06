@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener, } from '@angular/core';
+import { LogoutService } from '../services/logout.service';
 
 @Component({
   selector: 'w-nav-user',
@@ -9,7 +10,7 @@ import { Component, ElementRef, HostListener, } from '@angular/core';
 })
 export class WNavUserComponent  {
 
-  constructor(private elRef: ElementRef) { }
+  constructor(private elRef: ElementRef, private logoutService: LogoutService) { }
 
   //dropdown user
   isDropdownOpen = false;
@@ -21,7 +22,11 @@ export class WNavUserComponent  {
     if (!this.elRef.nativeElement.contains(event.target)) {
       this.isDropdownOpen = false;
     }
-  }
 
+  }
+  logout(): void {
+    this.logoutService.logout();
+
+  }
 
 }

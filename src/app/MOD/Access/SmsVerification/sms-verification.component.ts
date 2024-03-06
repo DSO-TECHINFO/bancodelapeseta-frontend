@@ -10,6 +10,7 @@ import { CodeDto } from './dto/CodeDto';
 import { WInputComponent } from '@/SHARED/Widgets/input-app';
 import { ValidationService } from '@/GENERIC/UTILS/validation.service';
 
+
 @Component({
   selector: 'app-sms-verification',
   standalone: true,
@@ -28,6 +29,7 @@ export default class SmsVerificationComponent implements OnInit{
     private formBuilder: FormBuilder,
     private verificationCodeService: VerificationCodeService,
     private validationService: ValidationService
+
   ){ }
 
   verificationCodeForm = this.formBuilder.group({
@@ -107,6 +109,7 @@ export default class SmsVerificationComponent implements OnInit{
     }
 
     this.verificationService.verifyPhoneCode(codeDto as CodeDto, 'api/v1/verify/phone').subscribe({
+
       next: (userData) => {
         this.verificationCodeService.setSmsCode(this.code);
       },

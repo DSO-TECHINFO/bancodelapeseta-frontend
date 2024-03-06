@@ -15,6 +15,7 @@ import { IonicModule } from '@ionic/angular';
   }],
   templateUrl: './input-app.html',
   styleUrls: ['./input-app.css']
+
 })
 export class WInputComponent implements OnInit {
   @Input({ required: true}) controlKey: string = '';
@@ -27,6 +28,7 @@ export class WInputComponent implements OnInit {
   @Input() maxLength?: number;
   // @Input() inputConfigs: any[] = [];
   // @Input() form: FormGroup = new FormGroup({ control: new FormControl('') });
+
   @Output() digitInput = new EventEmitter<any>();
 
   // constructor(private formBuilder: FormBuilder) {}

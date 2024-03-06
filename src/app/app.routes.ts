@@ -1,12 +1,14 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from './CORE/Auth/guards/auth.guard';
+import { DashGuard } from './CORE/Auth/guards/dash.guard';
+DashGuard
 
 // import { authGuard, noAuthGuard } from './CORE/Auth/auth.guard';
 // canMatch: [noAuthGuard],
 // canMatch: [authGuard],
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
   //* ACCESS    ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
 
   { path: 'login', title: 'Login', loadComponent: () => import('./MOD/Access/Login/Login.component'), canActivate: [AuthGuard]},
@@ -59,7 +61,7 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     title: 'Dashboard',
-    loadComponent: () => import('./MOD/Dashboard/dashboard.component'),
+    loadComponent: () => import('./MOD/Dashboard/dashboard.component'),canActivate:[DashGuard],
     children: [
       {
         path: '',

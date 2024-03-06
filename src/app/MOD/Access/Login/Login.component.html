@@ -20,6 +20,7 @@
         <div>
           <app-w-input controlKey="username" inputType="onlyText" error="Username is required" [required]="true" [minLength]="4"></app-w-input>
         </div>
+
         <div>
           <app-w-input controlKey="password" inputType="password" error="Password is required" [required]="true"></app-w-input>
         </div>
@@ -36,9 +37,7 @@
       <div class="mt-4 text-sm text-gray-600 text-center">
         <p>
           You do not have an account?
-          <a
-            class="text-black hover:underline"
-            [routerLink]="['/register']"
+          <a class="text-black hover:underline" [routerLink]="['/register']"
             >Sign up here</a
           >
         </p>

@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 // import { WInputComponent } from '@/SHARED/Widgets/w-input/w-input.component';
 import { LoginService } from './service/login.service';
-import { FormBuilder,FormGroup,ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder,FormControl,ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginRequest } from './interface/loginRequest.interface';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from '@/CORE/Auth/services/token-service.service';
 import { WInputComponent } from '@/SHARED/Widgets/input-app';
+
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,9 @@ import { WInputComponent } from '@/SHARED/Widgets/input-app';
     RouterLink,
     ReactiveFormsModule,
     HttpClientModule,
-    WInputComponent],
+    WInputComponent,
+    CustomInputComponent
+  ],
   templateUrl: './Login.component.html',
   styles: '',
 })
@@ -27,17 +30,19 @@ export default class LoginComponent{
     private router: Router,
     private loginService: LoginService,
     private tokenService: TokenService
+
   ) {
     if(tokenService.getToken()){
       router.navigate(['/dashboard'])
     }
   }
   // customPattern: string = '^[0-9@]*$'
+
   loginForm = this.formBuilder.group({
     // username: ['', [Validators.required, Validators.minLength(4)]],
     // password: ['', [Validators.required]],
   });
-
+  
   login() {
 
     if (this.loginForm.valid) {
@@ -59,6 +64,7 @@ export default class LoginComponent{
       this.loginForm.markAllAsTouched();
     }
   }
+
   // get username(){
   //   return this.loginForm.controls.username;
   // }

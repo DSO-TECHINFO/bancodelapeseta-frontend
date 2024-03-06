@@ -9,6 +9,7 @@ import { CodeDto } from '../SmsVerification/dto/CodeDto';
 import { WInputComponent } from '@/SHARED/Widgets/input-app';
 import { ValidationService } from '@/GENERIC/UTILS/validation.service';
 
+
 @Component({
   selector: 'app-email-verification',
   standalone: true,
@@ -31,6 +32,7 @@ export default class EmailVerificationComponent implements OnInit{
 
   verificationCodeForm = this.formBuilder.group({});
 
+
   inputConfigs = [
     { name: 'numb1', type: 'tel', visible: true },
     { name: 'numb2', type: 'tel', visible: true },
@@ -50,6 +52,7 @@ export default class EmailVerificationComponent implements OnInit{
         console.error('No se pudo enviar el código de verificación por correo. El error es: ', err);
       },
       complete: () => {
+
       },
     })
     throw new Error('Method not implemented.');
@@ -66,7 +69,6 @@ export default class EmailVerificationComponent implements OnInit{
   }
 
   onVerifyCode(){
-
     this.code = Object.values(this.verificationCodeForm.value).join('');
 
     if(this.code.length == 0){
@@ -78,6 +80,7 @@ export default class EmailVerificationComponent implements OnInit{
     }
 
     this.verificationService.verifyEmailCode(codeDto as CodeDto, 'api/v1/verify/email').subscribe({
+
       next: (userData) => {
         this.verificationCodeService.setEmailCode(this.code);
       },

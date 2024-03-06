@@ -10,8 +10,10 @@ import { CreateSign } from "../../CreateSign/interface/CreateSign.interface";
 })
 export class VerificationService {
   constructor(private http: HttpClient) {}
-  // urlBase: string = 'https://api.bancodelapeseta.com';
-  urlBase: string = 'http://localhost:8080';
+
+  urlBase: string = 'https://api.bancodelapeseta.com';
+  // urlBase: string = 'http://localhost:8080';
+
 
   public sendEmailVerificationCode(uri: string): Observable<any>{
     return this.http
@@ -46,6 +48,7 @@ export class VerificationService {
   public createSign(body: CreateSign, uri: string): Observable<any>{
     return this.http
     .post<any>(`${this.urlBase}/${uri}`, body)
+
     .pipe(catchError(this.handleError));
   }
 
