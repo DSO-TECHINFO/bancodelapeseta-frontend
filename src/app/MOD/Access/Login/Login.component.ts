@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
-import { WInputComponent } from '@/SHARED/Widgets/w-input/w-input.component';
+// import { WInputComponent } from '@/SHARED/Widgets/w-input/w-input.component';
 import { LoginService } from './service/login.service';
 import { FormBuilder,FormGroup,ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginRequest } from './interface/loginRequest.interface';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from '@/CORE/Auth/services/token-service.service';
+import { WInputComponent } from '@/SHARED/Widgets/input-app';
 
 @Component({
   selector: 'app-login',
@@ -31,13 +32,14 @@ export default class LoginComponent{
       router.navigate(['/dashboard'])
     }
   }
-
+  // customPattern: string = '^[0-9@]*$'
   loginForm = this.formBuilder.group({
-    username: ['', [Validators.required, Validators.minLength(4)]],
-    password: ['', [Validators.required]],
+    // username: ['', [Validators.required, Validators.minLength(4)]],
+    // password: ['', [Validators.required]],
   });
 
   login() {
+
     if (this.loginForm.valid) {
       this.loginService
         .login(this.loginForm.value as LoginRequest, 'api/v1/auth/login')
@@ -46,7 +48,6 @@ export default class LoginComponent{
             this.tokenService.setToken(userData['token']);
           },
           error: (err) => {
-            this.router.navigateByUrl('/dashboard');
             console.error(err);
           },
           complete: () => {
@@ -58,11 +59,11 @@ export default class LoginComponent{
       this.loginForm.markAllAsTouched();
     }
   }
-  get username(){
-    return this.loginForm.controls.username;
-  }
-  get password(){
-    return this.loginForm.controls.password;
-  }
+  // get username(){
+  //   return this.loginForm.controls.username;
+  // }
+  // get password(){
+  //   return this.loginForm.controls.password;
+  // }
 
 }

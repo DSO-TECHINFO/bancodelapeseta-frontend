@@ -8,6 +8,7 @@ import { VerificationCodeService } from '@/CORE/Context/service/verification-cod
 import { WInputComponent } from '@/SHARED/Widgets/input-app';
 import { UnsignedVerificationRequest } from './interface/UnsignedVerificationRequest';
 import { CreateSign } from './interface/CreateSign.interface';
+import { ValidationService } from '@/GENERIC/UTILS/validation.service';
 
 @Component({
   selector: 'app-create-sign',
@@ -17,22 +18,36 @@ import { CreateSign } from './interface/CreateSign.interface';
 })
 export default class CreateSignComponent implements OnInit{
 
-  @ViewChildren('inputRef', { read: ElementRef }) inputRefs!: QueryList<ElementRef>;
+  @ViewChildren('inputFirstFormRef', { read: ElementRef }) inputFirstFormRef!: QueryList<ElementRef>;
+  @ViewChildren('inputSecondFormRef', { read: ElementRef }) inputSecondFormRef!: QueryList<ElementRef>;
 
   unsignedCode: string = '';
   emailCode: string = '';
   phoneCode: string = '';
+  showRewriteSign: boolean = false;
+  stringSignCode: string = '';
 
   constructor(
     private verificationService: VerificationService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private verificationCodeService: VerificationCodeService
+    private verificationCodeService: VerificationCodeService,
+    private validationService: ValidationService
   ){}
 
   signCodeForm = this.formBuilder.group({});
+  signCodeFormVerify = this.formBuilder.group({});
 
-  inputConfigs = [
+  inputFirstConfigs = [
+    { name: 'numb1', type: 'tel', visible: true },
+    { name: 'numb2', type: 'tel', visible: true },
+    { name: 'numb3', type: 'tel', visible: true },
+    { name: 'numb4', type: 'tel', visible: true },
+    { name: 'numb5', type: 'tel', visible: true },
+    { name: 'numb6', type: 'tel', visible: true },
+  ];
+
+  inputSecondConfigs = [
     { name: 'numb1', type: 'tel', visible: true },
     { name: 'numb2', type: 'tel', visible: true },
     { name: 'numb3', type: 'tel', visible: true },
@@ -72,29 +87,36 @@ export default class CreateSignComponent implements OnInit{
     throw new Error('Method not implemented.');
   }
 
-  onDigitInput(inputIndex: number, event: any) {
+  onDigitFirstFormInput(inputIndex: number, event: any, form: string) {
 
     const value = event.event.key;
+    let formRef: QueryList<ElementRef>;
+    if(form === '1'){
+      formRef = this.inputFirstFormRef;
+    }else if(form === '2'){
+      formRef = this.inputSecondFormRef;
+    }
 
     if (value.toString().length == 1) {
-      const nextIndex = inputIndex + 1;
-      if (nextIndex < this.inputRefs.length) {
-        console.log("En obtener el input adecuado: ", nextIndex);
-        const nextInputRef = this.inputRefs.get(nextIndex);
-        console.log("nextInputRef: ", nextInputRef);
-        if (nextInputRef) {
-          const nextInput = nextInputRef.nativeElement.firstChild;
-          console.log("nextInput: ", nextInput);
-          if (nextInput) {
-            nextInput.focus();
-          }
-        }
-      }
+      this.validationService.onDigitInputFocusNext(inputIndex, formRef!)
+      // const nextIndex = inputIndex + 1;
+      // if (nextIndex < formRef!.length) {
+      //   console.log("En obtener el input adecuado: ", nextIndex);
+      //   const nextInputRef = formRef!.get(nextIndex);
+      //   console.log("nextInputRef: ", nextInputRef);
+      //   if (nextInputRef) {
+      //     const nextInput = nextInputRef.nativeElement.firstChild;
+      //     console.log("nextInput: ", nextInput);
+      //     if (nextInput) {
+      //       nextInput.focus();
+      //     }
+      //   }
+      // }
     }
 
   }
 
-  onSendSign(){
+  onVerifySign(){
 
     const values: string[] = Object.values(this.signCodeForm.value);
     const numberCount: { [ key: number ] : number } = {};
@@ -116,14 +138,20 @@ export default class CreateSignComponent implements OnInit{
       return;
     }
 
-    console.log("No debería llegar a este console.log()");
+    this.stringSignCode = stringValues;
 
-    if(this.unsignedCode.length == 0){
+    this.showRewriteSign = true;
+
+
+  }
+
+  onSendSign(){
+    if(this.stringSignCode.length == 0){
       return
     }
 
     const createSign = {
-      sign: stringValues,
+      sign: this.stringSignCode,
       verificationCode: this.verificationCodeService.getVerificationCode()
     }
 
@@ -139,6 +167,16 @@ export default class CreateSignComponent implements OnInit{
         this.signCodeForm.reset();
       },
     })
+    console.log("En enviar la firma");
+  }
+
+  onVerifyRewriteSign(){
+    const valueRewrite: string = Object.values(this.signCodeFormVerify.value).join('');
+    if(this.stringSignCode.includes(valueRewrite)){
+      console.log("Las firmas coinciden");
+      this.onSendSign();
+    }
+
   }
 
 }

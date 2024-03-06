@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 import { VerificationCodeService } from '@/CORE/Context/service/verification-code-storage.service';
 import { CodeDto } from './dto/CodeDto';
 import { WInputComponent } from '@/SHARED/Widgets/input-app';
+import { ValidationService } from '@/GENERIC/UTILS/validation.service';
 
 @Component({
   selector: 'app-sms-verification',
@@ -17,23 +18,16 @@ import { WInputComponent } from '@/SHARED/Widgets/input-app';
 })
 export default class SmsVerificationComponent implements OnInit{
 
-  // @ViewChild('input1') inputNumb1!: ElementRef;
-  // @ViewChild('input2') inputNumb2!: ElementRef;
-  // @ViewChild('input3') inputNumb3!: ElementRef;
-  // @ViewChild('input4') inputNumb4!: ElementRef;
-  // @ViewChild('input5') inputNumb5!: ElementRef;
-  // @ViewChild('input6') inputNumb6!: ElementRef;
   @ViewChildren('inputRef', { read: ElementRef }) inputRefs!: QueryList<ElementRef>;
-  // inputRefs: ElementRef[] = [];
 
   code: string = '';
-  // codeDto: CodeDto = new CodeDto();
 
   constructor(
     private verificationService: VerificationService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private verificationCodeService: VerificationCodeService
+    private verificationCodeService: VerificationCodeService,
+    private validationService: ValidationService
   ){ }
 
   verificationCodeForm = this.formBuilder.group({
@@ -83,19 +77,20 @@ export default class SmsVerificationComponent implements OnInit{
     // }
 
     if (value.toString().length == 1) {
-      const nextIndex = inputIndex + 1;
-      if (nextIndex < this.inputRefs.length) {
-        console.log("En obtener el input adecuado: ", nextIndex);
-        const nextInputRef = this.inputRefs.get(nextIndex);
-        console.log("nextInputRef: ", nextInputRef);
-        if (nextInputRef) {
-          const nextInput = nextInputRef.nativeElement.firstChild;
-          console.log("nextInput: ", nextInput);
-          if (nextInput) {
-            nextInput.focus();
-          }
-        }
-      }
+      this.validationService.onDigitInputFocusNext(inputIndex, this.inputRefs)
+      // const nextIndex = inputIndex + 1;
+      // if (nextIndex < this.inputRefs.length) {
+      //   console.log("En obtener el input adecuado: ", nextIndex);
+      //   const nextInputRef = this.inputRefs.get(nextIndex);
+      //   console.log("nextInputRef: ", nextInputRef);
+      //   if (nextInputRef) {
+      //     const nextInput = nextInputRef.nativeElement.firstChild;
+      //     console.log("nextInput: ", nextInput);
+      //     if (nextInput) {
+      //       nextInput.focus();
+      //     }
+      //   }
+      // }
     }
 
   }
