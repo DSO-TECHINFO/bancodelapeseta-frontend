@@ -1,30 +1,52 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from './CORE/Auth/guards/auth.guard';
 import { DashGuard } from './CORE/Auth/guards/dash.guard';
-DashGuard
+DashGuard;
 
 // import { authGuard, noAuthGuard } from './CORE/Auth/auth.guard';
 // canMatch: [noAuthGuard],
 // canMatch: [authGuard],
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   //* ACCESS    ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
 
-  { path: 'login', title: 'Login', loadComponent: () => import('./MOD/Access/Login/Login.component'), canActivate: [AuthGuard]},
-  { path: 'register', title: 'Login', loadComponent: () => import('./MOD/Access/Register/register.component')},
-  { path: 'sms-verification', title: 'Verify your phone number', loadComponent: () => import('./MOD/Access/SmsVerification/sms-verification.component')},
-  { path: 'email-verification', title: 'Verify your email', loadComponent: () => import('./MOD/Access/EmailVerification/email-verification.component')},
+  {
+    path: 'login',
+    title: 'Login',
+    loadComponent: () => import('./MOD/Access/Login/Login.component'),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'register',
+    title: 'Login',
+    loadComponent: () => import('./MOD/Access/Register/register.component'),
+  },
+  {
+    path: 'sms-verification',
+    title: 'Verify your phone number',
+    loadComponent: () =>
+      import('./MOD/Access/SmsVerification/sms-verification.component'),
+  },
+  {
+    path: 'email-verification',
+    title: 'Verify your email',
+    loadComponent: () =>
+      import('./MOD/Access/EmailVerification/email-verification.component'),
+  },
   {
     path: 'personal-account',
-    title:'Personal Account',
-    loadComponent:()=>import('./MOD/Access/Register/PersonalAccount/PersonalAccount.component')
+    title: 'Personal Account',
+    loadComponent: () =>
+      import('./MOD/Access/Register/PersonalAccount/PersonalAccount.component'),
   },
   {
     path: 'company-registration',
-    title: 'Login Company',
+    title: 'Company sign up',
     loadComponent: () =>
-    import('./MOD/Access/Register/register-company-form/register-company-form.component'),
+      import(
+        './MOD/Access/Register/register-company-form/register-company-form.component'
+      ),
   },
   {
     path: 'forgot-password',
@@ -61,7 +83,8 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     title: 'Dashboard',
-    loadComponent: () => import('./MOD/Dashboard/dashboard.component'),canActivate:[DashGuard],
+    loadComponent: () => import('./MOD/Dashboard/dashboard.component'),
+    canActivate: [DashGuard],
     children: [
       {
         path: '',
@@ -101,8 +124,7 @@ export const routes: Routes = [
       {
         path: 'tvp',
         title: 'Tvp',
-        loadComponent: () =>
-          import('./MOD/Dashboard/Pages/tvp/tvp.component'),
+        loadComponent: () => import('./MOD/Dashboard/Pages/tvp/tvp.component'),
       },
     ],
   },
