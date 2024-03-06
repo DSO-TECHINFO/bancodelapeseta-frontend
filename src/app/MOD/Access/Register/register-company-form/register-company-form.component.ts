@@ -1,22 +1,52 @@
-import { WInputComponent } from '@/SHARED/Widgets/w-input/w-input.component';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-register-company-form',
-  standalone:true,
+  standalone: true,
   imports: [
     CommonModule,
-    WInputComponent,
+    RouterLink,
+    RouterOutlet,
+    IonicModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
   ],
   templateUrl: './register-company-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class RegisterCompanyFormComponent  {
+export default class RegisterCompanyFormComponent {
+  //
+  title = 'Company sign up';
 
-  constructor(private router: Router) { }
-  returnToHome() {
-    this.router.navigate(['/register']); // Esta ruta debe coincidir con la ruta de la página de inicio
+  constructor(private router: Router) {}
+
+  form = {
+    companyName: '',
+    taxId: '',
+    password: '',
+    address: '',
+    addressAdditionalInfo: '',
+    postalCode: '',
+    addressTown: '',
+    addressCity: '',
+    addressCountry: '',
+    phoneNumber: '',
+    email: '',
+    debtType: '',
+    settingUpDate: '',
+    acceptTerms: false,
+  };
+
+  onSubmit(): void {
+    // console.log(JSON.stringify(this.form));
+  }
+
+  onReset(form: NgForm): void {
+    form.resetForm();
   }
 }
