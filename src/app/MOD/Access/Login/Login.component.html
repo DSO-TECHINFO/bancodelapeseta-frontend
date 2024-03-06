@@ -16,12 +16,11 @@
         Banco de la Peseta
       </h1>
       <form [formGroup]="loginForm" class="space-y-4">
-        <!-- Your form elements go here -->
+        <!-- <w-custom-input type="text"></w-custom-input> -->
         <div>
-          <!-- <w-custom-input icon="mail-outline"/> -->
           <input
             formControlName="username"
-            class="form-control mt-1 p-3 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
+            [ngClass]="custonClass"
             type="text"
           />
           <div
@@ -33,17 +32,23 @@
             </div>
           </div>
         </div>
+
         <div>
           <input
             formControlName="password"
-            class="mt-1 p-3 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
+            [ngClass]="custonClass"
             type="password"
           />
+          <div
+            *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="text-danger"
+          >
+            <div *ngIf="password.errors?.['required']">
+              Password is required
+            </div>
+          </div>
         </div>
-        <div *ngIf="password.invalid && (password.dirty || password.touched)"
-        class="text-danger">
-          <div *ngIf="password.errors?.['required']">Password is required</div>
-        </div>
+
         <div>
           <button
             (click)="login()"
@@ -57,9 +62,7 @@
       <div class="mt-4 text-sm text-gray-600 text-center">
         <p>
           You do not have an account?
-          <a
-            class="text-black hover:underline"
-            [routerLink]="['/register']"
+          <a class="text-black hover:underline" [routerLink]="['/register']"
             >Sign up here</a
           >
         </p>
@@ -75,5 +78,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div (click)="show()">Hey</div> -->
