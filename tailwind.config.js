@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{html,ts}'],
-  theme: {
+  theme:{
     screens: {
       'sm': '320px',
       'md': '599px',
@@ -15,6 +15,14 @@ module.exports = {
         'laptop': { 'min-width': '1135px', 'max-width': '1439px' },
         'desktop': { 'min-width': '1440px', 'max-width': '3500px' },
       },
+      colors: {
+        primary: '#425cfd',
+        'primary-dark': '#3b53e2',
+        'primary-light':'#c7cbed',
+        'primary-text':'#45435e',
+        'background-gray':'#f0f0f7',
+        'gray-icons':'#b9b9c7'
+      }
     },
   },
   plugins: [require('@tailwindcss/aspect-ratio')
