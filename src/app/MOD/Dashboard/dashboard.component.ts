@@ -1,28 +1,51 @@
 import { SidebarComponent } from '@/SHARED/Widgets/sidebar/sidebar.component';
 import { WNavComponent } from '@/SHARED/Widgets/w-nav/w-nav.component';
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { TokenService } from '@/CORE/Auth/services/token-service.service';
 import { Router } from '@angular/router';
 import { Auth } from '@/CORE/Auth/Auth.function';
+import { Subscription } from 'rxjs';
+import { TitleService } from '@/SHARED/Widgets/w-nav/services/title.service';
+import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterOutlet, SidebarComponent, WNavComponent],
+  imports: [RouterOutlet, SidebarComponent, WNavComponent, TranslateModule],
   templateUrl: './dashboard.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export default class DashboardComponent implements OnInit {
   name: string = document.location.pathname;
   public namePage = this.name;
 
-  constructor(private route: Router, private token: TokenService) {}
+  pageTitle: string = '';
+  private subscription: Subscription;
 
-  ngOnInit(): void {
-    // if(this.token.getToken()){
-    //     this.route.navigate(['/login'])
-    // }
-    return
+  constructor(
+    private titleService: TitleService,
+    private cdr: ChangeDetectorRef,
+    private route: Router,
+    private token: TokenService
+  ) {
+    this.subscription = this.titleService.getPageTitle().subscribe((title) => {
+      this.pageTitle = title;
+      this.cdr.detectChanges();
+    });
   }
+
+  ngOnInit() {
+    this.titleService.getPageTitle().subscribe((title) => {
+      this.pageTitle = title;
+      this.cdr.detectChanges();
+    });
+  }
+
+
 }

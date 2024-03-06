@@ -9,13 +9,16 @@ export class TokenService {
 
   constructor() { }
 
-  public setToken(token: string): void{
+  public setToken(token: string): void {
     window.sessionStorage.removeItem(ACCESS_TOKEN);
     window.sessionStorage.setItem(ACCESS_TOKEN, token);
   }
 
-  public getToken(): string | null{
+  public getToken(): string | null {
     return sessionStorage.getItem(ACCESS_TOKEN);
   }
 
+  public removeToken(): void {
+    window.sessionStorage.removeItem(ACCESS_TOKEN);
+  }
 }

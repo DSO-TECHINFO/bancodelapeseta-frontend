@@ -17,6 +17,7 @@ export class WNavLinkComponent {
 @Input() nombreRuta: string = '';
 @Input() iconFileName: string = '';
 @Input() iconWhiteName: string = '';
+@Input() iconFinalName: string = '';
 @Input() routerLinkActive: RouterLinkActive | undefined;
 @Input() isSidebarOpen: boolean | undefined;
 @Input() title: string = '';
