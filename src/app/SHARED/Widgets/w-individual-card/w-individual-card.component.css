@@ -1,0 +1,17 @@
+:root {
+    --glitter: url("https://assets.codepen.io/13471/silver-glitter-background.png");
+}
+
+.card-front:before {
+    content: "";
+    inset: 0;
+    position: absolute;
+    transform: translate3d(0, 0, 0.01px);
+    background-image: var(--glitter), var(--glitter),
+      linear-gradient(120deg, black 25%, white, black 75%);
+    background-size: 80% 80%, 80% 80%, 200% 200%;
+    background-blend-mode: multiply, multiply, overlay;
+    background-position: 50% 50%, 50% 50%, 50% 50%;
+    mix-blend-mode: color-dodge;
+    filter: brightness(2) contrast(0.8);
+  }

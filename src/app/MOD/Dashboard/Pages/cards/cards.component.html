@@ -1,19 +1,23 @@
 <div class="w-full h-40 m-2 p-5">
   <div class=" flex items-end text-4xl w-full h-2/4">
-    <p>121522 $</p>
+    <p>Balance total: 121522 $</p>
   </div>
   <div class="flex w-full h-2/4 space-x-96 mt-1">
     <p>
       {{'cards.total.balance' | translate }}
     </p>
-    <button class="flex bg-white text-sm border border-black rounded-full">
+    <button class="flex text-sm border border-black rounded-full">
       <img src="assets/add-button.svg" alt="add icon" class="w-5 mr-1">
       <p>{{'cards.add'| translate}}</p>
     </button>
   </div>
 </div>
-<div class="grid sm:grid-cols-2 grid-cols-1 flex-wrap h-96 m-3 overflow-auto">
-@for (card of cardDataList(); track card.id) {
-  <w-individual-card [card]="card"> </w-individual-card>
+<div class="grid grid-cols-1 gap-5 m-3 overflow-auto border border-primary-dark ">
+  @for (card of cardDataList(); track card.id) {
+  <div class="grid grid-cols-2">
+ <w-individual-card [card]="card" class="max-w-[400px]"> </w-individual-card> 
+    <div class=" border border-rose-100">   
+    </div>
+  </div>
 }
 </div>
