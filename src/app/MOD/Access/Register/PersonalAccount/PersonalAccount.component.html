@@ -8,13 +8,13 @@
     </div>
     <form action="#" method="POST" class="mx-auto mt-0 max-w-xl sm:mt-10">
       <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+
+        <input [ngClass]="classStyle" decription="First name" type="text" name="first-name" autocomplete="given-name">   
         
-        <w-input class="border-0 p-0 bg-transparent" decription="First name" type="text" name="first-name" autocomplete="given-name"></w-input>   
-        
-        <w-input class="border-0 p-0 bg-transparent" decription="Last Name" type="text" name="last-name" id="last-name" autocomplete="given-name"></w-input>
+        <input [ngClass]="classStyle" decription="Last Name" type="text" name="last-name" id="last-name" autocomplete="given-name">
         
         <div class="sm:col-span-2">
-            <w-input class="border-0 p-0 bg-transparent" decription="Email" type="text" name="email" id="email" autocomplete="email"></w-input>   
+            <input class="border-0 p-0 bg-transparent" decription="Email" type="text" name="email" id="email" autocomplete="email">   
         </div>
 
         <div class="sm:col-span-2">

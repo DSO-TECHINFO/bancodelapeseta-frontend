@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { environment } from 'environments/environment';
 import { LoginRequest } from '../interface/loginRequest.interface';
 import { Observable, catchError, throwError } from 'rxjs';
 import { LoginResponse } from '../interface/loginResponse.interface';
@@ -10,7 +9,6 @@ import { LoginResponse } from '../interface/loginResponse.interface';
 export class LoginService {
   constructor(private http: HttpClient) {}
   urlBase: string = 'https://api.bancodelapeseta.com';
-  // urlBase: string = 'http://localhost:8080';
 
   login(credentials: LoginRequest, uri: string): Observable<LoginResponse> {
     return this.http
