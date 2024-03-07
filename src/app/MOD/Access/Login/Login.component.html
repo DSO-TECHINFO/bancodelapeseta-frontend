@@ -15,43 +15,18 @@
       <h1 class="text-sm font-semibold mb-6 text-gray-500 text-center">
         Banco de la Peseta
       </h1>
-      <form [formGroup]="loginForm" class="space-y-4">
-        <!-- <w-custom-input type="text"></w-custom-input> -->
+      <form [formGroup]="loginForm" class="space-y-4" (ngSubmit)="login()">
+        <!-- Your form elements go here -->
         <div>
-          <input
-            formControlName="username"
-            [ngClass]="custonClass"
-            type="text"
-          />
-          <div
-            *ngIf="username.invalid && (username.dirty || username.touched)"
-            class="text-danger"
-          >
-            <div *ngIf="username.errors?.['required']">
-              Username is required
-            </div>
-          </div>
+          <app-w-input controlKey="username" inputType="onlyText" error="Username is required" [required]="true" [minLength]="4"></app-w-input>
         </div>
 
         <div>
-          <input
-            formControlName="password"
-            [ngClass]="custonClass"
-            type="password"
-          />
-          <div
-            *ngIf="password.invalid && (password.dirty || password.touched)"
-            class="text-danger"
-          >
-            <div *ngIf="password.errors?.['required']">
-              Password is required
-            </div>
-          </div>
+          <app-w-input controlKey="password" inputType="password" error="Password is required" [required]="true"></app-w-input>
         </div>
-
         <div>
           <button
-            (click)="login()"
+            [disabled]="loginForm.invalid"
             type="submit"
             class="w-full bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300"
           >

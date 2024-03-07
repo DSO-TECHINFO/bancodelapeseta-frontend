@@ -4,19 +4,16 @@ import { TokenService } from '../services/token-service.service';
 
 export const AuthGuard: CanActivateFn = (route, state) => {
 
+
   const tokenService = inject(TokenService);
   const router = inject(Router);
-  //  console.log('En guard, route: ', route);
+
+  console.log('En guard, route: ', route);
   if (tokenService.getToken()){
     const url = router.createUrlTree(['/dashboard']);
     return url;
-  }else {
-    if(route.routeConfig?.path === 'dashboard'){
-      const url = router.createUrlTree(['/login']);
-      return url;
-    }
+  }else{
     return true;
   }
-
 
 }

@@ -6,8 +6,10 @@ import { VerificationService } from '../Verification/service/verification.servic
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { VerificationCodeService } from '@/CORE/Context/service/verification-code-storage.service';
-import { CodeDto } from './dto/codeDto';
+import { CodeDto } from './dto/CodeDto';
 import { WInputComponent } from '@/SHARED/Widgets/input-app';
+import { ValidationService } from '@/GENERIC/UTILS/validation.service';
+
 
 @Component({
   selector: 'app-sms-verification',
@@ -17,23 +19,17 @@ import { WInputComponent } from '@/SHARED/Widgets/input-app';
 })
 export default class SmsVerificationComponent implements OnInit{
 
-  // @ViewChild('input1') inputNumb1!: ElementRef;
-  // @ViewChild('input2') inputNumb2!: ElementRef;
-  // @ViewChild('input3') inputNumb3!: ElementRef;
-  // @ViewChild('input4') inputNumb4!: ElementRef;
-  // @ViewChild('input5') inputNumb5!: ElementRef;
-  // @ViewChild('input6') inputNumb6!: ElementRef;
   @ViewChildren('inputRef', { read: ElementRef }) inputRefs!: QueryList<ElementRef>;
-  //inputRefs: ElementRef[] = [];
 
   code: string = '';
-  codeDto: CodeDto = new CodeDto();
 
   constructor(
     private verificationService: VerificationService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private verificationCodeService: VerificationCodeService
+    private verificationCodeService: VerificationCodeService,
+    private validationService: ValidationService
+
   ){ }
 
   verificationCodeForm = this.formBuilder.group({
@@ -55,7 +51,21 @@ export default class SmsVerificationComponent implements OnInit{
   ];
 
   ngOnInit(): void {
-    return
+
+    this.verificationService.sendPhoneVerificationCode('api/v1/send/phone/verification/code').subscribe({
+      next: (userData) => {
+        this.verificationCodeService.setSmsExpCode(userData['expirationDate'])
+        console.log("Send userData sms verification code: ", userData);
+        // this.router.navigateByUrl('/sms-verification');
+      },
+      error: (err) => {
+        console.error('No se pudo enviar el código de verificación por correo. El error es: ', err);
+      },
+      complete: () => {
+        // this.verificationCodeForm.reset();
+      },
+    })
+    throw new Error('Method not implemented.');
   }
 
   onDigitInput(inputIndex: number, event: any) {
@@ -69,32 +79,37 @@ export default class SmsVerificationComponent implements OnInit{
     // }
 
     if (value.toString().length == 1) {
-      const nextIndex = inputIndex + 1;
-      if (nextIndex < this.inputRefs.length) {
-        //console.log("En obtener el input adecuado: ", nextIndex);
-        const nextInputRef = this.inputRefs.get(nextIndex);
-        //console.log("nextInputRef: ", nextInputRef);
-        if (nextInputRef) {
-          const nextInput = nextInputRef.nativeElement.firstChild;
-          //console.log("nextInput: ", nextInput);
-          if (nextInput) {
-            nextInput.focus();
-          }
-        }
-      }
+      this.validationService.onDigitInputFocusNext(inputIndex, this.inputRefs)
+      // const nextIndex = inputIndex + 1;
+      // if (nextIndex < this.inputRefs.length) {
+      //   console.log("En obtener el input adecuado: ", nextIndex);
+      //   const nextInputRef = this.inputRefs.get(nextIndex);
+      //   console.log("nextInputRef: ", nextInputRef);
+      //   if (nextInputRef) {
+      //     const nextInput = nextInputRef.nativeElement.firstChild;
+      //     console.log("nextInput: ", nextInput);
+      //     if (nextInput) {
+      //       nextInput.focus();
+      //     }
+      //   }
+      // }
     }
 
   }
 
   onVerifyCode(){
-    console.log('verificationCodeForm: ', this.verificationCodeForm.value);
-    this.onStringCode();
+    this.code = Object.values(this.verificationCodeForm.value).join('');
 
     if(this.code.length == 0){
       return
     }
 
-    this.verificationService.verifyPhoneCode(this.codeDto, 'api/v1/verify/phone').subscribe({
+    const codeDto = {
+      code: this.code
+    }
+
+    this.verificationService.verifyPhoneCode(codeDto as CodeDto, 'api/v1/verify/phone').subscribe({
+
       next: (userData) => {
         this.verificationCodeService.setSmsCode(this.code);
       },
@@ -108,19 +123,19 @@ export default class SmsVerificationComponent implements OnInit{
     })
   }
 
-  onStringCode(){
+  // onStringCode(){
 
-    const numb1 = this.verificationCodeForm.get('numb1')?.value;
-    const numb2 = this.verificationCodeForm.get('numb2')?.value;
-    const numb3 = this.verificationCodeForm.get('numb3')?.value;
-    const numb4 = this.verificationCodeForm.get('numb4')?.value;
-    const numb5 = this.verificationCodeForm.get('numb5')?.value;
-    const numb6 = this.verificationCodeForm.get('numb6')?.value;
+  //   const numb1 = this.verificationCodeForm.get('numb1')?.value;
+  //   const numb2 = this.verificationCodeForm.get('numb2')?.value;
+  //   const numb3 = this.verificationCodeForm.get('numb3')?.value;
+  //   const numb4 = this.verificationCodeForm.get('numb4')?.value;
+  //   const numb5 = this.verificationCodeForm.get('numb5')?.value;
+  //   const numb6 = this.verificationCodeForm.get('numb6')?.value;
 
-    this.code = `${numb1}${numb2}${numb3}${numb4}${numb5}${numb6}`;
-    this.codeDto.code = this.code;
+  //   this.code = `${numb1}${numb2}${numb3}${numb4}${numb5}${numb6}`;
+  //   this.codeDto.code = this.code;
 
-    console.log('code: ', this.code);
-  }
+  //   console.log('code: ', this.code);
+  // }
 
 }

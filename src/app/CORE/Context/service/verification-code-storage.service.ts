@@ -4,6 +4,9 @@ const SMS_CODE = "smsCode";
 const EMAIL_CODE = "emailCode";
 const EMAIL_EXP_CODE = "emailExpCode";
 const SMS_EXP_CODE = "smsExpCode";
+const VERIFICATION_CODE = "verificationCode";
+const VERIFICATION_EXP_CODE = "verificationExpCode";
+
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +49,24 @@ export class VerificationCodeService {
 
   public getEmailExpCode(): string | null{
     return sessionStorage.getItem(EMAIL_EXP_CODE);
+  }
+
+  public setVerificationCode(code: string): void{
+    window.sessionStorage.removeItem(VERIFICATION_CODE);
+    window.sessionStorage.setItem(VERIFICATION_CODE, code);
+  }
+
+  public getVerificationCode(): string | null{
+    return sessionStorage.getItem(VERIFICATION_CODE);
+  }
+
+  public setVerificationExpCode(dateExp: string): void{
+    window.sessionStorage.removeItem(VERIFICATION_EXP_CODE);
+    window.sessionStorage.setItem(VERIFICATION_EXP_CODE, dateExp);
+  }
+
+  public getVerificationExpCode(): string | null{
+    return sessionStorage.getItem(VERIFICATION_EXP_CODE);
   }
 
 }
