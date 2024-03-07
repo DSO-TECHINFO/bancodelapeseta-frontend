@@ -25,7 +25,7 @@ if (environment.production) { enableProdMode();}
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy,  },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     importProvidersFrom(
       HttpClientModule,
       TranslateModule.forRoot({

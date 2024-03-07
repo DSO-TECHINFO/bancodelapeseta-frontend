@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, Output, EventEmitter, inject } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl, ReactiveFormsModule, ControlContainer } from '@angular/forms';
+import { FormGroup, Validators, FormControl, ReactiveFormsModule, ControlContainer, ValidatorFn } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -14,13 +14,21 @@ import { IonicModule } from '@ionic/angular';
     useFactory: () => inject(ControlContainer, {skipSelf: true})
   }],
   templateUrl: './input-app.html',
-  styles: []
+  styleUrls: ['./input-app.css']
+
 })
 export class WInputComponent implements OnInit {
   @Input({ required: true}) controlKey: string = '';
   @Input() label: string = '';
+  @Input() inputType: string = '';
+  @Input() error: string = '';
+  @Input() pattern: string = '';
+  @Input() required: boolean = false;
+  @Input() minLength?: number;
+  @Input() maxLength?: number;
   // @Input() inputConfigs: any[] = [];
-  // @Input() form: FormGroup = new FormGroup({ control: new FormControl('') }); // Input para recibir el formulario reactivo desde el componente padre
+  // @Input() form: FormGroup = new FormGroup({ control: new FormControl('') });
+
   @Output() digitInput = new EventEmitter<any>();
 
   // constructor(private formBuilder: FormBuilder) {}
@@ -32,8 +40,31 @@ export class WInputComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.parentFormGroup.addControl(this.controlKey, new FormControl('', Validators.required));
-    // No es necesario inicializar el formulario aquí
+
+    this.parentFormGroup.addControl(this.controlKey, new FormControl('', this.getValidators()));
+
+  }
+
+  private getValidators(): ValidatorFn | ValidatorFn[] | null{
+    const validators: ValidatorFn[] = [];
+
+    if(this.required) {
+      validators.push(Validators.required);
+    }
+    if(this.inputType == "email"){
+      validators.push(Validators.email);
+    }
+    if(this.pattern){
+      validators.push(Validators.pattern(this.pattern));
+    }
+    if (this.minLength) {
+      validators.push(Validators.minLength(this.minLength));
+    }
+    if (this.maxLength) {
+      validators.push(Validators.maxLength(this.maxLength));
+    }
+
+    return validators.length > 0 ? validators : null;
   }
 
   onDigitInput(event: any) {
@@ -58,11 +89,6 @@ export class WInputComponent implements OnInit {
     }
 
     this.digitInput.emit({ event });
-    // if(next){
-    //   next.focus();
-    // }else{
-    //   event.target.blur();
-    // }
 
   }
 

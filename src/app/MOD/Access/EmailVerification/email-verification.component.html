@@ -27,7 +27,7 @@
                       <input type="tel" formControlName="numb6" (keypress)="onDigitInput($event)" class="text-2xl outline-none border border-gray-300 rounded text-center"/> -->
 
                       @for (item of inputConfigs; track item.name){
-                        <app-w-input [controlKey]="item.name" (digitInput)="onDigitInput($index, $event)" label="Input 7" #inputRef></app-w-input>
+                        <app-w-input [controlKey]="item.name" inputType="digitCode" (digitInput)="onDigitInput($index, $event)" #inputRef></app-w-input>
                       }
 
                   </div>

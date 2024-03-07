@@ -1,0 +1,59 @@
+<div class="flex h-screen w-screen justify-center">
+  <div class="max-w-screen-xl mx-auto">
+      <div class="flex items-center flex-col align-middle">
+          <header class="pt-4">
+              <!-- <a href="!#"> -->
+                  <!-- <picture class=""> -->
+                      <!-- FIXME: Add logo -->
+                      <!-- <img decoding="async" src="/logo.png" width="100px" alt="logo del Banco de la peseta"> -->
+                  <!-- </picture> -->
+              <!-- </a> -->
+          </header>
+
+          <div class="flex mx-4 flex-col gap-2 items-center align-middle max-w-screen-[640px] mt-6 p-4 md:p-7 bg-white border border-gray-200 rounded-lg shadow">
+              <h5 class="text-2xl sm:text-3xl font-medium mt-3">Create Sign</h5>
+              <!-- <h6 class="text-gray-600 mt-4">Enter the code we sent to your email</h6> -->
+
+              <form [formGroup]="signCodeForm" (ngSubmit)="onVerifySign()">
+                <div class="max-w-80 mt-6 min-h-10 grid grid-cols-6 gap-2">
+                    <!-- Email icon -->
+                    <!-- <ion-icon class="w-6 h-6 my-auto" src="./assets/icons/email.svg" aria-hidden="true"></ion-icon> -->
+
+                    @for (item of inputFirstConfigs; track item.name){
+                      <app-w-input [controlKey]="item.name" inputType="digitCode" (digitInput)="onDigitFirstFormInput($index, $event, '1')" #inputFirstFormRef></app-w-input>
+                    }
+                </div>
+                @if(!showRewriteSign){
+                  <button [disabled]="signCodeForm.invalid" [ngClass]="{'hover:bg-blue-800': !signCodeForm.invalid}" class="flex text-center items-center bg-blue-600 text-white font-medium mb-6 py-2 px-4 rounded mt-6">
+                    <span>Submit</span>
+                    <ion-icon class="w-6 h-6 ms-2" aria-hidden="true" name="checkmark-outline"></ion-icon>
+                  </button>
+                }
+              </form>
+              @if(showRewriteSign){
+                <form [formGroup]="signCodeFormVerify" (ngSubmit)="onVerifyRewriteSign()">
+                  <h6 class="text-gray-600 mt-4">Retype</h6>
+                  <div class="max-w-80 mt-6 min-h-10 grid grid-cols-6 gap-2">
+
+                    @for (item of inputSecondConfigs; track item.name){
+                      <app-w-input [controlKey]="item.name" inputType="digitCode" (digitInput)="onDigitFirstFormInput($index, $event, '2')" #inputSecondFormRef></app-w-input>
+                    }
+                    <!-- <p class="text-xs text-gray-600 mb-4">
+                        Don't receive the code? <span class="font-bold">Wait 59 seconds to request a new code</span>
+                    </p> -->
+                  </div>
+                  <button [disabled]="signCodeFormVerify.invalid" [ngClass]="{'hover:bg-blue-800': !signCodeFormVerify.invalid}" class="flex text-center items-center bg-blue-600 text-white font-medium mb-6 py-2 px-4 rounded mt-6">
+                    <span>Submit</span>
+                    <ion-icon class="w-6 h-6 ms-2" aria-hidden="true" name="checkmark-outline"></ion-icon>
+                  </button>
+                </form>
+              }
+          </div>
+
+          <footer class="pt-2 mt-6 w-full">
+              <span class="flex justify-center border-b border-gray-200 pb-3"></span>
+              <p class="mt-3 text-center text-gray-600">© 2024 Banco de la peseta.</p>
+          </footer>
+      </div>
+  </div>
+</div>
