@@ -1,3 +1,4 @@
+import { PasswordValidatorDirective } from '@/SHARED/Directives/password-validator.directive';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
@@ -5,7 +6,7 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
-  selector: 'app-register-company-form',
+  selector: 'app-register-company',
   standalone: true,
   imports: [
     CommonModule,
@@ -15,8 +16,9 @@ import { IonicModule } from '@ionic/angular';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    PasswordValidatorDirective,
   ],
-  templateUrl: './register-company-form.component.html',
+  templateUrl: './register-company.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class RegisterCompanyFormComponent {
@@ -29,6 +31,7 @@ export default class RegisterCompanyFormComponent {
     companyName: '',
     taxId: '',
     password: '',
+    confirmPassword: '',
     address: '',
     addressAdditionalInfo: '',
     postalCode: '',

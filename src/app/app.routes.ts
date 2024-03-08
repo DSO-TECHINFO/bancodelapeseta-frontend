@@ -45,7 +45,7 @@ export const routes: Routes = [
     title: 'Company sign up',
     loadComponent: () =>
       import(
-        './MOD/Access/Register/register-company-form/register-company-form.component'
+        './MOD/Access/Register/RegisterCompany/register-company.component'
       ),
   },
   {

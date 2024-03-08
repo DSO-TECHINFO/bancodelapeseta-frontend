@@ -1,0 +1,408 @@
+<!-- TODO: Redundant code should be replaced with a custom component. This code solution might be temporary -->
+<div class="isolated pt-8 flex h-screen w-screen justify-center">
+  <div
+    class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+    aria-hidden="true">
+    <div class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#3400ff] to-[#00ccff] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);"></div>
+  </div>
+  <div class="max-w-screen-lg mx-auto">
+    <a
+      routerLink="/register"
+      class="inline-flex cursor-pointer items-center justify-center px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto hover:bg-gray-100">
+      <ion-icon
+        class="w-6 h-6"
+        aria-hidden="true"
+        name="arrow-back-outline"></ion-icon>
+      <span>Go back</span>
+    </a>
+    <div class="flex items-center flex-col align-middle">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        Company sign up
+      </h2>
+      <p class="mt-2 text-lg leading-8 text-gray-600">
+        Register as company and enjoy the benefits we offer
+      </p>
+      <form
+        name="form"
+        class="mx-auto mt-0 max-w-xl sm:mt-10"
+        #f="ngForm"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        novalidate>
+        <!-- START | Company's name field -->
+        <div class="form-group">
+          <label
+            for="companyName"
+            class="block text-sm font-semibold text-gray-900">
+            Company's Name
+          </label>
+          <input
+            name="companyName"
+            placeholder="e. g. La Peseta Inc"
+            type="text"
+            autocomplete="given-name"
+            [(ngModel)]="form.companyName"
+            #companyName="ngModel"
+            required
+            [ngClass]="{ 'is-invalid': f.submitted && companyName.errors }"
+            class="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:border-[#17DCBF] focus:ring focus:ring-[#17DCBF] focus:ring-opacity-50 transition ease-in-out duration-150" />
+          @if (f.submitted && companyName.errors) {
+          <div class="text-red-500 mt-1 text-xs">
+            @if (companyName.errors['required']) {
+            <span>The company name field is required</span>
+            }
+          </div>
+          }
+        </div>
+        <!-- END | Company's name field -->
+
+        <!-- START | Tax ID field -->
+        <div class="form-group mt-2">
+          <label for="taxId" class="block text-sm font-semibold text-gray-900">
+            Tax ID
+          </label>
+          <input
+            name="taxId"
+            placeholder="e.g. B123456789"
+            type="text"
+            [(ngModel)]="form.taxId"
+            #taxId="ngModel"
+            required
+            [ngClass]="{ 'is-invalid': f.submitted && taxId.errors }"
+            class="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:border-[#17DCBF] focus:ring focus:ring-[#17DCBF] focus:ring-opacity-50 transition ease-in-out duration-150" />
+          @if (f.submitted && taxId.errors) {
+          <div class="text-red-500 mt-1 text-xs">
+            @if (taxId.errors['required']) {
+            <span>Tax ID field is required</span>
+            }
+          </div>
+          }
+        </div>
+        <!-- END | Tax ID field -->
+
+        <!-- START | Address Country Field -->
+        <div class="form-group mt-2">
+          <label
+            for="addressCountry"
+            class="block text-sm font-semibold text-gray-900">
+            Country
+          </label>
+          <select
+            id="addressCountry"
+            name="addressCountry"
+            [(ngModel)]="form.addressCountry"
+            #addressCountry="ngModel"
+            required
+            [ngClass]="{ 'is-invalid': f.submitted && addressCountry.errors }"
+            class="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:border-[#17DCBF] focus:ring focus:ring-[#17DCBF] focus:ring-opacity-50 transition ease-in-out duration-150">
+            <option value="" disabled>Select your country</option>
+            <option value="Spain">Spain</option>
+            <option value="United States">United States</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Belize">Belize</option>
+            <option value="Bolivia">Bolivia</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Canada">Canada</option>
+            <option value="Chile">Chile</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Costa Rica">Costa Rica</option>
+            <option value="Cuba">Cuba</option>
+            <option value="Dominican Republic">Dominican Republic</option>
+            <option value="Ecuador">Ecuador</option>
+            <option value="El Salvador">El Salvador</option>
+            <option value="Guatemala">Guatemala</option>
+            <option value="Haiti">Haiti</option>
+            <option value="Honduras">Honduras</option>
+            <option value="Mexico">Mexico</option>
+            <option value="Nicaragua">Nicaragua</option>
+            <option value="Panama">Panama</option>
+            <option value="Paraguay">Paraguay</option>
+            <option value="Peru">Peru</option>
+            <option value="Uruguay">Uruguay</option>
+            <option value="Venezuela">Venezuela</option>
+            <!-- Add more options as needed -->
+          </select>
+          @if (f.submitted && addressCountry.errors) {
+          <div class="text-red-500 mt-1 text-xs">
+            @if (addressCountry.errors['required']) {
+            <span>Country field is required</span>
+            }
+          </div>
+          }
+        </div>
+        <!-- END | Address Country Field -->
+
+        <!-- START | Postal Code Field -->
+        <div class="form-group mt-2">
+          <label
+            for="postalCode"
+            class="block text-sm font-semibold text-gray-900">
+            Postal Code
+          </label>
+          <input
+            name="postalCode"
+            placeholder="e.g. 12345"
+            type="text"
+            [(ngModel)]="form.postalCode"
+            #postalCode="ngModel"
+            required
+            [ngClass]="{ 'is-invalid': f.submitted && postalCode.errors }"
+            class="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:border-[#17DCBF] focus:ring focus:ring-[#17DCBF] focus:ring-opacity-50 transition ease-in-out duration-150" />
+          @if (f.submitted && postalCode.errors) {
+          <div class="text-red-500 mt-1 text-xs">
+            @if (postalCode.errors['required']) {
+            <span>Postal Code field is required</span>
+            }
+          </div>
+          }
+        </div>
+        <!-- END | Postal Code Field -->
+
+        <!-- START | Address City Field -->
+        <div class="form-group mt-2">
+          <label
+            for="addressCity"
+            class="block text-sm font-semibold text-gray-900">
+            City
+          </label>
+          <input
+            name="addressCity"
+            placeholder="e.g. Madrid"
+            type="text"
+            [(ngModel)]="form.addressCity"
+            #addressCity="ngModel"
+            required
+            [ngClass]="{ 'is-invalid': f.submitted && addressCity.errors }"
+            class="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:border-[#17DCBF] focus:ring focus:ring-[#17DCBF] focus:ring-opacity-50 transition ease-in-out duration-150" />
+          @if (f.submitted && addressCity.errors) {
+          <div class="text-red-500 mt-1 text-xs">
+            @if (addressCity.errors['required']) {
+            <span>City field is required</span>
+            }
+          </div>
+          }
+        </div>
+        <!-- END | Address City Field -->
+
+        <!-- START | Address Town Field -->
+        <div class="form-group mt-2">
+          <label
+            for="addressTown"
+            class="block text-sm font-semibold text-gray-900">
+            Town
+          </label>
+          <input
+            name="addressTown"
+            placeholder="e.g. Madrid"
+            type="text"
+            [(ngModel)]="form.addressTown"
+            #addressTown="ngModel"
+            required
+            [ngClass]="{ 'is-invalid': f.submitted && addressTown.errors }"
+            class="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:border-[#17DCBF] focus:ring focus:ring-[#17DCBF] focus:ring-opacity-50 transition ease-in-out duration-150" />
+          @if (f.submitted && addressTown.errors) {
+          <div class="text-red-500 mt-1 text-xs">
+            @if (addressTown.errors['required']) {
+            <span>Town field is required</span>
+            }
+          </div>
+          }
+        </div>
+        <!-- END | Address Town Field -->
+
+        <!-- START | Address Field -->
+        <div class="form-group mt-2">
+          <label
+            for="address"
+            class="block text-sm font-semibold text-gray-900">
+            Address
+          </label>
+          <input
+            name="address"
+            placeholder="e.g. Calle 11"
+            type="text"
+            [(ngModel)]="form.address"
+            #address="ngModel"
+            required
+            [ngClass]="{ 'is-invalid': f.submitted && address.errors }"
+            class="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:border-[#17DCBF] focus:ring focus:ring-[#17DCBF] focus:ring-opacity-50 transition ease-in-out duration-150" />
+          @if (f.submitted && address.errors) {
+          <div class="text-red-500 mt-1 text-xs">
+            @if (address.errors['required']) {
+            <span>Address field is required</span>
+            }
+          </div>
+          }
+        </div>
+        <!-- END | Address Field -->
+
+        <!-- START | Address Additional Info Field -->
+        <div class="form-group mt-2">
+          <label
+            for="addressAdditionalInfo"
+            class="block text-sm font-semibold text-gray-900">
+            Additional Address Info
+          </label>
+          <input
+            name="addressAdditionalInfo"
+            placeholder="e.g. Piso 2"
+            type="text"
+            [(ngModel)]="form.addressAdditionalInfo"
+            #addressAdditionalInfo="ngModel"
+            class="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:border-[#17DCBF] focus:ring focus:ring-[#17DCBF] focus:ring-opacity-50 transition ease-in-out duration-150" />
+        </div>
+        <!-- END | Address Additional Info Field -->
+
+        <!-- START | Phone Number Field -->
+        <div class="form-group mt-2">
+          <label
+            for="phoneNumber"
+            class="block text-sm font-semibold text-gray-900">
+            Phone Number
+          </label>
+          <input
+            name="phoneNumber"
+            placeholder="e.g. 665666555"
+            type="tel"
+            [(ngModel)]="form.phoneNumber"
+            #phoneNumber="ngModel"
+            required
+            [ngClass]="{ 'is-invalid': f.submitted && phoneNumber.errors }"
+            class="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:border-[#17DCBF] focus:ring focus:ring-[#17DCBF] focus:ring-opacity-50 transition ease-in-out duration-150" />
+          @if (f.submitted && phoneNumber.errors) {
+          <div class="text-red-500 mt-1 text-xs">
+            @if (phoneNumber.errors['required']) {
+            <span>Phone Number field is required</span>
+            }
+          </div>
+          }
+        </div>
+        <!-- END | Phone Number Field -->
+
+        <!-- START | Email field -->
+        <div class="form-group mt-2">
+          <label for="email" class="block text-sm font-semibold text-gray-900">
+            Email
+          </label>
+          <input
+            name="email"
+            placeholder="e.g. johnmarx@gmail.com"
+            type="email"
+            autocomplete="email"
+            [(ngModel)]="form.email"
+            #email="ngModel"
+            required
+            [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+            class="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:border-[#17DCBF] focus:ring focus:ring-[#17DCBF] focus:ring-opacity-50 transition ease-in-out duration-150" />
+          @if (f.submitted && companyName.errors) {
+          <div class="text-red-500">
+            @if (companyName.errors['required']) {
+            <small>The company name field is required</small>
+            }
+          </div>
+          }
+        </div>
+        <!-- END | Email field -->
+
+        <!-- START | Password field -->
+        <div class="form-group mt-2">
+          <label for="email" class="block text-sm font-semibold text-gray-900">
+            Password
+          </label>
+          <input
+            type="password"
+            name="password"
+            placeholder="••••••••"
+            [(ngModel)]="form.password"
+            required
+            PasswordValidatorDirective
+            #password="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+            class="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:border-[#17DCBF] focus:ring focus:ring-[#17DCBF] focus:ring-opacity-50 transition ease-in-out duration-150" />
+          @if (f.submitted && password.errors) {
+            <div class="text-red-500 mt-1 text-xs">
+              @if (password.errors['required']) {
+              <div>Password is required</div>
+              } @if (password.errors['length']) {
+              <div>Password must be between 8 and 40 characters</div>
+              } @if (password.errors['noUppercase']) {
+              <div>Password must contain at least one uppercase letter</div>
+              } @if (password.errors['noLowercase']) {
+              <div>Password must contain at least one lowercase letter</div>
+              } @if (password.errors['noSymbol']) {
+              <div>Password must contain at least one symbol (e.g. !&#64;#$%^&*)</div>
+              }
+            </div>
+          }
+        </div>
+        <!-- END | Password field -->
+
+        <!-- START | Confirm Password field -->
+        <div class="form-group mt-2">
+          <label
+            for="confirmPassword"
+            class="block text-sm font-semibold text-gray-900">
+            Confirm Password
+          </label>
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="••••••••"
+            [(ngModel)]="form.confirmPassword"
+            required
+            minlength="8"
+            maxlength="40"
+            #confirmPassword="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.errors }"
+            class="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:border-[#17DCBF] focus:ring focus:ring-[#17DCBF] focus:ring-opacity-50 transition ease-in-out duration-150" />
+          @if (f.submitted && confirmPassword.errors) {
+          <div class="text-red-500 mt-1 text-xs">
+            @if (confirmPassword.errors['required']) {
+            <div>Confirm Password is required</div>
+            } @if (confirmPassword.errors['minlength']) {
+            <div>Confirm Password must be at least 8 characters</div>
+            } @if (confirmPassword.errors['maxlength']) {
+            <div>Confirm Password must not exceed 40 characters</div>
+            }
+          </div>
+          }
+        </div>
+        <!-- END | Confirm Password field -->
+
+        <!-- START | Accept terms field -->
+        <div class="form-group mt-2 form-check">
+          <input
+            type="checkbox"
+            name="acceptTerms"
+            [(ngModel)]="form.acceptTerms"
+            required
+            #acceptTerms="ngModel"
+            [ngClass]="{ 'border-red-500': f.submitted && acceptTerms.errors }"
+            class="w-4 h-4 me-1 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300" />
+          <label for="acceptTerms" class="font-light text-sm text-gray-700">
+            I have read and agree the <a href="#!">terms and conditions</a>.
+          </label>
+          @if (f.submitted && acceptTerms.errors) {
+          <div class="text-red-500 text-xs">Accept Terms is required</div>
+          }
+        </div>
+        <!-- END | Accept terms field -->
+
+        <hr />
+
+        <div class="form-group mt-4">
+          <button
+            type="submit"
+            class="px-4 py-2 text-white bg-blue-500 rounded">
+            Register
+          </button>
+          <button
+            type="button"
+            (click)="onReset(f)"
+            class="px-4 py-2 text-white bg-yellow-500 rounded float-right">
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
