@@ -14,10 +14,11 @@
 </div>
 <div class="grid grid-cols-1 gap-5 m-3 overflow-auto border border-primary-dark ">
   @for (card of cardDataList(); track card.id) {
-  <div class="grid grid-cols-2">
+  <div class="grid grid-cols-2 border border-red-600">
  <w-individual-card [card]="card" class="max-w-[400px]"> </w-individual-card> 
     <div class=" border border-rose-100">   
-    </div>
+      
+    </div> 
   </div>
 }
 </div>

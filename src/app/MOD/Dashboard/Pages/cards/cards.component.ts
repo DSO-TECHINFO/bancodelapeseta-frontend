@@ -17,7 +17,7 @@ export default class CardsComponent implements OnInit {
 
   constructor(){}
 
-  /*
+/*
   ngOnInit(): void {
     this.cardService.getUserCards().subscribe(data => {
       const cards =data.map(item =>{
@@ -25,7 +25,8 @@ export default class CardsComponent implements OnInit {
           id: item.id,
           number:item.contract.card.number,
           expiration: item.contract.card.expiration,
-          Amount: item.contract.card.cardType === "DEBIT"? item.contract.account.balance : item.contract.card.chargedAmount 
+          Amount: item.contract.card.cardType === "DEBIT"? item.contract.account.balance : item.contract.card.chargedAmount,
+          type: item.contract.card.cardType
           
         }
         return cardData; 
@@ -34,13 +35,15 @@ export default class CardsComponent implements OnInit {
         id: 1,
         number:'1234-5265-8591-2014',
         expiration:'08/26',
-        Amount: 5151518.25
+        Amount: 5151518.25,
+        type: 'DEBIT'
       },
       {
         id: 2,
         number:'1234-5265-8591-2014',
         expiration:'08/26',
-        Amount: 515018.25
+        Amount: 515018.25,
+        type: 'Credit'
         
       }
     ]
@@ -55,26 +58,34 @@ export default class CardsComponent implements OnInit {
     id: 1,
     number:'1234-5265-8591-2014',
     expiration:'08/26',
-    Amount: 5151518.25
+    Amount: 5151518.25,
+    type: 'DEBIT'
+
   },
   {
     id: 2,
     number:'1234-5265-8591-2014',
     expiration:'08/26',
-    Amount: 515018.25
+    Amount: 515018.25,
+    type: 'CREDIT'
+
     
   },
   {
     id: 3,
     number:'1234-5265-8591-2014',
     expiration:'08/26',
-    Amount: 5151518.25
+    Amount: 5151518.25,
+    type: 'DEBIT'
+
   },
   {
     id: 4,
     number:'1234-5265-8591-2014',
     expiration:'08/26',
-    Amount: 515018.25
+    Amount: 515018.25,
+    type: 'CREDIT'
+
     
   }
 ]
@@ -82,6 +93,6 @@ export default class CardsComponent implements OnInit {
   console.log(this.cardDataList());
   
 }
-  
+
 
 }

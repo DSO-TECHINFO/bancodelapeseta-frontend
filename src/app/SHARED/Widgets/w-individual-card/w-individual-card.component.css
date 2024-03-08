@@ -15,3 +15,49 @@
     mix-blend-mode: color-dodge;
     filter: brightness(2) contrast(0.8);
   }
+  
+  .chip {
+    width: 15%;
+    height: 15%;
+    border-radius: 10%;
+    background: #89898a;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: "";
+      display: block;
+      background: #89898a;
+      width: 10%;
+      height: 5%;
+      border-radius: 10px;
+      border: 2px solid #76797c; 
+      position: absolute;
+      z-index: 5;
+    }
+    
+    &::after {
+      content: "";
+      display: block;
+      background: #89898a;
+      width: 50%;
+      height: 60%;
+      border-radius: 10px;
+      border: 2px solid #76797c;
+      position: absolute;
+      z-index: 5;
+    }
+  }
+  
+  .h-line,
+  .v-line { 
+    border: 1px solid #76797c; 
+  }
+  
+  .h-line { width: 100%; }
+  .v-line { 
+    position: absolute;
+    height: 100%;
+  }

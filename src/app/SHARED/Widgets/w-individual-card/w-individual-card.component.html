@@ -1,28 +1,15 @@
-<!-- <div class="flex flex-col border border-black h-56 m-4 mt-8 rounded-xl">
-<div class="border border-red-500 h-1/4 w-3/12 p-2 rounded-xl self-end" >
-imagen
-</div>
-<div class="border border-blue-500 h-1/4 p-2 w-3/12 [background:_linear-gradient(120deg,_#777_10%,_#ddd_40%,_#ddd_60%,_#777_90%)]">
-  <img src="https://i.imgur.com/lRG4VIS.png">
-</div>
-<div class="border border-yellow-500 h-1/4 p-2">
-
-</div>
-<div class="border border-black h-1/4 p-2 rounded-xl" >
-  
-</div>
-</div> -->
-<aside
-  class="card-front bg-[url('https://simey-credit-card.netlify.app/img/bgs/default.jpg')] justify-around bg-cover border border-black flex flex-col px-5 py-3 relative aspect-[1.5] rounded-[3.5%_3.5%_3.5%_3.5%_/_5%_5%5%_5%] shadow-[0_30px_40px_-25px_rgba(15,_5,_20,_1),_0_20px_50px_-15px_rgba(15,_5,_20,_1)] overflow-hidden">
+@if (card.type === 'DEBIT') {
+<aside class="card-front bg-[url('/assets/images/cards-background/creditCard.png')] justify-around bg-cover border border-black flex flex-col px-5 py-3 relative aspect-[1.5] rounded-[3.5%_3.5%_3.5%_3.5%_/_5%_5%5%_5%] 
+shadow-[0_30px_40px_-25px_rgba(15,_5,_20,_1),_0_20px_50px_-15px_rgba(15,_5,_20,_1)] overflow-hidden">
   <div class="flex justify-between">
     <img src="/assets/img/peseta.png" class="w-12">
     <img class="w-[50px]" data-v-5d206127="" data-v-8fcb32d4="" style="opacity: 1;"
       src="https://simey-credit-card.netlify.app/img/logos/master.svg">
   </div>
-  <div class="chip border border-orange-500 w-1/4 h-10 my-4">
-    <svg role="img" viewBox="0 0 100 100" aria-label="Chip">
-      <use href="#chip-lines" />
-    </svg>
+  <div class="chip">
+    <div class="h-line"></div>
+    <div class="h-line"></div>
+    <div class="v-line"></div>
   </div>
   <label class="number text-white text-xl" for="cardNumber"
     style="text-shadow: -1px -1px 0px rgba(255,255,255,0.5),1px -1px 0px rgba(255,255,255,0.5),1px 1px 0px rgba(0,0,0,0.5),1px -1px 0px rgba(0,0,0,0.5)">
@@ -39,3 +26,32 @@ imagen
     </label>
   </div>
 </aside>
+}@else {
+<aside class="card-front bg-[url('/assets/images/cards-background/debitCard.png')] justify-around bg-cover border border-black flex flex-col px-5 py-3 relative aspect-[1.5] rounded-[3.5%_3.5%_3.5%_3.5%_/_5%_5%5%_5%] 
+  shadow-[0_30px_40px_-25px_rgba(15,_5,_20,_1),_0_20px_50px_-15px_rgba(15,_5,_20,_1)] overflow-hidden">
+  <div class="flex justify-between">
+    <img src="/assets/img/peseta.png" class="w-12">
+    <img class="w-[50px]" data-v-5d206127="" data-v-8fcb32d4="" style="opacity: 1;"
+      src="https://simey-credit-card.netlify.app/img/logos/master.svg">
+  </div>
+  <div class="chip">
+    <div class="h-line"></div>
+    <div class="h-line"></div>
+    <div class="v-line"></div>
+  </div>
+  <label class="number text-white text-xl" for="cardNumber"
+    style="text-shadow: -1px -1px 0px rgba(255,255,255,0.5),1px -1px 0px rgba(255,255,255,0.5),1px 1px 0px rgba(0,0,0,0.5),1px -1px 0px rgba(0,0,0,0.5)">
+    {{card.number}}
+  </label>
+  <div class="flex justify-between w-full align-bottom border border-red-500 self-end text-lg">
+    <label class="name text-white uppercase " for="cardHolder"
+      style="text-shadow: -1px -1px 0px rgba(255,255,255,0.5),1px -1px 0px rgba(255,255,255,0.5),1px 1px 0px rgba(0,0,0,0.5),1px -1px 0px rgba(0,0,0,0.5)">
+      Manolito el de los palotes
+    </label>
+    <label class="expiry text-white" for="expiryMonth"
+      style="text-shadow: -1px -1px 0px rgba(255,255,255,0.5),1px -1px 0px rgba(255,255,255,0.5),1px 1px 0px rgba(0,0,0,0.5),1px -1px 0px rgba(0,0,0,0.5)">
+      {{card.expiration}}
+    </label>
+  </div>
+</aside>
+}

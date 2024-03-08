@@ -41,6 +41,7 @@ export interface Card {
 
 export interface CardData {
     id:               number;
+    type:             string;
     number:           string;
     expiration:       string;
     Amount:           number;
