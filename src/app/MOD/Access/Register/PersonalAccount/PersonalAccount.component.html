@@ -1,64 +1,342 @@
 <div class="isolate w-screen bg-white px-6 py-24 sm:py-10 lg:px-8">
-    <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" aria-hidden="true">
-      <div class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-    </div>
-    <div class="mx-auto max-w-2xl text-center">
-      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Create your personal account </h2>
-      <p class="mt-2 text-lg leading-8 text-gray-600">Create your account and enjoy the benefits we offer</p>
-    </div>
-    <form action="#" method="POST" class="mx-auto mt-0 max-w-xl sm:mt-10">
-      <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-
-        <input [ngClass]="classStyle" decription="First name" type="text" name="first-name" autocomplete="given-name">   
-        
-        <input [ngClass]="classStyle" decription="Last Name" type="text" name="last-name" id="last-name" autocomplete="given-name">
-        
-        <div class="sm:col-span-2">
-            <input class="border-0 p-0 bg-transparent" decription="Email" type="text" name="email" id="email" autocomplete="email">   
-        </div>
-
-        <div class="sm:col-span-2">
-          <label for="phone-number" class="block text-sm font-semibold leading-6 text-green-600">Phone number</label>
-          <div class="relative mt-2.5">
-            <div class="absolute inset-y-0 left-0 flex items-center">
-              <label for="country" class="sr-only">Country</label>
-              <select id="country" name="country" class="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
-                <option>US</option>
-                <option>CA</option>
-                <option>EU</option>
-                <option>UK</option>
-                <option>YE</option>
-                <option>MA</option>
-                <option>ES</option>
-              </select>
-              <svg class="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-              </svg>
-            </div>
-            <input type="tel" name="phone-number" id="phone-number" autocomplete="tel" class="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-          </div>
-        </div>
-
-        <w-input class="border-0 p-0" decription="Password" type="password"></w-input>      
-        <w-input class="border-0 p-0" decription="Confirm Password" type="password"></w-input>      
-
-        <div class="flex gap-x-4 sm:col-span-2">
-          <div class="flex h-6 items-center">
-            <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
-            <button type="button" class="bg-gray-200 flex w-8 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" role="switch" aria-checked="false" aria-labelledby="switch-1-label">
-              <span class="sr-only">Agree to policies</span>
-              <!-- Enabled: "translate-x-3.5", Not Enabled: "translate-x-0" -->
-              <span aria-hidden="true" class="translate-x-0 h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out"></span>
-            </button>
-          </div>
-          <label class="text-sm leading-6 text-gray-600" id="switch-1-label">
-            By selecting this free palestine
-            <a href="#" class="font-semibold text-red-600">privacy&nbsp;policy</a>.
-          </label>
-        </div>
-      </div>
-      <div class="mt-10">
-        <button type="submit" class="block w-full rounded-md bg-cyan-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Let's talk</button>
-      </div>
-    </form>
+  <button (click)="returnToRegister()" type="button"
+      class=" flex fixed top-1 items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
+      <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+      </svg>
+      <span>Go back</span>
+    </button>
+  <div
+    class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+    aria-hidden="true"
+  >
+    <div
+      class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
+      style="
+        clip-path: polygon(
+          74.1% 44.1%,
+          100% 61.6%,
+          97.5% 26.9%,
+          85.5% 0.1%,
+          80.7% 2%,
+          72.5% 32.5%,
+          60.2% 62.4%,
+          52.4% 68.1%,
+          47.5% 58.3%,
+          45.2% 34.5%,
+          27.5% 76.7%,
+          0.1% 64.9%,
+          17.9% 100%,
+          27.6% 76.8%,
+          76.1% 97.7%,
+          74.1% 44.1%
+        );
+      "
+    ></div>
   </div>
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+      Create your personal account
+    </h2>
+    <p class="mt-2 text-lg leading-8 text-gray-600">
+      Create your account and enjoy the benefits we offer
+    </p>
+  </div>
+  <form [formGroup]="registerPersonForm" (ngSubmit)="createPersonalAccount()" class="mx-auto max-w-xl sm:mt-10">
+    <div class="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
+      <div>
+        <label
+          for="name"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          Username
+        </label>
+        <app-w-input
+          controlKey="name"
+          inputType="onlyText"
+          error="Name is required"
+          [required]="true"
+          [minLength]="4"
+        ></app-w-input>
+      </div>
+
+      <div>
+        <label
+          for="date"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          Surname
+        </label>
+        <app-w-input
+          controlKey="surname"
+          inputType="onlyText"
+          error="Surname is required"
+          [required]="true"
+          [minLength]="4"
+        ></app-w-input>
+      </div>
+
+      <!-- <app-w-input controlKey="username" inputType="onlyText" error="Surname is required" [required]="true" [minLength]="4" placeholder="Birthday"></app-w-input> -->
+
+      <div>
+        <label
+          for="date"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          Birthday
+        </label>
+       <app-w-input controlKey="birthday" inputType="date" [required]="true"></app-w-input>
+      </div>
+
+      <div>
+        <label
+          for="date"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          TaxID
+        </label>
+        <app-w-input
+          controlKey="taxId"
+          inputType="onlyText"
+          error="TaxID is required"
+          [required]="true"
+          [minLength]="4"
+        ></app-w-input>
+      </div>
+
+      <div>
+        <label
+          for="password"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          Password
+        </label>
+        <app-w-input
+          controlKey="password"
+          inputType="password"
+          error="Password is required"
+          [required]="true"
+          [minLength]="4"
+        ></app-w-input>
+      </div>
+
+      <div>
+        <label
+          for="date"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+        Expiration Id
+        </label>
+        <app-w-input
+        controlKey="nationalIdExpiration"
+        inputType="date"
+        error="Date is required"
+        [required]="true"
+      ></app-w-input>
+      </div>
+     
+
+      <div>
+        <label
+          for="address"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          Adrress
+        </label>
+        <app-w-input
+          controlKey="address"
+          inputType="onlyText"
+          error="Address is required"
+          [required]="true"
+          [minLength]="4"
+        ></app-w-input>
+      </div>
+
+      <div>
+        <label
+          for="addressAdditionalInfo"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          Address Additional Info
+        </label>
+        <app-w-input
+          controlKey="addressAdditionalInfo"
+          inputType="onlyText"
+          error="Surname is required"
+          [required]="true"
+          [minLength]="4"
+        ></app-w-input>
+      </div>
+
+      <div>
+        <label
+          for="postalCode"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          Postal Code
+        </label>
+        <app-w-input
+          controlKey="postalCode"
+          inputType="onlyText"
+          error="Postal Code is required"
+          [required]="true"
+          [minLength]="4"
+        ></app-w-input>
+      </div>
+
+      <div>
+        <label
+          for="addressTown"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          Address Town
+        </label>
+        <app-w-input
+          controlKey="addressTown"
+          inputType="onlyText"
+          error="Address Town is required"
+          [required]="true"
+          [minLength]="4"
+        ></app-w-input>
+      </div>
+
+      <div>
+        <label
+          for="addressCity"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          Address City
+        </label>
+        <app-w-input
+          controlKey="addressCity"
+          inputType="onlyText"
+          error="Address City is required"
+          [required]="true"
+          [minLength]="4"
+        ></app-w-input>
+      </div>
+
+      <div>
+        <label
+          for="addressCountry"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          Address Country
+        </label>
+        <app-w-input
+          controlKey="addressCountry"
+          inputType="onlyText"
+          error="Address Country is required"
+          [required]="true"
+          [minLength]="4"
+        ></app-w-input>
+      </div>
+
+      <!-- <div>
+        <label
+          for="gender"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          Gender
+        </label>
+
+        <div class="grid grid-cols-2 rounded-md bg-gray-100 p-3">
+          <div class="flex items-center justify-center gap-2">
+            <label for="gender">M</label>
+            <input type="radio" name="gender" />
+          </div>
+          <div class="flex items-center justify-center gap-2">
+            <label for="gender">F</label>
+            <input type="radio" name="gender" />
+          </div>
+        </div>
+      </div> -->
+
+      <div>
+        <label for="">Gender</label>
+        <app-w-input controlKey="gender" [required]="true" inputType="onlyText"></app-w-input>
+      </div>
+
+      <div>
+        <label
+          for="nationality"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          Nationality
+        </label>
+        <app-w-input
+          controlKey="nationality"
+          inputType="onlyText"
+          error="Nationality is required"
+          [required]="true"
+          [minLength]="4"
+        ></app-w-input>
+      </div>
+
+      <div>
+        <label
+          for="birthCity"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          BirthCity
+        </label>
+        <app-w-input
+          controlKey="birthCity"
+          inputType="onlyText"
+          error="BirthCity is required"
+          [required]="true"
+          [minLength]="4"
+        ></app-w-input>
+      </div>
+
+      <div>
+        <label
+          for="phoneNumber"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          Phone Number
+        </label>
+        <app-w-input
+          controlKey="phoneNumber"
+          inputType="onlyText"
+          error="Phone Number is required"
+          [required]="true"
+          [minLength]="4"
+        ></app-w-input>
+      </div>
+
+      <div>
+        <label
+          for="email"
+          class="mb-1 block text-base font-medium text-[#07074D]"
+        >
+          Email
+        </label>
+        <app-w-input
+          controlKey="email"
+          inputType="email"
+          error="Email is required"
+          [required]="true"
+          [minLength]="4"
+        ></app-w-input>
+      </div>
+
+      <div>
+        <label for="debtType"  class="mb-1 block text-base font-medium text-[#07074D]">Occupation</label>
+        <app-w-input inputType="onlyText" [required]="true" controlKey="debtType"></app-w-input>
+      </div>
+     
+
+    </div>
+    <div class="mt-10">
+      <button
+        [disabled]="registerPersonForm.invalid"
+        type="submit"
+        class="block w-full rounded-md bg-blue-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+        Create Account
+      </button>
+    </div>
+  </form>
+</div>

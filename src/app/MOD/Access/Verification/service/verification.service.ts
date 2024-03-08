@@ -2,14 +2,18 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, catchError, throwError } from "rxjs";
 import { CodeDto } from "../../SmsVerification/dto/codeDto";
+import { UnsignedVerificationRequest } from "../../CreateSign/interface/UnsignedVerificationRequest";
+import { CreateSign } from "../../CreateSign/interface/CreateSign.interface";
 
 @Injectable({
   providedIn: 'root',
 })
 export class VerificationService {
   constructor(private http: HttpClient) {}
+
   urlBase: string = 'https://api.bancodelapeseta.com';
   // urlBase: string = 'http://localhost:8080';
+
 
   public sendEmailVerificationCode(uri: string): Observable<any>{
     return this.http
@@ -35,9 +39,16 @@ export class VerificationService {
     .pipe(catchError(this.handleError));
   }
 
-  public verificationUnsignedCode(uri: string): Observable<any>{
+  public verificationUnsignedCode(body: UnsignedVerificationRequest, uri: string): Observable<any>{
     return this.http
-    .get<any>(`${this.urlBase}/${uri}`)
+    .post<any>(`${this.urlBase}/${uri}`, body)
+    .pipe(catchError(this.handleError));
+  }
+
+  public createSign(body: CreateSign, uri: string): Observable<any>{
+    return this.http
+    .post<any>(`${this.urlBase}/${uri}`, body)
+
     .pipe(catchError(this.handleError));
   }
 

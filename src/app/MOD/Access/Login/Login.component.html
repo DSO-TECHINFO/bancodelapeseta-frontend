@@ -2,56 +2,33 @@
 <div class="flex h-screen w-screen">
   <!-- Left Pane -->
   <div
-    class="hidden lg:flex items-center justify-center flex-1 bg-gradient-to-r from-blue-500 via-teal-300 to-indigo-500 text-black"
+    class="hidden lg:flex items-center justify-center flex-1 bg-gradient-to-r from-cyan-500 to-blue-500"
   >
     <div class="max-w-md text-center">
       <img src="../../../../assets/img/blp.png" alt="" />
     </div>
   </div>
   <!-- Right Pane -->
-  <div class="w-full lg:w-1/2 flex items-center justify-center bg-white">
+  <div class="w-full lg:w-1/2 flex flex-col items-center justify-center bg-white">
+    <img src="../../../../assets/images/login/logoBanco.png" alt="logoBanco" width="100px">
+    <h1 class="text-lg font-semibold mb-6 text-gray-500 text-center">
+      Banco de la Peseta
+    </h1>
     <div class="max-w-md w-full p-6">
-      <h1 class="text-3xl font-semibold mb-6 text-black text-center">Login</h1>
-      <h1 class="text-sm font-semibold mb-6 text-gray-500 text-center">
-        Banco de la Peseta
-      </h1>
-      <form [formGroup]="loginForm" class="space-y-4">
-        <!-- <w-custom-input type="text"></w-custom-input> -->
+      
+      
+      <form [formGroup]="loginForm" class="space-y-4" (ngSubmit)="login()">
+        <!-- Your form elements go here -->
         <div>
-          <input
-            formControlName="username"
-            [ngClass]="custonClass"
-            type="text"
-          />
-          <div
-            *ngIf="username.invalid && (username.dirty || username.touched)"
-            class="text-danger"
-          >
-            <div *ngIf="username.errors?.['required']">
-              Username is required
-            </div>
-          </div>
+          <app-w-input controlKey="username" inputType="onlyText" error="Username is required" [required]="true" [minLength]="4" placeholder="Username"></app-w-input>
         </div>
 
         <div>
-          <input
-            formControlName="password"
-            [ngClass]="custonClass"
-            type="password"
-          />
-          <div
-            *ngIf="password.invalid && (password.dirty || password.touched)"
-            class="text-danger"
-          >
-            <div *ngIf="password.errors?.['required']">
-              Password is required
-            </div>
-          </div>
+          <app-w-input controlKey="password" inputType="password" error="Password is required" [required]="true" placeholder="Password"></app-w-input>
         </div>
-
         <div>
           <button
-            (click)="login()"
+            [disabled]="loginForm.invalid"
             type="submit"
             class="w-full bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300"
           >

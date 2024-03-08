@@ -1,4 +1,3 @@
-import { WInputComponent } from '@/SHARED/Widgets/w-input/w-input.component';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
@@ -8,7 +7,6 @@ import { Router } from '@angular/router';
   standalone:true,
   imports: [
     CommonModule,
-    WInputComponent,
   ],
   templateUrl: './register-company-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
