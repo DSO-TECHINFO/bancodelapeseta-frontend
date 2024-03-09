@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { RegisterCompanyRequest } from '../interface/registerCompanyRequest.interface';
 import { Observable, catchError, map, throwError } from 'rxjs';
-import { RegisterCompanyResponse } from '../interface/registerCompanyResponse.interface';
 @Injectable({
   providedIn: 'root',
 })
@@ -13,7 +12,7 @@ export class RegisterCompanyService {
 
   signup(data: RegisterCompanyRequest, uri: string): Observable<number> {
     return this.http
-      .post<RegisterCompanyResponse>(`${this.urlBase}/${uri}`, data, {
+      .post<number>(`${this.urlBase}/${uri}`, data, {
         observe: 'response',
       })
       .pipe(
