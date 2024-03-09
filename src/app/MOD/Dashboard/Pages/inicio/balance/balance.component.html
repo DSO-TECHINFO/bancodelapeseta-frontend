@@ -1,0 +1,40 @@
+<div class="w-full flex flex-col border h-64 border-slate-700 rounded-md">
+  <div class="header flex px-8 justify-between border-b">
+    <span class="text-center self-center text-xl">Balance Total</span>
+    @if(currencyList.length > 0){
+      <select class="w-20 border rounded-md p-1" [(ngModel)]="selectedCurrencyString">
+      @for(currency of currencyList; track currency.id){
+        <option [value]="currency.currency">
+          {{ currency.currency }}
+        </option>
+      }
+    </select>
+  }
+
+    <!-- <div class="w-14 border border-indigo-500 p-1">Sel</div> -->
+  </div>
+  <div class="h-56 flex flex-col px-6 pt-4 gap-2">
+    @for(item of accountsList; track item.id){
+      <div class="flex justify-between px-2">
+        <div>
+          <div class="text-[0.7rem]">Cuenta xxxx</div>
+          <div class="text-sm">{{item.contract.account.accountNumber}}</div>
+        </div>
+        <div>
+          <div class="text-sm">{{item.contract.account.real_balance}}</div>
+          <div class="text-[0.7rem]">{{item.contract.account.balance}}</div>
+        </div>
+      </div>
+      <div class="flex justify-between px-2">
+        <div>
+          <div class="text-[0.7rem]">Cuenta xxxx</div>
+          <div class="text-sm">{{item.contract.account.accountNumber}}</div>
+        </div>
+        <div>
+          <div class="text-sm">{{item.contract.account.real_balance}}</div>
+          <div class="text-[0.7rem]">{{item.contract.account.balance}}</div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

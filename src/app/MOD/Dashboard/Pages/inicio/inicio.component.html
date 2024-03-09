@@ -1,9 +1,16 @@
-<div class="flex flex-wrap">
+<!-- <div class="flex flex-wrap">
   <p class="border border-black">
     {{'HOME.TITLE' | translate}}
   </p>
   <p class="border border-black">
     {{'HOME.TITLE' | translate}}
   </p>
+</div> -->
 
+<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
+  <!-- <balance-component [currencyList]="currencyList" [accountsList]="accountsList"></balance-component> -->
+  <balance-component></balance-component>
+  <tpv-component></tpv-component>
+  <cards-component [accountsList]="accountsList"></cards-component>
+  <loans-component></loans-component>
 </div>

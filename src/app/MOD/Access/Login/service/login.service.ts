@@ -9,8 +9,8 @@ import { LoginResponse } from '../interface/loginResponse.interface';
 })
 export class LoginService {
   constructor(private http: HttpClient) {}
-  urlBase: string = 'https://api.bancodelapeseta.com';
-  // urlBase: string = 'http://localhost:8080';
+  // urlBase: string = 'https://api.bancodelapeseta.com';
+  urlBase: string = 'http://localhost:8080';
 
   login(credentials: LoginRequest, uri: string): Observable<LoginResponse> {
     return this.http

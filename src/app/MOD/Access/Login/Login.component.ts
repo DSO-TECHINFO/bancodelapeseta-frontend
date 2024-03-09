@@ -19,7 +19,6 @@ import { WInputComponent } from '@/SHARED/Widgets/input-app';
     ReactiveFormsModule,
     HttpClientModule,
     WInputComponent,
-    CustomInputComponent
   ],
   templateUrl: './Login.component.html',
   styles: '',
@@ -42,7 +41,7 @@ export default class LoginComponent{
     // username: ['', [Validators.required, Validators.minLength(4)]],
     // password: ['', [Validators.required]],
   });
-  
+
   login() {
 
     if (this.loginForm.valid) {

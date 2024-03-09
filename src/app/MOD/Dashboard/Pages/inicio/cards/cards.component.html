@@ -1,0 +1,74 @@
+<div class="flex flex-col px-6 pt-2 gap-1 h-64 border border-slate-700 rounded-md w-full">
+
+  <div style="grid-template-columns: 2fr 0.5fr 1.5fr 0.5fr; grid-template-rows: repeat(1, 0.5fr)" class="grid px-2 grid-flow-row">
+    <div style="grid-column-start: 3;"><p class="text-xs text-center">Gastado este mes</p></div>
+  </div>
+
+  <div class="flex flex-col gap-2">
+    @for(item of accountsList; track item.id){
+      <div style="grid-template-columns: 2fr 0.5fr 1.5fr 0.5fr" class="grid px-2">
+
+        <div class="text-[0.7rem]">Tarjeta de {{item.contract.card.cardType === "DEBIT" ? "Débito" : "Crédito"}}</div>
+        <div class="text-xs"></div>
+        <div class="text-sm"></div>
+        <div class="text-sm text-right">{{item.contract.account.real_balance}}</div>
+
+        <div class="text-sm">{{item.contract.card.number}}</div>
+        <div class="text-sm text-right">{{item.contract.card.expiration}}</div>
+        <div class="text-xs"></div>
+        <div class="text-[0.7rem] text-right">{{item.contract.account.balance}}</div>
+
+      </div>
+      <div style="grid-template-columns: 2fr 0.5fr 1.5fr 0.5fr" class="grid px-2">
+
+        <div class="text-[0.7rem]">Tarjeta de {{item.contract.card.cardType === "DEBIT" ? "Débito" : "Crédito"}}</div>
+        <div class="text-xs"></div>
+        <div class="text-sm"></div>
+        <div class="text-sm text-right">{{item.contract.account.real_balance}}</div>
+
+        <div class="text-sm">{{item.contract.card.number}}</div>
+        <div class="text-sm text-right">{{item.contract.card.expiration}}</div>
+        <div class="text-xs"></div>
+        <div class="text-[0.7rem] text-right">{{item.contract.account.balance}}</div>
+
+      </div>
+  <!--
+      <div class="flex justify-between px-6">
+        <div>
+          <div class="text-xs">Tarjeta de {{item.contract.card.cartType}}</div>
+          <div class="text-sm">{{item.contract.card.number}}</div>
+        </div>
+        <div>
+          <div class="text-xs w-4"></div>
+          <div class="text-sm">{{item.contract.card.expiration}}</div>
+        </div>
+        <div>
+          <div class="text-sm">Gastado este mes</div>
+          <div class="text-xs"></div>
+        </div>
+        <div>
+          <div class="text-sm">{{item.contract.account.real_balance}}</div>
+          <div class="text-xs">{{item.contract.account.balance}}</div>
+        </div>
+      </div>
+      <div class="flex justify-between px-6">
+        <div>
+          <div class="text-xs">Tarjeta de {{item.contract.card.cartType}}</div>
+          <div class="text-sm">{{item.contract.card.number}}</div>
+        </div>
+        <div>
+          <div class="text-sm">Hey</div>
+          <div class="text-sm">{{item.contract.card.expiration}}</div>
+        </div>
+        <div>
+          <div class="text-sm">Gastado este mes</div>
+          <div class="text-xs"></div>
+        </div>
+        <div>
+          <div class="text-sm">{{item.contract.account.real_balance}}</div>
+          <div class="text-xs">{{item.contract.account.balance}}</div>
+        </div>
+      </div> -->
+    }
+  </div>
+</div>
