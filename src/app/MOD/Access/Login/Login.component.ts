@@ -19,7 +19,7 @@ import { WInputComponent } from '@/SHARED/Widgets/input-app';
     ReactiveFormsModule,
     HttpClientModule,
     WInputComponent,
-    CustomInputComponent
+    // CustomInputComponent
   ],
   templateUrl: './Login.component.html',
   styles: '',
