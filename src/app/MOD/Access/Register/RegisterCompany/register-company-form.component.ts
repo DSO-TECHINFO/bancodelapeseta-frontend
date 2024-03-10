@@ -1,4 +1,4 @@
-import { WInputComponent } from '@/SHARED/Widgets/input-app';
+import { WInputComponent } from '@/SHARED/Widgets/w-input/input-app';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -8,7 +8,7 @@ import { RegisterCompanyService } from './service/registerCompany.service';
 import { RegisterCompanyRequest } from './interface/registerCompanyRequest.interface';
 
 @Component({
-  selector: 'app-register-company',
+  selector: 'app-register-company-form',
   standalone: true,
   imports: [
     CommonModule,
@@ -20,7 +20,7 @@ import { RegisterCompanyRequest } from './interface/registerCompanyRequest.inter
     CommonModule,
     WInputComponent,
   ],
-  templateUrl: './register-company.component.html',
+  templateUrl: './register-company-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class RegisterCompanyFormComponent {
