@@ -1,14 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
-// import { WInputComponent } from '@/SHARED/Widgets/w-input/w-input.component';
 import { LoginService } from './service/login.service';
 import { FormBuilder,FormControl,ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginRequest } from './interface/loginRequest.interface';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from '@/CORE/Auth/services/token-service.service';
-import { WInputComponent } from '@/SHARED/Widgets/input-app';
-
+import { WInputComponent } from '@/SHARED/Widgets/w-input/input-app';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +17,6 @@ import { WInputComponent } from '@/SHARED/Widgets/input-app';
     ReactiveFormsModule,
     HttpClientModule,
     WInputComponent,
-    CustomInputComponent
   ],
   templateUrl: './Login.component.html',
   styles: '',
@@ -44,7 +41,6 @@ export default class LoginComponent{
   });
   
   login() {
-
     if (this.loginForm.valid) {
       this.loginService
         .login(this.loginForm.value as LoginRequest, 'api/v1/auth/login')
