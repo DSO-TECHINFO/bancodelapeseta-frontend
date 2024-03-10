@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, catchError, throwError } from "rxjs";
-import { CodeDto } from "../../SmsVerification/dto/CodeDto";
+import { CodeDto } from "../../SmsVerification/dto/codeDto";
 import { UnsignedVerificationRequest } from "../../CreateSign/interface/UnsignedVerificationRequest";
 import { CreateSign } from "../../CreateSign/interface/CreateSign.interface";
 
