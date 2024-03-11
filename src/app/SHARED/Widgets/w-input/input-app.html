@@ -1,0 +1,44 @@
+@if(inputType === "digitCode"){
+  <input (keypress)="onDigitInput($event)" class="digit" type="numb" [formControlName]="controlKey"/>
+}
+
+@if(inputType === "onlyText"){
+  <input class="input" type="text" [formControlName]="controlKey" [placeholder]="placeholder"/>
+  <div class="error" *ngIf="parentFormGroup.get(controlKey)?.errors?.['required'] && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)">
+    {{error}}
+  </div>
+  <div class="error" *ngIf="parentFormGroup.get(controlKey)?.hasError('minlength') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)">
+    The text must be at least {{ minLength }} characters.
+  </div>
+  <div class="error" *ngIf="parentFormGroup.get(controlKey)?.hasError('maxlength') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)">
+    The text must not exceed{{ maxLength }} characters.
+  </div>
+}
+
+@if(inputType === "password"){
+  <input class="input" type="password" [formControlName]="controlKey" [placeholder]="placeholder"/>
+  <div class="error" *ngIf="parentFormGroup.get(controlKey)?.errors?.['required'] && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)">
+    {{error}}
+  </div>
+}
+
+@if(inputType === "email"){
+  <input class="input" type="email" [formControlName]="controlKey" [placeholder]="placeholder"/>
+  <div *ngIf="parentFormGroup.get(controlKey)?.hasError('email') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)">
+    {{error}}
+  </div>
+}
+
+@if(inputType === "textPattern"){
+  <input class="input" type="text" [formControlName]="controlKey"/>
+  <div *ngIf="parentFormGroup.get(controlKey)?.hasError('pattern') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)">
+    {{error}}
+  </div>
+}
+
+@if(inputType === "date"){
+  <input class="input" type="date" pattern="\d{4}-\d{2}-\d{2}" placeholder="yyyy-mm-dd" [formControlName]="controlKey" />
+  <div *ngIf="parentFormGroup.get(controlKey)?.hasError('date') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)">
+    {{error}}
+  </div>
+}

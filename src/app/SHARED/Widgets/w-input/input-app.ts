@@ -26,6 +26,9 @@ export class WInputComponent implements OnInit {
   @Input() required: boolean = false;
   @Input() minLength?: number;
   @Input() maxLength?: number;
+
+  @Input() placeholder?: string = '';
+  @Input() patternDate?: string = '';
   // @Input() inputConfigs: any[] = [];
   // @Input() form: FormGroup = new FormGroup({ control: new FormControl('') });
 
@@ -40,9 +43,7 @@ export class WInputComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.parentFormGroup.addControl(this.controlKey, new FormControl('', this.getValidators()));
-
   }
 
   private getValidators(): ValidatorFn | ValidatorFn[] | null{

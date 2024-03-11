@@ -22,15 +22,27 @@ export const routes: Routes = [
   },
   {
     path: 'company-registration',
-    title: 'Login Company',
+    title: 'Company sign up',
     loadComponent: () =>
-    import('./MOD/Access/Register/register-company-form/register-company-form.component'),
+    import('./MOD/Access/Register/RegisterCompany/register-company-form.component'),
   },
   {
     path: 'forgot-password',
     title: 'Forgot Password',
     loadComponent: () =>
-      import('./MOD/Access/ForgotPassword/forgot-password.component'),
+      import('./MOD/Access/RecoveryPassword/ForgotPassword/forgot-password.component'),
+  },
+  {
+    path: 'validate-codes',
+    title: 'Validate Codes',
+    loadComponent: () =>
+      import('./MOD/Access/RecoveryPassword/ValidateCodes/validate-codes.component'),
+  },
+  {
+    path: 'recovery-change',
+    title: 'Password Change',
+    loadComponent: () =>
+      import('./MOD/Access/RecoveryPassword/PasswordRecoveryChange/password-recovery-change.component'),
   },
   {
     path: 'sms-verification',
