@@ -1,20 +1,20 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { LoginRequest } from '../interface/loginRequest.interface';
+import { Injectable } from '@angular/core';
+import { IPersonalAccountRes } from '../interface/personalAccountRes.interface';
+import IPersonlAccountReq from '../interface/personalAccountReq.interface';
 import { Observable, catchError, throwError } from 'rxjs';
-import { LoginResponse } from '../interface/loginResponse.interface';
+
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class LoginService {
-  constructor(private http: HttpClient) {}
+export class PersonalAccountService {
+
+  constructor(private http: HttpClient) { }
   urlBase: string = 'https://api.bancodelapeseta.com';
   //urlBase: string = 'http://localhost:8080';
-
-  login(credentials: LoginRequest, uri: string): Observable<LoginResponse> {
-    return this.http
-      .post<LoginResponse>(`${this.urlBase}/${uri}`, credentials)
-      .pipe(catchError(this.handleError));
+  
+  createPersonalAccount(dataPerson:IPersonlAccountReq ,uri:string): Observable<IPersonalAccountRes> {
+    return this.http.post<IPersonalAccountRes>(`${this.urlBase}/${uri}`, dataPerson).pipe(catchError(this.handleError));
   }
   private handleError(error:HttpErrorResponse){
     if(error.status === 0){

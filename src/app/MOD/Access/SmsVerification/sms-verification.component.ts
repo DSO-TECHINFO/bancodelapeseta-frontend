@@ -6,8 +6,8 @@ import { VerificationService } from '../Verification/service/verification.servic
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { VerificationCodeService } from '@/CORE/Context/service/verification-code-storage.service';
-import { CodeDto } from './dto/CodeDto';
-import { WInputComponent } from '@/SHARED/Widgets/input-app';
+import { CodeDto } from './dto/codeDto';
+import { WInputComponent } from '@/SHARED/Widgets/w-input/input-app';
 import { ValidationService } from '@/GENERIC/UTILS/validation.service';
 
 

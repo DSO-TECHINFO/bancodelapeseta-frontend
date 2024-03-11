@@ -11,7 +11,7 @@ export const TokenInterceptorService: HttpInterceptorFn = (req, next) => {
   if(token != null){
     interceptReq = req.clone({ setHeaders: {'Authorization': `Bearer ${token}`}})
   }
-  console.log('Request: ', interceptReq);
+  //console.log('Request: ', interceptReq);
 
   return next(interceptReq);
 }

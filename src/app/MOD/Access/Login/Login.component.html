@@ -2,27 +2,29 @@
 <div class="flex h-screen w-screen">
   <!-- Left Pane -->
   <div
-    class="hidden lg:flex items-center justify-center flex-1 bg-gradient-to-r from-blue-500 via-teal-300 to-indigo-500 text-black"
+    class="hidden lg:flex items-center justify-center flex-1 bg-gradient-to-r from-cyan-500 to-blue-500"
   >
     <div class="max-w-md text-center">
       <img src="../../../../assets/img/blp.png" alt="" />
     </div>
   </div>
   <!-- Right Pane -->
-  <div class="w-full lg:w-1/2 flex items-center justify-center bg-white">
+  <div class="w-full lg:w-1/2 flex flex-col items-center justify-center bg-white">
+    <img src="../../../../assets/images/login/logoBanco.png" alt="logoBanco" width="100px">
+    <h1 class="text-lg font-semibold mb-6 text-gray-500 text-center">
+      Banco de la Peseta
+    </h1>
     <div class="max-w-md w-full p-6">
-      <h1 class="text-3xl font-semibold mb-6 text-black text-center">Login</h1>
-      <h1 class="text-sm font-semibold mb-6 text-gray-500 text-center">
-        Banco de la Peseta
-      </h1>
+      
+      
       <form [formGroup]="loginForm" class="space-y-4" (ngSubmit)="login()">
         <!-- Your form elements go here -->
         <div>
-          <app-w-input controlKey="username" inputType="onlyText" error="Username is required" [required]="true" [minLength]="4"></app-w-input>
+          <app-w-input controlKey="username" inputType="onlyText" error="Username is required" [required]="true" [minLength]="4" placeholder="Username"></app-w-input>
         </div>
 
         <div>
-          <app-w-input controlKey="password" inputType="password" error="Password is required" [required]="true"></app-w-input>
+          <app-w-input controlKey="password" inputType="password" error="Password is required" [required]="true" placeholder="Password"></app-w-input>
         </div>
         <div>
           <button

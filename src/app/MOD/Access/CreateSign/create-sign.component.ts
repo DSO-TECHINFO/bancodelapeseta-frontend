@@ -5,7 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { VerificationService } from '../Verification/service/verification.service';
 import { VerificationCodeService } from '@/CORE/Context/service/verification-code-storage.service';
-import { WInputComponent } from '@/SHARED/Widgets/input-app';
+import { WInputComponent } from '@/SHARED/Widgets/w-input/input-app';
 import { UnsignedVerificationRequest } from './interface/UnsignedVerificationRequest';
 import { CreateSign } from './interface/CreateSign.interface';
 import { ValidationService } from '@/GENERIC/UTILS/validation.service';
