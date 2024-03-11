@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { LoginService } from './service/login.service';
-import { FormBuilder,FormControl,ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder,ReactiveFormsModule } from '@angular/forms';
 import { LoginRequest } from './interface/loginRequest.interface';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from '@/CORE/Auth/services/token-service.service';

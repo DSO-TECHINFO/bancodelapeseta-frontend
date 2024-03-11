@@ -4,6 +4,7 @@ import { RouteReuseStrategy, provideRouter } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
 import { HttpClient, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 
+
 // IONIC:
 import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
@@ -17,6 +18,11 @@ import {  HttpClientModule } from "@angular/common/http";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
+//primeng
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -24,7 +30,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 if (environment.production) { enableProdMode();}
 
 export const appConfig: ApplicationConfig = {
-  providers: [
+  providers: [BrowserAnimationsModule,BrowserModule,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     importProvidersFrom(
       HttpClientModule,
