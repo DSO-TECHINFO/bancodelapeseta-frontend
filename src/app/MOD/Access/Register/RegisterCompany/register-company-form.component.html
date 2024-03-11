@@ -1,0 +1,270 @@
+<div class="isolated pt-8 flex h-screen w-screen justify-center">
+  <div
+    class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+    aria-hidden="true">
+    <div
+      class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#3400ff] to-[#00ccff] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
+      style="
+        clip-path: polygon(
+          74.1% 44.1%,
+          100% 61.6%,
+          97.5% 26.9%,
+          85.5% 0.1%,
+          80.7% 2%,
+          72.5% 32.5%,
+          60.2% 62.4%,
+          52.4% 68.1%,
+          47.5% 58.3%,
+          45.2% 34.5%,
+          27.5% 76.7%,
+          0.1% 64.9%,
+          17.9% 100%,
+          27.6% 76.8%,
+          76.1% 97.7%,
+          74.1% 44.1%
+        );
+      "></div>
+  </div>
+  <div class="container mx-auto">
+    <div
+      class="flex flex-col w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+      <div class="py-8 px-8">
+        <h2 class="text-3xl text-center lg:text-4xl mt-0">Company Signup</h2>
+        <p class="mt-8">
+          Create your account. It’s free and only take a minute
+        </p>
+        <form [formGroup]="registrationForm" class="mt-4" (ngSubmit)="signup()">
+          <div class="grid grid-cols-2 gap-5 mt-5">
+            <!-- Company's Name Field -->
+            <div>
+              <label
+                for="companyName"
+                class="block text-sm font-semibold text-gray-900"
+                >Company's Name</label
+              >
+              <app-w-input
+                controlKey="companyName"
+                inputType="onlyText"
+                error="You must enter a company name"
+                [required]="true"></app-w-input>
+            </div>
+
+            <!-- Tax ID Field -->
+            <div>
+              <label
+                for="taxId"
+                class="block text-sm font-semibold text-gray-900"
+                >Tax ID</label
+              >
+              <app-w-input
+                controlKey="taxId"
+                inputType="onlyText"
+                [required]="true"
+                error="You must enter a tax ID"></app-w-input>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-5 mt-5">
+            <!-- Address Country Field -->
+            <div class="col-span-2">
+              <label
+                for="addressCountry"
+                class="block text-sm font-semibold text-gray-900"
+                >Country</label
+              >
+              <select
+                id="addressCountry"
+                name="addressCountry"
+                class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50 transition ease-in-out duration-150"
+                required>
+                <option value="" disabled selected>Select your country</option>
+                <option value="Spain">Spain</option>
+                <option value="United States">United States</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Belize">Belize</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Canada">Canada</option>
+                <option value="Chile">Chile</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Cuba">Cuba</option>
+                <option value="Dominican Republic">Dominican Republic</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Haiti">Haiti</option>
+                <option value="Honduras">Honduras</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Panama">Panama</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Peru">Peru</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Venezuela">Venezuela</option>
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+
+            <!-- Postal Code Field -->
+            <div>
+              <label
+                for="postalCode"
+                class="block text-sm font-semibold text-gray-900"
+                >Postal Code</label
+              >
+              <app-w-input
+                controlKey="postalCode"
+                inputType="onlyText"
+                [required]="true"
+                error="You must enter a postal code"></app-w-input>
+            </div>
+
+            <!-- City Field -->
+            <div>
+              <label
+                for="addressCity"
+                class="block text-sm font-semibold text-gray-900"
+                >City</label
+              >
+              <app-w-input
+                controlKey="addressCity"
+                inputType="onlyText"
+                [required]="true"
+                error="You must enter a city name"></app-w-input>
+            </div>
+
+            <!-- Town Field -->
+            <div>
+              <label
+                for="addressTown"
+                class="block text-sm font-semibold text-gray-900"
+                >Town</label
+              >
+              <app-w-input
+                controlKey="addressTown"
+                inputType="onlyText"
+                [required]="true"
+                error="You must enter a town name"></app-w-input>
+            </div>
+
+            <!-- Address Field -->
+            <div class="col-span-2">
+              <label
+                for="address"
+                class="block text-sm font-semibold text-gray-900"
+                >Address</label
+              >
+              <app-w-input
+                controlKey="address"
+                inputType="onlyText"
+                [required]="true"
+                error="You must enter an address"></app-w-input>
+            </div>
+
+            <!-- Additional Address Info Field -->
+            <div class="col-span-2">
+              <label
+                for="addressAdditionalInfo"
+                class="block text-sm font-semibold text-gray-900"
+                >Additional Address Info</label
+              >
+              <app-w-input
+                controlKey="addressAdditionalInfo"
+                inputType="onlyText"
+                [required]="true"
+                error="You must enter additional address info"></app-w-input>
+            </div>
+
+            <!-- Phone Number Field -->
+            <div>
+              <label
+                for="phoneNumber"
+                class="block text-sm font-semibold text-gray-900"
+                >Phone Number</label
+              >
+              <app-w-input
+                controlKey="phoneNumber"
+                inputType="textPattern"
+                pattern="/d+/g"
+                [required]="true"
+                error="You must enter a valid phone number"></app-w-input>
+            </div>
+
+            <!-- Email Field -->
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-semibold text-gray-900"
+                >Email</label
+              >
+              <app-w-input
+                controlKey="email"
+                inputType="email"
+                [required]="true"
+                error="You must enter a valid email"></app-w-input>
+            </div>
+
+            <!-- Password Field -->
+            <div>
+              <label
+                for="password"
+                class="block text-sm font-semibold text-gray-900"
+                >Password</label
+              >
+              <app-w-input
+                controlKey="password"
+                inputType="password"
+                [required]="true"
+                error="Your password does not meet security requirements"></app-w-input>
+            </div>
+
+            <!-- Confirm Password Field -->
+            <div>
+              <label
+                for="confirmPassword"
+                class="block text-sm font-semibold text-gray-900"
+                >Confirm Password</label
+              >
+              <app-w-input
+                controlKey="confirmPassword"
+                inputType="onlyText"
+                [required]="true"
+                error="You must confirm your password"></app-w-input>
+            </div>
+          </div>
+
+          <div class="mt-5 text-center">
+            <input
+              type="checkbox"
+              name="acceptTerms"
+              required
+              class="w-4 h-4 me-1 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-purple-500" />
+            <label for="acceptTerms">
+              I accept the
+              <a href="#" class="text-purple-500 font-semibold">Terms of Use</a>
+              &
+              <a href="#" class="text-purple-500 font-semibold"
+                >Privacy Policy</a
+              >
+            </label>
+          </div>
+          <div class="mt-5 text-center">
+            <button
+            [disabled]="registrationForm.invalid"
+            role="button"
+            type="submit"
+              class="bg-gradient-to-br from-blue-300 via-blue-500 to-indigo-400 text-white py-4 px-4 rounded-xl font-bold uppercase hover:cursor-pointer hover:shadow-lg transition-shadow duration-200"
+            >
+              Signup
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <footer class="py-8 w-full">
+      <span class="flex justify-center border-b border-gray-200 pb-3"></span>
+      <p class="mt-3 text-center text-gray-600">© 2024 Banco de la peseta.</p>
+    </footer>
+  </div>
+</div>
