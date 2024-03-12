@@ -25,23 +25,17 @@ import { TitleService } from './services/title.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class WNavComponent implements OnDestroy, OnInit {
+export class WNavComponent implements OnDestroy {
   pageTitle: string = '';
   private subscription: Subscription;
 
   constructor(private titleService: TitleService, private cdr: ChangeDetectorRef) {
     this.subscription = this.titleService.getPageTitle().subscribe((title) => {
       this.pageTitle = title;
-      this.cdr.detectChanges();
+      this.cdr.markForCheck();
     });
   }
 
-  ngOnInit() {
-    this.titleService.getPageTitle().subscribe((title) => {
-      this.pageTitle = title;
-      this.cdr.detectChanges();
-    });
-  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
