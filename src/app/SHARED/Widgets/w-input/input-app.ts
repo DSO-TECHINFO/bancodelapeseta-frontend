@@ -92,7 +92,11 @@ export class WInputComponent implements OnInit {
     this.digitInput.emit({ event });
 
   }
-
+  autoResizeTextArea(event: any) {
+    const textarea = event.target;
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+  }
   // onDigitInput(event: any) {
   //   this.digitInput.emit({ event });
   // }

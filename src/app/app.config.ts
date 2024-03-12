@@ -16,6 +16,10 @@ import { TokenInterceptorService } from './CORE/Auth/Interceptors/token-intercep
 import {  HttpClientModule } from "@angular/common/http";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { provideAnimations } from '@angular/platform-browser/animations';
+
+//toaster
+import {provideToastr} from 'ngx-toastr'
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -44,6 +48,12 @@ export const appConfig: ApplicationConfig = {
       withFetch(),
       withInterceptors([TokenInterceptorService])
     ),
+    provideAnimations(),
+    provideToastr({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
   ],
 };
 
