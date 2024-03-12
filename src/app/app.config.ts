@@ -21,6 +21,7 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 //primeng
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -30,10 +31,12 @@ export function HttpLoaderFactory(http: HttpClient) {
 if (environment.production) { enableProdMode();}
 
 export const appConfig: ApplicationConfig = {
-  providers: [BrowserAnimationsModule,BrowserModule,
+  providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     importProvidersFrom(
       HttpClientModule,
+      BrowserAnimationsModule,
+      ToastrModule.forRoot(),
       TranslateModule.forRoot({
         defaultLanguage: 'en',
         loader: {
