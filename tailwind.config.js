@@ -21,8 +21,9 @@ module.exports = {
         'primary-light':'#c7cbed',
         'primary-text':'#45435e',
         'background-gray':'#f0f0f7',
-        'gray-icons':'#b9b9c7'
-      }
+        'gray-icons':'#b9b9c7',
+        'dark':'#282739'
+      },
     },
   },
   plugins: [require('@tailwindcss/aspect-ratio')

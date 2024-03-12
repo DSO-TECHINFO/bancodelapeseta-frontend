@@ -1,18 +1,30 @@
 <div class="isolate w-screen bg-white px-6 py-24 sm:py-10 lg:px-8">
-  <button (click)="returnToRegister()" type="button"
-      class=" flex fixed top-1 items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
-      <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-        stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-      </svg>
-      <span>Go back</span>
-    </button>
+  <button
+    (click)="returnToRegister()"
+    type="button"
+    class="flex fixed top-1 items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700"
+  >
+    <svg
+      class="w-5 h-5 rtl:rotate-180"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+      />
+    </svg>
+    <span>Go back</span>
+  </button>
   <div
     class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
-    aria-hidden="true"
-  >
+    aria-hidden="true">
     <div
-      class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
+      class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#3400ff] to-[#00ccff] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
       style="
         clip-path: polygon(
           74.1% 44.1%,
@@ -32,8 +44,7 @@
           76.1% 97.7%,
           74.1% 44.1%
         );
-      "
-    ></div>
+      "></div>
   </div>
   <div class="mx-auto max-w-2xl text-center">
     <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -43,13 +54,14 @@
       Create your account and enjoy the benefits we offer
     </p>
   </div>
-  <form [formGroup]="registerPersonForm" (ngSubmit)="createPersonalAccount()" class="mx-auto max-w-xl sm:mt-10">
-    <div class="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
+  <form
+    [formGroup]="registerPersonForm"
+    (ngSubmit)="createPersonalAccount()"
+    class="mx-auto max-w-xl sm:mt-10"
+  >
+    <div class="grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2">
       <div>
-        <label
-          for="name"
-          class="mb-1 block text-base font-medium text-[#07074D]"
-        >
+        <label for="name" class="mb-1 block text-base font-medium text-dark">
           Username
         </label>
         <app-w-input
@@ -62,10 +74,7 @@
       </div>
 
       <div>
-        <label
-          for="date"
-          class="mb-1 block text-base font-medium text-[#07074D]"
-        >
+        <label for="date" class="mb-1 block text-base font-medium text-dark">
           Surname
         </label>
         <app-w-input
@@ -77,38 +86,34 @@
         ></app-w-input>
       </div>
 
-      <!-- <app-w-input controlKey="username" inputType="onlyText" error="Surname is required" [required]="true" [minLength]="4" placeholder="Birthday"></app-w-input> -->
-
       <div>
-        <label
-          for="date"
-          class="mb-1 block text-base font-medium text-[#07074D]"
-        >
-          Birthday
-        </label>
-       <app-w-input controlKey="birthday" inputType="date" [required]="true"></app-w-input>
-      </div>
-
-      <div>
-        <label
-          for="date"
-          class="mb-1 block text-base font-medium text-[#07074D]"
-        >
-          TaxID
+        <label for="taxId" class="mb-1 block text-base font-medium text-dark">
+          Document Id
         </label>
         <app-w-input
           controlKey="taxId"
           inputType="onlyText"
-          error="TaxID is required"
+          error="DocumentId is required"
           [required]="true"
           [minLength]="4"
+        ></app-w-input>
+      </div>
+      <div>
+        <label for="date" class="mb-1 block text-base font-medium text-dark">
+          Expiration Id
+        </label>
+        <app-w-input
+          controlKey="nationalIdExpiration"
+          inputType="date"
+          error="Date is required"
+          [required]="true"
         ></app-w-input>
       </div>
 
       <div>
         <label
           for="password"
-          class="mb-1 block text-base font-medium text-[#07074D]"
+          class="mb-1 block text-base font-medium text-dark"
         >
           Password
         </label>
@@ -123,40 +128,38 @@
 
       <div>
         <label
-          for="date"
-          class="mb-1 block text-base font-medium text-[#07074D]"
+          for="confirmPassword"
+          class="mb-1 block text-base font-medium text-dark"
         >
-        Expiration Id
+          Confirm Password
         </label>
         <app-w-input
-        controlKey="nationalIdExpiration"
-        inputType="date"
-        error="Date is required"
-        [required]="true"
-      ></app-w-input>
+          controlKey="confirmPassword"
+          inputType="password"
+          error="Confirm Password is required"
+          [required]="true"
+          [minLength]="4"
+        ></app-w-input>
       </div>
-     
 
-      <div>
-        <label
-          for="address"
-          class="mb-1 block text-base font-medium text-[#07074D]"
-        >
-          Adrress
+      <div class="col-span-full">
+        <label for="address" class="mb-1 text-base font-medium text-dark">
+          Address
         </label>
         <app-w-input
           controlKey="address"
-          inputType="onlyText"
+          inputType="textarea"
           error="Address is required"
           [required]="true"
           [minLength]="4"
+          class="h-auto resize-none overflow-hidden"
         ></app-w-input>
       </div>
 
       <div>
         <label
           for="addressAdditionalInfo"
-          class="mb-1 block text-base font-medium text-[#07074D]"
+          class="mb-1 block text-base font-medium text-dark"
         >
           Address Additional Info
         </label>
@@ -172,7 +175,7 @@
       <div>
         <label
           for="postalCode"
-          class="mb-1 block text-base font-medium text-[#07074D]"
+          class="mb-1 block text-base font-medium text-dark"
         >
           Postal Code
         </label>
@@ -188,7 +191,7 @@
       <div>
         <label
           for="addressTown"
-          class="mb-1 block text-base font-medium text-[#07074D]"
+          class="mb-1 block text-base font-medium text-dark"
         >
           Address Town
         </label>
@@ -204,7 +207,7 @@
       <div>
         <label
           for="addressCity"
-          class="mb-1 block text-base font-medium text-[#07074D]"
+          class="mb-1 block text-base font-medium text-dark"
         >
           Address City
         </label>
@@ -220,7 +223,7 @@
       <div>
         <label
           for="addressCountry"
-          class="mb-1 block text-base font-medium text-[#07074D]"
+          class="mb-1 block text-base font-medium text-dark"
         >
           Address Country
         </label>
@@ -233,35 +236,10 @@
         ></app-w-input>
       </div>
 
-      <!-- <div>
-        <label
-          for="gender"
-          class="mb-1 block text-base font-medium text-[#07074D]"
-        >
-          Gender
-        </label>
-
-        <div class="grid grid-cols-2 rounded-md bg-gray-100 p-3">
-          <div class="flex items-center justify-center gap-2">
-            <label for="gender">M</label>
-            <input type="radio" name="gender" />
-          </div>
-          <div class="flex items-center justify-center gap-2">
-            <label for="gender">F</label>
-            <input type="radio" name="gender" />
-          </div>
-        </div>
-      </div> -->
-
-      <div>
-        <label for="">Gender</label>
-        <app-w-input controlKey="gender" [required]="true" inputType="onlyText"></app-w-input>
-      </div>
-
       <div>
         <label
           for="nationality"
-          class="mb-1 block text-base font-medium text-[#07074D]"
+          class="mb-1 block text-base font-medium text-dark"
         >
           Nationality
         </label>
@@ -275,9 +253,29 @@
       </div>
 
       <div>
+        <label for="gender" class="mb-1 block text-base font-medium text-dark"
+          >Gender</label
+        >
+        <app-w-input
+          controlKey="gender"
+          [required]="true"
+          inputType="select"
+        ></app-w-input>
+      </div>
+      <div>
+        <label for="date" class="mb-1 block text-base font-medium text-dark">
+          Birthday
+        </label>
+        <app-w-input
+          controlKey="birthday"
+          inputType="date"
+          [required]="true"
+        ></app-w-input>
+      </div>
+      <div>
         <label
           for="birthCity"
-          class="mb-1 block text-base font-medium text-[#07074D]"
+          class="mb-1 block text-base font-medium text-dark"
         >
           BirthCity
         </label>
@@ -293,13 +291,13 @@
       <div>
         <label
           for="phoneNumber"
-          class="mb-1 block text-base font-medium text-[#07074D]"
+          class="mb-1 block text-base font-medium text-dark"
         >
           Phone Number
         </label>
         <app-w-input
           controlKey="phoneNumber"
-          inputType="onlyText"
+          inputType="phoneNumber"
           error="Phone Number is required"
           [required]="true"
           [minLength]="4"
@@ -307,10 +305,7 @@
       </div>
 
       <div>
-        <label
-          for="email"
-          class="mb-1 block text-base font-medium text-[#07074D]"
-        >
+        <label for="email" class="mb-1 block text-base font-medium text-dark">
           Email
         </label>
         <app-w-input
@@ -323,11 +318,15 @@
       </div>
 
       <div>
-        <label for="debtType"  class="mb-1 block text-base font-medium text-[#07074D]">Occupation</label>
-        <app-w-input inputType="onlyText" [required]="true" controlKey="debtType"></app-w-input>
+        <label for="debtType" class="mb-1 block text-base font-medium text-dark"
+          >Occupation</label
+        >
+        <app-w-input
+          inputType="occupations"
+          [required]="true"
+          controlKey="debtType"
+        ></app-w-input>
       </div>
-     
-
     </div>
     <div class="mt-10">
       <button

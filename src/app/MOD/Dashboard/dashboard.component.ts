@@ -36,7 +36,7 @@ export default class DashboardComponent implements OnInit {
   ) {
     this.subscription = this.titleService.getPageTitle().subscribe((title) => {
       this.pageTitle = title;
-      this.cdr.detectChanges();
+      this.cdr.markForCheck();
     });
   }
 
