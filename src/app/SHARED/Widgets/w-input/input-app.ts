@@ -26,7 +26,9 @@ export class WInputComponent implements OnInit {
   @Input() required: boolean = false;
   @Input() minLength?: number;
   @Input() maxLength?: number;
-  @Input() options?: [];
+
+  @Input() placeholder?: string = '';
+  @Input() patternDate?: string = '';
   // @Input() inputConfigs: any[] = [];
   // @Input() form: FormGroup = new FormGroup({ control: new FormControl('') });
 
@@ -41,9 +43,7 @@ export class WInputComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.parentFormGroup.addControl(this.controlKey, new FormControl('', this.getValidators()));
-
   }
 
   private getValidators(): ValidatorFn | ValidatorFn[] | null{
@@ -92,7 +92,11 @@ export class WInputComponent implements OnInit {
     this.digitInput.emit({ event });
 
   }
-
+  autoResizeTextArea(event: any) {
+    const textarea = event.target;
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+  }
   // onDigitInput(event: any) {
   //   this.digitInput.emit({ event });
   // }

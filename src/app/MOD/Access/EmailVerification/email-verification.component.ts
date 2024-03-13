@@ -5,8 +5,8 @@ import { Router, RouterLink } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { VerificationService } from '../Verification/service/verification.service';
 import { VerificationCodeService } from '@/CORE/Context/service/verification-code-storage.service';
-import { CodeDto } from '../SmsVerification/dto/CodeDto';
-import { WInputComponent } from '@/SHARED/Widgets/input-app';
+import { CodeDto } from '../SmsVerification/dto/codeDto';
+import { WInputComponent } from '@/SHARED/Widgets/w-input/input-app';
 import { ValidationService } from '@/GENERIC/UTILS/validation.service';
 
 
