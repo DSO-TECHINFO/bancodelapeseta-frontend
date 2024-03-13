@@ -1,9 +1,10 @@
-import { AfterContentChecked, AfterViewInit, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterViewInit, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { StartPanelService } from '../servicio/start-panel.service';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { CurrencyExchangeList } from '../interface/currencyExchange.interface';
 
 @Component({
   selector: 'balance-component',
@@ -15,8 +16,14 @@ export default class BalanceComponent implements OnInit{
 
   currencyList: any[] = [];
   accountsList: any[] = [];
+  currencyExchangeList: CurrencyExchangeList = {
+    rates: {}
+  };
   selectedCurrency: any;
   selectedCurrencyString: string = '';
+  selectedCurrencyRate: number = 1;
+
+  @Output() currencyRate = new EventEmitter<number>();
 
   constructor(
     private startPanelService: StartPanelService,
@@ -25,19 +32,29 @@ export default class BalanceComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.startPanelService.getCurrency('api/v1/exchange')
+    this.getAccounts();
+
+    this.startPanelService.getCurrency('assets/currency.json')
     .subscribe({
-      next: (userData) => {
-        // console.log("Currency: ", userData);
-        this.currencyList = userData;
+      next: (res) => {
+        this.currencyList = res;
         this.cdr.detectChanges();
         console.log("Currency: ", this.currencyList);
       },
       error: (err) => {
-        console.error('No se pudo obtener currency: ', err);
+        console.error('Could not get currency: ', err);
       },
-      complete: () => {
-        this.getAccounts()
+    })
+
+    this.startPanelService.getCurrencyExchange('assets/currency-exchange.json')
+    .subscribe({
+      next: (res) => {
+        this.currencyExchangeList = res;
+        this.cdr.detectChanges();
+        console.log("Currency: ", this.currencyExchangeList);
+      },
+      error: (err) => {
+        console.error('Could not get currency exchange: ', err);
       },
     })
 
@@ -53,7 +70,7 @@ export default class BalanceComponent implements OnInit{
 
       },
       error: (err) => {
-        console.error('No se pudo enviar el código de verificación por correo. El error es: ', err);
+        console.error('Could not get accounts: ', err);
       },
       complete: () => {
         this.setDefaultCurrency();
@@ -67,6 +84,18 @@ export default class BalanceComponent implements OnInit{
       this.selectedCurrencyString = defaultCurrency;
       this.cdr.detectChanges();
     }
+  }
+
+  onCurrencyChange(){
+    this.selectedCurrencyRate = this.currencyExchangeList.rates[this.selectedCurrencyString];
+
+    if (this.selectedCurrencyRate !== undefined) {
+      console.log(`Factor ${this.selectedCurrencyString}: ${this.selectedCurrencyRate}`);
+      this.currencyRate.emit(this.selectedCurrencyRate);
+    } else {
+      console.error(`Conversion factor not found for ${this.selectedCurrencyString}`);
+    }
+
   }
 
 }

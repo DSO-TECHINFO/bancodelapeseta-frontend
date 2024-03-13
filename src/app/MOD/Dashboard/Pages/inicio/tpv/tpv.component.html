@@ -1,10 +1,18 @@
-<div class="w-full flex flex-col h-64 px-8 border rounded-md border-slate-700">
-  <div class="header flex justify-between">
-    <span>Balance Total</span>
-    <div class="w-14 border border-indigo-500 p-1">Sel</div>
+<div class="flex flex-col px-6 pt-2 gap-1 h-64 border border-slate-300 shadow-lg shadow-slate-300/50 rounded-md w-full">
+
+  <div class="flex flex-row justify-center">
+    <span class="text-center self-center text-xs font-medium">Ingresos del mes</span>
   </div>
-  <div class="h-56 flex flex-col">
-    <div>Tarjeta 1</div>
-    <div>Tarjeta 2</div>
+
+  <div class="flex flex-col gap-2">
+    @for(item of data.tpv; track item.id){
+      <div style="grid-template-columns: 2fr 1.5fr 0.5fr" class="grid px-2">
+
+        <div class="text-sm font-medium self-center">{{item.serialNumber}}</div>
+        <div class="text-xs text-center self-center">{{item.tpvNumber}}</div>
+        <div class="text-[0.7rem] flex flex-col justify-center font-medium self-center"><input class="h-3 w-3" type="checkbox" name="item.id" [(ngModel)]="item.activated" ></div>
+
+      </div>
+    }
   </div>
 </div>

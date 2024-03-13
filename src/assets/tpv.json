@@ -1,0 +1,77 @@
+[
+  {
+    "contract": {
+      "id": 23,
+      "type": "CARD",
+      "product": {
+          "id": 2,
+          "name": "Young account",
+          "description": "Young account for -33 yeard people",
+          "fee": 0.00,
+          "type": "ACCOUNT",
+          "entityType": "PHYSICAL",
+          "recurrence": "DAILY",
+          "currency": {
+              "id": 44,
+              "currency": "EUR"
+          },
+          "interestRate": null,
+          "active": true
+      },
+      "account": {
+          "id": 19,
+          "balance": 0.00,
+          "real_balance": 0.00,
+          "accountNumber": "ES726140629776311500",
+          "currency": {
+              "id": 44,
+              "currency": "EUR"
+          }
+      },
+      "cards": [{
+          "id": 1,
+          "number": "1234 5678 900 1234",
+          "expiration": "12/27",
+          "cashierLimit": 50.00,
+          "dailyBuyoutLimit": 20.00,
+          "activated": true,
+          "activationDate": "2024-03-03",
+          "cardType": "DEBIT",
+          "chargedAmount": 0.00,
+          "fee": 0.00
+        },
+        {
+          "id": 1,
+          "number": "1234 5678 900 4567",
+          "expiration": "10/27",
+          "cashierLimit": 50.00,
+          "dailyBuyoutLimit": 20.00,
+          "activated": true,
+          "activationDate": "2024-03-03",
+          "cardType": "DEBIT",
+          "chargedAmount": 0.00,
+          "fee": 0.00
+        }
+      ],
+      "tpv": [{
+          "id": 1,
+          "serialNumber": "1234567890 ",
+          "activated": true,
+          "activationDate": "2024-03-03",
+          "creationDate": "2024-03-03",
+          "code": "2024",
+          "tpvNumber": "1010"
+        },
+        {
+          "id": 2,
+          "serialNumber": "1714567812",
+          "activated": false,
+          "activationDate": "2024-02-02",
+          "creationDate": "2024-02-02",
+          "code": "2024",
+          "tpvNumber": "1034"
+        }
+      ]
+    }
+  }
+]

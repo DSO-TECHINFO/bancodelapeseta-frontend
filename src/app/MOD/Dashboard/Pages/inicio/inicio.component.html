@@ -7,10 +7,11 @@
   </p>
 </div> -->
 
-<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
-  <!-- <balance-component [currencyList]="currencyList" [accountsList]="accountsList"></balance-component> -->
-  <balance-component></balance-component>
+<div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-3">
+
+  <balance-component (currencyRate)="onRateSelected($event)"></balance-component>
   <tpv-component></tpv-component>
-  <cards-component [accountsList]="accountsList"></cards-component>
+  <cards-component [rate]="currencyExchangeRate"></cards-component>
   <loans-component></loans-component>
+
 </div>

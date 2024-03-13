@@ -9,17 +9,42 @@ export class StartPanelService {
   constructor(private http: HttpClient) {}
 
   urlBase: string = 'https://api.bancodelapeseta.com';
+  // urlBase: string = 'http://localhost:8080';
 
   public getAccounts(uri: string): Observable<any>{
-    return this.http
-    .get<any>(`${this.urlBase}/${uri}`)
-    .pipe(catchError(this.handleError));
+    const jsonUrl = "assets/accounts.json";
+    return this.http.get<any>(jsonUrl);
+    // return this.http
+    // .get<any>(`${this.urlBase}/${uri}`)
+    // .pipe(catchError(this.handleError));
   }
 
-  public getCurrency(uri: string): Observable<any>{
-    return this.http
-    .get<any>(`${this.urlBase}/${uri}`)
-    .pipe(catchError(this.handleError));
+  public getCurrency(uri: string): Observable<any>{;
+    return this.http.get<any>(uri);
+    // return this.http
+    // .get<any>(`${this.urlBase}/${uri}`)
+    // .pipe(catchError(this.handleError));
+  }
+
+  public getCurrencyExchange(uri: string): Observable<any>{
+    return this.http.get<any>(uri);
+    // return this.http
+    // .get<any>(`${this.urlBase}/${uri}`)
+    // .pipe(catchError(this.handleError));
+  }
+
+  public getTpv(uri: string): Observable<any>{
+    return this.http.get<any>(uri);
+    // return this.http
+    // .get<any>(`${this.urlBase}/${uri}`)
+    // .pipe(catchError(this.handleError));
+  }
+
+  public getCards(uri: string): Observable<any>{
+    return this.http.get<any>(uri);
+    // return this.http
+    // .get<any>(`${this.urlBase}/${uri}`)
+    // .pipe(catchError(this.handleError));
   }
 
   private handleError(error:HttpErrorResponse){

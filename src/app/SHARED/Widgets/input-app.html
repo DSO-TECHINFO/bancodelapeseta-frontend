@@ -36,3 +36,12 @@
   </div>
 }
 
+<!-- @if(nputType === "select"){
+  <select class="w-16 border text-sm rounded-md p-1" (change)="onCurrencyChange()" [(ngModel)]="selectedCurrencyString">
+    @for(currency of currencyList; track currency.id){
+      <option [value]="currency.currency">
+        {{ currency.currency }}
+      </option>
+    }
+  </select>
+} -->

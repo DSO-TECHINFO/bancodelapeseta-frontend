@@ -26,6 +26,7 @@ export class WInputComponent implements OnInit {
   @Input() required: boolean = false;
   @Input() minLength?: number;
   @Input() maxLength?: number;
+  @Input() options?: [];
   // @Input() inputConfigs: any[] = [];
   // @Input() form: FormGroup = new FormGroup({ control: new FormControl('') });
 

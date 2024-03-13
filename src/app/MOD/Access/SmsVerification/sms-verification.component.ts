@@ -72,27 +72,8 @@ export default class SmsVerificationComponent implements OnInit{
 
     const value = event.event.key;
 
-    // Solo permite números del 1 al 9 y evita otros caracteres
-    // if (keyCode < 48 || keyCode > 57 || currentValue.length >= 1) {
-    //   event.preventDefault();
-    //   return;
-    // }
-
     if (value.toString().length == 1) {
       this.validationService.onDigitInputFocusNext(inputIndex, this.inputRefs)
-      // const nextIndex = inputIndex + 1;
-      // if (nextIndex < this.inputRefs.length) {
-      //   console.log("En obtener el input adecuado: ", nextIndex);
-      //   const nextInputRef = this.inputRefs.get(nextIndex);
-      //   console.log("nextInputRef: ", nextInputRef);
-      //   if (nextInputRef) {
-      //     const nextInput = nextInputRef.nativeElement.firstChild;
-      //     console.log("nextInput: ", nextInput);
-      //     if (nextInput) {
-      //       nextInput.focus();
-      //     }
-      //   }
-      // }
     }
 
   }
@@ -122,20 +103,5 @@ export default class SmsVerificationComponent implements OnInit{
       },
     })
   }
-
-  // onStringCode(){
-
-  //   const numb1 = this.verificationCodeForm.get('numb1')?.value;
-  //   const numb2 = this.verificationCodeForm.get('numb2')?.value;
-  //   const numb3 = this.verificationCodeForm.get('numb3')?.value;
-  //   const numb4 = this.verificationCodeForm.get('numb4')?.value;
-  //   const numb5 = this.verificationCodeForm.get('numb5')?.value;
-  //   const numb6 = this.verificationCodeForm.get('numb6')?.value;
-
-  //   this.code = `${numb1}${numb2}${numb3}${numb4}${numb5}${numb6}`;
-  //   this.codeDto.code = this.code;
-
-  //   console.log('code: ', this.code);
-  // }
 
 }

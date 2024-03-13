@@ -1,10 +1,11 @@
-import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AfterContentChecked, ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import BalanceComponent from './balance/balance.component';
 import CardsComponent from './cards/cards.component';
 import TpvComponent from './tpv/tpv.component';
 import LoansComponent from './loans/loans.component';
 import { StartPanelService } from './servicio/start-panel.service';
+import { CurrencyExchangeList } from './interface/currencyExchange.interface';
 
 @Component({
   selector: 'app-inicio',
@@ -17,28 +18,16 @@ import { StartPanelService } from './servicio/start-panel.service';
   ],
   templateUrl: './inicio.component.html',
 })
-export default class InicioComponent implements OnInit{
+export default class InicioComponent{
 
   accountsList: any[] = [];
+  currencyExchangeRate: number = 1;
 
-  constructor(
-    private startPanelService: StartPanelService,
-    private cdr: ChangeDetectorRef
-  ){}
+  @Output() currencyExchangeList = new EventEmitter<any>();
 
-  ngOnInit(): void {
-
-    this.startPanelService.getAccounts('api/v1/accounts').subscribe({
-      next: (userData) => {
-        this.accountsList = userData;
-        this.cdr.detectChanges();
-      },
-      error: (err) => {
-        console.error('No se pudo enviar el código de verificación por correo. El error es: ', err);
-      },
-    })
-
-    throw new Error('Method not implemented.');
+  onRateSelected(rate: number){
+    this.currencyExchangeRate = rate;
+    console.log("Rate en inicio component: ", rate);
   }
 
 }
