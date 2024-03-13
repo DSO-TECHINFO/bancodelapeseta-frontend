@@ -1,0 +1,39 @@
+<div class="w-full flex flex-col border h-64 border-slate-300 shadow-lg shadow-slate-300/50 rounded-md">
+  <div class="header flex px-8 justify-between border-b">
+    <span class="text-center self-center text-xl font-medium">Balance Total</span>
+    @if(currencyList.length > 0){
+      <select class="w-16 border text-sm rounded-md p-1" (change)="onCurrencyChange()" [(ngModel)]="selectedCurrencyString">
+        @for(currency of currencyList; track currency.id){
+          <option [value]="currency.currency">
+            {{ currency.currency }}
+          </option>
+        }
+      </select>
+    }
+
+  </div>
+  <div class="h-56 flex flex-col px-6 pt-4 gap-2">
+    @for(item of accountsList; track item.id){
+      <div class="flex justify-between px-2">
+        <div>
+          <div class="text-[0.7rem] text-primary-text">Cuenta xxxx</div>
+          <div class="text-sm font-medium">{{item.contract.account.accountNumber}}</div>
+        </div>
+        <div>
+          <div class="text-sm">{{((item.contract.account.real_balance * selectedCurrencyRate).toFixed(2)) + ' $'}}</div>
+          <div class="text-[0.7rem] text-primary-text text-left">{{((item.contract.account.balance * selectedCurrencyRate).toFixed(2))}}</div>
+        </div>
+      </div>
+      <div class="flex justify-between px-2">
+        <div>
+          <div class="text-[0.7rem] text-primary-text">Cuenta xxxx</div>
+          <div class="text-sm font-medium">{{item.contract.account.accountNumber}}</div>
+        </div>
+        <div>
+          <div class="text-sm">{{((item.contract.account.real_balance * selectedCurrencyRate).toFixed(2)) + ' $'}}</div>
+          <div class="text-[0.7rem] text-primary-text text-left">{{((item.contract.account.balance * selectedCurrencyRate).toFixed(2))}}</div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

@@ -14,6 +14,8 @@ export class ValidationService {
     //   return;
     // }
 
+    //Comentario para commit de prueba
+
     const nextIndex = inputIndex + 1;
     if (nextIndex < inputRefs.length) {
       const nextInputRef = inputRefs.get(nextIndex);
