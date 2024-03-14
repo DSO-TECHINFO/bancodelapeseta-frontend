@@ -20,7 +20,7 @@ import { filter } from 'rxjs';
   ],
 })
 export class SidebarComponent {
-  isSidebarOpen = true;
+  isSidebarOpen = false;
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
