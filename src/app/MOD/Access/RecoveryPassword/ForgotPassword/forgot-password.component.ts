@@ -12,14 +12,9 @@ import { RouterLink } from '@angular/router';
 })
 export default class ForgotPasswordComponent {
 
-  isMobileVerification = false;
   constructor(private formBuilder: FormBuilder) {}
 
   forgotPass = this.formBuilder.group({});
-
-  toggleMobileVerification() {
-    this.isMobileVerification = !this.isMobileVerification;
-  }
 
   onForgotPass() {
     if(this.forgotPass.valid){
@@ -28,4 +23,6 @@ export default class ForgotPasswordComponent {
       console.log("Por favor llene todos los campos");
     }
   }
+
+
 }
