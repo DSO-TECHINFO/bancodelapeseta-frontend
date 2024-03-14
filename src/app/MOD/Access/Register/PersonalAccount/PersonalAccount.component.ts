@@ -5,13 +5,14 @@ import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PersonalAccountService } from './service/personalAccount.service';
 import IPersonlAccountReq from './interface/personalAccountReq.interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-personal-account',
   standalone: true,
   imports: [
     CommonModule,
-    WInputComponent, 
+    WInputComponent,
     ReactiveFormsModule
   ],
   templateUrl: './PersonalAccount.component.html',
@@ -20,8 +21,8 @@ import IPersonlAccountReq from './interface/personalAccountReq.interface';
 })
 export default class PersonalAccountComponent {
   public classStyle = 'mt-1 p-3 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300'
-  
-  constructor(private formBuilder:FormBuilder, private router:Router){}
+
+  constructor(private formBuilder:FormBuilder, private router:Router,  private toastr: ToastrService){}
 
   private SCreatePersonalAccount = inject(PersonalAccountService);
 
@@ -39,9 +40,11 @@ export default class PersonalAccountComponent {
           console.log('next')
         },
         error:(err)=>{
+          this.showerror();
           console.log(err.reason);
         },
         complete:()=>{
+          this.showsuccess();
           this.router.navigate(['/sms-verification']);
           this.registerPersonForm.reset();
         }
@@ -51,4 +54,10 @@ export default class PersonalAccountComponent {
     }
   }
 
+  showsuccess(){
+    this.toastr.success('Register sucessfully.', 'Success');
+  }
+  showerror(){
+    this.toastr.error('Invalid form, check credentials ', 'Error');
+  }
 }

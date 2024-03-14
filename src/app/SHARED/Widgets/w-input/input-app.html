@@ -1,45 +1,188 @@
 @if(inputType === "digitCode"){
-  <input (keypress)="onDigitInput($event)" class="digit" type="numb" [formControlName]="controlKey"/>
+<input
+  (keypress)="onDigitInput($event)"
+  class="digit"
+  type="numb"
+  [formControlName]="controlKey"
+/>
 }
 
 @if(inputType === "onlyText"){
-  <input class="input" type="text" [formControlName]="controlKey" [placeholder]="placeholder"/>
-  <div class="error" *ngIf="parentFormGroup.get(controlKey)?.errors?.['required'] && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)">
-    {{error}}
-  </div>
-  <div class="error" *ngIf="parentFormGroup.get(controlKey)?.hasError('minlength') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)">
-    The text must be at least {{ minLength }} characters.
-  </div>
-  <div class="error" *ngIf="parentFormGroup.get(controlKey)?.hasError('maxlength') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)">
-    The text must not exceed{{ maxLength }} characters.
-  </div>
+<input
+  class="input"
+  type="text"
+  [formControlName]="controlKey"
+  [placeholder]="placeholder"
+/>
+<div
+  class="error"
+  *ngIf="parentFormGroup.get(controlKey)?.errors?.['required'] && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+>
+  {{error}}
+</div>
+<div
+  class="error"
+  *ngIf="parentFormGroup.get(controlKey)?.hasError('minlength') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+>
+  The text must be at least {{ minLength }} characters.
+</div>
+<div
+  class="error"
+  *ngIf="parentFormGroup.get(controlKey)?.hasError('maxlength') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+>
+  The text must not exceed{{ maxLength }} characters.
+</div>
 }
 
 @if(inputType === "password"){
-  <input class="input" type="password" [formControlName]="controlKey" [placeholder]="placeholder"/>
-  <div class="error" *ngIf="parentFormGroup.get(controlKey)?.errors?.['required'] && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)">
-    {{error}}
-  </div>
+<input
+  class="input"
+  type="password"
+  [formControlName]="controlKey"
+  [placeholder]="placeholder"
+/>
+<div
+  class="error"
+  *ngIf="parentFormGroup.get(controlKey)?.errors?.['required'] && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+>
+  {{error}}
+</div>
 }
 
 @if(inputType === "email"){
-  <input class="input" type="email" [formControlName]="controlKey" [placeholder]="placeholder"/>
-  <div *ngIf="parentFormGroup.get(controlKey)?.hasError('email') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)">
-    {{error}}
-  </div>
+<input
+  class="input"
+  type="email"
+  [formControlName]="controlKey"
+  [placeholder]="placeholder"
+  pattern="^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$"
+/>
+<div
+  *ngIf="parentFormGroup.get(controlKey)?.hasError('pattern') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+>
+  Please enter a valid Gmail email address.
+</div>
 }
 
 @if(inputType === "textPattern"){
-  <input class="input" type="text" [formControlName]="controlKey"/>
-  <div *ngIf="parentFormGroup.get(controlKey)?.hasError('pattern') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)">
-    {{error}}
-  </div>
+<input class="input" type="text" [formControlName]="controlKey" />
+<div
+  *ngIf="parentFormGroup.get(controlKey)?.hasError('pattern') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+>
+  {{error}}
+</div>
 }
 
 @if(inputType === "date"){
-  <input class="input" type="date" pattern="\d{4}-\d{2}-\d{2}" placeholder="yyyy-mm-dd" [formControlName]="controlKey" />
-  <div *ngIf="parentFormGroup.get(controlKey)?.hasError('date') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)">
-    {{error}}
-  </div>
+<input
+  class="input"
+  type="date"
+  pattern="\d{4}-\d{2}-\d{2}"
+  placeholder="yyyy-mm-dd"
+  [formControlName]="controlKey"
+/>
+<div
+  *ngIf="parentFormGroup.get(controlKey)?.hasError('date') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+>
+  {{error}}
+</div>
 }
 
+@if(inputType === "textarea"){
+<textarea
+  class="input h-auto resize-none overflow-hidden"
+  [formControlName]="controlKey"
+  [placeholder]="placeholder"
+  (input)="autoResizeTextArea($event)"
+></textarea>
+<div
+  class="error"
+  *ngIf="parentFormGroup.get(controlKey)?.errors?.['required'] && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+>
+  {{error}}
+</div>
+<div
+  class="error"
+  *ngIf="parentFormGroup.get(controlKey)?.hasError('minlength') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+>
+  The text must be at least {{ minLength }} characters.
+</div>
+<div
+  class="error"
+  *ngIf="parentFormGroup.get(controlKey)?.hasError('maxlength') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+>
+  The text must not exceed {{ maxLength }} characters.
+</div>
+}
+
+@if(inputType === "phoneNumber"){
+<input
+  class="input"
+  type="tel"
+  [formControlName]="controlKey"
+  [placeholder]="placeholder"
+  pattern="[0-9]*"
+/>
+<div
+  class="error"
+  *ngIf="parentFormGroup.get(controlKey)?.errors?.['required'] && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+>
+  {{error}}
+</div>
+<div
+  class="error"
+  *ngIf="parentFormGroup.get(controlKey)?.hasError('pattern') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+>
+  Please enter a valid phone number.
+</div>
+}
+
+<!-- Selectors -->
+@if(inputType === "select"){
+  <select class="input" [formControlName]="controlKey" [required]="true">
+    <option value="" disabled selected>Select a Gender</option>
+    <option value="M">Masculino</option>
+    <option value="F">Femenino</option>
+  </select>
+  <div
+    *ngIf="parentFormGroup.get(controlKey)?.hasError('required') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+    class="error"
+  >
+    {{error}}
+  </div>
+  <div
+    *ngIf="parentFormGroup.get(controlKey)?.value === '' && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+    class="error"
+  >
+    Please select a valid genre.
+  </div>
+  }
+
+  @if(inputType === "occupations"){
+    <div>
+      <select
+        class="input"
+        [formControlName]="controlKey"
+        [required]="true"
+        [ngClass]="{'capitalize': parentFormGroup.get(controlKey)?.value}"
+      >
+        <option value="" disabled selected>Select an occupation</option>
+        <option value="STATE_WORKER">State Worker</option>
+        <option value="SALARIED">Salaried</option>
+        <option value="FREELANCE">Freelance</option>
+        <option value="PENSIONER">Pensioner</option>
+      </select>
+      <div
+        *ngIf="parentFormGroup.get(controlKey)?.hasError('required') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+        class="error"
+      >
+        {{error}}
+      </div>
+      <div
+        *ngIf="parentFormGroup.get(controlKey)?.value === '' && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+        class="error"
+      >
+        Please select a valid occupation.
+      </div>
+    </div>
+  }

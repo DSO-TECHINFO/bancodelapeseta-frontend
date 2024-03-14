@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
   imports: [WInputComponent, CommonModule, ReactiveFormsModule, RouterLink],
 })
 export default class ForgotPasswordComponent {
-  
+
   isMobileVerification = false;
   constructor(private formBuilder: FormBuilder) {}
 
