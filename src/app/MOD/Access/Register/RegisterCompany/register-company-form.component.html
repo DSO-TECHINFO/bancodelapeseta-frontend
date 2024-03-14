@@ -28,18 +28,18 @@
   <div class="container mx-auto">
     <div
       class="flex flex-col w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
-      <div class="py-8 px-8">
+      <div class="py-6 px-6 sm:py-8 sm:px-8">
         <h2 class="text-3xl text-center lg:text-4xl mt-0">Company Signup</h2>
         <p class="mt-8">
           Create your account. It’s free and only take a minute
         </p>
         <form [formGroup]="registrationForm" class="mt-4" (ngSubmit)="signup()">
-          <div class="grid grid-cols-2 gap-5 mt-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
             <!-- Company's Name Field -->
             <div>
               <label
                 for="companyName"
-                class="block text-sm font-semibold text-gray-900"
+                class="block text-sm font-semibold text-dark"
                 >Company's Name</label
               >
               <app-w-input
@@ -62,11 +62,9 @@
                 [required]="true"
                 error="You must enter a tax ID"></app-w-input>
             </div>
-          </div>
 
-          <div class="grid grid-cols-2 gap-5 mt-5">
             <!-- Address Country Field -->
-            <div class="col-span-2">
+            <div>
               <label
                 for="addressCountry"
                 class="block text-sm font-semibold text-gray-900"
@@ -75,7 +73,7 @@
               <select
                 id="addressCountry"
                 name="addressCountry"
-                class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50 transition ease-in-out duration-150"
+                class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:border-cyan-500 focus:ring focus:ring-cyan-500 focus:ring-opacity-50 transition ease-in-out duration-150"
                 required>
                 <option value="" disabled selected>Select your country</option>
                 <option value="Spain">Spain</option>
@@ -106,6 +104,7 @@
               </select>
             </div>
 
+            <!-- tetemp -->
             <!-- Postal Code Field -->
             <div>
               <label
@@ -149,7 +148,7 @@
             </div>
 
             <!-- Address Field -->
-            <div class="col-span-2">
+            <div>
               <label
                 for="address"
                 class="block text-sm font-semibold text-gray-900"
@@ -163,7 +162,7 @@
             </div>
 
             <!-- Additional Address Info Field -->
-            <div class="col-span-2">
+            <div>
               <label
                 for="addressAdditionalInfo"
                 class="block text-sm font-semibold text-gray-900"
@@ -232,32 +231,36 @@
                 [required]="true"
                 error="You must confirm your password"></app-w-input>
             </div>
-          </div>
 
-          <div class="mt-5 text-center">
-            <input
-              type="checkbox"
-              name="acceptTerms"
-              required
-              class="w-4 h-4 me-1 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-purple-500" />
-            <label for="acceptTerms">
-              I accept the
-              <a href="#" class="text-purple-500 font-semibold">Terms of Use</a>
-              &
-              <a href="#" class="text-purple-500 font-semibold"
-                >Privacy Policy</a
-              >
-            </label>
-          </div>
-          <div class="mt-5 text-center">
-            <button
-            [disabled]="registrationForm.invalid"
-            role="button"
-            type="submit"
-              class="bg-gradient-to-br from-blue-300 via-blue-500 to-indigo-400 text-white py-4 px-4 rounded-xl font-bold uppercase hover:cursor-pointer hover:shadow-lg transition-shadow duration-200"
-            >
-              Signup
-            </button>
+            <div class="sm:col-span-2 flex justify-center items-center">
+              <input
+                type="checkbox"
+                name="acceptTerms"
+                required
+                class="w-4 h-4 me-2 sm:me-1 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-cyan-500" />
+              <label for="acceptTerms">
+                I accept the
+                <a href="#" class="text-cyan-500 font-medium"
+                  >Terms of Use</a
+                >
+                &
+                <a href="#" class="text-cyan-500 font-medium"
+                  >Privacy Policy</a
+                >
+              </label>
+            </div>
+
+            <div class="sm:col-span-2 flex justify-center items-center">
+              <button
+                [disabled]="registrationForm.invalid"
+                role="button"
+                type="submit"
+                class="bg-gradient-to-br from-blue-300 via-blue-500 to-indigo-400 text-white py-4 px-4 rounded-xl font-bold uppercase hover:cursor-pointer hover:shadow-lg transition-shadow duration-200">
+                Signup
+              </button>
+              <!-- tetemp -->
+            </div>
+
           </div>
         </form>
       </div>
