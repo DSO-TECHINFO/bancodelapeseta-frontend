@@ -1,29 +1,49 @@
 <!-- component -->
-<div class="flex h-screen w-screen">
-  <!-- Left Pane -->
+<div class="flex h-full min-h-dvh w-dvw">
+  <!-- Left Panel -->
   <div
-    class="hidden lg:flex items-center justify-center flex-1 bg-gradient-to-r from-cyan-500 to-blue-500"
+    class="hidden lg:flex items-center justify-center flex-1 bg-gradient-to-r from-cyan-500 to-blue-500 md:hidden"
   >
     <div class="max-w-md text-center">
       <img src="../../../../assets/images/logos/blp.webp" alt="" />
     </div>
   </div>
-  <!-- Right Pane -->
-  <div class="w-full lg:w-1/2 flex flex-col items-center justify-center bg-white">
-    <img src="../../../../assets/images/login/bancoLogo.svg" alt="logoBanco" width="100px">
-    <h1 class="text-lg font-semibold mb-6 text-gray-500 text-center">
+
+  <!-- Right Panel -->
+  <div
+    class="hidden lg:flex w-full lg:w-1/2 flex-col items-center justify-center bg-white"
+  >
+    <img
+      src="../../../../assets/images/logos/logoBancoBlue.svg"
+      alt="logoBanco"
+      width="100px"
+    />
+    <h1
+      class="text-2xl tracking-widest font-bold uppercase text-dark text-center mb-6"
+    >
       Banco de la Peseta
     </h1>
     <div class="max-w-md w-full p-6">
-
       <form [formGroup]="loginForm" class="space-y-4" (ngSubmit)="login()">
         <!-- Your form elements go here -->
         <div>
-          <app-w-input controlKey="username" inputType="onlyText" error="Username is required" [required]="true" [minLength]="4" placeholder="Username"></app-w-input>
+          <app-w-input
+            controlKey="username"
+            inputType="onlyText"
+            error="Username is required"
+            [required]="true"
+            [minLength]="4"
+            placeholder="Username"
+          ></app-w-input>
         </div>
-
         <div>
-          <app-w-input controlKey="password" inputType="password" error="Password is required" [required]="true" placeholder="Password"></app-w-input>
+          <app-w-input
+            controlKey="password"
+            inputType="password"
+            error="Password is required"
+            [required]="true"
+            placeholder="Password"
+          ></app-w-input>
         </div>
         <div>
           <button
@@ -35,7 +55,9 @@
           </button>
         </div>
       </form>
-      <div class="mt-8 text-sm text-gray-600 text-center flex flex-col space-y-2">
+      <div
+        class="mt-8 text-sm text-gray-600 text-center flex flex-col space-y-2"
+      >
         <p>
           You do not have an account?
           <a class="text-black hover:underline" [routerLink]="['/register']"
@@ -50,6 +72,79 @@
             >Get it here</a
           >
         </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Panel -->
+  <div
+    class="w-full lg:w-1/2 flex flex-col items-center justify-center bg-gradient-to-l from-cyan-500 to-blue-500 lg:hidden"
+  >
+    <img
+      class="mt-4"
+      src="../../../../assets/images/logos/logoBancoWhite.svg"
+      alt="logoBanco"
+      width="100px"
+    />
+    <h1
+      class="text-2xl tracking-widest font-bold uppercase text-white text-center mb-6"
+    >
+      Banco de la Peseta
+    </h1>
+    <div
+      class="w-full h-full md:w-3/4 md:h-2/3 md:rounded-3xl bg-white flex flex-col items-center rounded-t-3xl"
+    >
+      <div class="max-w-md w-full p-8 mt-2">
+        <h2 class="text-dark text-center mb-5 text-bold text-3xl">Login</h2>
+        <form [formGroup]="loginForm" class="space-y-4" (ngSubmit)="login()">
+          <!-- Your form elements go here -->
+          <div>
+            <app-w-input
+              controlKey="username"
+              inputType="onlyText"
+              error="Username is required"
+              [required]="true"
+              [minLength]="4"
+              placeholder="Username"
+            ></app-w-input>
+          </div>
+          <div>
+            <app-w-input
+              controlKey="password"
+              inputType="password"
+              error="Password is required"
+              [required]="true"
+              placeholder="Password"
+            ></app-w-input>
+          </div>
+          <div>
+            <button
+              [disabled]="loginForm.invalid"
+              type="submit"
+              class="w-full cursor-pointer bg-blue-500 text-white p-4 rounded-md hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+        <div
+          class="mt-8 text-gray-600 text-center flex flex-col space-y-2 text-base"
+        >
+          <p>
+            You do not have an account?
+            <a class="text-black hover:underline" [routerLink]="['/register']"
+              >Sign up here</a
+            >
+          </p>
+          <p>
+            Did you lose your password?
+            <a
+              class="text-black hover:underline"
+              [routerLink]="['/forgot-password']"
+              >Get it here</a
+            >
+          </p>
+        </div>
       </div>
     </div>
   </div>

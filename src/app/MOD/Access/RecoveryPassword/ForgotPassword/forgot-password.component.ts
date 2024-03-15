@@ -3,23 +3,19 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
   standalone: true,
-  imports: [WInputComponent, CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [WInputComponent, CommonModule, ReactiveFormsModule, RouterLink, IonicModule],
 })
 export default class ForgotPasswordComponent {
 
-  isMobileVerification = false;
   constructor(private formBuilder: FormBuilder) {}
 
   forgotPass = this.formBuilder.group({});
-
-  toggleMobileVerification() {
-    this.isMobileVerification = !this.isMobileVerification;
-  }
 
   onForgotPass() {
     if(this.forgotPass.valid){
@@ -28,4 +24,6 @@ export default class ForgotPasswordComponent {
       console.log("Por favor llene todos los campos");
     }
   }
+
+
 }

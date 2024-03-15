@@ -1,27 +1,9 @@
 <div
   class="row flex flex-col w-screen h-screen align-content-center justify-content-center gap-2 text-center"
->
-  <div>
-    <img src="../../assets/bancoP.png" width="100px" alt="" class="mt-2" />
-  </div>
+>  
   <h3 class="text-3xl font-bold">Create your account</h3>
 
   <div class="flex md:flex-row justify-center gap-3 flex-wrap">
-    <div
-      class="bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-2xl h-[200px] w-[300px] flex flex-col items-center justify-end shadow-sm hover:shadow-xl transition-all cursor-pointer"  [routerLink]="['/company-registration']"
-    >
-      <div class="flex flex-col items-center justify-around h-full">
-        <img
-          src="../../../../assets/images/register/person.svg"
-          width="130px"
-          alt=""
-        />
-        <a class="text-white font-bold"
-          >Create company account</a
-        >
-      </div>
-    </div>
-
     <div
       class="bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-2xl h-[200px] w-[300px] flex flex-col items-center justify-end shadow-sm hover:shadow-xl transition-all cursor-pointer" [routerLink]="['/personal-account']"
     >
@@ -33,6 +15,20 @@
         />
         <a class="text-white font-bold"
           >Create personal account</a
+        >
+      </div>
+    </div>
+    <div
+      class="bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-2xl h-[200px] w-[300px] flex flex-col items-center justify-end shadow-sm hover:shadow-xl transition-all cursor-pointer"  [routerLink]="['/company-registration']"
+    >
+      <div class="flex flex-col items-center justify-around h-full">
+        <img
+        src="../../../../assets/images/register/person.svg"
+          width="130px"
+          alt=""
+        />
+        <a class="text-white font-bold"
+          >Create company account</a
         >
       </div>
     </div>
