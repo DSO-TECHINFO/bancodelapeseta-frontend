@@ -2,82 +2,58 @@
 
 ## Bienvenido a 'Banco De La Peseta' 🏦
 
-¡Estamos encantados de que estés interesado en contribuir a este proyecto hecho por y para la comunidad!. Este documento te guiará a través de los pasos necesarios para aportar tu valioso trabajo a el proyecto 'Banco De La Peseta', importante mencionar que este proyecto está desarrollado con Ionic. Queremos hacer que este proceso de contribución sea algo sencillo y transparente, así que aquí tienes una guía paso a paso.
+¡Estamos encantados de que te interese contribuir a 'Banco De La Peseta', un proyecto hecho por y para la comunidad! Este documento está diseñado para guiarte a través del proceso de contribución de manera sencilla y transparente. Es importante mencionar que este proyecto está desarrollado con Ionic.
 
 ### Primeros pasos 🚀
 
-1. **Familiarízate con la estructura de directorios**: Echa un vistazo a la estructura de nuestro proyecto para entender cómo están organizados los archivos y las carpetas. Esto te ayudará a encontrar rápidamente lo que necesitas y a saber dónde colocar tus cambios o adiciones.
+* **Familiarízate con el stack y la estructura del proyecto**: Revisa cómo están organizados los archivos y las carpetas para facilitar la localización de lo que necesitas y saber dónde añadir tus cambios.
 
-2. **Configura tu entorno de desarrollo**: Estamos utilizando `npm` como gestor de paquetes (el gestor de paquetes por defecto de Node.js). Asegúrate de tenerlo instalado en tu máquina.
+* **Configura tu entorno de desarrollo**: Utilizamos `npm`, el gestor de paquetes por defecto de Node.js. Asegúrate de tenerlo instalado en tu sistema.
 
 ### Cómo contribuir 🛠
 
-#### 1. Configura tu entorno
+#### 1. Prepara tu entorno
 
-- **Fork el repositorio**: Haz un "fork" del proyecto a tu cuenta de GitHub para tener tu propia copia. Para hacer esto, haz clic en el botón "Fork" en la parte superior derecha de la página del repositorio en GitHub. Esto creará una copia del repositorio en tu cuenta de GitHub.
-
-- **Clona tu fork**: Después de hacer un fork, clona el repositorio a tu máquina local. Para hacerlo, copia la URL de tu fork haciendo clic en el botón verde "Code" y luego ejecuta `git clone <URL del fork>` en tu terminal.
-
-- **Añade el repositorio original como remoto**: Para mantener tu fork actualizado con los cambios del repositorio original, agrega el repositorio original como un remoto. Puedes hacerlo ejecutando `git remote add upstream <URL del repositorio original>`.
-
-- **Instala las dependencias**: Navega hasta el directorio del proyecto clonado y ejecuta `npm install` para instalar todas las dependencias necesarias.
+- **Realiza un fork del repositorio**: Haz clic en "Fork" en la parte superior derecha de la página de GitHub. Esto te permitirá trabajar en tu propia copia del proyecto.
+- **Clona tu fork a tu máquina local**: Ejecuta el comando: `git clone <URL del fork de tu cuenta>` para clonar el repositorio.
+- **Agrega el repositorio original como un remoto**: Ejecuta el comando: `git remote add upstream https://github.com/rayexbomx/bancodelapeseta-frontend.git`.
+- **Cambia a la rama `dev`**: Ejecuta el comando: `git checkout dev` para cambiar a la rama de desarrollo.
+- **Instala las dependencias**: En el directorio del proyecto, ejecuta `npm install`.
 
 #### 2. Trabaja en tus cambios
 
-- **Sincroniza el fork**: Puedes hacerlo desde `github.com/tu-usuario/tu-repositorio-de-bancodelapeseta-frontend` y haciendo click en `Sync fork`. También puedes hacerlo desde la terminal `gh repo sync -b main` o `git switch main && git fetch upstream && git merge upstream/main`. Más información en la [documentación oficial de GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)
-- **Crea una nueva rama**: Antes de empezar a trabajar en tus cambios, crea una nueva rama utilizando `git checkout -b nombre-de-tu-nueva-rama`. (por ejemplo: `git checkout -b feat/register-account`).
-- **Desarrolla tus cambios**: Implementa tus cambios o mejoras en tu rama local. Asegúrate de seguir las prácticas y estándares de código del proyecto.
-- **Prueba tus cambios**: Ejecuta `npm start` para iniciar el servidor de desarrollo y revisa tus cambios en el navegador. (La URL por defecto es `http://localhost:4200`).
+- **Antes que otra cosa, actualiza tu fork**: Sincroniza tu fork con el repositorio original (upstream). Para esto, primero asegurate de estar en la rama `dev`, ejecuta el comando: `git checkout dev && git fetch upstream` y luego ejecuta: `git merge upstream/dev` para fusionar los cambios del repositorio original en tu rama local `dev`.
 
-#### 3. Como evitar conflictos entre ramas
+- **Crea una nueva rama para tus cambios**: Ejecuta el comando: `git checkout -b <nombre-de-tu-rama>` para empezar a trabajar. (Por ejemplo, *"git checkout -b feature/new-footer*").
 
-1. Ir a su rama dev local y traerse los últimos cambios del repositorio remoto:
-```
-git checkout dev
-git pull origin dev
-```
+- **Desarrolla y prueba tus cambios**: Implementa tus mejoras y ejecuta `npm start` para probarlos en `http://localhost:4200`.
 
-2. Vuelvan a su rama:
-```
-git checkout feat/your-branch
-```
+#### 3. Prevenir conflictos entre ramas
 
-3. Actualicen su rama con los cambios que trajeron de la rama dev remota
-```
-git merge dev
-```
+Antes de publicar tus cambios, es crucial volver a sincronizar tu rama 'dev' local. Esto te asegurará de que tus cambios no entren en conflicto con los cambios de otros contribuidores. Sigue estos pasos para prevenir conflictos:
 
-4. Ejecutar
-```
-npm ci
-npm run build
-```
+* Asegúrate de que tu rama esté limpia con `git status` y que no tengas cambios pendientes por hacer commit.
+* Cambia a la rama dev con `git checkout dev`.
+* Trae los últimos cambios del repositorio original remoto con `git pull upstream dev`.
+* Cambia de nuevo a tu rama con `git checkout <nombre-de-tu-rama>`.
+* Actualiza tu rama con los cambios que acabas de traer. Usa: `git merge dev`.
+* Resuelve cualquier conflicto que pueda surgir. Si tienes dudas, no dudes en preguntar.
+* Ejecuta `npm ci` y `npm run build`. No debe haber errores.
+* Echa un último vistazo a tus cambios con `npm start` y verifica que todo siga funcionando correctamente.
 
-6. Corregir problemas (si es necesario) antes de publicar su PR)...
+#### 4. Envía tus cambios
 
-7. Publicar la PR
-```
-git push origin feat/your-branch
-```
-
-#### 3. Envía tus cambios
-
-- **Verificación de errores**: Antes de enviar tus cambios, asegúrate de que no hay errores después de haber actualizado tu rama con la rama dev remota. Ejecuta `npm ci` y `npm run build` para verificar que todo está correcto.
-- **Commit de tus cambios**: Una vez estés satisfecho con tus cambios, haz commit de ellos con un mensaje claro y descriptivo.
-- **Push a tu fork**: Haz push de tu rama con los cambios a tu fork en GitHub utilizando `git push origin nombre-de-tu-rama`.
-- **Crea un Pull Request (PR)**: En GitHub, ve a tu fork de 'bancodelapeseta-frontend' y haz clic en "Pull request" para iniciar uno. Asegúrate de describir claramente qué cambios has realizado y por qué son necesarios o útiles para el proyecto.
+- **Haz commit y push de tus cambios**: Usa mensajes claros y descriptivos para tus commits. Luego, haz push a tu fork con `git push origin <nombre-de-tu-rama>`.
+- **Crea un Pull Request (PR)**: Describe claramente tus cambios y su importancia en el PR.
 
 ### Buenas prácticas 🌟
 
-- **Revisa los issues abiertos** antes de abrir una PR, si crees que puedes solucionarlo y no hay ninguna otra PR ya abierta, usa `#numero-de-la-issue` en tu commit para que se añada a la issue. No está demás dejar algún comentario para que se sepa que PR está siendo usada para la issue.
-- **Revisa los PRs abiertos** para asegurarte de que no estás trabajando en algo que ya está en progreso. Siempre puedes ayudar en PRs ya abiertas, aportando cambios, comentarios, revisiones, etc..
-- **Mantén tus commits limpios y descriptivos**.
-- **Sigue las convenciones de código del proyecto**.
-- **Actualiza tu rama con frecuencia** para mantenerla al día con la rama 'dev', la cual es la rama principal del proyecto (en cuanto a desarrollo se refiere).
-- **Participa en las discusiones** de tu PR si hay comentarios o sugerencias.
+- **Consulta los issues y PRs abiertos** antes de comenzar tu trabajo para evitar duplicidades.
+- **Mantén tus commits limpios** y sigue las convenciones de código del proyecto.
+- **Participa activamente** en las discusiones de tus PRs para integrar feedback y sugerencias.
 
 ### ¿Necesitas ayuda? 🆘
 
-Si tienes alguna pregunta o necesitas ayuda, no dudes en abrir un "issue" en el repositorio. Los miembros de la comunidad estarán encantados de ayudarte.
+Si tienes dudas o necesitas asistencia, no dudes en abrir un issue en el repositorio. La comunidad estará dispuesta a ayudarte.
 
-¡Gracias por contribuir a este gran proyecto 'Banco De La Peseta'! Juntos estamos construyendo algo increíble. 🚀
+¡Gracias por tu interés en contribuir a 'Banco De La Peseta'! Juntos, estamos construyendo algo increíble. 🚀
