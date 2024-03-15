@@ -1,59 +1,61 @@
 # CONTRIBUTING.md
 
-## Bienvenido a 'Banco De La Peseta' 🏦
+Check out the [Spanish version](./.github/CONTRIBUTING-ES.md) of this document.
 
-¡Estamos encantados de que te interese contribuir a 'Banco De La Peseta', un proyecto hecho por y para la comunidad! Este documento está diseñado para guiarte a través del proceso de contribución de manera sencilla y transparente. Es importante mencionar que este proyecto está desarrollado con Ionic.
+## Welcome to 'Banco De La Peseta' 🏦
 
-### Primeros pasos 🚀
+We are thrilled that you are interested in contributing to 'Banco De La Peseta', a project made by and for the community! This document is designed to guide you through the contribution process in a simple and transparent manner. It's important to mention that this project is developed with Ionic.
 
-* **Familiarízate con el stack y la estructura del proyecto**: Revisa cómo están organizados los archivos y las carpetas para facilitar la localización de lo que necesitas y saber dónde añadir tus cambios.
+### First Steps 🚀
 
-* **Configura tu entorno de desarrollo**: Utilizamos `npm`, el gestor de paquetes por defecto de Node.js. Asegúrate de tenerlo instalado en tu sistema.
+* **Familiarize yourself with the stack and project structure**: Review how the files and folders are organized to facilitate locating what you need and knowing where to add your changes.
 
-### Cómo contribuir 🛠
+* **Set up your development environment**: We use `npm`, the default package manager for Node.js. Make sure you have it installed on your system.
 
-#### 1. Prepara tu entorno
+### How to Contribute 🛠
 
-- **Realiza un fork del repositorio**: Haz clic en "Fork" en la parte superior derecha de la página de GitHub. Esto te permitirá trabajar en tu propia copia del proyecto.
-- **Clona tu fork a tu máquina local**: Ejecuta el comando: `git clone <URL del fork de tu cuenta>` para clonar el repositorio.
-- **Agrega el repositorio original como un remoto**: Ejecuta el comando: `git remote add upstream https://github.com/rayexbomx/bancodelapeseta-frontend.git`.
-- **Cambia a la rama `dev`**: Ejecuta el comando: `git checkout dev` para cambiar a la rama de desarrollo.
-- **Instala las dependencias**: En el directorio del proyecto, ejecuta `npm install`.
+#### 1. Prepare Your Environment
 
-#### 2. Trabaja en tus cambios
+- **Fork the repository**: Click on "Fork" at the top right of the GitHub page. This will allow you to work on your own copy of the project.
+- **Clone your fork to your local machine**: Execute the command: `git clone <URL of your account's fork>` to clone the repository.
+- **Add the original repository as a remote**: Execute the command: `git remote add upstream https://github.com/rayexbomx/bancodelapeseta-frontend.git`.
+- **Switch to the `dev` branch**: Execute the command: `git checkout dev` to switch to the development branch.
+- **Install the dependencies**: In the project directory, run `npm install`.
 
-- **Antes que otra cosa, actualiza tu fork**: Sincroniza tu fork con el repositorio original (upstream). Para esto, primero asegurate de estar en la rama `dev`, ejecuta el comando: `git checkout dev && git fetch upstream` y luego ejecuta: `git merge upstream/dev` para fusionar los cambios del repositorio original en tu rama local `dev`.
+#### 2. Work on Your Changes
 
-- **Crea una nueva rama para tus cambios**: Ejecuta el comando: `git checkout -b <nombre-de-tu-rama>` para empezar a trabajar. (Por ejemplo, *"git checkout -b feature/new-footer*").
+- **First and foremost, update your fork**: Synchronize your fork with the original repository (upstream). To do this, first make sure you are on the `dev` branch, execute the command: `git checkout dev && git fetch upstream` and then execute: `git merge upstream/dev` to merge the changes from the original repository into your local `dev` branch.
 
-- **Desarrolla y prueba tus cambios**: Implementa tus mejoras y ejecuta `npm start` para probarlos en `http://localhost:4200`.
+- **Create a new branch for your changes**: Execute the command: `git checkout -b <name-of-your-branch>` to start working. (For example, "git checkout -b feature/new-footer").
 
-#### 3. Prevenir conflictos entre ramas
+- **Develop and test your changes**: Implement your improvements and run `npm start` to test them on `http://localhost:4200`.
 
-Antes de publicar tus cambios, es crucial volver a sincronizar tu rama 'dev' local. Esto te asegurará de que tus cambios no entren en conflicto con los cambios de otros contribuidores. Sigue estos pasos para prevenir conflictos:
+#### 3. Prevent Branch Conflicts
 
-* Asegúrate de que tu rama esté limpia con `git status` y que no tengas cambios pendientes por hacer commit.
-* Cambia a la rama dev con `git checkout dev`.
-* Trae los últimos cambios del repositorio original remoto con `git pull upstream dev`.
-* Cambia de nuevo a tu rama con `git checkout <nombre-de-tu-rama>`.
-* Actualiza tu rama con los cambios que acabas de traer. Usa: `git merge dev`.
-* Resuelve cualquier conflicto que pueda surgir. Si tienes dudas, no dudes en preguntar.
-* Ejecuta `npm ci` y `npm run build`. No debe haber errores.
-* Echa un último vistazo a tus cambios con `npm start` y verifica que todo siga funcionando correctamente.
+Before publishing your changes, it's crucial to re-sync your local 'dev' branch. This will ensure that your changes do not conflict with the changes of other contributors. Follow these steps to prevent conflicts:
 
-#### 4. Envía tus cambios
+* Make sure your branch is clean with `git status` and that you have no pending changes to commit.
+* Switch to the dev branch with `git checkout dev`.
+* Bring the latest changes from the original remote repository with `git pull upstream dev`.
+* Switch back to your branch with `git checkout <name-of-your-branch>`.
+* Update your branch with the changes you just brought in. Use: `git merge dev`.
+* Resolve any conflicts that may arise. If you have doubts, do not hesitate to ask.
+* Run `npm ci` and `npm run build`. There should be no errors.
+* Take a final look at your changes with `npm start` and verify that everything is still working correctly.
 
-- **Haz commit y push de tus cambios**: Usa mensajes claros y descriptivos para tus commits. Luego, haz push a tu fork con `git push origin <nombre-de-tu-rama>`.
-- **Crea un Pull Request (PR)**: Describe claramente tus cambios y su importancia en el PR.
+#### 4. Submit Your Changes
 
-### Buenas prácticas 🌟
+- **Commit and push your changes**: Use clear and descriptive messages for your commits. Then, push to your fork with `git push origin <name-of-your-branch>`.
+- **Create a Pull Request (PR)**: Clearly describe your changes and their importance in the PR.
 
-- **Consulta los issues y PRs abiertos** antes de comenzar tu trabajo para evitar duplicidades.
-- **Mantén tus commits limpios** y sigue las convenciones de código del proyecto.
-- **Participa activamente** en las discusiones de tus PRs para integrar feedback y sugerencias.
+### Best Practices 🌟
 
-### ¿Necesitas ayuda? 🆘
+- **Check open issues and PRs** before starting your work to avoid duplications.
+- **Keep your commits clean** and follow the project's code conventions.
+- **Actively participate** in the discussions of your PRs to integrate feedback and suggestions.
 
-Si tienes dudas o necesitas asistencia, no dudes en abrir un issue en el repositorio. La comunidad estará dispuesta a ayudarte.
+### Need Help? 🆘
 
-¡Gracias por tu interés en contribuir a 'Banco De La Peseta'! Juntos, estamos construyendo algo increíble. 🚀
+If you have doubts or need assistance, do not hesitate to open an issue in the repository. The community will be willing to help you.
+
+Thank you for your interest in contributing to 'Banco De La Peseta'! Together, we are building something incredible. 🚀
