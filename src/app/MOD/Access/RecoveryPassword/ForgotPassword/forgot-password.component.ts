@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
   standalone: true,
-  imports: [WInputComponent, CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [WInputComponent, CommonModule, ReactiveFormsModule, RouterLink, IonicModule],
 })
 export default class ForgotPasswordComponent {
 
