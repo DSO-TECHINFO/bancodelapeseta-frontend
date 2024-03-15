@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { StartPanelService } from '../servicio/start-panel.service';
+import { Subscription } from 'rxjs';
+import { TitleService } from '@/SHARED/Widgets/w-nav/services/title.service';
 
 @Component({
   selector: 'cards-component',
@@ -13,11 +15,13 @@ export default class CardsComponent implements OnInit {
   data: any = {};
 
   @Input() rate: number = 1;
-
+  title:string = ''
+  
   constructor(
     private startPanelService: StartPanelService,
-    private cdr: ChangeDetectorRef
-  ){}
+    private cdr: ChangeDetectorRef,
+  ){
+  }
 
   ngOnInit(): void {
 
