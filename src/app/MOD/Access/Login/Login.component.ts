@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import {  Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { LoginService } from './service/login.service';
-import { FormBuilder,FormControl,ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder,ReactiveFormsModule } from '@angular/forms';
 import { LoginRequest } from './interface/loginRequest.interface';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from '@/CORE/Auth/services/token-service.service';
@@ -22,17 +22,16 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './Login.component.html',
   styles: '',
 })
-export default class LoginComponent{
+export default class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private loginService: LoginService,
     private tokenService: TokenService,
-    private toastr: ToastrService,
-
+    private toastr: ToastrService
   ) {
-    if(tokenService.getToken()){
-      router.navigate(['/dashboard'])
+    if (tokenService.getToken()) {
+      router.navigate(['/dashboard']);
     }
   }
   // customPattern: string = '^[0-9@]*$'
@@ -59,24 +58,16 @@ export default class LoginComponent{
           },
         });
     } else {
-
       this.loginForm.markAllAsTouched();
     }
   }
 
   //alertas
-  showsuccess(){
+  showsuccess() {
     this.toastr.success('Login sucessfully.', 'Success');
   }
 
-  showerror(){
+  showerror() {
     this.toastr.error('Invalid Credentials', 'Error');
   }
-  // get username(){
-  //   return this.loginForm.controls.username;
-  // }
-  // get password(){
-  //   return this.loginForm.controls.password;
-  // }
-
 }

@@ -4,6 +4,7 @@ import { RouteReuseStrategy, provideRouter } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
 import { HttpClient, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 
+
 // IONIC:
 import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
@@ -21,6 +22,12 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 //toaster
 import {provideToastr} from 'ngx-toastr'
 
+//primeng
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -32,6 +39,8 @@ export const appConfig: ApplicationConfig = {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     importProvidersFrom(
       HttpClientModule,
+      BrowserAnimationsModule,
+      ToastrModule.forRoot(),
       TranslateModule.forRoot({
         defaultLanguage: 'en',
         loader: {

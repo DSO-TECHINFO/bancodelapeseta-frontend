@@ -9,11 +9,10 @@
 
 <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-3">
 
+  <cards-component [rate]="currencyExchangeRate"></cards-component>
   <balance-component (currencyRate)="onRateSelected($event)"></balance-component>
   <tpv-component></tpv-component>
-  <cards-component [rate]="currencyExchangeRate"></cards-component>
   <loans-component></loans-component>
 
   
-
 </div>
