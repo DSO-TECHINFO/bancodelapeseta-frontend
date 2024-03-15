@@ -17,7 +17,9 @@ export class ValidationService {
     //Comentario para commit de prueba
 
     const nextIndex = inputIndex + 1;
+    console.log("Fuera del if");
     if (nextIndex < inputRefs.length) {
+      console.log("En el if");
       const nextInputRef = inputRefs.get(nextIndex);
       if (nextInputRef) {
         const nextInput = nextInputRef.nativeElement.firstChild;
