@@ -10,7 +10,7 @@
 
         <div class="text-sm font-medium self-center">{{item.serialNumber}}</div>
         <div class="text-xs text-center self-center">{{item.tpvNumber}}</div>
-        <div class="text-[0.7rem] flex flex-col justify-center font-medium self-center"><input class="h-3 w-3" type="checkbox" name="item.id" [(ngModel)]="item.activated" ></div>
+        <div class="text-[0.7rem] flex flex-col justify-center font-medium self-center"><input class="h-3 w-3" type="checkbox" name="item.id" [(ngModel)]="item.activated" disable="true"></div>
 
       </div>
     }

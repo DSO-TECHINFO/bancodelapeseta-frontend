@@ -74,10 +74,10 @@ export class WInputComponent implements OnInit {
     const keyCode = event.key;
     const currentValue = event.target.value;
 
-    console.log("en input app-w-input: ", event);
-    console.log("currentValue.length: ", currentValue.length > 1);
-    console.log("keyCode < 48: ", keyCode < 48);
-    console.log("keyCode > 57: ", keyCode > 57);
+    // console.log("en input app-w-input: ", event);
+    // console.log("currentValue.length: ", currentValue.length > 1);
+    // console.log("keyCode < 48: ", keyCode < 48);
+    // console.log("keyCode > 57: ", keyCode > 57);
     // Solo permite números del 1 al 9 y evita otros caracteres
     // if (keyCode < 48 || keyCode > 57 || currentValue.length > 1) {
     //   event.preventDefault();

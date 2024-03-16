@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
-import IForgoPasswordReq from '../interface/personalAccountReq.interface';
+import IForgoPasswordReq from '../interface/iForgoPasswordReq.interface';
 
 @Injectable({
   providedIn: 'root',
