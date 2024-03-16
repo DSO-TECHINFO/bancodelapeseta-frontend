@@ -9,22 +9,26 @@ import IForgoPasswordReq from '../ForgotPassword/interface/iForgoPasswordReq.int
 import passwordRecoveryVerificationCodes from '../ForgotPassword/interface/passwordRecoveryVerificationCodes.interface';
 import { VerificationService } from '../../Verification/service/verification.service';
 import newPassword from '../ForgotPassword/interface/newPassword.interface';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-validate-codes',
   templateUrl: './validate-codes.component.html',
   standalone:true,
-  imports:[CommonModule, WInputComponent, RouterLink, ReactiveFormsModule]
+  imports:[CommonModule, WInputComponent, RouterLink, ReactiveFormsModule, IonicModule]
 })
 export default class PasswordRecoveryComponent implements OnInit {
 
   @ViewChildren('inputPhoneCodeRef', { read: ElementRef }) inputPhoneCodeRef!: QueryList<ElementRef>;
   @ViewChildren('inputEmailCodeRef', { read: ElementRef }) inputEmailCodeRef!: QueryList<ElementRef>;
+  @ViewChildren('inputSignCodeRef', { read: ElementRef }) inputSignCodeRef!: QueryList<ElementRef>;
 
   isButtonEnabled: boolean = false;
   emailCode: string = '';
   phoneCode: string = '';
   interfaceForgotPassword!: IForgoPasswordReq;
+  sign: string = '';
+  recoveryCode: string = '';
 
   constructor(
     private router: Router,
@@ -36,6 +40,7 @@ export default class PasswordRecoveryComponent implements OnInit {
 
   emailDigitsCode = this.formBuilder.group({});
   phoneDigitsCode = this.formBuilder.group({});
+  signCode = this.formBuilder.group({});
 
   inputConfigsPhone = [
     { name: 'numb1', type: 'digitCode' },
@@ -58,6 +63,7 @@ export default class PasswordRecoveryComponent implements OnInit {
   ngOnInit(): void {
     this.phoneDigitsCode.valueChanges.subscribe(() => this.updateButtonState());
     this.emailDigitsCode.valueChanges.subscribe(() => this.updateButtonState());
+    this.signCode.valueChanges.subscribe(() => this.updateButtonState());
 
     this.interfaceForgotPassword = JSON.parse(this.route.snapshot.params['interface'] as string) as IForgoPasswordReq
     console.log("TaxId: ", this.interfaceForgotPassword);
@@ -68,8 +74,9 @@ export default class PasswordRecoveryComponent implements OnInit {
     // Habilita el botón solo si ambos formularios son válidos
     console.log("Phone: ", this.phoneDigitsCode.valid);
     console.log("Email: ", this.emailDigitsCode.valid);
+    console.log("Sign: ", this.signCode.valid);
     console.log("Button enabled: ", this.isButtonEnabled);
-    this.isButtonEnabled = this.phoneDigitsCode.valid && this.emailDigitsCode.valid;
+    this.isButtonEnabled = this.phoneDigitsCode.valid && this.emailDigitsCode.valid && this.signCode.valid;
   }
 
   onDigitInputPhoneCode(inputIndex: number, event: any) {
@@ -92,49 +99,49 @@ export default class PasswordRecoveryComponent implements OnInit {
 
   }
 
+  onDigitInputSign(inputIndex: number, event: any) {
+    console.log("inputIndex: ", inputIndex);
+    console.log("event: ", event);
+    const value = event.event.key;
+    if (value.toString().length == 1) {
+      this.validationService.onDigitInputFocusNext(inputIndex, this.inputSignCodeRef)
+    }
+
+  }
+
   sendCodes(){
 
     this.phoneCode = Object.values(this.phoneDigitsCode.value).join('');
     this.emailCode = Object.values(this.emailDigitsCode.value).join('');
+    this.sign = Object.values(this.signCode.value).join('');
 
-    if(this.phoneCode.length == 0 || this.emailCode.length == 0 ){
+    if(this.phoneCode.length == 0 || this.emailCode.length == 0 || this.sign.length == 0){
       return
     }
 
     const sendCodes = {
       emailCode: this.emailCode,
       phoneCode: this.phoneCode,
-      sign: "123456",
+      sign: this.sign,
       taxId: this.interfaceForgotPassword.taxId
     }
 
-  //   this.verificationService.verifyEmailAndPhoneCodePasswordRecovery(sendCodes as passwordRecoveryVerificationCodes, 'api/v1/auth/recovery/password/check/code').subscribe({
-  //     next: (userData) => {
-
-  //       const newPassword = {
-  //         taxId: this.interfaceForgotPassword.taxId,
-  //         recoveryCode: userData['recoveryCode'],
-  //         newPassword: ''
-  //       }
-
-  //       this.router.navigate(['/recovery-change', JSON.stringify(newPassword as newPassword)], {skipLocationChange: true});
-  //     },
-  //     error: (err) => {
-  //       console.error('Incorrect code: ', err);
-  //     },
-  //     complete: () => {
-  //       // this.router.navigateByUrl('/email-verification');
-  //     },
-  //   })
-
-  // }
-
-    const newPassword = {
-      taxId: this.interfaceForgotPassword.taxId,
-      recoveryCode: 'aaa',
-      newPassword: ''
-    }
-
-    this.router.navigate(['/recovery-change', JSON.stringify(newPassword as newPassword)], {skipLocationChange: true});
+    this.verificationService.verifyEmailAndPhoneCodePasswordRecovery(sendCodes as passwordRecoveryVerificationCodes, 'api/v1/auth/recovery/password/check/code').subscribe({
+      next: (userData) => {
+        this.recoveryCode = userData['recoveryCode'];
+      },
+      error: (err) => {
+        console.error('Incorrect code: ', err);
+      },
+      complete: () => {
+        const newPassword = {
+          taxId: this.interfaceForgotPassword.taxId,
+          recoveryCode: this.recoveryCode,
+          newPassword: ''
+        }
+        this.router.navigate(['/recovery-change', JSON.stringify(newPassword as newPassword)], {skipLocationChange: true});
+      },
+    })
   }
+
 }

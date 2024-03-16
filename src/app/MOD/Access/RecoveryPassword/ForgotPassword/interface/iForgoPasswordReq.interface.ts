@@ -4,4 +4,5 @@ export default interface IForgoPasswordReq {
   nationalIdExpiration: string;
   phone: number;
   birthday: string;
+  settingUpDate: string;
 }

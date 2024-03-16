@@ -6,12 +6,13 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import newPassword from '../ForgotPassword/interface/newPassword.interface';
 import { VerificationService } from '../../Verification/service/verification.service';
 import { ToastrService } from 'ngx-toastr';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-password-recovery-change',
   templateUrl: './password-recovery-change.component.html',
   standalone:true,
-  imports:[CommonModule, WInputComponent, RouterLink, ReactiveFormsModule]
+  imports:[CommonModule, WInputComponent, RouterLink, ReactiveFormsModule, IonicModule]
 })
 export default class PasswordRecoveryChangeComponent implements OnInit{
 
@@ -53,9 +54,8 @@ export default class PasswordRecoveryChangeComponent implements OnInit{
     this.newPasswordObj.newPassword = newPassRewrite;
 
     this.verificationService.changePassword(this.newPasswordObj, 'api/v1/auth/recovery/password/change').subscribe({
-      next: (res) => {
-      },
       error: (err) => {
+        this.showerror(err)
       },
       complete: () => {
         console.log("En complete");
