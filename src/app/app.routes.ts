@@ -33,13 +33,13 @@ export const routes: Routes = [
       import('./MOD/Access/RecoveryPassword/ForgotPassword/forgot-password.component'),
   },
   {
-    path: 'validate-codes',
+    path: 'validate-codes/:interface',
     title: 'Validate Codes',
     loadComponent: () =>
       import('./MOD/Access/RecoveryPassword/ValidateCodes/validate-codes.component'),
   },
   {
-    path: 'recovery-change',
+    path: 'recovery-change/:interface',
     title: 'Password Change',
     loadComponent: () =>
       import('./MOD/Access/RecoveryPassword/PasswordRecoveryChange/password-recovery-change.component'),
