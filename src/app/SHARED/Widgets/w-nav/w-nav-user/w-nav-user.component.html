@@ -1,5 +1,8 @@
 <div class="relative">
-  <button (click)="toggleDropdown()" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-blue-950 relative">
+  <button
+    (click)="toggleDropdown()"
+    class="flex text-sm rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-blue-950 relative"
+  >
     <img
       id="avatarButton"
       type="button"
@@ -11,7 +14,7 @@
   <div
     *ngIf="isDropdownOpen"
     id="userDropdown"
-    class="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 left-1/2 transform -translate-x-1/2 mt-2"
+    class="z-10 absolute left-0 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 transform -translate-x-1/2 mt-2"
   >
     <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
       <div>Bonnie Green</div>
@@ -25,14 +28,14 @@
         <a
           href="#"
           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-        >Dashboard</a
+          >Dashboard</a
         >
       </li>
       <li>
         <a
-          href="#"
+          [routerLink]="['/dashboard/proffile']"
           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-        >Settings</a
+          >Settings</a
         >
       </li>
     </ul>
@@ -40,7 +43,7 @@
       <a
         (click)="logout()"
         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer"
-      >Sign out</a
+        >Sign out</a
       >
     </div>
   </div>

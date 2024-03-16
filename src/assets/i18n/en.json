@@ -5,7 +5,13 @@
   "cards.side.title":"Cards",
   "transactions.side.title":"Transactions",
   "loans.side.title":"Loans",
-  "tvp.side.title":"Tvp"
+  "tvp.side.title":"Tvp",
+  "proffile.side.title":"Proffile",
+
+  "title.section.card":"My Cards",
+  "title.section.balance":"Total Balance",
+  "title.section.income":"Income For The Month",
+  "title.section.loan":"Loands"
 
 
 }

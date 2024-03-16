@@ -4,8 +4,8 @@
     [ngClass]="{ 'w-20': !isSidebarOpen, 'w-72 ': isSidebarOpen }"
   >
     <ion-icon
-      name="arrow-back-outline"
-      class="bg-white text-black text-3xl rounded-full absolute -right-3 top-9 border border-blue-950 cursor-pointer"
+      name="menu-outline"
+      class="bg-primary-dark text-white text-3xl rounded-full absolute -right-3 top-9 border-white border-2 cursor-pointer"
       [ngClass]="{ 'rotate-180': !isSidebarOpen, '': isSidebarOpen }"
       (click)="toggleSidebar()"
     ></ion-icon>
@@ -24,10 +24,10 @@
       />
     </div>
 
-    <div class="flex items-center pt-4 pb-4">
+    <div class="flex items-center">
       <div
         id="nav"
-        class="w-full flex flex-col gap-5 py-5"
+        class="w-full flex flex-col py-0"
         [ngClass]="{ 'px-0': !isSidebarOpen, '': isSidebarOpen }"
       >
         <div *ngFor="let enlace of routerList">

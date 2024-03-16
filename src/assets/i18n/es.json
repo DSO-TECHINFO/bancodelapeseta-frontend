@@ -6,6 +6,12 @@
   "transactions.side.title":"Transacciones",
   "payments.side.title":"Pagos",
   "loans.side.title":"Préstamos",
-  "tvp.side.title":"Tvp"
+  "tvp.side.title":"Tvp",
+  "proffile.side.title":"Perfil",
+
+  "title.section.card":"Mis Tarjetas",
+  "title.section.balance":"Balance Total",
+  "title.section.income":"Ingresos del mes",
+  "title.section.loan":"Préstamos"
 
 }

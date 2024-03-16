@@ -20,7 +20,7 @@ import { filter } from 'rxjs';
   ],
 })
 export class SidebarComponent {
-  isSidebarOpen = true;
+  isSidebarOpen = false;
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
@@ -94,6 +94,13 @@ export class SidebarComponent {
     {
       nombreRuta: 'tvp.side.title',
       ruta: 'tvp',
+      iconFileName: 'tvp.svg',
+      iconWhiteName: 'tvpwhite.svg',
+      iconFinalName: 'tvpfinal.svg',
+    },
+    {
+      nombreRuta: 'proffile.side.title',
+      ruta: 'proffile',
       iconFileName: 'tvp.svg',
       iconWhiteName: 'tvpwhite.svg',
       iconFinalName: 'tvpfinal.svg',

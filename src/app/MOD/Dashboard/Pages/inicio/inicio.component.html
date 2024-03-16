@@ -1,19 +1,14 @@
-<!-- <div class="flex flex-wrap">
-  <p class="border border-black">
-    {{'HOME.TITLE' | translate}}
-  </p>
-  <p class="border border-black">
-    {{'HOME.TITLE' | translate}}
-  </p>
-</div> -->
-
-<div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-3">
-
-  <balance-component (currencyRate)="onRateSelected($event)"></balance-component>
-  <tpv-component></tpv-component>
-  <cards-component [rate]="currencyExchangeRate"></cards-component>
-  <loans-component></loans-component>
-
-  
-
+<div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-3 ">
+  <div class="w-full mb-3 lg:mb-0">
+    <cards-component [rate]="currencyExchangeRate"></cards-component>
+  </div>
+  <div class="w-full mb-3 lg:mb-0">
+    <balance-component (currencyRate)="onRateSelected($event)"></balance-component>
+  </div>
+  <div class="w-full mb-3 lg:mb-0">
+    <tpv-component></tpv-component>
+  </div>
+  <div class="w-full mb-3 lg:mb-0">
+    <loans-component></loans-component>
+  </div>
 </div>

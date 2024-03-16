@@ -1,41 +1,79 @@
-<nav class="hidden lg:block w-dvw bg-white border-gray-200">
+<nav class="hidden lg:block bg-white">
   <div
-    class="max-w-full-xl flex flex-wrap items-center justify-between mx-auto py-6 px-8"
+    class="max-w-full-xl flex flex-wrap items-center justify-between mx-auto py-6 px-10"
   >
     <div class="flex items-center space-x-3 rtl:space-x-reverse">
-        <w-nav-search/>
+      <w-nav-search />
     </div>
- <div class="flex md:order-2 items-center md:space-x-6">
-      <w-nav-language/>
+    <div class="flex md:order-2 items-center md:space-x-6 ">
+      <w-nav-language />
       <w-nav-notification />
-      <w-nav-user/>
+      <w-nav-user />
       <div>
         <button
-        data-collapse-toggle="navbar-search"
-        type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        aria-controls="navbar-search"
-        aria-expanded="false"
-      >
-        <span class="sr-only">Open main menu</span>
-        <svg
-          class="w-5 h-5"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 17 14"
+          data-collapse-toggle="navbar-search"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-search"
+          aria-expanded="false"
         >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M1 1h15M1 7h15M1 13h15"
-          />
-        </svg>
-      </button>
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
       </div>
-
     </div>
   </div>
 </nav>
+
+<div class="w-full lg:w-1/2 flex flex-col lg:hidden">
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <img src="/assets/images/sidebar/banco_blanco.png" class="w-2/3 px-6 py-2 mx-auto"/>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content color="primary">
+      <div class="py-1 mt-4" *ngFor="let enlace of routerList">
+        <w-nav-link
+          [routerLink]="[enlace.ruta]"
+          [nombreRuta]="enlace.nombreRuta"
+          [iconFileName]="enlace.iconFileName"
+          [isSidebarOpen]="true"
+          [iconWhiteName]="enlace.iconWhiteName"
+          (click)="enviarTitulo(enlace.nombreRuta)"
+          [iconFinalName]="enlace.iconFinalName"
+        >
+        </w-nav-link>
+      </div>
+    </ion-content>
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title> {{pageTitle| translate}}</ion-title>
+        <ion-buttons slot="end">
+          <div class="pr-2">
+            <w-mobile-user></w-mobile-user>
+          </div>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+  </div>
+  </div>
