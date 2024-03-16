@@ -8,6 +8,7 @@ import { WNavSearchComponent } from './w-nav-search/w-nav-search.component';
 import { WNavNotificationComponent } from './w-nav-notification/w-nav-notification.component';
 import { Subscription } from 'rxjs';
 import { TitleService } from './services/title.service';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'w-nav',
@@ -29,7 +30,7 @@ export class WNavComponent implements OnDestroy {
   pageTitle: string = '';
   private subscription: Subscription;
 
-  constructor(private titleService: TitleService, private cdr: ChangeDetectorRef) {
+  constructor(private titleService: TitleService, private cdr: ChangeDetectorRef,private menuCtrl: MenuController) {
     this.subscription = this.titleService.getPageTitle().subscribe((title) => {
       this.pageTitle = title;
       this.cdr.markForCheck();
@@ -39,5 +40,10 @@ export class WNavComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  openFirstMenu() {
+
+    this.menuCtrl.open('first-menu');
   }
 }

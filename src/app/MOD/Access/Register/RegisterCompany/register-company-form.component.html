@@ -1,4 +1,4 @@
-<div class="isolated pt-8 flex h-screen w-screen justify-center">
+<div class="isolated pt-20 md:pt-8 h-full min-h-dvh w-dvw justify-center">
   <div
     class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
     aria-hidden="true">
@@ -271,3 +271,8 @@
     </footer>
   </div>
 </div>
+<ion-fab slot="fixed" vertical="top" horizontal="start">
+  <ion-fab-button size="small" color="primary" [routerLink]="['/register']">
+    <ion-icon color="light" name="chevron-back-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
