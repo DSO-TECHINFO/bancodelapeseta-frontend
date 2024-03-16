@@ -4,6 +4,9 @@ import { Observable, catchError, throwError } from "rxjs";
 import { CodeDto } from "../../SmsVerification/dto/codeDto";
 import { UnsignedVerificationRequest } from "../../CreateSign/interface/UnsignedVerificationRequest";
 import { CreateSign } from "../../CreateSign/interface/CreateSign.interface";
+import  IForgoPasswordReq  from "../../RecoveryPassword/ForgotPassword/interface/iForgoPasswordReq.interface";
+import passwordRecoveryVerificationCodes from "../../RecoveryPassword/ForgotPassword/interface/passwordRecoveryVerificationCodes.interface";
+import newPassword from "../../RecoveryPassword/ForgotPassword/interface/newPassword.interface";
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +27,24 @@ export class VerificationService {
   public sendPhoneVerificationCode(uri: string): Observable<any>{
     return this.http
     .get<any>(`${this.urlBase}/${uri}`)
+    .pipe(catchError(this.handleError));
+  }
+
+  public sendEmailAndPhoneCodePasswordRecovery(body: IForgoPasswordReq, uri: string): Observable<any>{
+    return this.http
+    .post<any>(`${this.urlBase}/${uri}`, body)
+    .pipe(catchError(this.handleError));
+  }
+
+  public verifyEmailAndPhoneCodePasswordRecovery(body: passwordRecoveryVerificationCodes, uri: string): Observable<any>{
+    return this.http
+    .post<any>(`${this.urlBase}/${uri}`, body)
+    .pipe(catchError(this.handleError));
+  }
+
+  public changePassword(body: newPassword, uri: string): Observable<any>{
+    return this.http
+    .post<any>(`${this.urlBase}/${uri}`, body)
     .pipe(catchError(this.handleError));
   }
 
