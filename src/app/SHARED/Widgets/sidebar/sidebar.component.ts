@@ -98,5 +98,12 @@ export class SidebarComponent {
       iconWhiteName: 'tvpwhite.svg',
       iconFinalName: 'tvpfinal.svg',
     },
+    {
+      nombreRuta: 'proffile.side.title',
+      ruta: 'proffile',
+      iconFileName: 'tvp.svg',
+      iconWhiteName: 'tvpwhite.svg',
+      iconFinalName: 'tvpfinal.svg',
+    },
   ];
 }
