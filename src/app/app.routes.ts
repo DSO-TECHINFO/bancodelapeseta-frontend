@@ -87,6 +87,12 @@ export const routes: Routes = [
           import('./MOD/Dashboard/Pages/inicio/inicio.component'),
       },
       {
+        path: 'proffile',
+        title: 'Proffile',
+        loadComponent: () =>
+          import('./MOD/Dashboard/Pages/proffile/proffile.component'),
+      },
+      {
         path: 'accounts',
         title: 'Accounts',
         loadComponent: () =>

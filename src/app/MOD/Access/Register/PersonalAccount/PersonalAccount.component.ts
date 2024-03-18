@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { WInputComponent } from '@/SHARED/Widgets/w-input/input-app';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { PersonalAccountService } from './service/personalAccount.service';
 import IPersonlAccountReq from './interface/personalAccountReq.interface';
 import { ToastrService } from 'ngx-toastr';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-personal-account',
@@ -13,7 +14,9 @@ import { ToastrService } from 'ngx-toastr';
   imports: [
     CommonModule,
     WInputComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink,
+    IonicModule
   ],
   templateUrl: './PersonalAccount.component.html',
   styleUrl: './PersonalAccount.component.css',
