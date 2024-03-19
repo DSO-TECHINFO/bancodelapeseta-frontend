@@ -5,7 +5,7 @@
     <div class="flex items-center space-x-3 rtl:space-x-reverse">
       <w-nav-search />
     </div>
-    <div class="flex md:order-2 items-center md:space-x-6 ">
+    <div class="flex md:order-2 items-center md:space-x-6">
       <w-nav-language />
       <w-nav-notification />
       <w-nav-user />
@@ -40,25 +40,14 @@
 </nav>
 
 <div class="w-full lg:w-1/2 flex flex-col lg:hidden">
-  <ion-menu contentId="main-content">
+  <!-- <ion-menu contentId="main-content">
     <ion-header>
       <ion-toolbar color="primary">
         <img src="/assets/images/sidebar/banco_blanco.png" class="w-2/3 px-6 py-2 mx-auto"/>
       </ion-toolbar>
     </ion-header>
     <ion-content color="primary">
-      <div class="py-1 mt-4" *ngFor="let enlace of routerList">
-        <w-nav-link
-          [routerLink]="[enlace.ruta]"
-          [nombreRuta]="enlace.nombreRuta"
-          [iconFileName]="enlace.iconFileName"
-          [isSidebarOpen]="true"
-          [iconWhiteName]="enlace.iconWhiteName"
-          (click)="enviarTitulo(enlace.nombreRuta)"
-          [iconFinalName]="enlace.iconFinalName"
-        >
-        </w-nav-link>
-      </div>
+
     </ion-content>
   </ion-menu>
   <div class="ion-page" id="main-content">
@@ -75,5 +64,20 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-  </div>
-  </div>
+  </div> -->
+  <nav class="bg-white border-b-2 border-gray-300 shadow-md py-2 px-4">
+    <div class="flex items-center justify-between">
+      <!-- Botón de menú para dispositivos móviles -->
+
+
+
+      <!-- Logo o título del sitio -->
+      <p class="text-dark text-lg font-semibold">{{ pageTitle | translate }}</p>
+      <!-- Botones adicionales, como botón de búsqueda o notificaciones -->
+      <div class="pr-2">
+        <w-mobile-user></w-mobile-user>
+      </div>
+    </div>
+  </nav>
+</div>
+
