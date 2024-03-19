@@ -1,83 +1,49 @@
 <div class="flex flex-col gap-3">
-  <h1>hola</h1>
-  <div>
-    <h1>----------------------</h1>
-    @for (item of accountData; track $index) {
-      <h1>{{item.contract.account.accountNumber}}</h1>
-    }
-    <h1>----------------------</h1>
-
-  </div>
   <h1 class="text-3xl font-bold">$145.158,63</h1>
-  <!-- <p>
-    {{'HOME.TITLE' | translate}}
-  </p>   -->
-  <div class="border rounded-xl p-2 shadow flex flex-row md:h-16">
 
-    <div class="hidden md:flex bg-gradient-to-r from-fuchsia-500 to-cyan-500 w-10 rounded-xl text-transparent">.</div>
-
-    <div class="flex md:flex flex-wrap flex-row gap-2  md:gap-10 mx-3  w-full justify-between" >
-
+  @for (item of accounts$ | async; track $index) {
+  <!-- Primer elemento -->
+  <div class="border rounded-xl p-2 shadow flex flex-col md:flex-row md:h-16">
+    <!-- Marcador de color (oculto en dispositivos pequeños) -->
+    <div
+      class="hidden md:flex w-10 rounded-xl text-transparent bg-gradient-to-r from-fuchsia-500 to-cyan-500"
+    >
+      .
+    </div>
+    <!-- Contenido -->
+    <div
+      class="flex md:flex flex-wrap flex-row gap-2 md:gap-10 mx-3 w-full justify-between"
+    >
+      <!-- Detalles de la cuenta -->
       <div class="flex flex-col">
-        <span class="font-bold">3210 **** **** 7841</span>
+        <span class="font-bold">{{
+          item.contract.account.accountNumber.substring(0, 18)
+        }}</span>
         <span class="text-sm text-gray-700">Account number</span>
       </div>
-
       <div class="flex flex-col">
-        <span class="font-bold">EUR</span>
+        <span class="font-bold">{{
+          item.contract.product.currency.currency
+        }}</span>
         <span class="text-sm text-gray-700">Currency</span>
       </div>
-
       <div class="flex flex-col">
-        <span class="font-bold">88.200,00</span>
-        <span class="text-sm text-gray-700">Account balance</span>
+        <span class="font-bold">{{ item.contract.account.balance }}</span>
+        <span class="text-sm text-gray-700">Available balance</span>
       </div>
-
       <div class="flex flex-col">
-        <span class="font-bold">1.200,00</span>
-        <span class="text-sm text-gray-700">Ammount</span>
+        <span class="font-bold">{{ item.contract.account.realBalance }}</span>
+        <span class="text-sm text-gray-700">Real balance</span>
       </div>
-
-      <div class="">
-      <button class="middle w-full none center mr-4 rounded-lg bg-blue-100 py-3 px-6 font-sans text-xs font-bold uppercase text-blue-500">Active</button>
+      <!-- Botón (moverlo a la parte inferior en dispositivos pequeños) -->
+      <div class="md:self-center">
+        <button
+          class="middle w-full none center mr-4 rounded-lg bg-blue-100 py-3 px-6 font-sans text-xs font-bold uppercase text-blue-500"
+        >
+          Activo
+        </button>
       </div>
-
     </div>
-
   </div>
-
-  <div class="border rounded-xl p-2 shadow flex flex-row md:h-16">
-
-    <div class="hidden md:flex bg-gradient-to-r from-teal-400 to-yellow-200 w-10 rounded-xl text-transparent">.</div>
-
-    <div class="flex md:flex flex-wrap flex-row gap-2  md:gap-10 mx-3  w-full justify-between" >
-
-      
-      <div class="flex flex-col">
-        <span class="font-bold">4710 **** **** 8492</span>
-        <span class="text-sm text-gray-700">Account number</span>
-      </div>
-
-      <div class="flex flex-col">
-        <span class="font-bold">EUR</span>
-        <span class="text-sm text-gray-700">Currency</span>
-      </div>
-
-      <div class="flex flex-col">
-        <span class="font-bold">71.060,20</span>
-        <span class="text-sm text-gray-700">Account balance</span>
-      </div>
-
-      <div class="flex flex-col">
-        <span class="font-bold">2.400,80</span>
-        <span class="text-sm text-gray-700">Ammount</span>
-      </div>
-
-      <div class="">
-      <button class="middle w-full none center mr-4 rounded-lg bg-blue-100 py-3 px-6 font-sans text-xs font-bold uppercase text-blue-500">Active</button>
-      </div>
-
-    </div>
-
-  </div>
+  }
 </div>
