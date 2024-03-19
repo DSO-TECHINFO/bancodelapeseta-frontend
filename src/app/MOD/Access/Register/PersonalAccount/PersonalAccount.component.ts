@@ -7,6 +7,8 @@ import { PersonalAccountService } from './service/personalAccount.service';
 import IPersonlAccountReq from './interface/personalAccountReq.interface';
 import { ToastrService } from 'ngx-toastr';
 import { IonicModule } from '@ionic/angular';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-personal-account',
@@ -16,51 +18,61 @@ import { IonicModule } from '@ionic/angular';
     WInputComponent,
     ReactiveFormsModule,
     RouterLink,
-    IonicModule
+    IonicModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   templateUrl: './PersonalAccount.component.html',
   styleUrl: './PersonalAccount.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class PersonalAccountComponent {
-  public classStyle = 'mt-1 p-3 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300'
+  public classStyle =
+    'mt-1 p-3 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300';
 
-  constructor(private formBuilder:FormBuilder, private router:Router,  private toastr: ToastrService){}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   private SCreatePersonalAccount = inject(PersonalAccountService);
 
-  registerPersonForm = this.formBuilder.group({type:['PHYSICAL']});
+  registerPersonForm = this.formBuilder.group({ type: ['PHYSICAL'] });
 
   returnToRegister() {
     this.router.navigate(['/register']);
   }
 
-  createPersonalAccount(){
-    console.log(this.registerPersonForm.value)
-    if(this.registerPersonForm.valid) {
-      this.SCreatePersonalAccount.createPersonalAccount(this.registerPersonForm.value as IPersonlAccountReq,'api/v1/auth/register/physical').subscribe({
-        next:(response)=>{
-          console.log('next')
+  createPersonalAccount() {
+    console.log(this.registerPersonForm.value);
+    if (this.registerPersonForm.valid) {
+      this.SCreatePersonalAccount.createPersonalAccount(
+        this.registerPersonForm.value as IPersonlAccountReq,
+        'api/v1/auth/register/physical'
+      ).subscribe({
+        next: (response) => {
+          console.log('next');
         },
-        error:(err)=>{
+        error: (err) => {
           this.showerror();
           console.log(err.reason);
         },
-        complete:()=>{
+        complete: () => {
           this.showsuccess();
           this.router.navigate(['/sms-verification']);
           this.registerPersonForm.reset();
-        }
-      })
-    }else{
+        },
+      });
+    } else {
       this.registerPersonForm.markAllAsTouched();
     }
   }
 
-  showsuccess(){
+  showsuccess() {
     this.toastr.success('Register sucessfully.', 'Success');
   }
-  showerror(){
+  showerror() {
     this.toastr.error('Invalid form, check credentials ', 'Error');
   }
 }

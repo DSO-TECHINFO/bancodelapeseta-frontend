@@ -7,12 +7,14 @@ import newPassword from '../ForgotPassword/interface/newPassword.interface';
 import { VerificationService } from '../../Verification/service/verification.service';
 import { ToastrService } from 'ngx-toastr';
 import { IonicModule } from '@ionic/angular';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-password-recovery-change',
   templateUrl: './password-recovery-change.component.html',
   standalone:true,
-  imports:[CommonModule, WInputComponent, RouterLink, ReactiveFormsModule, IonicModule]
+  imports:[CommonModule, WInputComponent, RouterLink, ReactiveFormsModule, IonicModule, MatButtonModule, MatIconModule]
 })
 export default class PasswordRecoveryChangeComponent implements OnInit{
 
