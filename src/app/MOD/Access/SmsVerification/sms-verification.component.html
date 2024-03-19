@@ -14,18 +14,12 @@
                       <!-- SMS icon -->
                       <ion-icon class="w-6 h-6 my-auto" src="./assets/icons/sms.svg" aria-hidden="true"></ion-icon>
 
-                      <!-- <input type="tel" formControlName="numb1" (keypress)="onDigitInput($event)" class="text-2xl outline-none border border-gray-300 rounded text-center"/>
-                      <input type="tel" formControlName="numb2" (keypress)="onDigitInput($event)" class="text-2xl outline-none border border-gray-300 rounded text-center"/>
-                      <input type="tel" formControlName="numb3" (keypress)="onDigitInput($event)" class="text-2xl outline-none border border-gray-300 rounded text-center"/>
-                      <input type="tel" formControlName="numb4" (keypress)="onDigitInput($event)" class="text-2xl outline-none border border-gray-300 rounded text-center"/>
-                      <input type="tel" formControlName="numb5" (keypress)="onDigitInput($event)" class="text-2xl outline-none border border-gray-300 rounded text-center"/>
-                      <input type="tel" formControlName="numb6" (keypress)="onDigitInput($event)" class="text-2xl outline-none border border-gray-300 rounded text-center"/> -->
                       @for (item of inputConfigs; track item.name){
-                        <app-w-input [controlKey]="item.name" inputType="digitCode" (digitInput)="onDigitInput($index, $event)" label="Input 7" #inputRef></app-w-input>
+                        <app-w-input [controlKey]="item.name" inputType="digitCode" (digitInput)="onDigitInput($index, $event)" label="Input 7" #inputRef ></app-w-input>
                       }
                   </div>
 
-                  <button [disabled]="verificationCodeForm.invalid" type="submit" [ngClass]="{'hover:bg-blue-800': !verificationCodeForm.invalid}" class="flex text-center items-center bg-blue-600 text-white font-medium mb-6 py-2 px-4 rounded mt-6">
+                  <button [disabled]="verificationCodeForm.invalid && !(verificationCodeForm.touched || verificationCodeForm.dirty)" type="submit" [ngClass]="{'hover:bg-blue-800 hover:cursor-pointer': !verificationCodeForm.invalid && (verificationCodeForm.touched || verificationCodeForm.dirty)}" class="flex text-center items-center bg-blue-600 cursor-auto text-white font-medium mb-6 py-2 px-4 rounded mt-6">
                       <span>Submit</span>
                       <ion-icon class="w-6 h-6 ms-2" aria-hidden="true" name="checkmark-outline"></ion-icon>
                   </button>

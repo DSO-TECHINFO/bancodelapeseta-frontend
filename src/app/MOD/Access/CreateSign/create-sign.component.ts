@@ -157,17 +157,14 @@ export default class CreateSignComponent implements OnInit{
 
     this.verificationService.createSign(createSign as CreateSign, 'api/v1/auth/create/modify/sign').subscribe({
       next: (userData) => {
-        // this.verificationCodeService.setEmailCode(this.unsignedCode);
       },
       error: (err) => {
         console.error('Incorrect code: ', err);
       },
       complete: () => {
-        // this.router.navigateByUrl('/email-verification');
         this.signCodeForm.reset();
       },
     })
-    console.log("En enviar la firma");
   }
 
   onVerifyRewriteSign(){
