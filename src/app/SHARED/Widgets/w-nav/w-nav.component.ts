@@ -12,6 +12,8 @@ import { MenuController } from '@ionic/angular';
 import { NavigationEnd, Router } from '@angular/router';
 import { WNavLinkComponent } from './w-nav-link/w-nav-link.component';
 import { WMobileUserComponent } from '../w-mobile-user/w-mobile-user.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @Component({
   selector: 'w-nav',
@@ -25,7 +27,9 @@ import { WMobileUserComponent } from '../w-mobile-user/w-mobile-user.component';
     WNavSearchComponent,
     WNavNotificationComponent,
     WNavLinkComponent,
-    WMobileUserComponent
+    WMobileUserComponent,
+    MatButtonModule,
+    MatSidenavModule
   ],
   templateUrl: './w-nav.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -60,7 +64,10 @@ export class WNavComponent implements OnDestroy {
     });
   }
 
-
+isDrawerOpen=true;
+  toggleDrawer() {
+    this.isDrawerOpen = !this.isDrawerOpen;
+  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

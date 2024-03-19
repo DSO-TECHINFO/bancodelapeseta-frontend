@@ -10,7 +10,7 @@ module.exports = {
         'primary-text': '#45435e',
         'background-gray': '#f0f0f7',
         'gray-icons': '#b9b9c7',
-        'dark': '#282739'
+        'dark': '#282739',
       },
     },
   },
