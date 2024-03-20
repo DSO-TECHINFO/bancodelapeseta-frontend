@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnDestroy, OnInit, Output, input } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { IonicModule } from '@ionic/angular';
 import { WNavUserComponent } from './w-nav-user/w-nav-user.component';
@@ -14,7 +14,10 @@ import { WNavLinkComponent } from './w-nav-link/w-nav-link.component';
 import { WMobileUserComponent } from '../w-mobile-user/w-mobile-user.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
-
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 @Component({
   selector: 'w-nav',
   standalone: true,
@@ -29,13 +32,25 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     WNavLinkComponent,
     WMobileUserComponent,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatToolbarModule,
+    SidebarComponent
   ],
   templateUrl: './w-nav.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class WNavComponent implements OnDestroy {
+
+  @Output() toggleSidebar: EventEmitter<void> = new EventEmitter<void>();
+
+  onToggleSidebar(): void {
+    this.toggleSidebar.emit();
+  }
+
+
   pageTitle: string = '';
   private subscription: Subscription;
 
@@ -64,18 +79,11 @@ export class WNavComponent implements OnDestroy {
     });
   }
 
-isDrawerOpen=true;
-  toggleDrawer() {
-    this.isDrawerOpen = !this.isDrawerOpen;
-  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  openFirstMenu() {
-
-    this.menuCtrl.open('first-menu');
-  }
 
   enviarTitulo(nombreRuta: string) {
     const rutaSeleccionada = this.routerList.find(

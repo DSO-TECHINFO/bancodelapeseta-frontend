@@ -1,24 +1,20 @@
 <div class="hidden lg:flex w-full h-full min-h-dvh">
   <div
-    class="bg-primary w-72 relative duration-300"
+    class="bg-primary w-72 relative duration-300 h-full"
     [ngClass]="{ 'w-20': !isSidebarOpen, 'w-72 ': isSidebarOpen }"
   >
-    <ion-icon
-      name="menu-outline"
-      class="bg-primary-dark text-white text-3xl rounded-full absolute -right-3 top-9 border-white border-2 cursor-pointer"
-      [ngClass]="{ 'rotate-180': !isSidebarOpen, '': isSidebarOpen }"
-      (click)="toggleSidebar()"
-    ></ion-icon>
     <div
-      class="flex justify-center flex-col bg-primary-dark pt-4 pl-5 pb-4"
+      class="hidden lg:flex justify-center flex-col bg-primary-dark pt-4 pl-5 pb-4"
     >
       <img
-        src="/assets/images/sidebar/banco_blanco.png"
+        loading="lazy"
+        src="/assets/images/sidebar/banco_blanco.webp"
         width="150"
         class="{{ !isSidebarOpen ? 'hidden' : '' }}"
       />
       <img
-        src="/assets/images/sidebar/banco_icon.png"
+        loading="lazy"
+        src="/assets/images/sidebar/banco_icon.webp"
         width="40"
         class="{{ !isSidebarOpen ? 'visible pl-2' : 'hidden' }}"
       />
@@ -31,19 +27,61 @@
         [ngClass]="{ 'px-0': !isSidebarOpen, '': isSidebarOpen }"
       >
         <div *ngFor="let enlace of routerList">
-          <w-nav-link
-            [routerLink]="[enlace.ruta]"
-            [nombreRuta]="enlace.nombreRuta"
-            [iconFileName]="enlace.iconFileName"
-            [isSidebarOpen]="isSidebarOpen"
-            [iconWhiteName]="enlace.iconWhiteName"
-            (click)="enviarTitulo(enlace.nombreRuta)"
-            [iconFinalName]="enlace.iconFinalName"
-          >
-          </w-nav-link>
+          <ng-container *ngIf="enlace.iconFileName">
+            <w-nav-link
+              [routerLink]="[enlace.ruta]"
+              [nombreRuta]="enlace.nombreRuta"
+              [iconFileName]="enlace.iconFileName"
+              [isSidebarOpen]="isSidebarOpen"
+              [iconWhiteName]="enlace.iconWhiteName"
+              (click)="enviarTitulo(enlace.nombreRuta)"
+              [iconFinalName]="enlace.iconFinalName"
+            >
+            </w-nav-link>
+          </ng-container>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<div class="lg:hidden flex w-full h-full min-h-dvh " *ngIf="isSidebarOpen">
+  <div
+    class="bg-primary w-72 relative duration-300 h-full"
+    [ngClass]="{ 'w-0': !isSidebarOpen, 'w-72': isSidebarOpen }"
+  >
+    <div
+      class="flex justify-center flex-col pt-4 pl-5 pb-4"
+      [ngClass]="{ 'bg-primary-dark ': isSidebarOpen }"
+    >
+      <img
+        loading="lazy"
+        src="/assets/images/sidebar/banco_blanco.webp"
+        width="150"
+        class="{{ !isSidebarOpen ? 'hidden' : '' }}"
+      />
+    </div>
+
+    <div class="flex items-center">
+      <div
+        id="nav"
+        class="w-full flex flex-col gap-y-4"
+      >
+      <div *ngFor="let enlace of routerList">
+        <ng-container *ngIf="enlace.iconFileName">
+          <w-nav-link
+            [routerLink]="[enlace.ruta]"
+            [nombreRuta]="enlace.nombreRuta"
+            [iconFileName]="enlace.iconFileName"
+            [isSidebarOpen]="isSidebarOpen"
+            [iconWhiteName]="enlace.iconWhiteName"
+            (click)="enviarTitulo(enlace.nombreRuta); cerrarSidebar()"
+            [iconFinalName]="enlace.iconFinalName"
+          >
+          </w-nav-link>
+        </ng-container>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

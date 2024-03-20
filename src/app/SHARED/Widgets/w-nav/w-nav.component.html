@@ -1,9 +1,13 @@
 <nav class="hidden lg:block bg-white">
   <div
-    class="max-w-full-xl flex flex-wrap items-center justify-between mx-auto py-6 px-10"
+    class="max-w-full-xl flex flex-wrap items-center justify-between mx-auto py-4 px-10"
   >
     <div class="flex items-center space-x-3 rtl:space-x-reverse">
-      <w-nav-search />
+      <button (click)="onToggleSidebar()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+          <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+        </svg>
+      </button>
     </div>
     <div class="flex md:order-2 items-center md:space-x-6">
       <w-nav-language />
@@ -40,37 +44,17 @@
 </nav>
 
 <div class="w-full lg:w-1/2 flex flex-col lg:hidden">
-  <!-- <ion-menu contentId="main-content">
-    <ion-header>
-      <ion-toolbar color="primary">
-        <img src="/assets/images/sidebar/banco_blanco.png" class="w-2/3 px-6 py-2 mx-auto"/>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content color="primary">
 
-    </ion-content>
-  </ion-menu>
-  <div class="ion-page" id="main-content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title> {{pageTitle| translate}}</ion-title>
-        <ion-buttons slot="end">
-          <div class="pr-2">
-            <w-mobile-user></w-mobile-user>
-          </div>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-  </div> -->
   <nav class="bg-white border-b-2 border-gray-300 shadow-md py-2 px-4">
     <div class="flex items-center justify-between">
       <!-- Botón de menú para dispositivos móviles -->
 
+      <button (click)="onToggleSidebar()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+          <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+        </svg>
 
-
+      </button>
       <!-- Logo o título del sitio -->
       <p class="text-dark text-lg font-semibold">{{ pageTitle | translate }}</p>
       <!-- Botones adicionales, como botón de búsqueda o notificaciones -->
@@ -79,5 +63,6 @@
       </div>
     </div>
   </nav>
+
 </div>
 

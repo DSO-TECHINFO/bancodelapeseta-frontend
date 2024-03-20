@@ -6,8 +6,7 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { RegisterCompanyService } from './service/registerCompany.service';
 import { RegisterCompanyRequest } from './interface/registerCompanyRequest.interface';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+
 @Component({
   selector: 'app-register-company-form',
   standalone: true,
@@ -20,8 +19,7 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule,
     CommonModule,
     WInputComponent,
-    MatButtonModule,
-    MatIconModule
+
   ],
   templateUrl: './register-company-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -7,8 +7,6 @@ import { PersonalAccountService } from './service/personalAccount.service';
 import IPersonlAccountReq from './interface/personalAccountReq.interface';
 import { ToastrService } from 'ngx-toastr';
 import { IonicModule } from '@ionic/angular';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-personal-account',
@@ -19,8 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     RouterLink,
     IonicModule,
-    MatButtonModule,
-    MatIconModule,
+
   ],
   templateUrl: './PersonalAccount.component.html',
   styleUrl: './PersonalAccount.component.css',
