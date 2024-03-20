@@ -8,11 +8,26 @@
 </div> -->
 
 <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-3">
+  <ngx-charts-line-chart
+  [view]="view"
 
+  [legend]="legend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxis]="xAxis"
+  [yAxis]="yAxis"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [timeline]="timeline"
+  [results]="multi"
+  (select)="onSelect($event)"
+  (activate)="onActivate($event)"
+  (deactivate)="onDeactivate($event)"
+  >
+  </ngx-charts-line-chart>
   <cards-component [rate]="currencyExchangeRate"></cards-component>
   <balance-component (currencyRate)="onRateSelected($event)"></balance-component>
   <tpv-component></tpv-component>
   <loans-component></loans-component>
 
-  
 </div>
