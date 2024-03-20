@@ -10,14 +10,13 @@ import passwordRecoveryVerificationCodes from '../ForgotPassword/interface/passw
 import { VerificationService } from '../../Verification/service/verification.service';
 import newPassword from '../ForgotPassword/interface/newPassword.interface';
 import { IonicModule } from '@ionic/angular';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-validate-codes',
   templateUrl: './validate-codes.component.html',
   standalone:true,
-  imports:[CommonModule, WInputComponent, RouterLink, ReactiveFormsModule, IonicModule, MatButtonModule, MatIconModule]
+  imports:[CommonModule, WInputComponent, RouterLink, ReactiveFormsModule, IonicModule]
 })
 export default class PasswordRecoveryComponent implements OnInit {
 

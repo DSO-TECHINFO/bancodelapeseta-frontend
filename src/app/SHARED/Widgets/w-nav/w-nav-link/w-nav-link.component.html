@@ -3,18 +3,19 @@
   [routerLinkActive]="'active'"
   [routerLinkActiveOptions]="{ exact: true }"
   #rla="routerLinkActive"
-  class="w-full inline-flex space-x-2 items-center py-3 hover:bg-primary-dark transition ease-linear duration-150  pl-3  "
+  class="w-full inline-flex space-x-2 items-center py-4 hover:bg-primary-dark transition ease-linear duration-150 pl-3"
   [ngClass]="{
     'bg-primary-dark border-l-4 border-primary-light': rla.isActive,
     'py-0 p-0': rla.isActive && !isSidebarOpen
   }"
 >
-  <div>
+  <div class="flex">
     <ion-icon
+      loading="lazy"
       [src]="'/assets/icons/sidebar/' + iconFinalName"
       size="large"
       class="px-2"
-      [ngClass]="{ 'active': rla.isActive }"
+      [ngClass]="{ active: rla.isActive }"
     ></ion-icon>
   </div>
   <div class="flex flex-col">
