@@ -14,14 +14,14 @@ export class AccountService {
 
   urlBase: string = 'https://api.bancodelapeseta.com';
 
-  getAccounts(uri: string): Observable<IAccountData> {
+  getAccounts(uri: string): Observable<IAccountData[]> {
     const tkn = this.tokenInterceptor.getToken() || '';
     const headers = new HttpHeaders({
       Authorization: `Bearer ${tkn}`,
     });
 
     return this.http
-      .get<IAccountData>(`${this.urlBase}/${uri}`, { headers })
+      .get<IAccountData[]>(`${this.urlBase}/${uri}`, { headers })
       .pipe(catchError(this.handleError));
   }
   private handleError(error:HttpErrorResponse){

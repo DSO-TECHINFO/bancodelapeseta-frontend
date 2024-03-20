@@ -1,22 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { AccountService } from './service/account.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-accounts',
   templateUrl: './accounts.component.html',
   standalone: true,
-  imports: [TranslateModule],
+  imports: [TranslateModule, CommonModule],
 })
-export default class ClientesComponent implements OnInit{
-  constructor(private readonly accountService: AccountService) {}
-  ngOnInit(): void {
-    this.getAccounts();
-  }
+export default class ClientesComponent {
+  accounts$ = this.accountService.getAccounts('api/v1/accounts');
 
-  getAccounts(){
-    this.accountService.getAccounts('api/v1/accounts').subscribe((item)=>{
-      console.log("Datos: ", item);
-    })
-  }
+  constructor(private accountService: AccountService) {}
+
 }
