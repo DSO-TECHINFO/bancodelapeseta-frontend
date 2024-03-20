@@ -5,6 +5,7 @@ import {
   ChangeDetectorRef,
   Component,
   OnInit,
+  SimpleChanges,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -40,12 +41,23 @@ export default class DashboardComponent implements OnInit {
     });
   }
 
+  //title
   ngOnInit() {
     this.titleService.getPageTitle().subscribe((title) => {
       this.pageTitle = title;
       this.cdr.detectChanges();
     });
   }
+
+
+  //sidebar
+  isSidebarOpen: boolean = false;
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
+
 
 
 }
