@@ -1,13 +1,18 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { StartPanelService } from '../servicio/start-panel.service';
 import { Subscription } from 'rxjs';
 import { TitleService } from '@/SHARED/Widgets/w-nav/services/title.service';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { multi } from './data';
 
 @Component({
   selector: 'cards-component',
   standalone: true,
-  imports: [TranslateModule],
+  imports: [
+    TranslateModule,
+    NgxChartsModule
+  ],
   templateUrl: './cards.component.html',
 })
 export default class CardsComponent implements OnInit {
@@ -16,12 +21,11 @@ export default class CardsComponent implements OnInit {
 
   @Input() rate: number = 1;
   title:string = ''
-  
+
   constructor(
     private startPanelService: StartPanelService,
     private cdr: ChangeDetectorRef,
-  ){
-  }
+  ){}
 
   ngOnInit(): void {
 
@@ -38,5 +42,6 @@ export default class CardsComponent implements OnInit {
 
     throw new Error('Method not implemented.');
   }
+
 
 }

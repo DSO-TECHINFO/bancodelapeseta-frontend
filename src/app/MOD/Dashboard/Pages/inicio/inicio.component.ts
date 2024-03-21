@@ -1,14 +1,11 @@
-import { AfterContentChecked, ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AfterContentChecked, AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import BalanceComponent from './balance/balance.component';
 import CardsComponent from './cards/cards.component';
 import TpvComponent from './tpv/tpv.component';
 import LoansComponent from './loans/loans.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { multi } from './data';
-import { StartPanelService } from './servicio/start-panel.service';
-import { CurrencyExchangeList } from './interface/currencyExchange.interface';
 
 @Component({
   selector: 'app-inicio',
@@ -19,26 +16,54 @@ import { CurrencyExchangeList } from './interface/currencyExchange.interface';
     LoansComponent,
     TpvComponent,
     NgxChartsModule,
-    BrowserAnimationsModule
   ],
   templateUrl: './inicio.component.html',
+  styleUrl: './inicio.component.css'
 })
-export default class InicioComponent{
+export default class InicioComponent implements AfterViewInit, AfterContentChecked {
+
+  @ViewChild('chartContainer') chartContainer!: ElementRef;
+
+  chartWidth!: number;
+  chartHeight!: number;
 
   accountsList: any[] = [];
   currencyExchangeRate: number = 1;
 
   @Output() currencyExchangeList = new EventEmitter<any>();
 
+  ngOnInit(): void {
+    this.updateChartSize();
+  }
+
+  ngAfterViewInit(): void {
+    if (this.chartContainer) {
+      const lineHighlightElements =
+        this.chartContainer.nativeElement.querySelectorAll('.line-highlight');
+        console.log('lineHighlightElements: ', lineHighlightElements);
+        lineHighlightElements.forEach((element: HTMLElement) => {
+          element.classList.add('active');
+        });
+    }
+    this.updateChartSize();
+    this.onResize("a");
+  }
+
   onRateSelected(rate: number){
     this.currencyExchangeRate = rate;
     console.log("Rate en inicio component: ", rate);
   }
 
-  multi?: any[];
-  view: any = [700, 300];
+  updateChartSize(): void {
+    this.chartWidth = this.chartContainer.nativeElement.offsetWidth;
+    this.chartHeight  = this.chartContainer.nativeElement.offsetHeight;
 
-  // options
+    this.view = [this.chartWidth, this.chartHeight];
+  }
+
+  multi?: any[];
+  view!: [any, any];
+
   legend: boolean = true;
   showLabels: boolean = true;
   animations: boolean = true;
@@ -68,6 +93,17 @@ export default class InicioComponent{
 
   onDeactivate(data: any): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
+
+  onResize(event: any) {
+    this.view = [this.chartContainer.nativeElement.offsetWidth, this.chartContainer.nativeElement.offsetHeight];
+  }
+
+  ngAfterContentChecked(): void {
+    if (this.chartContainer) {
+      this.updateChartSize();
+      this.onResize(null);
+    }
   }
 
 }

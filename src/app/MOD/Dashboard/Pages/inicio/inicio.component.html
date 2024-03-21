@@ -8,23 +8,33 @@
 </div> -->
 
 <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-3">
-  <ngx-charts-line-chart
-  [view]="view"
+<!-- <div class="grid grid-cols-2 grid-rows-3 gap-3"> -->
+  <div class="w-full h-64 gradient-overlay" #chartContainer>
+  <!-- <div class="gradient-overlay" style="visibility: hidden;" #chartContainer> -->
+    <ngx-charts-line-chart
+      [autoScale]="true"
+      [view]="view"
+      (window:resize)="onResize($event)"
+      [gradient]="true"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [showGridLines]="false"
+      [xAxis]="xAxis"
+      [timeline]="timeline"
+      [results]="multi"
+      (select)="onSelect($event)"
+      (activate)="onActivate($event)"
+      (deactivate)="onDeactivate($event)"
+    >
+    </ngx-charts-line-chart>
+  </div>
 
-  [legend]="legend"
-  [showXAxisLabel]="showXAxisLabel"
-  [showYAxisLabel]="showYAxisLabel"
-  [xAxis]="xAxis"
-  [yAxis]="yAxis"
-  [xAxisLabel]="xAxisLabel"
-  [yAxisLabel]="yAxisLabel"
-  [timeline]="timeline"
-  [results]="multi"
-  (select)="onSelect($event)"
-  (activate)="onActivate($event)"
-  (deactivate)="onDeactivate($event)"
-  >
-  </ngx-charts-line-chart>
+<!--
+  <cards-component class="col-span-1 row-span-2" [rate]="currencyExchangeRate"></cards-component>
+  <balance-component class="col-span-1" (currencyRate)="onRateSelected($event)"></balance-component>
+  <tpv-component class="col-span-1"></tpv-component>
+  <loans-component class="col-span-1"></loans-component> -->
+
   <cards-component [rate]="currencyExchangeRate"></cards-component>
   <balance-component (currencyRate)="onRateSelected($event)"></balance-component>
   <tpv-component></tpv-component>
