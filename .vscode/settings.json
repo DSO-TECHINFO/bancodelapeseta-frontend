@@ -1,5 +1,4 @@
 {
   "typescript.preferences.autoImportFileExcludePatterns": ["@ionic/angular/common", "@ionic/angular"],
-  "editor.formatOnSave": false,
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }
