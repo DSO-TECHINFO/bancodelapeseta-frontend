@@ -8,13 +8,13 @@
     >
       <img
         loading="lazy"
-        src="/assets/images/sidebar/banco_blanco.webp"
+        src="/assets/images/sidebar/banco_blanco.png"
         width="150"
         class="{{ !isSidebarOpen ? 'hidden' : '' }}"
       />
       <img
         loading="lazy"
-        src="/assets/images/sidebar/banco_icon.webp"
+        src="/assets/images/logos/logoBancoWhite.svg"
         width="40"
         class="{{ !isSidebarOpen ? 'visible pl-2' : 'hidden' }}"
       />
@@ -47,20 +47,18 @@
 
 <div class="lg:hidden flex w-full h-full min-h-dvh " *ngIf="isSidebarOpen">
   <div
-    class="bg-primary w-72 relative duration-300 h-full"
-    [ngClass]="{ 'w-0': !isSidebarOpen, 'w-72': isSidebarOpen }"
+    class="bg-primary w-56 duration-300 h-full"
+    [ngClass]="{ 'w-0': !isSidebarOpen, 'w-56': isSidebarOpen }"
   >
-    <div
-      class="flex justify-center flex-col pt-4 pl-5 pb-4"
-      [ngClass]="{ 'bg-primary-dark ': isSidebarOpen }"
-    >
-      <img
-        loading="lazy"
-        src="/assets/images/sidebar/banco_blanco.webp"
-        width="150"
-        class="{{ !isSidebarOpen ? 'hidden' : '' }}"
-      />
-    </div>
+  <div class="flex gap-x-2 p-4 items-center justify-center">
+    <img
+    loading="lazy"
+    src="/assets/images/sidebar/banco_blanco.png"
+    width="100"
+    class="m-auto "
+  />
+
+  </div>
 
     <div class="flex items-center">
       <div
