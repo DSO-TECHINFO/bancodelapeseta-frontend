@@ -7,12 +7,11 @@ import { VerificationService } from '../../Verification/service/verification.ser
 import IForgoPasswordReq from './interface/iForgoPasswordReq.interface';
 import { ToastrService } from 'ngx-toastr';
 import { IonicModule } from '@ionic/angular';
-
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
   standalone: true,
-  imports: [WInputComponent, CommonModule, ReactiveFormsModule, RouterLink, IonicModule],
+  imports: [WInputComponent, CommonModule, ReactiveFormsModule, RouterLink, IonicModule, ],
 })
 export default class ForgotPasswordComponent {
 

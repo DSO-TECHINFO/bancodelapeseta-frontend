@@ -19,6 +19,7 @@ import { RegisterCompanyRequest } from './interface/registerCompanyRequest.inter
     ReactiveFormsModule,
     CommonModule,
     WInputComponent,
+
   ],
   templateUrl: './register-company-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

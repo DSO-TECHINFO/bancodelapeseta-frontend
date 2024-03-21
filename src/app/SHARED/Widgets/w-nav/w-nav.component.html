@@ -1,41 +1,68 @@
-<nav class="bg-white">
+<nav class="hidden lg:block bg-white">
   <div
-    class="max-w-full-xl flex flex-wrap items-center justify-between mx-auto py-6 px-8"
+    class="max-w-full-xl flex flex-wrap items-center justify-between mx-auto py-4 px-10"
   >
     <div class="flex items-center space-x-3 rtl:space-x-reverse">
-        <w-nav-search/>
-    </div>
- <div class="flex md:order-2 items-center md:space-x-6">
-      <w-nav-language/>
-      <w-nav-notification />
-      <w-nav-user/>
-      <div>
-        <button
-        data-collapse-toggle="navbar-search"
-        type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        aria-controls="navbar-search"
-        aria-expanded="false"
-      >
-        <span class="sr-only">Open main menu</span>
-        <svg
-          class="w-5 h-5"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 17 14"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M1 1h15M1 7h15M1 13h15"
-          />
+      <button (click)="onToggleSidebar()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+          <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
         </svg>
       </button>
+    </div>
+    <div class="flex md:order-2 items-center md:space-x-6">
+      <w-nav-language />
+      <w-nav-notification />
+      <w-nav-user />
+      <div>
+        <button
+          data-collapse-toggle="navbar-search"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-search"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
       </div>
-
     </div>
   </div>
 </nav>
+
+<div class="w-full lg:w-1/2 flex flex-col lg:hidden">
+
+  <nav class="bg-white border-b-2 border-gray-300 shadow-md py-2 px-4">
+    <div class="flex items-center justify-between">
+      <!-- Botón de menú para dispositivos móviles -->
+
+      <button (click)="onToggleSidebar()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+          <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+        </svg>
+
+      </button>
+      <!-- Logo o título del sitio -->
+      <p class="text-dark text-lg font-semibold">{{ pageTitle | translate }}</p>
+      <!-- Botones adicionales, como botón de búsqueda o notificaciones -->
+      <div class="pr-2">
+        <w-mobile-user></w-mobile-user>
+      </div>
+    </div>
+  </nav>
+
+</div>
+

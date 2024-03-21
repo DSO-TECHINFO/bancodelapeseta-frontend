@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener, } from '@angular/core';
 import { LogoutService } from '../services/logout.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'w-nav-user',
   templateUrl: './w-nav-user.component.html',
   standalone:true,
-  imports:[CommonModule]
+  imports:[CommonModule, RouterLink]
 })
 export class WNavUserComponent  {
 

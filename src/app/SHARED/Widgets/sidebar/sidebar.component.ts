@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { WNavLinkComponent } from '../w-nav/w-nav-link/w-nav-link.component';
 import { IonicModule } from '@ionic/angular';
@@ -20,10 +20,14 @@ import { filter } from 'rxjs';
   ],
 })
 export class SidebarComponent {
-  isSidebarOpen = false;
+  @Input() isSidebarOpen: boolean = false;
 
-  toggleSidebar() {
+  onToggleSidebar(): void {
     this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
+  cerrarSidebar() {
+    this.isSidebarOpen = false;
   }
 
   constructor(private titleService: TitleService, private router: Router) {
@@ -98,5 +102,10 @@ export class SidebarComponent {
       iconWhiteName: 'tvpwhite.svg',
       iconFinalName: 'tvpfinal.svg',
     },
+    {
+      nombreRuta: 'proffile.side.title',
+      ruta: 'proffile',
+    },
   ];
+
 }

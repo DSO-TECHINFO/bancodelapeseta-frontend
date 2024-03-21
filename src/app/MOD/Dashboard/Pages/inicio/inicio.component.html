@@ -1,43 +1,20 @@
-<!-- <div class="flex flex-wrap">
-  <p class="border border-black">
-    {{'HOME.TITLE' | translate}}
-  </p>
-  <p class="border border-black">
-    {{'HOME.TITLE' | translate}}
-  </p>
-</div> -->
-
-<div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-3">
-<!-- <div class="grid grid-cols-2 grid-rows-3 gap-3"> -->
-  <div class="w-full h-64 gradient-overlay" #chartContainer>
-  <!-- <div class="gradient-overlay" style="visibility: hidden;" #chartContainer> -->
-    <ngx-charts-line-chart
-      [autoScale]="true"
-      [view]="view"
-      (window:resize)="onResize($event)"
-      [gradient]="true"
-      [showXAxisLabel]="showXAxisLabel"
-      [showYAxisLabel]="showYAxisLabel"
-      [showGridLines]="false"
-      [xAxis]="xAxis"
-      [timeline]="timeline"
-      [results]="multi"
-      (select)="onSelect($event)"
-      (activate)="onActivate($event)"
-      (deactivate)="onDeactivate($event)"
-    >
-    </ngx-charts-line-chart>
+<div class="flex flex-col gap-y-6">
+  <div class="py-8 px-4 text-dark shadow-xl rounded-md ">
+    <h2 class="text-3xl font-bold ">$145.158,63</h2>
+    <p>Total Balance for All Accounts <span>USD</span></p>
   </div>
-
-<!--
-  <cards-component class="col-span-1 row-span-2" [rate]="currencyExchangeRate"></cards-component>
-  <balance-component class="col-span-1" (currencyRate)="onRateSelected($event)"></balance-component>
-  <tpv-component class="col-span-1"></tpv-component>
-  <loans-component class="col-span-1"></loans-component> -->
-
-  <cards-component [rate]="currencyExchangeRate"></cards-component>
-  <balance-component (currencyRate)="onRateSelected($event)"></balance-component>
-  <tpv-component></tpv-component>
-  <loans-component></loans-component>
-
+  <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-3 ">
+    <div class="w-full mb-3 lg:mb-0">
+      <balance-component (currencyRate)="onRateSelected($event)"></balance-component>
+    </div>
+    <div class="w-full mb-3 lg:mb-0">
+      <cards-component [rate]="currencyExchangeRate"></cards-component>
+    </div>
+    <div class="w-full mb-3 lg:mb-0">
+      <loans-component></loans-component>
+    </div>
+    <div class="w-full mb-3 lg:mb-0">
+      <tpv-component></tpv-component>
+    </div>
+  </div>
 </div>

@@ -11,6 +11,7 @@ import { VerificationService } from '../../Verification/service/verification.ser
 import newPassword from '../ForgotPassword/interface/newPassword.interface';
 import { IonicModule } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-validate-codes',
   templateUrl: './validate-codes.component.html',

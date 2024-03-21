@@ -1,9 +1,9 @@
 <div
-  class="row flex flex-col w-screen h-screen align-content-center justify-content-center gap-2 text-center"
->  
-  <h3 class="text-3xl font-bold">Create your account</h3>
+  class="row flex flex-col h-full min-h-dvh w-dvw align-content-center justify-content-center gap-2 text-center mt-4"
+>
+  <h3 class="text-3xl font-bold ">Create your account</h3>
 
-  <div class="flex md:flex-row justify-center gap-3 flex-wrap">
+  <div class="flex md:flex-row justify-center gap-3 flex-wrap md:px-4 p-4 sm:px-8">
     <div
       class="bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-2xl h-[200px] w-[300px] flex flex-col items-center justify-end shadow-sm hover:shadow-xl transition-all cursor-pointer" [routerLink]="['/personal-account']"
     >
@@ -18,22 +18,22 @@
         >
       </div>
     </div>
-    <div
-      class="bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-2xl h-[200px] w-[300px] flex flex-col items-center justify-end shadow-sm hover:shadow-xl transition-all cursor-pointer"  [routerLink]="['/company-registration']"
-    >
-      <div class="flex flex-col items-center justify-around h-full">
-        <img
-        src="../../../../assets/images/register/person.svg"
-          width="130px"
-          alt=""
-        />
-        <a class="text-white font-bold"
-          >Create company account</a
-        >
+      <div
+        class="bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-2xl h-[200px] w-[300px] flex flex-col items-center justify-end shadow-sm hover:shadow-xl transition-all cursor-pointer"  [routerLink]="['/company-registration']"
+      >
+        <div class="flex flex-col items-center justify-around h-full">
+          <img
+          src="../../../../assets/images/register/person.svg"
+            width="130px"
+            alt=""
+          />
+          <a class="text-white font-bold"
+            >Create company account</a
+          >
+        </div>
       </div>
-    </div>
   </div>
-  <div class="flex flex-col items-center gap-2 sm:mt-5">
+  <div class="flex flex-col items-center gap-2 mt-8 ">
     <span class="text-secondary">Are you already a customer?</span>
     <button
     [routerLink]="['/login']"
