@@ -1,3 +1,32 @@
-<p>
-  cards works!
-</p>
+<div class="flex flex-col gap-y-6">
+
+  <div class="flex justify-between">
+  <div class="py-8 px-4 text-dark">
+    <h2 class="text-3xl font-bold ">$145.158,63</h2>
+    <p>Total Balance for All Accounts <span>USD</span></p>
+  </div>
+  <div class="flex items-center justify-between">
+    <button class="flex items-center text-sm border border-primary-dark rounded-full px-4 py-2">
+      <img src="assets/add-button.svg" alt="add icon" class="w-5 mr-1" />
+      <p>{{ "cards.add" | translate }}</p>
+    </button>
+  </div>
+</div>
+
+
+<div class="hidden lg:flex  justify-center items-center gap-8 mt-6 h-full">
+  @for (card of cardDataList(); track card.id) {
+
+    <w-individual-card [card]="card"></w-individual-card>
+
+  }
+</div>
+
+<div class="lg:hidden flex flex-col items-center gap-8 mt-6 h-full">
+  @for (card of cardDataList(); track card.id) {
+
+    <w-individual-card [card]="card"></w-individual-card>
+
+  }
+</div>
+</div>

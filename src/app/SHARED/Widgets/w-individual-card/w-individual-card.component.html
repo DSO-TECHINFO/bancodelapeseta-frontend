@@ -1,0 +1,74 @@
+
+  @if (card.type === 'DEBIT') {
+    <div class="relative lg:w-80 w-72 rounded-xl bg-[url('/assets/images/cards/debitCard.png')] bg-cover text-white shadow-2xl transition-transform h-56 sm:hover:scale-105">
+      <div class="absolute top-4 w-full px-8 ">
+        <div class="flex justify-between">
+          <img src="/assets/images/logos/logoBancoWhite.svg" class="w-14">
+          <img class="h-14 w-14 object-contain" src="/assets/images/cards/visa.svg" />
+        </div>
+        <div class="flex justify-between">
+          <div class="pt-2">
+            <p class="font-medium tracking-widest">Carter Mullen P</p>
+          </div>
+        </div>
+        <div class="pt-2">
+          <p class="tracking-more-wider font-medium">0006 2345 7453 2345</p>
+        </div>
+        <div class="pt-4 pr-6 sm:pt-6">
+          <div class="flex justify-between">
+            <div class="">
+              <p class="text-xs">Valid From</p>
+              <p class="text-base font-medium tracking-widest">11/15</p>
+            </div>
+            <div class="">
+              <p class="text-xs">Expiry</p>
+              <p class="text-base font-medium tracking-widest">03/25</p>
+            </div>
+
+            <div class="">
+              <p class="text-xs">CVV</p>
+              <p class="tracking-more-wider text-sm font-bold">521</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+@if(card.type === 'CREDIT'){
+
+  <div class="relative lg:w-80 w-72 rounded-xl bg-[url('/assets/images/cards/creditCard.png')] bg-cover text-white shadow-2xl transition-transform h-56 sm:hover:scale-105">
+    <div class="absolute top-4 w-full px-8 ">
+      <div class="flex justify-between">
+        <img src="/assets/images/logos/logoBancoWhite.svg" class="w-14">
+        <img class="h-14 w-14 object-contain" src="/assets/images/cards/mastercard.svg" />
+      </div>
+      <div class="flex justify-between">
+        <div class="pt-2">
+          <p class="font-medium tracking-widest">Carter Mullen P</p>
+        </div>
+      </div>
+      <div class="pt-2">
+        <p class="tracking-more-wider font-medium">0006 2345 7453 2345</p>
+      </div>
+      <div class="pt-4 pr-6 sm:pt-6">
+        <div class="flex justify-between">
+          <div class="">
+            <p class="text-xs">Valid From</p>
+            <p class="text-base font-medium tracking-widest">11/15</p>
+          </div>
+          <div class="">
+            <p class="text-xs">Expiry</p>
+            <p class="text-base font-medium tracking-widest">03/25</p>
+          </div>
+
+          <div class="">
+            <p class="text-xs">CVV</p>
+            <p class="tracking-more-wider text-sm font-bold">521</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+}

@@ -13,5 +13,4 @@ export default class ClientesComponent {
   accounts$ = this.accountService.getAccounts('api/v1/accounts');
 
   constructor(private accountService: AccountService) {}
-
 }
