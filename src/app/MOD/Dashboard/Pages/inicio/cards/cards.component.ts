@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { TitleService } from '@/SHARED/Widgets/w-nav/services/title.service';
 
 @Component({
-  selector: 'cards-component',
+  selector: 'app-cards-component',
   standalone: true,
   imports: [TranslateModule],
   templateUrl: './cards.component.html',
@@ -36,7 +36,7 @@ export default class CardsComponent implements OnInit {
       },
     })
 
-    throw new Error('Method not implemented.');
+    //throw new Error('Method not implemented.');
   }
 
 }

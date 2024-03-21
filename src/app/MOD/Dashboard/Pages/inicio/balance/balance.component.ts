@@ -7,7 +7,7 @@ import { AsyncPipe } from '@angular/common';
 import { CurrencyExchangeList } from '../interface/currencyExchange.interface';
 
 @Component({
-  selector: 'balance-component',
+  selector: 'app-balance-component',
   standalone: true,
   imports: [TranslateModule, FormsModule, AsyncPipe],
   templateUrl: './balance.component.html',
@@ -30,7 +30,7 @@ export default class BalanceComponent implements OnInit{
     private cdr: ChangeDetectorRef
   ){}
 
-  ngOnInit(): void {
+  ngOnInit() {
 
     this.getAccounts();
 
@@ -39,7 +39,6 @@ export default class BalanceComponent implements OnInit{
       next: (res) => {
         this.currencyList = res;
         this.cdr.detectChanges();
-        console.log("Currency: ", this.currencyList);
       },
       error: (err) => {
         console.error('Could not get currency: ', err);
@@ -51,20 +50,18 @@ export default class BalanceComponent implements OnInit{
       next: (res) => {
         this.currencyExchangeList = res;
         this.cdr.detectChanges();
-        console.log("Currency: ", this.currencyExchangeList);
       },
       error: (err) => {
         console.error('Could not get currency exchange: ', err);
       },
     })
 
-    throw new Error('Method not implemented.');
+    //throw new Error('Method not implemented.');
   }
 
   getAccounts(){
     this.startPanelService.getAccounts('api/v1/accounts').subscribe({
       next: (userData) => {
-        console.log("Accounts: ", userData);
         this.accountsList = userData;
         this.cdr.detectChanges();
 
