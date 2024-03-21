@@ -1,12 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { LoanService } from './service/loan.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-loans',
   templateUrl: './loans.component.html',
-  standalone:true,
+  standalone: true,
+  imports: [TranslateModule, CommonModule],
 })
-export default class LoansComponent{
+export default class LoansComponent {
+  loans$ = this.loanService.getLoans('api/v1/loans');
 
-
-
+  constructor(private loanService: LoanService) {}
 }
