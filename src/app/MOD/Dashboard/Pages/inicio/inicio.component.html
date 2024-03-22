@@ -5,16 +5,16 @@
   </div>
   <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-3 ">
     <div class="w-full mb-3 lg:mb-0">
-      <balance-component (currencyRate)="onRateSelected($event)"></balance-component>
+      <app-balance-component (currencyRate)="onRateSelected($event)"></app-balance-component>
     </div>
     <div class="w-full mb-3 lg:mb-0">
-      <cards-component [rate]="currencyExchangeRate"></cards-component>
+      <app-cards-component [rate]="currencyExchangeRate"></app-cards-component>
     </div>
-    <div class="w-full mb-3 lg:mb-0">
-      <loans-component></loans-component>
+    <div class="w-full mt-6 mb-3 lg:mb-0">
+      <app-loans-component></app-loans-component>
     </div>
-    <div class="w-full mb-3 lg:mb-0">
-      <tpv-component></tpv-component>
+    <div class="w-full mt-6 mb-3 lg:mb-0">
+      <app-tpv-component></app-tpv-component>
     </div>
   </div>
 </div>

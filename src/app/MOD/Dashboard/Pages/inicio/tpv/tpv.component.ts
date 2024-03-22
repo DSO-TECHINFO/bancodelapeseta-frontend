@@ -4,12 +4,12 @@ import { StartPanelService } from '../servicio/start-panel.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'tpv-component',
+  selector: 'app-tpv-component',
   standalone: true,
   imports: [TranslateModule, FormsModule],
   templateUrl: './tpv.component.html',
 })
-export default class TpvComponent {
+export default class TpvComponent implements OnInit {
 
   data: any = {};
   hey: boolean = true;
@@ -19,7 +19,7 @@ export default class TpvComponent {
     private cdr: ChangeDetectorRef
   ){}
 
-  ngOnInit(): void {
+  ngOnInit() {
 
     this.startPanelService.getTpv('assets/tpv.json')
     .subscribe({

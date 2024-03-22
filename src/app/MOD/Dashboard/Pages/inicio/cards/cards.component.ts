@@ -7,7 +7,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { multi } from './data';
 
 @Component({
-  selector: 'cards-component',
+  selector: 'app-cards-component',
   standalone: true,
   imports: [
     TranslateModule,
@@ -40,7 +40,6 @@ export default class CardsComponent implements OnInit {
       },
     })
 
-    throw new Error('Method not implemented.');
   }
 
 

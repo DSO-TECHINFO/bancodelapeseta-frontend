@@ -61,49 +61,49 @@ export class SidebarComponent {
 
   routerList = [
     {
-      nombreRuta: 'dashboard.side.title',
+      nombreRuta: 'titles.dashboard',
       ruta: 'inicio',
       iconFileName: 'dashboard.svg',
       iconWhiteName: 'dashboardwhite.svg',
       iconFinalName: 'dashboardfinal.svg',
     },
     {
-      nombreRuta: 'accounts.side.title',
+      nombreRuta: 'titles.accounts',
       ruta: 'accounts',
       iconFileName: 'accounts.svg',
       iconWhiteName: 'accountswhite.svg',
       iconFinalName: 'accountsfinal.svg',
     },
     {
-      nombreRuta: 'cards.side.title',
+      nombreRuta: 'titles.cards',
       ruta: 'cards',
       iconFileName: 'cards.svg',
       iconWhiteName: 'cardswhite.svg',
       iconFinalName: 'cardsfinal.svg',
     },
     {
-      nombreRuta: 'transactions.side.title',
-      ruta: 'transactions',
-      iconFileName: 'transactions.svg',
-      iconWhiteName: 'transactionswhite.svg',
-      iconFinalName: 'transactionsfinal.svg',
-    },
-    {
-      nombreRuta: 'loans.side.title',
+      nombreRuta: 'titles.loans',
       ruta: 'loans',
       iconFileName: 'loans.svg',
       iconWhiteName: 'loanswhite.svg',
       iconFinalName: 'loansfinal.svg',
     },
     {
-      nombreRuta: 'tvp.side.title',
+      nombreRuta: 'titles.transactions',
+      ruta: 'transactions',
+      iconFileName: 'transactions.svg',
+      iconWhiteName: 'transactionswhite.svg',
+      iconFinalName: 'transactionsfinal.svg',
+    },
+    {
+      nombreRuta: 'titles.tpv',
       ruta: 'tvp',
       iconFileName: 'tvp.svg',
       iconWhiteName: 'tvpwhite.svg',
       iconFinalName: 'tvpfinal.svg',
     },
     {
-      nombreRuta: 'proffile.side.title',
+      nombreRuta: 'titles.proffile',
       ruta: 'proffile',
     },
   ];

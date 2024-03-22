@@ -1,25 +1,23 @@
-<div class="flex flex-col gap-1 border border-slate-300 rounded-md w-full h-full overflow-auto">
+<div class="flex flex-col gap-1 border border-gray-300 rounded-md w-full h-full overflow-auto">
 
   <!-- Encabezado -->
-  <div class="grid px-2 grid-flow-row border-b">
-    <span class="font-bold text-xl px-6 py-2">Mis tarjetas</span>
+  <div class="flex justify-between px-2 border-b border-gray-300 bg-gray-100">
+    <span class="font-bold text-xl py-2">Mis tarjetas</span>
   </div>
 
   <!-- Contenido iterado -->
   <div class="flex flex-col gap-2 px-6 md:px-1">
     @for(item of data.cards; track item.id){
-      <div class="grid grid-cols-4 px-2">
-        <div class="flex pt-4">
-          <img class="px-1 w-7" src="assets/images/cards/mastercard.svg">
-          <div class="text-[0.7rem] self-center">Tarjeta de {{item.cardType === "DEBIT" ? "Débito" : "Crédito"}}</div>
+      <div class="flex items-center justify-between px-2 border-b border-gray-300">
+        <div class="flex items-center">
+          <img class="w-7 mr-1" src="assets/images/cards/mastercard.svg" alt="Mastercard">
+          <div class="text-sm">{{ item.cardType === 'DEBIT' ? 'Tarjeta de Débito' : 'Tarjeta de Crédito' }}</div>
         </div>
-        <div class="text-xs"></div>
         <div class="text-sm"></div>
-        <div class="text-sm text-right"></div>
-        <div class="text-sm font-medium self-center">{{item.number}}</div>
-        <div class="text-sm text-right self-center">{{item.expiration}}</div>
-        <div class="text-xs text-center self-center">{{(item.spendCurrentMonth * rate).toFixed(2)}}</div>
-        <div class="text-[0.7rem] text-right font-medium self-center">{{((item.cashierLimit * rate).toFixed(2)) + ' $'}}</div>
+        <div class="text-sm text-right">{{ item.number }}</div>
+        <div class="text-sm text-right">{{ item.expiration }}</div>
+        <div class="text-sm text-right">{{ (item.spendCurrentMonth * rate).toFixed(2) }}</div>
+        <div class="text-sm text-right">{{ (item.cashierLimit * rate).toFixed(2) }} $</div>
       </div>
     }
   </div>

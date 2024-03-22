@@ -1,18 +1,27 @@
 {
-  "HOME.TITLE": "admin title",
-  "dashboard.side.title":"Dashboard",
-  "accounts.side.title":"Accounts",
-  "cards.side.title":"Cards",
-  "transactions.side.title":"Transactions",
-  "loans.side.title":"Loans",
-  "tvp.side.title":"Tvp",
-  "proffile.side.title":"Proffile",
+  "titles":{
+    "dashboard":"Dashboard",
+    "accounts":"Accounts",
+    "transactions":"Transactions",
+    "loans":"Loans",
+    "tpv":"Tpv",
+    "proffile":"Proffile",
+    "cards":"Cards"
+  },
 
-  "cards.add": "Add new Card",
+
+
+
   "title.section.card":"My Cards",
   "title.section.balance":"Total Balance",
   "title.section.income":"Income For The Month",
-  "title.section.loan":"Loands"
+  "title.section.loan":"Loands",
 
+  "cards":{
 
+    "btnadd": "Add New Card",
+    "taball":"All",
+    "tabcredit":"Credit",
+    "tabdebit":"Debit"
+  }
 }
