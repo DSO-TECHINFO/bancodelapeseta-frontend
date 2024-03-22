@@ -20,7 +20,7 @@ import { multi } from './data';
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
 })
-export default class InicioComponent implements AfterViewInit, AfterContentChecked {
+export default class InicioComponent implements AfterViewInit, AfterContentChecked, OnInit {
 
   @ViewChild('chartContainer') chartContainer!: ElementRef;
 

@@ -34,7 +34,7 @@ export default class LoginComponent {
       router.navigate(['/dashboard']);
     }
   }
-  // customPattern: string = '^[0-9@]*$'
+
   loginForm = this.formBuilder.group({
     // username: ['', [Validators.required, Validators.minLength(4)]],
     // password: ['', [Validators.required]],

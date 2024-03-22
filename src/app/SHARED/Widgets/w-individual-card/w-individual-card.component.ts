@@ -5,6 +5,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'w-individual-card',
   templateUrl: './w-individual-card.component.html',
+
   standalone: true
 
 })

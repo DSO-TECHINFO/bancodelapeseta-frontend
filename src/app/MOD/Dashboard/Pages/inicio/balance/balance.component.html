@@ -1,8 +1,8 @@
-<div class="w-full flex flex-col border border-slate-300 h-64 rounded-md">
-  <div class="header flex px-8 justify-between border-b ">
+<div class="w-full flex flex-col border border-gray-300 h-64 rounded-md shadow-lg">
+  <div class="header flex px-8 justify-between border-b border-gray-300 bg-gray-100">
     <span class="text-center self-center text-xl font-bold py-2">Balance Total</span>
     @if(currencyList.length > 0){
-      <select class="w-16 border-none text-sm rounded-md p-1 " (change)="onCurrencyChange()" [(ngModel)]="selectedCurrencyString">
+      <select class="w-16 border-none text-sm rounded-md p-1 bg-white" (change)="onCurrencyChange()" [(ngModel)]="selectedCurrencyString">
         @for(currency of currencyList; track currency.id){
           <option [value]="currency.currency">
             {{ currency.currency }}
@@ -10,28 +10,17 @@
         }
       </select>
     }
-
   </div>
-  <div class="h-56 flex flex-col px-6 pt-4 gap-2">
+  <div class="h-56 flex flex-col px-6 pt-4 gap-2 overflow-y-auto">
     @for(item of accountsList; track item.id){
-      <div class="flex justify-between px-2">
+      <div class="flex justify-between px-2 border-b border-gray-300">
         <div>
-          <div class="text-[0.7rem] text-primary-text">Cuenta xxxx</div>
-          <div class="text-sm font-medium">{{item.contract.account.accountNumber}}</div>
+          <div class="text-sm text-gray-600">Cuenta {{ item.contract.account.accountNumber }}</div>
+          <div class="text-sm font-medium">{{ (item.contract.account.real_balance * selectedCurrencyRate).toFixed(2) }} $</div>
         </div>
         <div>
-          <div class="text-sm font-bold">{{((item.contract.account.real_balance * selectedCurrencyRate).toFixed(2)) + ' $'}}</div>
-          <div class="text-[0.7rem] text-primary-text text-left">{{((item.contract.account.balance * selectedCurrencyRate).toFixed(2))}}</div>
-        </div>
-      </div>
-      <div class="flex justify-between px-2">
-        <div>
-          <div class="text-[0.7rem] text-primary-text">Cuenta xxxx</div>
-          <div class="text-sm font-medium">{{item.contract.account.accountNumber}}</div>
-        </div>
-        <div>
-          <div class="text-sm font-bold">{{((item.contract.account.real_balance * selectedCurrencyRate).toFixed(2)) + ' $'}}</div>
-          <div class="text-[0.7rem] text-primary-text text-left font-bold">{{((item.contract.account.balance * selectedCurrencyRate).toFixed(2))}}</div>
+          <div class="text-sm font-bold">{{ (item.contract.account.real_balance * selectedCurrencyRate).toFixed(2) }} $</div>
+          <div class="text-sm text-gray-600">{{ (item.contract.account.balance * selectedCurrencyRate).toFixed(2) }}</div>
         </div>
       </div>
     }

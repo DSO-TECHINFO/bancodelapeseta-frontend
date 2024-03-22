@@ -41,10 +41,12 @@ export interface Card {
 
 export interface CardData {
   id:               number;
+  name:             string;
   type:             string;
   number:           string;
   expiration:       string;
-  Amount:           number;
+  amount:           number;
+  cvv:              string;
 }
 
 export interface Product {
