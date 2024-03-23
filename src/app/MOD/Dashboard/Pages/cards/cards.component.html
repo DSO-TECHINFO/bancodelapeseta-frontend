@@ -1,32 +1,85 @@
 <div class="flex flex-col gap-y-6">
-
   <div class="flex justify-between">
-  <div class="py-8 px-4 text-dark">
-    <h2 class="text-3xl font-bold ">$145.158,63</h2>
-    <p>Total Balance for All Accounts <span>USD</span></p>
+    <div class="py-8 px-4 text-dark shadow-xl rounded-md">
+      <h2 class="text-3xl font-bold">
+        {{ formatCurrency(totalAmount, selectedCurrency) }}
+      </h2>
+      <div class="flex gap-x-2">
+        <p>Total Balance for All Accounts</p>
+        <select class="border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-400"
+        [(ngModel)]="selectedCurrency"
+        (change)="onSelectChange($event)">
+  <option *ngFor="let currency of currency$ | async" [value]="currency.currency">
+    {{ currency.currency }}
+  </option>
+</select>
+
+      </div>
+    </div>
   </div>
-  <div class="flex items-center justify-between">
-    <button class="flex items-center text-sm border border-primary-dark rounded-full px-4 py-2">
-      <img src="assets/add-button.svg" alt="add icon" class="w-5 mr-1" />
-      <p>{{ "cards.add" | translate }}</p>
-    </button>
+  <div class="flex justify-between">
+    <w-card-filter-tabs (tabChange)="filterCards($event)"></w-card-filter-tabs>
+    <div class="flex items-center">
+      <button
+        class="flex items-center text-sm border border-primary-dark rounded-full px-4 py-2">
+        <img src="assets/add-button.svg" alt="add icon" class="w-5 mr-1" />
+        <p>{{ 'cards.btnadd' | translate }}</p>
+      </button>
+    </div>
   </div>
-</div>
 
+  <div class="hidden lg:flex justify-start items-center gap-8 mt-3 h-full">
+    <ng-container *ngFor="let card of filteredCardDataList">
+      <w-individual-card [card]="card"></w-individual-card>
+    </ng-container>
+  </div>
 
-<div class="hidden lg:flex  justify-center items-center gap-8 mt-6 h-full">
-  @for (card of cardDataList(); track card.id) {
+  <div class="lg:hidden flex flex-col items-center gap-8 mt-3 h-full">
+    <ng-container *ngFor="let card of filteredCardDataList">
+      <w-individual-card [card]="card"></w-individual-card>
+    </ng-container>
+  </div>
 
-    <w-individual-card [card]="card"></w-individual-card>
-
-  }
-</div>
-
-<div class="lg:hidden flex flex-col items-center gap-8 mt-6 h-full">
-  @for (card of cardDataList(); track card.id) {
-
-    <w-individual-card [card]="card"></w-individual-card>
-
-  }
-</div>
+  <!-- <table class="mt-4 min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-50">
+      <tr>
+        <th
+          scope="col"
+          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          Loan
+        </th>
+        <th
+          scope="col"
+          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          Requested amount
+        </th>
+        <th
+          scope="col"
+          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          Unpaid amount
+        </th>
+        <th
+          scope="col"
+          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          Status
+        </th>
+        <th
+          scope="col"
+          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          Pay before
+        </th>
+        <th
+          scope="col"
+          class="hidden lg:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          Account number
+        </th>
+        <th
+          scope="col"
+          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200"></tbody>
+  </table> -->
 </div>

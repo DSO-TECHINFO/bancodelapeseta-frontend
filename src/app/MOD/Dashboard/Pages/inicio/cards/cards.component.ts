@@ -43,5 +43,4 @@ export default class CardsComponent implements OnInit {
     //throw new Error('Method not implemented.');
   }
 
-
 }

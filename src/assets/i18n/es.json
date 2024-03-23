@@ -1,18 +1,29 @@
 {
-  "HOME.TITLE": "admin titulo",
-  "dashboard.side.title":"Panel",
-  "accounts.side.title":"Cuentas",
-  "cards.side.title":"Tarjetas",
-  "transactions.side.title":"Transacciones",
-  "payments.side.title":"Pagos",
-  "loans.side.title":"Préstamos",
-  "tvp.side.title":"Tvp",
-  "proffile.side.title":"Perfil",
+  "titles":{
+    "dashboard":"Panel",
+    "accounts":"Cuentas",
+    "transactions":"Transacciones",
+    "loans":"Prestamos",
+    "tpv":"Tpv",
+    "proffile":"Perfil",
+    "cards":"Tarjetas"
+  },
 
-  "cards.add": "Agregar nueva tarjeta",
+
   "title.section.card":"Mis Tarjetas",
   "title.section.balance":"Balance Total",
   "title.section.income":"Ingresos del mes",
-  "title.section.loan":"Préstamos"
+  "title.section.loan":"Préstamos",
 
+  "cards":{
+
+    "btnadd": "Agregar nueva tarjeta",
+    "taball":"Todos",
+    "tabcredit":"Crédito",
+    "tabdebit":"Débito"
+  },
+
+  "accounts":{
+    "description":"Abre una cuenta"
+  }
 }

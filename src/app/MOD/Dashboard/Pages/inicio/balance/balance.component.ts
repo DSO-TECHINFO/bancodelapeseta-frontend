@@ -64,7 +64,6 @@ export default class BalanceComponent implements OnInit{
       next: (userData) => {
         this.accountsList = userData;
         this.cdr.detectChanges();
-
       },
       error: (err) => {
         console.error('Could not get accounts: ', err);
