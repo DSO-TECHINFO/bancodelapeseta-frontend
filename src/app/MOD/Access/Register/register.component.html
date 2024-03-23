@@ -5,7 +5,7 @@
 
   <div class="flex md:flex-row justify-center gap-3 flex-wrap md:px-4 p-4 sm:px-8">
     <div
-      class="bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-2xl h-[200px] w-[300px] flex flex-col items-center justify-end shadow-sm hover:shadow-xl transition-all cursor-pointer" [routerLink]="['/personal-account']"
+      class="bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-md h-[200px] w-[300px] flex flex-col items-center justify-end shadow-sm hover:shadow-xl transition-all cursor-pointer" [routerLink]="['/personal-account']"
     >
       <div class="flex flex-col items-center justify-around h-full ">
         <img
@@ -19,7 +19,7 @@
       </div>
     </div>
       <div
-        class="bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-2xl h-[200px] w-[300px] flex flex-col items-center justify-end shadow-sm hover:shadow-xl transition-all cursor-pointer"  [routerLink]="['/company-registration']"
+        class="bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-md h-[200px] w-[300px] flex flex-col items-center justify-end shadow-sm hover:shadow-xl transition-all cursor-pointer"  [routerLink]="['/company-registration']"
       >
         <div class="flex flex-col items-center justify-around h-full">
           <img
@@ -37,7 +37,7 @@
     <span class="text-secondary">Are you already a customer?</span>
     <button
     [routerLink]="['/login']"
-    class="btn overflow-hidden relative w-30 bg-gradient-to-br from-blue-300 via-blue-500 to-indigo-400 text-white py-4 px-4 rounded-xl font-bold uppercase -- before:block before:absolute before:h-full before:w-1/2 before:rounded-full before:bg-blue-400 before:top-0 before:left-1/4 before:transition-transform before:opacity-0 before:hover:opacity-100 hover:text-white-200 hover:before:animate-ping transition-all duration-200"
+    class="w-full cursor-pointer bg-blue-500 text-white p-4 rounded-md hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300 max-w-32"
   >
     Login
   </button>
