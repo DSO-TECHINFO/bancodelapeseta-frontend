@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { SplashScreenComponent } from './MOD/Access/splash-screen/splash-screen.component';
 import { AuthGuard } from './CORE/Auth/guards/auth.guard';
 import { DashGuard } from './CORE/Auth/guards/dash.guard';
 DashGuard
@@ -8,7 +9,7 @@ DashGuard
 // canMatch: [authGuard],
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: '', title:"Loading..." , component: SplashScreenComponent, pathMatch: 'full' },
   //* ACCESS    ◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻◻:
 
   { path: 'login', title: 'Login', loadComponent: () => import('./MOD/Access/Login/Login.component'), canActivate: [AuthGuard]},

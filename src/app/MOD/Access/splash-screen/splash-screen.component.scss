@@ -1,0 +1,24 @@
+/* splash-screen.component.scss */
+.loading-spinner {
+    position: fixed; /* Fija el contenedor en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loading-spinner img {
+    width: 100px; /* Tamaño del logo */
+    height: 100px;
+    animation: spin 3s linear infinite; /* Agrega una animación de rotación durante 3 segundos */
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  
