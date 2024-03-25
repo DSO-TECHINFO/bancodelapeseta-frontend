@@ -4,10 +4,30 @@
     <p>Total Balance for All Accounts <span>USD</span></p>
   </div>
   <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-3 ">
-    <div class="w-full mb-3 lg:mb-0">
+
+    <div class="w-full h-64 mt-6 gradient-overlay" #chartContainer>
+      <ngx-charts-line-chart
+        [autoScale]="true"
+        [view]="view"
+        (window:resize)="onResize($event)"
+        [gradient]="true"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [showGridLines]="false"
+        [xAxis]="xAxis"
+        [timeline]="timeline"
+        [results]="multi"
+        (select)="onSelect($event)"
+        (activate)="onActivate($event)"
+        (deactivate)="onDeactivate($event)"
+      >
+      </ngx-charts-line-chart>
+    </div>
+
+    <div class="w-full mt-6 mb-3 lg:mb-0">
       <app-balance-component (currencyRate)="onRateSelected($event)"></app-balance-component>
     </div>
-    <div class="w-full mb-3 lg:mb-0">
+    <div class="w-full mt-6 mb-3 lg:mb-0">
       <app-cards-component [rate]="currencyExchangeRate"></app-cards-component>
     </div>
     <div class="w-full mt-6 mb-3 lg:mb-0">
