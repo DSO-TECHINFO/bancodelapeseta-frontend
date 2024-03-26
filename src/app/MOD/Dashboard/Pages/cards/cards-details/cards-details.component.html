@@ -1,3 +1,61 @@
-<p>
-  cards-details works!
-</p>
+<div class="flex justify-between">
+  <div class="py-8 text-dark">
+    <h2 class="text-3xl font-bold">
+      {{ formatCurrency(totalAmount, selectedCurrency) }}
+    </h2>
+    <div class="flex items-center gap-x-2">
+      <p>Total Balance for All Accounts</p>
+      <select
+        class="border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-400"
+        [(ngModel)]="selectedCurrency"
+        (change)="onSelectChange($event)">
+        <option
+          *ngFor="let currency of currency$ | async"
+          [value]="currency.currency">
+          {{ currency.currency }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="flex gap-8">
+  <div
+    class="flex flex-col border border-gray-300 rounded-md w-full overflow-auto">
+    <div
+      class="flex justify-between py-2 px-4 border-b border-gray-300 bg-gray-100">
+      <span class="font-bold text-xl py-2">Card Details</span>
+    </div>
+    <div class="flex items-center justify-center p-4">
+      <w-card-details [card]="selectedCard"></w-card-details>
+    </div>
+    <div *ngIf="selectedCard" class="details-container py-2 px-4 flex flex-col gap-y-4">
+      <div class="flex flex-col gap-4 text-dark mt-5">
+        <div class="flex justify-between items-center border-b border-gray-200">
+          <div>Name:</div>
+          <div class="font-bold">{{ selectedCard.name }}</div>
+        </div>
+        <div class="flex justify-between items-center border-b border-gray-200">
+          <div>Number:</div>
+          <div class="font-bold">{{ selectedCard.number }}</div>
+        </div>
+        <div class="flex justify-between items-center border-b border-gray-200">
+          <div>Expiration:</div>
+          <div class="font-bold">{{ selectedCard.expiration }}</div>
+        </div>
+        <div class="flex justify-between items-center border-b border-gray-200">
+          <div>Type:</div>
+          <div class="font-bold">{{ selectedCard.type }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="flex flex-col border border-gray-300 rounded-md w-full h-64 overflow-auto">
+    <div
+      class="flex justify-between py-2 px-4 border-b border-gray-300 bg-gray-100">
+      <span class="font-bold text-xl py-2">Your Documents</span>
+    </div>
+  </div>
+</div>

@@ -6,7 +6,9 @@
     "loans":"Prestamos",
     "tpv":"Tpv",
     "proffile":"Perfil",
-    "cards":"Tarjetas"
+    "cards":"Tarjetas",
+    "addCard":"Añadir Nueva Tarjeta",
+    "cardDetail":"Detalles de Tarjeta"
   },
 
 
@@ -17,7 +19,9 @@
 
   "cards":{
 
-    "btnadd": "Agregar nueva tarjeta",
+    "btnAdd": "Agregar Nueva Tarjeta",
+    "btnBack":"Volver al Menu",
+    "btnDetails":"Ver Detalles",
     "taball":"Todos",
     "tabcredit":"Crédito",
     "tabdebit":"Débito"

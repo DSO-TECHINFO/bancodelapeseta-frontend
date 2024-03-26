@@ -106,6 +106,14 @@ export class SidebarComponent {
       nombreRuta: 'titles.proffile',
       ruta: 'proffile',
     },
+    {
+      nombreRuta: 'titles.addCard',
+      ruta: 'add-card',
+    },
+    {
+      nombreRuta: 'titles.cardDetail',
+      ruta: 'card-details',
+    },
   ];
 
 }
