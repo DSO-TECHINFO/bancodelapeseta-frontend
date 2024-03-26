@@ -103,6 +103,26 @@ export const routes: Routes = [
         title: 'Cards',
         loadComponent: () =>
           import('./MOD/Dashboard/Pages/cards/cards.component'),
+          children:[
+            {
+              path: '',
+              title: 'Cards',
+              loadComponent: () =>
+                import('./MOD/Dashboard/Pages/cards/inicio/inicio.component')
+            },
+            {
+              path: 'add-card',
+              title: 'Add New Card',
+              loadComponent: () =>
+                import('./MOD/Dashboard/Pages/cards/add-card/add-card.component'),
+            },
+            {
+              path: 'card-details/:id',
+              title: 'Card Details',
+              loadComponent: () =>
+                import('./MOD/Dashboard/Pages/cards/cards-details/cards-details.component'),
+            },
+          ]
       },
       {
         path: 'transactions',

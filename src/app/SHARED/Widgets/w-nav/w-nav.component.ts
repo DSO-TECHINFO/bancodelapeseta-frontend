@@ -116,7 +116,7 @@ export class WNavComponent implements OnDestroy {
       iconFinalName: 'cardsfinal.svg',
     },
     {
-      nombreRuta: 'titles.transacations',
+      nombreRuta: 'titles.transactions',
       ruta: 'transactions',
       iconFileName: 'transactions.svg',
       iconWhiteName: 'transactionswhite.svg',
