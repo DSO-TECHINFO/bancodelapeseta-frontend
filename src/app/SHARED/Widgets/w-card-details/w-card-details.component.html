@@ -1,0 +1,76 @@
+@if (card.type === 'DEBIT') {
+  <div class="group">
+    <div
+      class="relative lg:w-80 w-72 h-56 rounded-xl bg-[url('/assets/images/cards/debitCard.png')] bg-cover text-white shadow-2xl hover:scale-105 transition-all ease-in-out">
+      <div class="absolute top-4 w-full px-8">
+        <div class="flex justify-between">
+          <img src="/assets/images/logos/logoBancoWhite.svg" class="w-10" />
+          <img
+            class="h-10 w-10object-contain"
+            src="/assets/images/cards/visa.svg" />
+        </div>
+        <div class="flex justify-between">
+          <div class="pt-2 w-full">
+            <p class="font-medium tracking-widest">{{ card.name }}</p>
+          </div>
+        </div>
+        <div class="pt-2">
+          <p class="tracking-more-wider font-medium">{{ card.number }}</p>
+        </div>
+        <div class="pt-4 pr-6">
+          <div class="flex justify-between">
+            <div class="">
+              <p class="text-xs">Expiry</p>
+              <p class="text-base font-medium tracking-widest">
+                {{ card.expiration }}
+              </p>
+            </div>
+
+            <div class="">
+              <p class="text-xs">CVV</p>
+              <p class="tracking-more-wider text-sm font-bold">***</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  } @if(card.type === 'CREDIT'){
+  <div class="group">
+    <div
+      class="relative lg:w-80 w-72 h-56 rounded-xl bg-[url('/assets/images/cards/creditCard.png')] bg-cover text-white shadow-2xl hover:scale-105 transition-all ease-in-out">
+      <div class="absolute inset-0 top-4 w-full px-8">
+        <div class="flex justify-between">
+          <img src="/assets/images/logos/logoBancoWhite.svg" class="w-10" />
+          <img
+            class="h-10 w-10 object-contain"
+            src="/assets/images/cards/mastercard.svg" />
+        </div>
+        <div class="flex justify-between">
+          <div class="pt-2">
+            <p class="font-medium tracking-widest">{{ card.name }}</p>
+          </div>
+        </div>
+        <div class="pt-2">
+          <p class="tracking-more-wider font-medium">{{ card.number }}</p>
+        </div>
+        <div class="pt-4 pr-6">
+          <div class="flex justify-between">
+            <div class="">
+              <p class="text-xs">Expiry</p>
+              <p class="text-base font-medium tracking-widest">
+                {{ card.expiration }}
+              </p>
+            </div>
+
+            <div class="">
+              <p class="text-xs">CVV</p>
+              <p class="tracking-more-wider text-sm font-bold">***</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  }

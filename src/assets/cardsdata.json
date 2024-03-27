@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Sadhu Isaac Cavero Egusquiza Huilca",
+    "number": "1234-5265-8591-2014",
+    "expiration": "08/26",
+    "amount": 10000.25,
+    "type": "DEBIT",
+    "cvv": "123"
+  },
+  {
+    "id": 2,
+    "name": "Sadhu Isaac Cavero Egusquiza Huilca",
+    "number": "1234-5265-8591-2014",
+    "expiration": "08/26",
+    "amount": 50000.25,
+    "type": "CREDIT",
+    "cvv": "123"
+  },
+  {
+    "id": 3,
+    "name": "Sadhu Isaac Cavero Egusquiza Huilca",
+    "number": "1234-5265-8591-2014",
+    "expiration": "08/26",
+    "amount": 27000.25,
+    "type": "DEBIT",
+    "cvv": "123"
+  }
+]

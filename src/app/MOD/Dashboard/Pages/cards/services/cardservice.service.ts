@@ -1,8 +1,8 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Currency } from '../interface/cardResponsive.interface';
+import { CardData, Currency } from '../interface/cardResponsive.interface';
 import { TokenService } from '@/CORE/Auth/services/token-service.service';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,18 @@ export class CardService {
       .get<Currency[]>(`${this.urlBase}/${uri}`, { headers })
       .pipe(catchError(this.handleError));
   }
+
+
+  getCardData(): Observable<CardData[]> {
+    return this.http.get<CardData[]>('assets/cardsdata.json');
+  }
+
+  getCardById(id: number): Observable<CardData | undefined> {
+    return this.http.get<CardData[]>('assets/cardsdata.json').pipe(
+      map(cards => cards.find(card => card.id === id))
+    );
+  }
+
 
   private handleError(error:HttpErrorResponse){
     if(error.status === 0){

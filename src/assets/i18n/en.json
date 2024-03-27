@@ -6,7 +6,9 @@
     "loans":"Loans",
     "tpv":"Tpv",
     "proffile":"Proffile",
-    "cards":"Cards"
+    "cards":"Cards",
+    "addCard":"Add New Card",
+    "cardDetail":"Card Details"
   },
 
 
@@ -19,7 +21,9 @@
 
   "cards":{
 
-    "btnadd": "Add New Card",
+    "btnAdd": "Add New Card",
+    "btnBack":"Back to menu",
+    "btnDetails":"View Details",
     "taball":"All",
     "tabcredit":"Credit",
     "tabdebit":"Debit"
