@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { AuthGuard } from './CORE/Auth/guards/auth.guard';
 import { DashGuard } from './CORE/Auth/guards/dash.guard';
 DashGuard
-
 // import { authGuard, noAuthGuard } from './CORE/Auth/auth.guard';
 // canMatch: [noAuthGuard],
 // canMatch: [authGuard],
@@ -97,6 +96,14 @@ export const routes: Routes = [
         title: 'Accounts',
         loadComponent: () =>
           import('./MOD/Dashboard/Pages/Accounts/accounts.component'),
+          children:[
+            {
+              path:'',title:'Accounts',loadComponent:()=>import('./MOD/Dashboard/Pages/Accounts/myAccounts/myAccounts.component')
+            },
+            {
+              path:'open-account',title:'Open Account',loadComponent:()=>import('./MOD/Dashboard/Pages/Accounts/openAnAccount/openAnAccount.component')
+            }
+          ]
       },
       {
         path: 'cards',
@@ -109,6 +116,11 @@ export const routes: Routes = [
         title: 'Transactions',
         loadComponent: () =>
           import('./MOD/Dashboard/Pages/transactions/transactions.component'),
+          children:[
+            {
+              path: 'transfer',title:'Transfer', loadComponent:()=>import('./MOD/Dashboard/Pages/transactions/transfer/transfer.component')
+            }
+          ]
       },
       {
         path: 'loans',
