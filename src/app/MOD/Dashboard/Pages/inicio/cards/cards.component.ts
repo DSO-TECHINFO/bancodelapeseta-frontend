@@ -1,10 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { StartPanelService } from '../servicio/start-panel.service';
-import { Subscription } from 'rxjs';
-import { TitleService } from '@/SHARED/Widgets/w-nav/services/title.service';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { multi } from './data';
 import { RouterLink } from '@angular/router';
 
 @Component({
