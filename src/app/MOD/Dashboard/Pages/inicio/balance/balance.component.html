@@ -1,28 +1,24 @@
-<div class="w-full flex flex-col border border-gray-300 h-64 rounded-md shadow-lg">
-  <div class="header flex px-8 justify-between border-b border-gray-300 bg-gray-100">
-    <span class="text-center self-center text-xl font-bold py-2">Balance Total</span>
-    @if(currencyList.length > 0){
-      <select class="w-16 border-none text-sm rounded-md p-1 bg-white" (change)="onCurrencyChange()" [(ngModel)]="selectedCurrencyString">
-        @for(currency of currencyList; track currency.id){
-          <option [value]="currency.currency">
-            {{ currency.currency }}
-          </option>
-        }
-      </select>
-    }
+<div class="w-full flex flex-col border border-gray-300 rounded-md">
+  <div class="px-6 py-2 header flex justify-between border-b border-gray-300 bg-gray-100">
+    <span class="font-bold text-xl">Balance Total</span>
+    <button >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+      </svg>
+    </button>
   </div>
-  <div class="h-56 flex flex-col px-6 pt-4 gap-2 overflow-y-auto">
-    @for(item of accountsList; track item.id){
-      <div class="flex justify-between px-2 border-b border-gray-300">
-        <div>
-          <div class="text-sm text-gray-600">Cuenta {{ item.contract.account.accountNumber }}</div>
-          <div class="text-sm font-medium">{{ (item.contract.account.real_balance * selectedCurrencyRate).toFixed(2) }} $</div>
-        </div>
-        <div>
-          <div class="text-sm font-bold">{{ (item.contract.account.real_balance * selectedCurrencyRate).toFixed(2) }} $</div>
-          <div class="text-sm text-gray-600">{{ (item.contract.account.balance * selectedCurrencyRate).toFixed(2) }}</div>
-        </div>
-      </div>
-    }
+  <div class="flex flex-col items-center px-6 pt-4">
+    <ngx-charts-line-chart
+    [view]="view"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxis]="xAxis"
+    [results]="multi"
+    (select)="onSelect($event)"
+    (activate)="onActivate($event)"
+    (deactivate)="onDeactivate($event)"
+    >
+  </ngx-charts-line-chart>
   </div>
 </div>
+
