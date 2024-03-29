@@ -5,13 +5,15 @@ import { Subscription } from 'rxjs';
 import { TitleService } from '@/SHARED/Widgets/w-nav/services/title.service';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { multi } from './data';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cards-component',
   standalone: true,
   imports: [
     TranslateModule,
-    NgxChartsModule
+    NgxChartsModule,
+    RouterLink
   ],
   templateUrl: './cards.component.html',
 })
