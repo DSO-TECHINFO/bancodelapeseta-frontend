@@ -26,6 +26,7 @@ export class AccountService {
       .get<IAccountData[]>(`${this.urlBase}/${uri}`, { headers })
       .pipe(catchError(this.handleError));
   }
+  
   private handleError(error:HttpErrorResponse){
     if(error.status === 0){
       console.log('An error has occurred', error.error);
