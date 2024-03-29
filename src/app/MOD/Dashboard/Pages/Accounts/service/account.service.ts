@@ -3,13 +3,15 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Observable, catchError, throwError } from 'rxjs';
 import { IAccountData } from '../interface/IAccount';
 import { TokenService } from '@/CORE/Auth/services/token-service.service';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
 export class AccountService {
   constructor(
     private http: HttpClient,
-    private tokenInterceptor: TokenService
+    private tokenInterceptor: TokenService,
+    private router:Router
   ) {}
 
   urlBase: string = 'https://api.bancodelapeseta.com';
@@ -24,6 +26,7 @@ export class AccountService {
       .get<IAccountData[]>(`${this.urlBase}/${uri}`, { headers })
       .pipe(catchError(this.handleError));
   }
+  
   private handleError(error:HttpErrorResponse){
     if(error.status === 0){
       console.log('An error has occurred', error.error);

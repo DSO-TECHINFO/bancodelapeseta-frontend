@@ -20,6 +20,7 @@
 >
   {{error}}
 </div>
+
 <div
   class="error"
   *ngIf="parentFormGroup.get(controlKey)?.hasError('minlength') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
@@ -133,7 +134,7 @@
   class="error"
   *ngIf="parentFormGroup.get(controlKey)?.hasError('pattern') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
 >
-  Please enter a valid phone number.
+  Please enter a valid number.
 </div>
 }
 
@@ -186,3 +187,41 @@
       </div>
     </div>
   }
+@if (inputType === "onlyNumber") {
+ 
+  <input
+    type="text"
+    class="input"
+    [formControlName]="controlKey"
+    [placeholder]="placeholder"
+    (keypress)="isNumberKey($event)"
+    >
+
+    <div
+    class="error"
+    *ngIf="parentFormGroup.get(controlKey)?.errors?.['required'] && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+  >
+    {{error}}
+  </div>
+  
+  <div
+    class="error"
+    *ngIf="parentFormGroup.get(controlKey)?.hasError('minlength') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+  >
+    The text must be at least {{ minLength }} characters.
+  </div>
+  <div
+    class="error"
+    *ngIf="parentFormGroup.get(controlKey)?.hasError('maxlength') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+  >
+    The text must not exceed {{ maxLength }} characters.
+  </div>
+}
+@if (inputType === "onlyNumberCustom") {
+  <input
+    type="text"
+    class="input"
+    [placeholder]="placeholder"
+    (keypress)="isNumberKey($event)"
+    >
+}
