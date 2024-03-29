@@ -21,7 +21,7 @@ import { LineChartComponent } from '@swimlane/ngx-charts';
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
 })
-export default class InicioComponent implements AfterViewInit, OnInit {
+export default class InicioComponent implements AfterViewInit {
 
   @ViewChild('chartContainer') chartContainer!: ElementRef;
 
@@ -32,9 +32,6 @@ export default class InicioComponent implements AfterViewInit, OnInit {
   currencyExchangeRate: number = 1;
 
   @Output() currencyExchangeList = new EventEmitter<any>();
-
-  ngOnInit(): void {
-  }
 
   ngAfterViewInit(): void {
     this.updateChartSize(110, 100);

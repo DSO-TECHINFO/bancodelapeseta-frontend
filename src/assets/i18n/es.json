@@ -25,5 +25,9 @@
     "taball":"Todos",
     "tabcredit":"Crédito",
     "tabdebit":"Débito"
+  },
+
+  "accounts":{
+    "description":"Abre una cuenta"
   }
 }

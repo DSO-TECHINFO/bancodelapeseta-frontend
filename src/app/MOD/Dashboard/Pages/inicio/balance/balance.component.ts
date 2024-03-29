@@ -30,7 +30,7 @@ export default class BalanceComponent implements OnInit{
     private cdr: ChangeDetectorRef
   ){}
 
-  ngOnInit(): void {
+  ngOnInit() {
 
     this.getAccounts();
 
@@ -55,6 +55,8 @@ export default class BalanceComponent implements OnInit{
         console.error('Could not get currency exchange: ', err);
       },
     })
+
+    //throw new Error('Method not implemented.');
   }
 
   getAccounts(){

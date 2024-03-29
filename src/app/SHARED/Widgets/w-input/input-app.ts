@@ -106,5 +106,10 @@ export class WInputComponent implements OnInit {
   //   return this.form.get(name) ?? new FormControl();
   // }
 
-
+  isNumberKey(event: KeyboardEvent): boolean {
+    const key = event.key;
+    const isNumeric = !isNaN(parseInt(key, 10));
+    const isNumberZeroToNine = parseInt(key, 10) >= 0 && parseInt(key, 10) <= 9;
+    return isNumeric && isNumberZeroToNine;
+  }
 }
