@@ -8,7 +8,7 @@
         </button>
     </div>
   
-    @for (item of accounts$ | async; track $index) {
+    @for (item of accountsData ; track $index) {
     <!-- Primer elemento -->
     <div class="border rounded-xl px-3 py-2 shadow flex flex-col md:flex-row md:h-16 animate-fade-right">
       <div
@@ -30,7 +30,7 @@
         <!-- Detalles de la cuenta -->
         <div class="flex flex-col">
           <span class="font-bold">{{
-            item.contract.account.accountNumber.substring(0, 18)
+            item.contract.account.accountNumber
           }}</span>
           <span class="text-sm text-gray-700">Account number</span>
         </div>

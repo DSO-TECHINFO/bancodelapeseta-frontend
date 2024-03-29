@@ -188,6 +188,7 @@
     </div>
   }
 @if (inputType === "onlyNumber") {
+ 
   <input
     type="text"
     class="input"
@@ -195,6 +196,26 @@
     [placeholder]="placeholder"
     (keypress)="isNumberKey($event)"
     >
+
+    <div
+    class="error"
+    *ngIf="parentFormGroup.get(controlKey)?.errors?.['required'] && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+  >
+    {{error}}
+  </div>
+  
+  <div
+    class="error"
+    *ngIf="parentFormGroup.get(controlKey)?.hasError('minlength') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+  >
+    The text must be at least {{ minLength }} characters.
+  </div>
+  <div
+    class="error"
+    *ngIf="parentFormGroup.get(controlKey)?.hasError('maxlength') && (parentFormGroup.get(controlKey)?.dirty || parentFormGroup.get(controlKey)?.touched)"
+  >
+    The text must not exceed {{ maxLength }} characters.
+  </div>
 }
 @if (inputType === "onlyNumberCustom") {
   <input

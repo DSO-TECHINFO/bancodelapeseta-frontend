@@ -1,28 +1,27 @@
 <div class="max-w-xl m-auto mt-5 animate-fade-up">
-  <form [formGroup]="formTransfer">
+  <form [formGroup]="formTransfer" class="md:text-base text-sm/[17px]">
 
     <div class="flex flex-row gap-2">
       <div>
         <label for="beneficiaryName">Beneficiary Name</label>
-        <app-w-input controlKey="beneficiaryName" inputType="onlyText"></app-w-input>
+        <app-w-input controlKey="beneficiaryName" inputType="onlyText" [required]="true" error="Beneficiary name is required" [minLength]="4" ></app-w-input>
       </div>
       <div>
-        <label for="destinationAccount">Destination Account</label>
-        <app-w-input controlKey="destinationAccount" inputType="onlyNumber"></app-w-input>
+        <label for="destinationAccount" class="">Destination Account</label>
+        <app-w-input controlKey="destinationAccount" inputType="onlyText" [required]="true" error="Destination Account is required" [maxLength]="20"></app-w-input>
       </div>
     </div>
 
     <div class="flex flex-row gap-2">
       <div>
         <label for="">Payer Name</label>
-        <app-w-input controlKey="payerName" inputType="onlyText"></app-w-input>
+        <app-w-input controlKey="payerName" inputType="onlyText" [required]="true" error="Payer name is required" [minLength]="4"></app-w-input>
       </div>
       <div>
         <label for="">Source Account</label>
-        <app-w-input controlKey="payerAccount" inputType="onlyNumber"></app-w-input>
+        <app-w-input controlKey="payerAccount" inputType="onlyText" [required]="true" error="Source Account" [maxLength]="20"></app-w-input>
       </div>
     </div>
-
 
 
     <label for="">Concept</label>
@@ -34,11 +33,11 @@
     <div class="flex flex-row gap-2">
       <div>
         <label for="">Amount</label>
-        <app-w-input controlKey="concept" inputType="onlyNumber"></app-w-input>
+        <app-w-input controlKey="amount" inputType="onlyNumber" [required]="true" error="Amount is required" [minLength]="1"></app-w-input>
       </div>
       <div>
         <label for="">Currency</label>
-        <app-w-input controlKey="currency" inputType="onlyText"></app-w-input>
+        <app-w-input controlKey="currency" inputType="onlyText" [required]="true" error="Currency is required"></app-w-input>
       </div>
     </div>
 

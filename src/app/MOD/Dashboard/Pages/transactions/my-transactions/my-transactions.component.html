@@ -1,0 +1,11 @@
+@if (data$ | async; as data) {
+    <div *ngFor="let item of getObjectKeys(data)">
+        {{ item }}
+        <div *ngFor="let subItem of data[item]">
+            {{subItem.beneficiaryName}}
+        </div>
+    </div>
+}@else {
+    <span>...cargando</span>
+}
+  

@@ -138,6 +138,9 @@ export const routes: Routes = [
           import('./MOD/Dashboard/Pages/transactions/transactions.component'),
           children:[
             {
+              path:'',title:'Transactions',loadComponent:()=>import('./MOD/Dashboard/Pages/transactions/my-transactions/my-transactions.component')
+            },
+            {
               path: 'transfer',title:'Transfer', loadComponent:()=>import('./MOD/Dashboard/Pages/transactions/transfer/transfer.component')
             }
           ]
