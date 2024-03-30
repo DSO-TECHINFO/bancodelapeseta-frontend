@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
-import { IAccountData } from '../interface/IAccount';
+import { IAccountData } from '../Pages/Accounts/interface/IAccount';
 import { TokenService } from '@/CORE/Auth/services/token-service.service';
 import { Router } from '@angular/router';
 @Injectable({

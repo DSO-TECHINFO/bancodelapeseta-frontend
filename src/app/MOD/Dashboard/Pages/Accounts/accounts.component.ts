@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { AccountService } from './service/account.service';
+import { AccountService } from '../../services/account.service';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 @Component({
