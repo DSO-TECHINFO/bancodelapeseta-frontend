@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy,Component,inject,} from '@angular/core';
+import { ChangeDetectionStrategy,Component,OnInit,inject,} from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { WInputComponent } from '@/SHARED/Widgets/w-input/input-app';
 import { TransferService } from '../service/transfer.service';
 import { ITransaction } from '../interface/transfer.interface';
 import { ToastrService } from 'ngx-toastr';
+import { SharedAccountNumberService } from '../service/sharedAccountNumber.service';
+import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-transfer',
   standalone: true,
@@ -19,8 +21,9 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './transfer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class TransferComponent {
+export default class TransferComponent implements OnInit {
   _tansferService = inject(TransferService);
+  _cdr = inject(ChangeDetectorRef) as ChangeDetectorRef;
   toastr = inject(ToastrService);
 
   dataCodeVerification = {
@@ -28,18 +31,24 @@ export default class TransferComponent {
     phoneCode: '123456',
     sign: '123456',
   };
-
-  constructor(private readonly _fb: FormBuilder) {}
+  accountNumber:string = '';
+  
+  constructor(private readonly _fb: FormBuilder, private  accountNumberService: SharedAccountNumberService) {}
+  ngOnInit(): void {
+    this.accountNumberService.accountNumberShared.subscribe({
+      next:(data)=>{
+        this.accountNumber = data;
+        this._cdr.detectChanges();
+      }
+    });
+  }
 
   public readonly formTransfer = this._fb.group({
     beneficiaryName: ['', [Validators.required]],
     destinationAccount: ['', [Validators.required]],
-    payerName: ['', [Validators.required]],
-    payerAccount: ['', [Validators.required]],
     concept: ['', [Validators.required]],
     description: ['', [Validators.required]],
     amount: ['', [Validators.required]],
-    currency: ['', [Validators.required]],
   });
 
   verifyData() {
@@ -53,15 +62,12 @@ export default class TransferComponent {
         .subscribe(data => {
           objTransferForm = {
             verificationCode: data.verificationCode,
+            payerAccount: this.accountNumber, //Se envia el número de cuenta del usuario que realiza la operación
+            destinationAccount:this.formTransfer.value.destinationAccount || '',
             beneficiaryName: this.formTransfer.value.beneficiaryName || '',
-            destinationAccount:
-              this.formTransfer.value.destinationAccount || '',
-            payerName: this.formTransfer.value.payerName || '',
-            payerAccount: this.formTransfer.value.payerAccount || '',
             concept: this.formTransfer.value.concept || '',
             description: this.formTransfer.value.description || '',
             amount: this.formTransfer.value.amount || '',
-            currency: this.formTransfer.value.currency || 'EUR',
           };
           this._tansferService
             .postTransfer('api/v1/transfers/create', objTransferForm)
