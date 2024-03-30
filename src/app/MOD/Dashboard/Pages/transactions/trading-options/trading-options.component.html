@@ -7,4 +7,51 @@
       <a href="">Make a Payment</a>
     </li>
   </ul>
+
+  <div class="flex flex-row justify-start gap-3 mb-2">
+    @for (item of dataAccounts; track item.id) {
+    <!-- Primer elemento -->
+    <div
+    (click)="onSelectAccount(item.contract.account.accountNumber)"
+      class="cursor-pointer border rounded-xl px-3 py-2 shadow flex flex-col md:flex-row md:h-16 animate-fade-right">
+      <div class="hidden md:flex w-10 text-transparent">
+        @switch (item.contract.account.currency.currency) { @case ('EUR') {
+        <img src="../../../../../assets/icons/navbar/eurflag.svg" alt="flag" />
+        } @case ('USD') {
+        <img
+          src="../../../../../assets/icons/navbar/unitedState.svg"
+          alt="flag" />
+        } }
+      </div>
+      <!-- Contenido -->
+      <div
+        class="flex md:flex flex-wrap flex-row gap-2 md:gap-10 mx-0 md:mx-3 w-full justify-start">
+        <!-- Detalles de la cuenta -->
+        <div class="flex flex-col">
+          <span class="font-bold">{{
+            (item.contract.account.accountNumber).substring(0, 5)
+          }}****</span>
+          <span class="text-sm text-gray-700">Account number</span>
+        </div>
+
+        <div class="flex flex-col">
+          <span class="font-bold">{{ item.contract.account.balance }}</span>
+          <span class="text-sm text-gray-700">Available</span>
+        </div>
+
+        <div class="flex md:hidden w-10 text-transparent">
+          @switch (item.contract.account.currency.currency) { @case ('EUR') {
+          <img
+            src="../../../../../assets/icons/navbar/eurflag.svg"
+            alt="flag" />
+          } @case ('USD') {
+          <img
+            src="../../../../../assets/icons/navbar/unitedState.svg"
+            alt="flag" />
+          } }
+        </div>
+      </div>
+    </div>
+    }
+  </div>
 </div>
