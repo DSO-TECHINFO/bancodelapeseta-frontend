@@ -1,10 +1,11 @@
-import { AccountService } from '@/MOD/Dashboard/Pages/Accounts/service/account.service';
+
 import { CardService } from '@/MOD/Dashboard/Pages/cards/services/cardservice.service';
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { catchError, map, Observable, switchMap, throwError } from 'rxjs';
 import { CurrencyGlobalState } from './currency.service';
+import { AccountService } from '@/MOD/Dashboard/services/account.service';
 
 @Component({
   selector: 'w-total-balance',
