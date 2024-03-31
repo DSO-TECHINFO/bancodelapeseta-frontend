@@ -1,23 +1,6 @@
 
   <div class="flex justify-between">
-    <div class="py-8 text-dark">
-      <h2 class="text-3xl font-bold">
-        {{ formatCurrency(totalAmount, selectedCurrency) }}
-      </h2>
-      <div class="flex items-center gap-x-2">
-        <p>Total Balance for All Accounts</p>
-        <select
-          class="border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-400"
-          [(ngModel)]="selectedCurrency"
-          (change)="onSelectChange($event)">
-          <option
-            *ngFor="let currency of currency$ | async"
-            [value]="currency.currency">
-            {{ currency.currency }}
-          </option>
-        </select>
-      </div>
-    </div>
+    <w-total-balance></w-total-balance>
   </div>
   <div class="flex justify-between">
     <w-card-filter-tabs (tabChange)="filterCards($event)"></w-card-filter-tabs>

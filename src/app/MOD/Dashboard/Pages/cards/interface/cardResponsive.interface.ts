@@ -25,6 +25,9 @@ export interface Currency {
   id:       number;
   currency: string;
 }
+export interface ExchangeRateResponse {
+  rates: { [key: string]: number };
+}
 
 export interface Card {
   id:               number;

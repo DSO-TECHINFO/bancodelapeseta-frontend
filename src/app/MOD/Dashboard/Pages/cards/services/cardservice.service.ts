@@ -1,6 +1,6 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CardData, Currency } from '../interface/cardResponsive.interface';
+import { CardData, Currency, ExchangeRateResponse } from '../interface/cardResponsive.interface';
 import { TokenService } from '@/CORE/Auth/services/token-service.service';
 import { catchError, map, Observable, throwError } from 'rxjs';
 
@@ -12,7 +12,8 @@ export class CardService {
 
   constructor(
     private http: HttpClient,
-    private tokenInterceptor: TokenService
+    private tokenInterceptor: TokenService,
+
   ) {}
 
   urlBase: string = 'https://api.bancodelapeseta.com';
@@ -26,6 +27,23 @@ export class CardService {
     return this.http
       .get<Currency[]>(`${this.urlBase}/${uri}`, { headers })
       .pipe(catchError(this.handleError));
+  }
+
+  // getExchangeRate(): Observable<ExchangeRateResponse> {
+  //   const tkn = this.tokenInterceptor.getToken() || '';
+  //   const headers = new HttpHeaders({
+  //     Authorization: `Bearer ${tkn}`,
+  //   });
+
+  //   return this.http
+  //     .get<ExchangeRateResponse>(`${this.urlBase}/api/v1/exchange?currencyFrom=EUR`, { headers })
+  //     .pipe(catchError(this.handleError));
+  // }
+  getExchangeRate(): Observable<ExchangeRateResponse> {
+    return this.http.get<ExchangeRateResponse>('assets/currency-exchange.json')
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
 

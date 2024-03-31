@@ -1,29 +1,29 @@
-<div class="flex justify-between">
-  <div class="py-8 text-dark">
-    <h2 class="text-3xl font-bold">
-      {{ formatCurrency(totalAmount, selectedCurrency) }}
-    </h2>
-    <div class="flex items-center gap-x-2">
-      <p>Total Balance for All Accounts</p>
-      <select
-        class="border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-400"
-        [(ngModel)]="selectedCurrency"
-        (change)="onSelectChange($event)">
-        <option
-          *ngFor="let currency of currency$ | async"
-          [value]="currency.currency">
-          {{ currency.currency }}
-        </option>
-      </select>
-    </div>
+<div class="flex items-center justify-between">
+  <w-total-balance></w-total-balance>
+  <div [routerLink]="['../../']" class="flex justify-end cursor-pointer">
+    <a class="flex items-center gap-2">
+      <button
+        class="focus:outline-none transition duration-300 ease-in-out bg-primary hover:bg-dark rounded-full w-10 h-10 flex items-center justify-center shadow-md">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="w-6 h-6 text-white hover:text-white ">
+          <path
+            fill-rule="evenodd"
+            d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z"
+            clip-rule="evenodd" />
+        </svg>
+      </button>
+      <p class="text-dark text-lg">{{ 'cards.btnBack' | translate }}</p>
+    </a>
   </div>
+
 </div>
 
-<div class="flex gap-8">
-  <div
-    class="flex flex-col border border-gray-300 rounded-md w-full overflow-auto">
-    <div
-      class="flex justify-between py-2 px-4 border-b border-gray-300 bg-gray-100">
+<div class="flex justify-center items-center h-full">
+  <div class="flex flex-col border border-gray-300 rounded-md max-w-lg w-full overflow-auto">
+    <div class="flex justify-between py-2 px-4 border-b border-gray-300 bg-gray-100">
       <span class="font-bold text-xl py-2">Card Details</span>
     </div>
     <div class="flex items-center justify-center p-4">
@@ -48,14 +48,6 @@
           <div class="font-bold">{{ selectedCard.type }}</div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div
-    class="flex flex-col border border-gray-300 rounded-md w-full h-64 overflow-auto">
-    <div
-      class="flex justify-between py-2 px-4 border-b border-gray-300 bg-gray-100">
-      <span class="font-bold text-xl py-2">Your Documents</span>
     </div>
   </div>
 </div>

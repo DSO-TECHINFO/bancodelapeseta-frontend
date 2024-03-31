@@ -3,18 +3,28 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CardData } from '../interface/cardResponsive.interface';
 import { CardService } from '../services/cardservice.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { WIndividualCardComponent } from '@/SHARED/Widgets/w-individual-card/w-individual-card.component';
 import { SelectedCardService } from '../services/cardselected.service';
 import { WCardDetailsComponent } from '@/SHARED/Widgets/w-card-details/w-card-details.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { WTotalBalanceComponent } from '@/SHARED/Widgets/w-total-balance/w-total-balance.component';
 
 @Component({
   selector: 'app-cards-details',
   templateUrl: './cards-details.component.html',
-  imports:[CommonModule, FormsModule, WIndividualCardComponent, WCardDetailsComponent],
-  standalone:true
+  imports: [
+    CommonModule,
+    FormsModule,
+    WIndividualCardComponent,
+    WCardDetailsComponent,
+    RouterLink,
+    TranslateModule,
+    WTotalBalanceComponent,
+  ],
+  standalone: true,
 })
-export default class CardsDetailsComponent  implements OnInit {
+export default class CardsDetailsComponent implements OnInit {
   constructor(
     private cardService: CardService,
     private selectedCardService: SelectedCardService,
@@ -22,7 +32,7 @@ export default class CardsDetailsComponent  implements OnInit {
   ) {}
 
   cardDataList: CardData[] = [];
-  selectedCard!: CardData
+  selectedCard!: CardData;
 
   totalAmount: number = 0;
   currency$ = this.cardService.getCurrency('api/v1/currency');
@@ -34,7 +44,6 @@ export default class CardsDetailsComponent  implements OnInit {
     });
 
     this.cardService.getCardData().subscribe(data => {
-      console.log('Datos de las tarjetas:', data);
       this.cardDataList = data;
       this.totalAmount = this.cardDataList.reduce(
         (total, card) => total + card.amount,
@@ -61,24 +70,12 @@ export default class CardsDetailsComponent  implements OnInit {
     this.currency$.subscribe(currencies => {
       if (currencies.length > 0) {
         const storedCurrency = localStorage.getItem('selectedCurrency');
-        this.selectedCurrency = storedCurrency ? storedCurrency : currencies[0].currency;
+        this.selectedCurrency = storedCurrency
+          ? storedCurrency
+          : currencies[0].currency;
       }
     });
   }
 
-  onSelectChange(event: any) {
-    if (event && event.target && event.target.value) {
-      this.selectedCurrency = event.target.value;
-      localStorage.setItem('selectedCurrency', this.selectedCurrency);
-      console.log('selectedCurrency in onSelectChange:', this.selectedCurrency);
-    }
-  }
 
-  formatCurrency(value: number, currencySymbol: string): string {
-    const formattedValue = value.toLocaleString('en-US', {
-      style: 'currency',
-      currency: currencySymbol,
-    });
-    return formattedValue.replace(currencySymbol, currencySymbol + ' ');
-  }
 }

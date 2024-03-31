@@ -112,7 +112,7 @@ export class SidebarComponent {
     },
     {
       nombreRuta: 'titles.cardDetail',
-      ruta: 'card-details',
+      ruta: 'card-details/:id',
     },
   ];
 

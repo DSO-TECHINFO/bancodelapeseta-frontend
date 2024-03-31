@@ -7,18 +7,24 @@ import { Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { CardService } from '../services/cardservice.service';
 import { CardData } from '../interface/cardResponsive.interface';
+import { WTotalBalanceComponent } from '@/SHARED/Widgets/w-total-balance/w-total-balance.component';
 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
-  imports:[CommonModule, TranslateModule,WIndividualCardComponent,
+  imports: [
+    CommonModule,
+    TranslateModule,
+    WIndividualCardComponent,
     CommonModule,
     WCardFilterTabsComponent,
     FormsModule,
-    RouterLink],
-  standalone:true
+    RouterLink,
+    WTotalBalanceComponent,
+  ],
+  standalone: true,
 })
-export default class InicioComponent implements OnInit{
+export default class InicioComponent implements OnInit {
   constructor(private cardService: CardService, private router: Router) {}
   cardDataList: CardData[] = [];
   filteredCardDataList: CardData[] = [];
@@ -27,15 +33,7 @@ export default class InicioComponent implements OnInit{
   selectedCurrency: string = '';
 
   ngOnInit() {
-    this.currency$ = this.cardService.getCurrency('api/v1/currency');
-    this.currency$.subscribe(currencies => {
-      if (currencies.length > 0) {
-        const storedCurrency = localStorage.getItem('selectedCurrency');
-        this.selectedCurrency = storedCurrency
-          ? storedCurrency
-          : currencies[0].currency;
-      }
-    });
+
 
     this.cardService.getCardData().subscribe(data => {
       this.cardDataList = data;
@@ -47,25 +45,11 @@ export default class InicioComponent implements OnInit{
     });
   }
 
-  onSelectChange(event: any) {
-    if (event && event.target && event.target.value) {
-      this.selectedCurrency = event.target.value;
-      localStorage.setItem('selectedCurrency', this.selectedCurrency);
-      console.log('selectedCurrency in onSelectChange:', this.selectedCurrency);
-    }
-  }
 
   filterCards(tab: string) {
     this.filteredCardDataList = this.cardDataList.filter(card => {
       return tab === 'All' || card.type === tab.toUpperCase();
     });
-  }
-  formatCurrency(value: number, currencySymbol: string): string {
-    const formattedValue = value.toLocaleString('en-US', {
-      style: 'currency',
-      currency: currencySymbol,
-    });
-    return formattedValue.replace(currencySymbol, currencySymbol + ' ');
   }
 
 }
