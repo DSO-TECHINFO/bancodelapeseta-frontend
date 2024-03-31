@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { AccountService } from '../service/account.service';
+import { AccountService } from '../../../services/account.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { TokenService } from '@/CORE/Auth/services/token-service.service';
 import { ChangeDetectorRef } from '@angular/core';
@@ -27,7 +27,6 @@ export default class MyAccountsComponent implements OnInit{
     this.accountService.getAccounts('api/v1/accounts').subscribe(
       {
         next:(data)=>{
-          console.log(data)
           this.dataAccounts = data
           this.cdr.detectChanges()},
         error:(err)=>{
