@@ -95,13 +95,13 @@ export class SidebarComponent {
       iconWhiteName: 'transactionswhite.svg',
       iconFinalName: 'transactionsfinal.svg',
     },
-    {
-      nombreRuta: 'titles.tpv',
-      ruta: 'tvp',
-      iconFileName: 'tvp.svg',
-      iconWhiteName: 'tvpwhite.svg',
-      iconFinalName: 'tvpfinal.svg',
-    },
+    // {
+    //   nombreRuta: 'titles.tpv',
+    //   ruta: 'tvp',
+    //   iconFileName: 'tvp.svg',
+    //   iconWhiteName: 'tvpwhite.svg',
+    //   iconFinalName: 'tvpfinal.svg',
+    // },
     {
       nombreRuta: 'titles.proffile',
       ruta: 'proffile',
@@ -112,7 +112,7 @@ export class SidebarComponent {
     },
     {
       nombreRuta: 'titles.cardDetail',
-      ruta: 'card-details',
+      ruta: 'card-details/:id',
     },
   ];
 

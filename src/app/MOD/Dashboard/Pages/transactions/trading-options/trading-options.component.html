@@ -1,10 +1,10 @@
 <div class="border-b-2">
   <ul class="flex flex-row gap-3 p-2 cursor-pointer">
     <li>
-      <a routerLink="transfer">Transfer</a>
+      <a routerLink="transfer">{{ 'transactions.title' | translate }}</a>
     </li>
     <li>
-      <a href="">Make a Payment</a>
+      <a href="">{{ 'transactions.makepayment' | translate }}</a>
     </li>
   </ul>
 
@@ -31,12 +31,12 @@
           <span class="font-bold">{{
             (item.contract.account.accountNumber).substring(0, 5)
           }}****</span>
-          <span class="text-sm text-gray-700">Account number</span>
+          <span class="text-sm text-gray-700">{{ 'transactions.accountnumber' | translate }}</span>
         </div>
 
         <div class="flex flex-col">
           <span class="font-bold">{{ item.contract.account.balance }}</span>
-          <span class="text-sm text-gray-700">Available</span>
+          <span class="text-sm text-gray-700">{{ 'transactions.available' | translate }}</span>
         </div>
 
         <div class="flex md:hidden w-10 text-transparent">

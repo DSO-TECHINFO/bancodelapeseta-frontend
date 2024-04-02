@@ -8,6 +8,7 @@ import { ITransaction } from '../interface/transfer.interface';
 import { ToastrService } from 'ngx-toastr';
 import { SharedAccountNumberService } from '../service/sharedAccountNumber.service';
 import { ChangeDetectorRef } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-transfer',
   standalone: true,
@@ -17,6 +18,7 @@ import { ChangeDetectorRef } from '@angular/core';
     ReactiveFormsModule,
     WInputComponent,
     RouterLink,
+    TranslateModule
   ],
   templateUrl: './transfer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -32,7 +34,7 @@ export default class TransferComponent implements OnInit {
     sign: '123456',
   };
   accountNumber:string = '';
-  
+
   constructor(private readonly _fb: FormBuilder, private  accountNumberService: SharedAccountNumberService) {}
   ngOnInit(): void {
     this.accountNumberService.accountNumberShared.subscribe({
