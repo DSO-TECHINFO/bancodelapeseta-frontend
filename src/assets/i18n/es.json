@@ -44,7 +44,7 @@
   "cards":{
 
     "btnAdd": "Agregar Nueva Tarjeta",
-    "btnBack":"Volver al Menu",
+    "btnBack":"Menu",
     "btnDetails":"Ver Detalles",
     "taball":"Todos",
     "tabcredit":"Crédito",

@@ -9,6 +9,10 @@ import { ToastrService } from 'ngx-toastr';
 import { SharedAccountNumberService } from '../service/sharedAccountNumber.service';
 import { ChangeDetectorRef } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { TokenService } from '@/CORE/Auth/services/token-service.service';
+import { Router } from '@angular/router';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 @Component({
   selector: 'app-transfer',
   standalone: true,
@@ -18,7 +22,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     WInputComponent,
     RouterLink,
-    TranslateModule
+    TranslateModule,
+    MatProgressBarModule
   ],
   templateUrl: './transfer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -27,14 +32,15 @@ export default class TransferComponent implements OnInit {
   _tansferService = inject(TransferService);
   _cdr = inject(ChangeDetectorRef) as ChangeDetectorRef;
   toastr = inject(ToastrService);
-
+  ts = inject(TokenService);
+  rt = inject(Router) as Router;
   dataCodeVerification = {
     emailCode: '123456',
     phoneCode: '123456',
     sign: '123456',
   };
   accountNumber:string = '';
-
+  showLoader = false;
   constructor(private readonly _fb: FormBuilder, private  accountNumberService: SharedAccountNumberService) {}
   ngOnInit(): void {
     this.accountNumberService.accountNumberShared.subscribe({
@@ -55,6 +61,7 @@ export default class TransferComponent implements OnInit {
 
   verifyData() {
     if (this.formTransfer.valid) {
+      this.showLoader = true;
       let objTransferForm: ITransaction;
       this._tansferService
         .postVerificationCode(
@@ -64,7 +71,7 @@ export default class TransferComponent implements OnInit {
         .subscribe(data => {
           objTransferForm = {
             verificationCode: data.verificationCode,
-            payerAccount: this.accountNumber, //Se envia el número de cuenta del usuario que realiza la operación
+            payerAccount: this.accountNumber,
             destinationAccount:this.formTransfer.value.destinationAccount || '',
             beneficiaryName: this.formTransfer.value.beneficiaryName || '',
             concept: this.formTransfer.value.concept || '',
@@ -76,9 +83,14 @@ export default class TransferComponent implements OnInit {
             .subscribe({
               error: () => {
                 this.showerror('Transfer error.');
+                // this.ts.removeToken();
+                // this.rt.navigateByUrl('/login');
               },
               complete: () => {
                 this.showsuccess('Successful transfer.');
+                this.showLoader = false;
+                this._cdr.detectChanges();
+                this.rt.navigateByUrl('/dashboard/transactions');
               },
             });
         });

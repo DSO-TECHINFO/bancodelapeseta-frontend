@@ -1,3 +1,6 @@
+<div [ngClass]="{'hidden':!showLoader}">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
 <div class="max-w-xl m-auto mt-5 animate-fade-up">
   <form [formGroup]="formTransfer" class="md:text-base text-sm/[17px]">
     <div class="flex flex-row gap-2">

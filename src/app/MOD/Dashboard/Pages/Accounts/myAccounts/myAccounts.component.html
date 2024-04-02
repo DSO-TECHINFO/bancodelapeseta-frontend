@@ -1,16 +1,16 @@
 <div class="flex flex-col gap-3 h-screen">
-    <div class="flex flex-row justify-between content-center">
+    <div class="flex flex-row justify-between content-center animate-fade">
       <w-total-balance></w-total-balance>
-      <button
+      <!-- <button
           class="flex items-center text-sm border border-primary-dark rounded-full px-4 py-2">
           <img src="assets/add-button.svg" alt="add icon" class="w-5 mr-1" />
           <p>{{ 'accounts.description' | translate }}</p>
-        </button>
+        </button> -->
     </div>
 
     @for (item of dataAccounts; track item.id) {
     <!-- Primer elemento -->
-    <div class="border rounded-xl px-3 py-2 shadow flex flex-col md:flex-row md:h-16 animate-fade-right">
+    <div class="border rounded-xl px-3 py-2 shadow flex flex-col md:flex-row md:h-16 animate-fade-right hover:shadow-lg">
       <div
         class="hidden md:flex w-10 text-transparent"
       >

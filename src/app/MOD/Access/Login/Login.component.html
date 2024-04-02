@@ -1,4 +1,7 @@
 <!-- component -->
+<div [ngClass]="{'hidden':!showLoader}">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
 <div class="flex h-full min-h-dvh w-dvw">
   <!-- Left Panel -->
   <div

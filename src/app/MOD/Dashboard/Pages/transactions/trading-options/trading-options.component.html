@@ -1,12 +1,11 @@
 <div class="border-b-2">
-  <ul class="flex flex-row gap-3 p-2 cursor-pointer">
-    <li>
-      <a routerLink="transfer">{{ 'transactions.title' | translate }}</a>
-    </li>
-    <li>
-      <a href="">{{ 'transactions.makepayment' | translate }}</a>
-    </li>
-  </ul>
+  <div class="animate-fade-down">
+    <ul class="flex flex-row gap-3 p-2 cursor-pointer">
+      <li>
+        <a routerLink="transfer">{{ 'transactions.title' | translate }}</a>
+      </li>
+    </ul>
+  </div>
 
   <div class="flex flex-row justify-start gap-3 mb-2">
     @for (item of dataAccounts; track item.id) {
