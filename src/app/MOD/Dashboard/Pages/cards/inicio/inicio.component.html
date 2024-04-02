@@ -1,43 +1,24 @@
+<div class="mt-5">
+  <w-total-balance></w-total-balance>
+</div>
+<div class="flex justify-between mt-10">
+  <w-card-filter-tabs (tabChange)="filterCards($event)"></w-card-filter-tabs>
+  <!-- <div class="flex items-center">
+    <button [routerLink]="['add-card']" class="flex items-center text-sm border border-primary-dark rounded-full px-4 py-2">
+      <img src="assets/add-button.svg" alt="add icon" class="w-5 mr-1" />
+      <p>{{ 'cards.btnAdd' | translate }}</p>
+    </button>
+  </div> -->
+</div>
 
-  <div class="flex justify-between">
-    <div class="py-8 text-dark">
-      <h2 class="text-3xl font-bold">
-        {{ formatCurrency(totalAmount, selectedCurrency) }}
-      </h2>
-      <div class="flex items-center gap-x-2">
-        <p>Total Balance for All Accounts</p>
-        <select
-          class="border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-400"
-          [(ngModel)]="selectedCurrency"
-          (change)="onSelectChange($event)">
-          <option
-            *ngFor="let currency of currency$ | async"
-            [value]="currency.currency">
-            {{ currency.currency }}
-          </option>
-        </select>
-      </div>
-    </div>
-  </div>
-  <div class="flex justify-between">
-    <w-card-filter-tabs (tabChange)="filterCards($event)"></w-card-filter-tabs>
-    <div class="flex items-center">
-      <button [routerLink]="['add-card']" class="flex items-center text-sm border border-primary-dark rounded-full px-4 py-2">
-        <img src="assets/add-button.svg" alt="add icon" class="w-5 mr-1" />
-        <p>{{ 'cards.btnAdd' | translate }}</p>
-      </button>
-    </div>
-  </div>
+<div class="hidden lg:flex justify-start items-center gap-8 mt-10 h-full" *ngIf="filteredCardDataList.length > 0">
+  <ng-container *ngFor="let card of filteredCardDataList">
+    <w-individual-card [card]="card"></w-individual-card>
+  </ng-container>
+</div>
 
-  <div class="hidden lg:flex justify-start items-center gap-8 mt-3 h-full">
-    <ng-container *ngFor="let card of filteredCardDataList">
-
-      <w-individual-card [card]="card"></w-individual-card>
-    </ng-container>
-  </div>
-
-  <div class="lg:hidden flex flex-col items-center gap-8 mt-3 h-full">
-    <ng-container *ngFor="let card of filteredCardDataList">
-      <w-individual-card [card]="card"></w-individual-card>
-    </ng-container>
-  </div>
+<div class="lg:hidden flex flex-col items-center gap-8 mt-10 h-full" *ngIf="filteredCardDataList.length > 0">
+  <ng-container *ngFor="let card of filteredCardDataList">
+    <w-individual-card [card]="card"></w-individual-card>
+  </ng-container>
+</div>

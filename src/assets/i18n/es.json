@@ -11,6 +11,30 @@
     "cardDetail":"Detalles de Tarjeta"
   },
 
+  "dashboard":{
+    "balance":"Balance Total",
+    "cards":
+      {
+        "title":"Mis Tarjetas",
+        "number":"N° tarjeta",
+        "vencimiento":"F° Vencimiento",
+        "type":"Tipo de tarjeta"
+      },
+    "loans":
+      {
+        "title":"Mis Préstamos",
+        "requested":"Cantidad Solicitada",
+        "status":"Estado",
+        "paybefore":"Pagar Antes"
+      },
+    "transactions":
+      {
+        "title":"Mis Transacciones",
+        "amount":"Monto",
+        "status":"Estado",
+        "date":"Fecha de Transacción"
+      }
+  },
 
   "title.section.card":"Mis Tarjetas",
   "title.section.balance":"Balance Total",
@@ -24,10 +48,57 @@
     "btnDetails":"Ver Detalles",
     "taball":"Todos",
     "tabcredit":"Crédito",
-    "tabdebit":"Débito"
+    "tabdebit":"Débito",
+    "details":{
+      "title":"Detalles de Tarjeta",
+      "name":"Nombre",
+      "number":"Número",
+      "expiration":"Expiración",
+      "type":"Tipo"
+    }
   },
 
   "accounts":{
-    "description":"Abre una cuenta"
-  }
+    "description":"Abre una cuenta",
+    "details":
+      {
+        "number":"Número de Cuenta",
+        "currency":"Moneda",
+        "availablebalance":"Saldo Disponible",
+        "realbalance":"Saldo Real",
+        "activo":"Activo"
+      }
+  },
+
+  "loans":{
+    "btn":"Solicitar nuevo préstamo",
+    "details":{
+      "loan":"Préstamo",
+      "requested":"Cantidad solicitada",
+      "unpaid":"Cantidad sin pagar",
+      "status":"Estado",
+      "paybefore":"Pagar Antes",
+      "number":"Número de Cuenta",
+      "actions":"Acciones"
+    }
+},
+  "transactions":
+    {
+    "title":"Transferencia",
+    "makepayment":"Realizar un Pago",
+    "accountnumber":"Número de Cuenta",
+    "available":"Disponible",
+
+    "transfer":{
+      "beneficiary":"Nombre del Beneficiario",
+      "destination":"Cuenta de Destino",
+      "concept":"Concepto",
+      "description":"Descripción",
+      "amount":"Cantidad",
+      "cancel":"Cancelar",
+      "transfer":"Transferir"
+    }
+  },
+
+  "totalbalance":"Saldo total de todas las cuentas"
 }
