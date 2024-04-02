@@ -5,17 +5,17 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TokenService } from '@/CORE/Auth/services/token-service.service';
 import { ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { IAccountData } from '../interface/IAccount';
+import { WTotalBalanceComponent } from '@/SHARED/Widgets/w-total-balance/w-total-balance.component';
 @Component({
   selector: 'app-my-accounts',
   standalone: true,
   imports: [
-    CommonModule,TranslateModule
+    CommonModule,TranslateModule, WTotalBalanceComponent
   ],
   templateUrl: './myAccounts.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class MyAccountsComponent implements OnInit{ 
+export default class MyAccountsComponent implements OnInit{
   dataAccounts :any;
   accounts$ = this.accountService.getAccounts('api/v1/accounts');
   totalAvailable:number=0;
@@ -35,15 +35,5 @@ export default class MyAccountsComponent implements OnInit{
         }
       }
     )
-  }
-  totalBalance(data:IAccountData[]):number{
-    let totalAvailableBalance:number = 0;
-    if(Array.isArray(data)){
-      data.forEach((data)=>{
-        return totalAvailableBalance += data.contract.account.balance;
-      })
-    }
-    this.totalAvailable = totalAvailableBalance;
-    return totalAvailableBalance;
   }
 }

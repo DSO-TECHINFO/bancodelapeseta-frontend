@@ -1,34 +1,17 @@
-<div class="flex flex-col gap-y-6">
-  <div class="py-8 text-dark">
-    <h2 class="text-3xl font-bold">
-      {{ formatCurrency(totalAmount, selectedCurrency) }}
-    </h2>
-    <div class="flex items-center gap-x-2">
-      <p>Total Balance for All Accounts</p>
-      <select
-        class="border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-400"
-        [(ngModel)]="selectedCurrency"
-        (change)="onSelectChange($event)">
-        <option
-          *ngFor="let currency of currency$ | async"
-          [value]="currency.currency">
-          {{ currency.currency }}
-        </option>
-      </select>
-    </div>
-  </div>
-  <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 ">
-    <div class="w-full mt-6 mb-3 lg:mb-0">
+<div class="flex flex-col">
+  <w-total-balance></w-total-balance>
+  <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-6">
+    <div class="w-full mt-6 mb-3 lg:mb-0 animate-fade-left">
       <app-balance-component></app-balance-component>
     </div>
-    <div class="w-full mt-6 mb-3 lg:mb-0">
-      <app-cards-component [rate]="currencyExchangeRate"></app-cards-component>
+    <div class="w-full mt-6 mb-3 lg:mb-0 animate-fade-left">
+      <app-cards-component></app-cards-component>
     </div>
-    <div class="w-full mt-6 mb-3 lg:mb-0">
+    <div class="w-full mt-6 mb-3 lg:mb-0 animate-fade-left">
       <app-loans-component></app-loans-component>
     </div>
-    <div class="w-full mt-6 mb-3 lg:mb-0">
-      <app-tpv-component></app-tpv-component>
+    <div class="w-full mt-6 mb-3 lg:mb-0 animate-fade-left">
+      <app-transactions-component></app-transactions-component>
     </div>
   </div>
 </div>

@@ -1,0 +1,21 @@
+<div class="text-dark animate-fade-down">
+  <div class="flex items-center gap-8">
+    <div>
+      <h2 class="text-3xl font-bold">
+        {{ formatCurrency(totalAmount, currencySelect.value) }}
+      </h2>
+      <div class="flex items-center gap-x-2">
+        <p>{{ 'totalbalance' | translate }}</p>
+        <select
+          class="border border-gray-300 rounded-md shadow-sm"
+          [formControl]="currencySelect"
+          (change)="updateSelectedCurrency($event)">
+          <option *ngFor="let rate of currencyRates | keyvalue" [value]="rate.key">
+            {{ rate.key }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+</div>
