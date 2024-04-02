@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from '@/CORE/Auth/services/token-service.service';
 import { WInputComponent } from '@/SHARED/Widgets/w-input/input-app';
 import { ToastrService } from 'ngx-toastr';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ import { ToastrService } from 'ngx-toastr';
     ReactiveFormsModule,
     HttpClientModule,
     WInputComponent,
+    MatProgressBarModule
   ],
   templateUrl: './Login.component.html',
   styles: '',
@@ -34,13 +36,14 @@ export default class LoginComponent {
       router.navigate(['/dashboard']);
     }
   }
-
+  showLoader = false;
   loginForm = this.formBuilder.group({
     // username: ['', [Validators.required, Validators.minLength(4)]],
     // password: ['', [Validators.required]],
   });
   login() {
     if (this.loginForm.valid) {
+      this.showLoader = true;
       this.loginService
         .login(this.loginForm.value as LoginRequest, 'api/v1/auth/login')
         .subscribe({

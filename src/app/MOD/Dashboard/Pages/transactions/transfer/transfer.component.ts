@@ -8,6 +8,8 @@ import { ITransaction } from '../interface/transfer.interface';
 import { ToastrService } from 'ngx-toastr';
 import { SharedAccountNumberService } from '../service/sharedAccountNumber.service';
 import { ChangeDetectorRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { TokenService } from '@/CORE/Auth/services/token-service.service';
 @Component({
   selector: 'app-transfer',
   standalone: true,
@@ -25,7 +27,8 @@ export default class TransferComponent implements OnInit {
   _tansferService = inject(TransferService);
   _cdr = inject(ChangeDetectorRef) as ChangeDetectorRef;
   toastr = inject(ToastrService);
-
+  ts = inject(TokenService);
+  rt = inject(Router) as Router;
   dataCodeVerification = {
     emailCode: '123456',
     phoneCode: '123456',
@@ -62,7 +65,7 @@ export default class TransferComponent implements OnInit {
         .subscribe(data => {
           objTransferForm = {
             verificationCode: data.verificationCode,
-            payerAccount: this.accountNumber, //Se envia el número de cuenta del usuario que realiza la operación
+            payerAccount: this.accountNumber,
             destinationAccount:this.formTransfer.value.destinationAccount || '',
             beneficiaryName: this.formTransfer.value.beneficiaryName || '',
             concept: this.formTransfer.value.concept || '',
@@ -74,6 +77,8 @@ export default class TransferComponent implements OnInit {
             .subscribe({
               error: () => {
                 this.showerror('Transfer error.');
+                this.ts.removeToken();
+                this.rt.navigateByUrl('/login');
               },
               complete: () => {
                 this.showsuccess('Successful transfer.');
