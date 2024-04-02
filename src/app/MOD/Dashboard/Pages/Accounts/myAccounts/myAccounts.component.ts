@@ -17,12 +17,12 @@ import { WTotalBalanceComponent } from '@/SHARED/Widgets/w-total-balance/w-total
 })
 export default class MyAccountsComponent implements OnInit{
   dataAccounts :any;
-
-  accounts$ = this.accountService.getAccounts('api/v1/accounts')
+  accounts$ = this.accountService.getAccounts('api/v1/accounts');
+  totalAvailable:number=0;
 
   constructor(private accountService: AccountService, private ts:TokenService, private cdr:ChangeDetectorRef, private router:Router) {
-
   }
+
   ngOnInit(): void {
     this.accountService.getAccounts('api/v1/accounts').subscribe(
       {
@@ -36,5 +36,4 @@ export default class MyAccountsComponent implements OnInit{
       }
     )
   }
-
 }

@@ -1,7 +1,7 @@
-<div class="hidden lg:flex w-full h-full min-h-dvh">
+<div class="hidden lg:flex w-full h-full min-h-dvh animate-fade-right">
   <div
     class="bg-primary w-72 relative duration-300 h-full"
-    [ngClass]="{ 'w-20': !isSidebarOpen, 'w-72 ': isSidebarOpen }"
+    [ngClass]="{ 'w-20 animate-fade': !isSidebarOpen, 'w-72 animate-fade': isSidebarOpen }"
   >
     <div
       class="hidden lg:flex justify-center flex-col bg-primary-dark pt-4 pl-5 pb-4"
@@ -45,7 +45,7 @@
   </div>
 </div>
 
-<div class="lg:hidden flex w-full h-full min-h-dvh " *ngIf="isSidebarOpen">
+<div class="lg:hidden flex w-full h-full min-h-dvh animate-fade-right" *ngIf="isSidebarOpen">
   <div
     class="bg-primary w-56 duration-300 h-full"
     [ngClass]="{ 'w-0': !isSidebarOpen, 'w-56': isSidebarOpen }"
