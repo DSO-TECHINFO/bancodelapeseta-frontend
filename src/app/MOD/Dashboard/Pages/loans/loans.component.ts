@@ -10,12 +10,10 @@ import { CommonModule } from '@angular/common';
   imports: [TranslateModule, CommonModule],
 })
 export default class LoansComponent implements OnInit {
-  loans$ = this.loanService.getLoans('api/v1/loans'); // This returns Observable<ILoanData[]>
+  loans$ = this.loanService.getLoans('api/v1/loans');
   ngOnInit(): void {
     this.loans$.subscribe({
       next: loans => {
-        console.log('loans fetched');
-        console.log(loans);
       },
       error: error => console.error('Error fetching loans:', error),
       complete: () => console.log('Loan fetch operation completed'),

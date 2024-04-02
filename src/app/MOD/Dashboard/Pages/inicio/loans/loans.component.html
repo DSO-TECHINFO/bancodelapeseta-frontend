@@ -1,14 +1,51 @@
-<div class="w-full flex flex-col h-64 border border-gray-300 rounded-md">
+<div class="w-full min-h-56 h-full  border rounded-md overflow-hidden shadow-md transform transition-all hover:shadow-xl">
   <div class="px-6 py-2 header flex justify-between border-b border-gray-300 bg-gray-100">
-    <span class="font-bold text-xl">Préstamos</span>
-    <button [routerLink]="['../loans']"  >
+    <span class="font-bold text-xl">{{ 'dashboard.loans.title' | translate }}</span>
+    <button [routerLink]="['../loans']">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
       </svg>
     </button>
   </div>
-  <div class="h-56 flex flex-col px-6 pt-4">
-    <div class="text-sm text-gray-800 mb-2">Préstamo A001</div>
-    <div class="text-sm text-gray-800">Préstamo A002</div>
+  <div class="flex-auto px-0 pt-0 pb-2">
+    <div class="p-0 overflow-x-auto">
+      <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
+        <thead class="align-bottom">
+          <tr>
+            <th class="py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-sm border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+              {{ 'dashboard.loans.requested' | translate }}
+            </th>
+            <th class="py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-sm border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+              {{ 'dashboard.loans.status' | translate }}
+            </th>
+            <th class="py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-sm border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+              {{ 'dashboard.loans.paybefore' | translate }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let loan of loans$ | async">
+            <td class="px-6 text-center border-b text-dark py-4 whitespace-nowrap">
+              €{{ loan.amount }}
+            </td>
+            <td class="px-6 text-center border-b py-4 whitespace-nowrap">
+              <ng-container *ngIf="loan.unpaidAmount > 0; else paidBlock">
+                <span class="rounded-lg bg-yellow/15 text-yellow py-3 px-6 font-sans text-xs font-bold uppercase">
+                  UNPAID
+                </span>
+              </ng-container>
+              <ng-template #paidBlock>
+                <span class="rounded-lg bg-green/15 text-green py-3 px-6 font-sans text-xs font-bold uppercase">
+                  PAID
+                </span>
+              </ng-template>
+            </td>
+            <td class="px-6 text-center border-b text-dark py-4 whitespace-nowrap">
+              {{ loan.currentFinishDate | date: 'dd/MM/yyyy' }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

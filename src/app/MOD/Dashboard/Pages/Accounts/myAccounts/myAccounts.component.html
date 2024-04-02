@@ -32,28 +32,27 @@
           <span class="font-bold">{{
             item.contract.account.accountNumber
           }}</span>
-          <span class="text-sm text-gray-700">Account number</span>
+          <span class="text-sm text-gray-700">{{ 'accounts.details.number' | translate }}</span>
         </div>
         <div class="flex flex-col">
           <span class="font-bold ">{{
             item.contract.account.currency.currency
           }}</span>
-          <span class="text-sm text-gray-700">Currency</span>
+          <span class="text-sm text-gray-700">{{ 'accounts.details.currency' | translate }}</span>
         </div>
         <div class="flex flex-col">
           <span class="font-bold">{{ item.contract.account.balance }}</span>
-          <span class="text-sm text-gray-700">Available balance</span>
+          <span class="text-sm text-gray-700">{{ 'accounts.details.availablebalance' | translate }}</span>
         </div>
         <div class="flex flex-col">
           <span class="font-bold">{{ item.contract.account.realBalance }}</span>
-          <span class="text-sm text-gray-700">Real balance</span>
+          <span class="text-sm text-gray-700">{{ 'accounts.details.realbalance' | translate }}</span>
         </div>
-        <!-- Botón (moverlo a la parte inferior en dispositivos pequeños) -->
         <div class="md:self-center">
           <button
             class="middle w-full none center mr-4 rounded-lg bg-blue-100 py-3 px-6 font-sans text-xs font-bold uppercase text-blue-500 pointer-events-none"
           >
-            Activo
+          {{ 'accounts.details.activo' | translate }}
           </button>
         </div>
 

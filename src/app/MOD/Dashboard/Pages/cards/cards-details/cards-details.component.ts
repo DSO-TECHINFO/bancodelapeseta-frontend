@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CardData } from '../interface/cardResponsive.interface';
 import { CardService } from '../services/cardservice.service';
@@ -28,27 +28,21 @@ export default class CardsDetailsComponent implements OnInit {
   constructor(
     private cardService: CardService,
     private selectedCardService: SelectedCardService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef
   ) {}
 
   cardDataList: CardData[] = [];
   selectedCard!: CardData;
 
-  totalAmount: number = 0;
-  currency$ = this.cardService.getCurrency('api/v1/currency');
-  selectedCurrency: string = '';
-
   ngOnInit() {
     this.selectedCardService.getSelectedCard().subscribe(card => {
       this.selectedCard = card!;
+      this.cdr.detectChanges();
     });
 
     this.cardService.getCardData().subscribe(data => {
       this.cardDataList = data;
-      this.totalAmount = this.cardDataList.reduce(
-        (total, card) => total + card.amount,
-        0
-      );
     });
 
     this.route.paramMap.subscribe(params => {
@@ -66,16 +60,5 @@ export default class CardsDetailsComponent implements OnInit {
         }
       }
     });
-
-    this.currency$.subscribe(currencies => {
-      if (currencies.length > 0) {
-        const storedCurrency = localStorage.getItem('selectedCurrency');
-        this.selectedCurrency = storedCurrency
-          ? storedCurrency
-          : currencies[0].currency;
-      }
-    });
   }
-
-
 }

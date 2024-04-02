@@ -21,30 +21,30 @@
 
 </div>
 
-<div class="flex justify-center items-center h-full">
+<div *ngIf="selectedCard" class="flex justify-center items-center h-full mt-8 mb-5">
   <div class="flex flex-col border border-gray-300 rounded-md max-w-lg w-full overflow-auto">
     <div class="flex justify-between py-2 px-4 border-b border-gray-300 bg-gray-100">
-      <span class="font-bold text-xl py-2">Card Details</span>
+      <span class="font-bold text-xl py-2">{{ 'cards.details.title' | translate }}</span>
     </div>
     <div class="flex items-center justify-center p-4">
       <w-card-details [card]="selectedCard"></w-card-details>
     </div>
-    <div *ngIf="selectedCard" class="details-container py-2 px-4 flex flex-col gap-y-4">
+    <div class="details-container py-2 px-4 flex flex-col gap-y-4" *ngIf="selectedCard">
       <div class="flex flex-col gap-4 text-dark mt-5">
         <div class="flex justify-between items-center border-b border-gray-200">
-          <div>Name:</div>
+          <div>{{ 'cards.details.name' | translate }}:</div>
           <div class="font-bold">{{ selectedCard.name }}</div>
         </div>
         <div class="flex justify-between items-center border-b border-gray-200">
-          <div>Number:</div>
+          <div>{{ 'cards.details.number' | translate }}:</div>
           <div class="font-bold">{{ selectedCard.number }}</div>
         </div>
         <div class="flex justify-between items-center border-b border-gray-200">
-          <div>Expiration:</div>
+          <div>{{ 'cards.details.expiration' | translate }}:</div>
           <div class="font-bold">{{ selectedCard.expiration }}</div>
         </div>
         <div class="flex justify-between items-center border-b border-gray-200">
-          <div>Type:</div>
+          <div>{{ 'cards.details.type' | translate }}:</div>
           <div class="font-bold">{{ selectedCard.type }}</div>
         </div>
       </div>

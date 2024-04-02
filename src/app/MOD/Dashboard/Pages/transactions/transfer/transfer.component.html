@@ -1,41 +1,58 @@
 <div class="max-w-xl m-auto mt-5 animate-fade-up">
-  
   <form [formGroup]="formTransfer" class="md:text-base text-sm/[17px]">
-
     <div class="flex flex-row gap-2">
       <div>
-        <label for="beneficiaryName">Beneficiary Name</label>
-        <app-w-input controlKey="beneficiaryName" inputType="onlyText" [required]="true" error="Beneficiary name is required" [minLength]="4" ></app-w-input>
+        <label for="beneficiaryName">{{ 'transactions.transfer.beneficiary' | translate }}</label>
+        <app-w-input
+          controlKey="beneficiaryName"
+          inputType="onlyText"
+          [required]="true"
+          error="Beneficiary name is required"
+          [minLength]="4"></app-w-input>
       </div>
       <div>
-        <label for="destinationAccount" class="">Destination Account</label>
-        <app-w-input controlKey="destinationAccount" inputType="onlyText" [required]="true" error="Destination Account is required" [maxLength]="20"></app-w-input>
+        <label for="destinationAccount" class="">{{ 'transactions.transfer.destination' | translate }}</label>
+        <app-w-input
+          controlKey="destinationAccount"
+          inputType="onlyText"
+          [required]="true"
+          error="Destination Account is required"
+          [maxLength]="20"></app-w-input>
       </div>
     </div>
 
-
-    <label for="">Concept</label>
+    <label for="">{{ 'transactions.transfer.concept' | translate }}</label>
     <app-w-input controlKey="concept" inputType="onlyText"></app-w-input>
 
-    <label for="">Description</label>
+    <label for="">{{ 'transactions.transfer.description' | translate }}</label>
     <app-w-input controlKey="description" inputType="onlyText"></app-w-input>
 
     <div class="flex flex-row items-end justify-between gap-2">
       <div>
-        <label for="">Amount</label>
-        <app-w-input controlKey="amount" inputType="onlyNumber" [required]="true" error="Amount is required" [minLength]="1"></app-w-input>
+        <label for="">{{ 'transactions.transfer.amount' | translate }}</label>
+        <app-w-input
+          controlKey="amount"
+          inputType="onlyNumber"
+          [required]="true"
+          error="Amount is required"
+          [minLength]="1"></app-w-input>
       </div>
       <div class="flex flex-row gap-3 justify-end mt-3 pb-2">
-        <button routerLink=".." type="button"
-          class="text-blue-600 p-2 rounded-3xl hover:bg-slate-300 ">Cancel</button>
-  
-        <button [disabled]="formTransfer.invalid" (click)="verifyData()" type="button"
-          class="bg-blue-600 text-white p-2 rounded-3xl ">Transfer</button>
+        <button
+          routerLink=".."
+          type="button"
+          class="text-blue-600 p-2 rounded-3xl hover:bg-slate-300">
+          {{ 'transactions.transfer.cancel' | translate }}
+        </button>
+
+        <button
+          [disabled]="formTransfer.invalid"
+          (click)="verifyData()"
+          type="button"
+          class="bg-blue-600 text-white p-2 rounded-3xl">
+          {{ 'transactions.transfer.transfer' | translate }}
+        </button>
       </div>
     </div>
-
-
-    
   </form>
-
 </div>

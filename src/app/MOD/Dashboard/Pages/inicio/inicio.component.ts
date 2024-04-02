@@ -2,7 +2,7 @@ import { AfterContentChecked, AfterViewInit, Component, ElementRef, EventEmitter
 import { TranslateModule } from '@ngx-translate/core';
 import BalanceComponent from './balance/balance.component';
 import CardsComponent from './cards/cards.component';
-import TpvComponent from './tpv/tpv.component';
+import TpvComponent from './transactions/transactions.component';
 import LoansComponent from './loans/loans.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { multi } from './data';
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { CardData } from '../cards/interface/cardResponsive.interface';
 import { FormsModule } from '@angular/forms';
 import { WTotalBalanceComponent } from '@/SHARED/Widgets/w-total-balance/w-total-balance.component';
+import TransactionsComponent from './transactions/transactions.component';
 
 @Component({
   selector: 'app-inicio',
@@ -22,7 +23,8 @@ import { WTotalBalanceComponent } from '@/SHARED/Widgets/w-total-balance/w-total
     TpvComponent,
     NgxChartsModule,
     FormsModule,
-    WTotalBalanceComponent
+    WTotalBalanceComponent,
+    TransactionsComponent
   ],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'

@@ -10,9 +10,30 @@
     "addCard":"Add New Card",
     "cardDetail":"Card Details"
   },
-
-
-
+  "dashboard":{
+    "balance":"Total Balance",
+    "cards":
+      {
+        "title":"My Cards",
+        "number":"Card Number",
+        "vencimiento":"E° date",
+        "type":"Type of Card"
+      },
+    "loans":
+      {
+        "title":"My Loans",
+        "requested":"Requested amount",
+        "status":"Status",
+        "paybefore":"Pay Before"
+      },
+    "transactions":
+      {
+        "title":"Transactions",
+        "amount":"Amount",
+        "status":"Status",
+        "date":"Transaction Date"
+      }
+  },
 
   "title.section.card":"My Cards",
   "title.section.balance":"Total Balance",
@@ -26,10 +47,56 @@
     "btnDetails":"View Details",
     "taball":"All",
     "tabcredit":"Credit",
-    "tabdebit":"Debit"
+    "tabdebit":"Debit",
+    "details":{
+      "title":"Card Details",
+      "name":"Name",
+      "number":"Number",
+      "expiration":"Expiration",
+      "type":"Type"
+    }
   },
 
   "accounts":{
-    "description":"Open an account"
-  }
+    "description":"Open an account",
+    "details":
+      {
+        "number":"Account Number",
+        "currency":"Currency",
+        "availablebalance":"Available balance",
+        "realbalance":"Real balance",
+        "activo":"Active"
+      }
+  },
+  "loans":{
+      "btn":"Request New Loan",
+      "details":{
+        "loan":"Loan",
+        "requested":"Requested amount",
+        "unpaid":"Unpaid Amount",
+        "status":"Status",
+        "paybefore":"Pay Before",
+        "number":"Account Number",
+        "actions":"Actions"
+      }
+  },
+  "transactions":
+    {
+    "title":"Transfer",
+    "makepayment":"Make a Payment",
+    "accountnumber":"Account Number",
+    "available":"Available",
+
+    "transfer":{
+      "beneficiary":"Beneficiary Name",
+      "destination":"Destination Account",
+      "concept":"Concept",
+      "description":"Description",
+      "amount":"Amount",
+      "cancel":"Cancel",
+      "transfer":"Transfer"
+    }
+  },
+
+  "totalbalance":"Total Balance for All Accounts"
 }

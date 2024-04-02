@@ -15,13 +15,14 @@ import { RouterLink } from '@angular/router';
 export default class BalanceComponent {
 
   multi?: any[];
-  view: [any, any] = [500, 256];
+  view: [any, any] = [480, 256];
   showLabels: boolean = true;
   animations: boolean = true;
   xAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
   timeline: boolean = true;
+  legend: boolean = true;
 
   colorScheme = {
     domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
