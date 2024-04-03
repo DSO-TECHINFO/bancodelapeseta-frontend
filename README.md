@@ -2,20 +2,21 @@
 
 <div align="center">
 
+<a href="https://github.com/DSO-TECHINFO/bancodelapeseta-frontend">
+  <img src="./.github/images/logo-02.png" alt="Logo" width="150" />
+</a>
+
+## Banco De La Peseta
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-<a href="https://github.com/DSO-TECHINFO/bancodelapeseta-frontend">
-  <img width="300px" src="./.github/images/logo-01.png" alt="Logo" width="800" />
-</a>
-
-## Banco De La Peseta
-
 Check out the [Spanish version](./.github/README-ES.md) of this document.
 
-Banco De La Peseta is a project made by and for the community.\
+Banco De La Peseta is a digital banking platform made by and for the community.
+
 [Report an issue](https://github.com/DSO-TECHINFO/bancodelapeseta-frontend/issues) · [Suggest something](https://github.com/DSO-TECHINFO/bancodelapeseta-frontend/issues)
 
 </div>
@@ -23,26 +24,26 @@ Banco De La Peseta is a project made by and for the community.\
 <details>
 <summary>Table of contents</summary>
 
-- [Official website of Banco De La Peseta](#web-oficial-de-la-velada-iv)
-- [Main features](#características-principales)
-  - [Screenshots of the Banco De La Peseta website:](#capturas-de-pantalla-de-la-web-de-la-velada-iv)
-- [Getting started](#para-empezar)
-  - [Prerequisites](#prerequisitos)
-  - [Installation](#instalación)
-- [Contributing to the project](#contribuir-al-proyecto)
-- [🛠️ Stack](#️-stack)
+- [Main features](#main-features)
+  - [Screenshots:](#screenshots)
+- [Getting started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Contributing](#contributing)
+- [Stack](#️stack)
 
 </details>
 
 ## Main features
 
-- **Highlighted project details #1**: Pending.
-- **Highlighted project details #2**: Pending.
+- **User-friendly Interface**: Modern, clean, and easy-to-navigate user interface.
+- **Secure Online Banking**: Enhanced security features to keep user data and transactions safe.
 
-### Screenshots of the Banco De La Peseta website
+### Screenshots
 
-![Desktop screenshot](https://github.com/DSO-TECHINFO/bancodelapeseta-frontend/assets/843asjhxnka)
-![Mobile screenshot](https://github.com/DSO-TECHINFO/bancodelapeseta-frontend/assets/998483jksx)
+![mobile-preview](https://github.com/CarlosUlisesOchoa/bancodelapeseta-frontend/assets/26280134/91c78269-d420-4fa7-aaf4-0fe5d1db50cc)
+
+![dashboard](https://github.com/CarlosUlisesOchoa/bancodelapeseta-frontend/assets/26280134/76867db6-3cf5-4e0e-b8c8-2fb0a6a13c10)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -50,7 +51,7 @@ Banco De La Peseta is a project made by and for the community.\
 
 ### Prerequisites
 
-We suggest having the latest version of npm
+Before running this project, make sure you have the latest version of npm installed
 
   ```sh
   npm install npm@latest -g
@@ -78,23 +79,11 @@ We suggest having the latest version of npm
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Contributing to the project
+## Contributing
 
-Contributions are what make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**!
+We welcome contributions from everyone. Whether it's a bug fix, new feature, or improvement to our documentation, your help is appreciated!
 
-If you have any suggestions that could improve the project, please do a [_fork_](https://github.com/DSO-TECHINFO/bancodelapeseta-frontend/fork) of the repository and create a [_pull request_](https://github.com/DSO-TECHINFO/bancodelapeseta-frontend/pulls). You can also simply open an [_issue_](https://github.com/DSO-TECHINFO/bancodelapeseta-frontend/issues) with the tag "enhancement".
-
-Here's a quick guide:
-
-1. Do a [_fork_](https://github.com/DSO-TECHINFO/bancodelapeseta-frontend/fork) of the Project
-2. Clone your [_fork_](https://github.com/DSO-TECHINFO/bancodelapeseta-frontend/fork) (`git clone <URL of the fork>`)
-3. Add the original repository as a remote (`git remote add upstream <URL of the original repository>`)
-4. Create your Feature Branch (`git switch -c feature/AmazingFeature`)
-5. Make your Changes (`git commit -m 'Add: some AmazingFeature'`)
-6. Push to the Branch (`git push origin feature/AmazingFeature`)
-7. Open a [_pull request_](https://github.com/DSO-TECHINFO/bancodelapeseta-frontend/pulls)
-
-Please see our [contribution guide](https://github.com/DSO-TECHINFO/bancodelapeseta-frontend/blob/master/CONTRIBUTING.md) to learn how you can start in the best way following good practices.
+Please check out our [contribution guidelines](https://github.com/DSO-TECHINFO/bancodelapeseta-frontend/blob/master/CONTRIBUTING.md) for more information on how to submit a good pull request.
 
 ### Contributors
 
@@ -102,15 +91,19 @@ Please see our [contribution guide](https://github.com/DSO-TECHINFO/bancodelapes
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🛠️ Stack
+## Stack
 
+- [![Ionic][ionic-badge]][badge-empty-url] - Crossplatform development framework.
+- [![Angular][angular-badge]][badge-empty-url] - JavaScript frontend framework.
+<!-- - <img src="https://github.com/carlosulisesochoa/carlosulisesochoa/raw/files/images/java.jpg" height="28"/> - Java for backend -->
 - [![Typescript][typescript-badge]][badge-empty-url] - JavaScript with syntax for types.
 - [![Tailwind CSS][tailwind-badge]][badge-empty-url] - A utility-first CSS framework for rapidly building custom designs.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-[typescript-url]: https://www.typescriptlang.org/
-[tailwind-url]: https://tailwindcss.com/
+[ionic-badge]: https://img.shields.io/badge/Ionic-3880FF?style=for-the-badge&logo=ionic&logoColor=white
+[angular-badge]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
+[java-badge]: https://github.com/carlosulisesochoa/carlosulisesochoa/raw/files/images/java.jpg
 [typescript-badge]: https://img.shields.io/badge/Typescript-007ACC?style=for-the-badge&logo=typescript&logoColor=white&color=blue
 [tailwind-badge]: https://img.shields.io/badge/Tailwind-ffffff?style=for-the-badge&logo=tailwindcss&logoColor=38bdf8
 [contributors-shield]: https://img.shields.io/github/contributors/DSO-TECHINFO/bancodelapeseta-frontend.svg?style=for-the-badge
