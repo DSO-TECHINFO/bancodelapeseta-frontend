@@ -30,7 +30,7 @@ Banco De La Peseta is a digital banking platform made by and for the community.
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Contributing](#contributing)
-- [Stack](#️stack)
+- [Stack](#stack)
 
 </details>
 
@@ -95,11 +95,12 @@ Please check out our [contribution guidelines](https://github.com/DSO-TECHINFO/b
 
 - [![Ionic][ionic-badge]][badge-empty-url] - Crossplatform development framework.
 - [![Angular][angular-badge]][badge-empty-url] - JavaScript frontend framework.
-<!-- - <img src="https://github.com/carlosulisesochoa/carlosulisesochoa/raw/files/images/java.jpg" height="28"/> - Java for backend -->
 - [![Typescript][typescript-badge]][badge-empty-url] - JavaScript with syntax for types.
 - [![Tailwind CSS][tailwind-badge]][badge-empty-url] - A utility-first CSS framework for rapidly building custom designs.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- - <img src="https://github.com/carlosulisesochoa/carlosulisesochoa/raw/files/images/java.jpg" height="28"/> - Java for backend -->
 
 [ionic-badge]: https://img.shields.io/badge/Ionic-3880FF?style=for-the-badge&logo=ionic&logoColor=white
 [angular-badge]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
